@@ -56,6 +56,11 @@ describe("M2 fixture gate", () => {
         if (block.type === "ordered-list" || block.type === "unordered-list") {
           assertListItems(block.items);
         }
+        if (block.type === "table") {
+          [...block.headers, ...block.rows.flat()].forEach((cell) => {
+            if (cell.inline) expect(inlineToPlainText(cell.inline)).toBe(cell.text);
+          });
+        }
       });
     });
   });

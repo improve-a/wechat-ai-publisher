@@ -72,10 +72,15 @@ export interface CodeBlock extends ArticleBlockBase {
 
 export type TableAlignment = "left" | "center" | "right" | null;
 
+export interface TableCell {
+  text: string;
+  inline?: InlineNode[];
+}
+
 export interface TableBlock extends ArticleBlockBase {
   type: "table";
-  headers: string[];
-  rows: string[][];
+  headers: TableCell[];
+  rows: TableCell[][];
   align?: TableAlignment[];
 }
 

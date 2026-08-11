@@ -5,6 +5,7 @@ import {
   type ArticleAST,
   type InlineNode,
   type ListItem,
+  type TableCell,
 } from "./types";
 
 const nonBlankStringSchema = z.string().refine((value) => value.trim().length > 0, {
@@ -116,11 +117,25 @@ const codeBlockSchema = z.strictObject({
   code: z.string(),
 });
 
+const tableCellSchema: z.ZodType<TableCell> = z
+  .strictObject({
+    ...textWithInlineShape,
+  })
+  .superRefine((cell, context) => {
+    if (cell.inline && inlineToPlainText(cell.inline) !== cell.text) {
+      context.addIssue({
+        code: "custom",
+        path: ["inline"],
+        message: "Table cell inline content must equal text",
+      });
+    }
+  });
+
 const tableBlockSchema = z.strictObject({
   id: blockIdSchema,
   type: z.literal("table"),
-  headers: z.array(z.string()).min(1),
-  rows: z.array(z.array(z.string())),
+  headers: z.array(tableCellSchema).min(1),
+  rows: z.array(z.array(tableCellSchema)),
   align: z.array(z.enum(["left", "center", "right"]).nullable()).optional(),
 });
 

@@ -68,11 +68,12 @@ describe("Markdown parser", () => {
   });
 
   it("preserves fenced code and GFM table data", () => {
-    const { article } = parseArticle({
+    const input = {
       format: "markdown",
       content:
-        "```ts\nconst value = 1;\n```\n\n| 名称 | 数值 |\n| :--- | ---: |\n| 成功率 | 96% |",
-    });
+        "```ts\nconst value = 1;\n```\n\n| **名称** | [数值文档](https://example.com/value \"值说明\") |\n| :--- | ---: |\n| *成功率* | `96%` |",
+    } as const;
+    const { article } = parseArticle(input);
     expect(article.blocks[0]).toEqual({
       id: "a001",
       type: "code",
@@ -81,10 +82,37 @@ describe("Markdown parser", () => {
     });
     expect(article.blocks[1]).toMatchObject({
       type: "table",
-      headers: ["名称", "数值"],
-      rows: [["成功率", "96%"]],
+      headers: [
+        {
+          text: "名称",
+          inline: [{ type: "strong", children: [{ type: "text", value: "名称" }] }],
+        },
+        {
+          text: "数值文档",
+          inline: [
+            {
+              type: "link",
+              url: "https://example.com/value",
+              title: "值说明",
+              children: [{ type: "text", value: "数值文档" }],
+            },
+          ],
+        },
+      ],
+      rows: [
+        [
+          {
+            text: "成功率",
+            inline: [
+              { type: "emphasis", children: [{ type: "text", value: "成功率" }] },
+            ],
+          },
+          { text: "96%", inline: [{ type: "inline-code", value: "96%" }] },
+        ],
+      ],
       align: ["left", "right"],
     });
+    expect(parseArticle(input)).toEqual(parseArticle(input));
   });
 
   it("recovers a short GFM table row without producing an invalid AST", () => {
@@ -94,8 +122,16 @@ describe("Markdown parser", () => {
     });
     expect(article.blocks[0]).toMatchObject({
       type: "table",
-      headers: ["A", "B"],
-      rows: [["one", ""]],
+      headers: [
+        { text: "A", inline: [{ type: "text", value: "A" }] },
+        { text: "B", inline: [{ type: "text", value: "B" }] },
+      ],
+      rows: [
+        [
+          { text: "one", inline: [{ type: "text", value: "one" }] },
+          { text: "", inline: [] },
+        ],
+      ],
     });
     expect(diagnostics.some((item) => item.code === "MALFORMED_TABLE_FALLBACK")).toBe(true);
   });

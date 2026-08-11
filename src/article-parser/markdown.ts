@@ -2,6 +2,7 @@ import type {
   InlineNode,
   ListItem,
   TableAlignment,
+  TableCell,
 } from "../article-ast";
 import { inlineToPlainText } from "../article-ast";
 import { unified } from "unified";
@@ -397,46 +398,33 @@ function listItemFromNode(
   };
 }
 
-function tableCellText(cell: MdNode, context: ParserContext): string {
-  const convert = (node: MdNode): string => {
-    switch (node.type) {
-      case "text":
-      case "inlineCode":
-        return node.value ?? "";
-      case "break":
-        return "\n";
-      case "link": {
-        const label = (node.children ?? []).map(convert).join("");
-        return `${label}${node.url && node.url !== label ? ` (${node.url})` : ""}`;
-      }
-      case "image":
-        addDiagnostic(
-          context,
-          {
-            severity: "warning",
-            code: "UNSUPPORTED_MARKDOWN_FALLBACK",
-            message: "An image inside a table cell was flattened to alt text and source.",
-          },
-          node,
-        );
-        return `${node.alt ?? ""}${node.url ? ` (${node.url})` : ""}`;
-      case "html":
-        addDiagnostic(
-          context,
-          {
-            severity: "warning",
-            code: "UNSUPPORTED_MARKDOWN_FALLBACK",
-            message: "HTML inside a table cell was preserved as inert text.",
-          },
-          node,
-        );
-        return node.value ?? "";
-      default:
-        return (node.children ?? []).map(convert).join("");
-    }
-  };
+function tableCellFromNode(
+  cell: MdNode,
+  source: string,
+  context: ParserContext,
+): TableCell {
+  const inline: InlineNode[] = [];
 
-  return (cell.children ?? []).map(convert).join("");
+  phrasingTokens(cell.children ?? [], source, context).forEach((token) => {
+    if (token.kind === "inline") {
+      inline.push(token.node);
+      return;
+    }
+
+    const text = `${token.node.alt ?? ""}${token.node.url ? ` (${token.node.url})` : ""}`;
+    inline.push({ type: "text", value: text });
+    addDiagnostic(
+      context,
+      {
+        severity: "warning",
+        code: "UNSUPPORTED_MARKDOWN_FALLBACK",
+        message: "An image inside a table cell was flattened to alt text and source.",
+      },
+      token.node,
+    );
+  });
+
+  return { text: inlineToPlainText(inline), inline };
 }
 
 function convertRootNode(node: MdNode, source: string, context: ParserContext): void {
@@ -532,7 +520,7 @@ function convertRootNode(node: MdNode, source: string, context: ParserContext): 
         return;
       }
       const convertedRows = rows.map((row) =>
-        (row.children ?? []).map((cell) => tableCellText(cell, context)),
+        (row.children ?? []).map((cell) => tableCellFromNode(cell, source, context)),
       );
       const headers = convertedRows[0];
       if (convertedRows.slice(1).some((row) => row.length > headers.length)) {
@@ -546,7 +534,10 @@ function convertRootNode(node: MdNode, source: string, context: ParserContext): 
       }
       const bodyRows = convertedRows.slice(1).map((row) => [
         ...row,
-        ...Array.from({ length: headers.length - row.length }, () => ""),
+        ...Array.from(
+          { length: headers.length - row.length },
+          (): TableCell => ({ text: "", inline: [] }),
+        ),
       ]);
       if (convertedRows.slice(1).some((row) => row.length < headers.length)) {
         addDiagnostic(

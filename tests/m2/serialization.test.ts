@@ -18,6 +18,26 @@ describe("Article AST serialization", () => {
     });
   });
 
+  it("round-trips a table cell inline tree without losing link metadata", () => {
+    const first = parseArticle({
+      format: "markdown",
+      content:
+        "| **名称** | [文档](https://example.com/docs) |\n| --- | --- |\n| *状态* | `ready` |",
+    }).article;
+    const second = deserializeArticleAST(serializeArticleAST(first));
+
+    expect(second).toEqual(first);
+    const table = second.blocks[0];
+    expect(table.type).toBe("table");
+    if (table.type !== "table") throw new Error("Expected table");
+    expect(table.headers[1].inline).toContainEqual({
+      type: "link",
+      url: "https://example.com/docs",
+      children: [{ type: "text", value: "文档" }],
+    });
+    expect(table.rows[0][1].inline).toEqual([{ type: "inline-code", value: "ready" }]);
+  });
+
   it("fails clearly for invalid JSON", () => {
     expect(() => deserializeArticleAST("{not json")).toThrow("Invalid Article AST JSON");
   });

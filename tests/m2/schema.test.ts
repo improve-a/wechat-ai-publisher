@@ -69,8 +69,8 @@ describe("Article AST runtime schema", () => {
         article.blocks.push({
           id: "a099",
           type: "table",
-          headers: ["A", "B"],
-          rows: [["one"]],
+          headers: [{ text: "A" }, { text: "B" }],
+          rows: [[{ text: "one" }]],
         }),
     ],
     [
@@ -79,9 +79,19 @@ describe("Article AST runtime schema", () => {
         article.blocks.push({
           id: "a099",
           type: "table",
-          headers: ["A", "B"],
+          headers: [{ text: "A" }, { text: "B" }],
           rows: [],
           align: ["left"],
+        }),
+    ],
+    [
+      "table cell inline and text conflict",
+      (article) =>
+        article.blocks.push({
+          id: "a099",
+          type: "table",
+          headers: [{ text: "A", inline: [{ type: "text", value: "B" }] }],
+          rows: [],
         }),
     ],
     [

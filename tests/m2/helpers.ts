@@ -40,7 +40,16 @@ export function extractVisibleContent(article: ArticleAST): string {
         if (block.language) values.push(block.language);
         break;
       case "table":
-        values.push(...block.headers, ...block.rows.flat());
+        values.push(
+          ...block.headers.map((cell) => cell.text),
+          ...block.rows.flat().map((cell) => cell.text),
+        );
+        block.headers.forEach((cell) => {
+          if (cell.inline) values.push(...inlineUrls(cell.inline));
+        });
+        block.rows.flat().forEach((cell) => {
+          if (cell.inline) values.push(...inlineUrls(cell.inline));
+        });
         break;
       case "divider":
         break;

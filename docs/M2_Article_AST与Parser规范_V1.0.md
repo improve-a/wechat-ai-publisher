@@ -109,6 +109,23 @@ table
 { id, type: "table", headers, rows, align? }
 ```
 
+表格的 header 与 body cell 统一使用现有 InlineNode 合同：
+
+```ts
+interface TableCell {
+  text: string;
+  inline?: InlineNode[];
+}
+
+interface TableBlock {
+  id: string;
+  type: "table";
+  headers: TableCell[];
+  rows: TableCell[][];
+  align?: Array<"left" | "center" | "right" | null>;
+}
+```
+
 `table.align` 的单项类型为：
 
 ```ts
@@ -147,7 +164,7 @@ type InlineNode =
 inlineToPlainText(inline)
 ```
 
-运行时 Schema 会检查 text-bearing block 与 list item 的：
+运行时 Schema 会检查 text-bearing block、list item 与 table cell 的：
 
 ```text
 inlineToPlainText(inline) === text
@@ -213,7 +230,7 @@ V1 不保证文章内容被修改后，未修改 block 的旧 ID 永久不变。
 - Markdown image；
 - thematic break；
 - fenced code 与 language；
-- GFM table 与 alignment；
+- GFM table、alignment，以及 cell 内的 link、strong、emphasis、inline-code；
 - strong、emphasis、inline code、link、hard break。
 
 ### 8.1 Image caption convention
@@ -343,7 +360,7 @@ M2 tests 位于 `tests/m2/`，fixture 位于 `tests/m2/fixtures/`。当前矩阵
 - nested list 的 children 不记录其自身 ordered/unordered 类型；
 - raw HTML 只作为惰性原始文本保存；
 - 不支持完整 Markdown extension 集合与富文本编辑器语义；
-- table 不支持 colspan/rowspan，cell 不保存独立 inline tree；
+- table 不支持 colspan/rowspan/merged cells；
 - ID 只保证相同完整输入的确定性，不保证跨内容修改永久稳定；
 - 不读取图片像素，不理解图片语义；
 - 不决定额外上传图片的正文位置。
