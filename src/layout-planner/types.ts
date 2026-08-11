@@ -16,7 +16,14 @@ export interface LayoutModelRequest {
   requestedTheme?: ThemeId;
   capabilities: {
     themes: Array<{ id: ThemeId; variants: string[]; defaultVariant: string | null }>;
-    components: Array<{ id: ComponentId; variants: string[] }>;
+    components: Array<{
+      id: ComponentId;
+      variants: string[];
+      sourceTypes: string[];
+      grouping: "single" | "homogeneous-contiguous";
+      titleMetadata: boolean;
+      decorative: boolean;
+    }>;
   };
   previousCandidate?: unknown;
   diagnostics?: LayoutDiagnostic[];

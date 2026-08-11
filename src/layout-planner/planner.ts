@@ -1,5 +1,6 @@
 import { componentRegistry } from "../components/registry";
 import {
+  componentCompatibility,
   LayoutValidationError,
   normalizeLayoutCandidate,
   type LayoutDiagnostic,
@@ -24,6 +25,10 @@ function capabilities(): LayoutModelRequest["capabilities"] {
     components: componentRegistry.map((component) => ({
       id: component.id,
       variants: [...component.supportedComponentVariants],
+      sourceTypes: [...componentCompatibility[component.id].sourceTypes],
+      grouping: componentCompatibility[component.id].grouping,
+      titleMetadata: "titleMetadata" in componentCompatibility[component.id],
+      decorative: "decorative" in componentCompatibility[component.id],
     })),
   };
 }

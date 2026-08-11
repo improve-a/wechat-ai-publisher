@@ -10,6 +10,8 @@ M2 提供 Article AST V1、Markdown / 纯文本 Parser、图片素材摄取、�
 
 M3–M5 提供 Canonical Layout AST、离线可测 Layout Planner、确定性微信 HTML fragment、外置资产解析、parser-backed Validator 与 sandboxed 375px Preview。正式合同见 `docs/M3-M5_Layout_Render_Preview规范_V1.0.md`。
 
+M3 另提供真实 DeepSeek Layout Provider 与 7 篇 Live A/B Acceptance。Live 测试只从 Git 忽略的项目本地 `.env.local` 读取 `DEEPSEEK_API_KEY`；报告与 artifacts 不保存凭据。验收方法与当前基线见 `docs/M3_DeepSeek_Live_AI_Acceptance_V1.0.md`。
+
 ```powershell
 npm install
 npm run dev
@@ -22,3 +24,12 @@ npm run check:m5
 npm run check:m3-m5
 npm run check:m5:browser
 ```
+
+真实 Provider 验收会发起付费公网请求，需显式执行：
+
+```powershell
+npm run check:m3:live
+npm run check:m3:live:browser
+```
+
+`check:m3:live` 使用当前 Node 原生 `--env-file=.env.local` 注入凭据；`check:m3:live:browser` 只复核已有结果并生成 375 × 812 Chromium A/B 截图，不再次调用 Provider。

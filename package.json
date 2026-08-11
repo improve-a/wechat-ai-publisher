@@ -9,9 +9,12 @@
     "check:m1": "tsx scripts/check-m1.ts",
     "check:m2": "vitest run tests/m2",
     "check:m3": "vitest run tests/m3",
+    "check:m3:live": "node --env-file=.env.local --import tsx scripts/run-live-ai-acceptance.ts",
     "check:m4": "vitest run tests/m4",
     "check:m5": "vitest run tests/m5",
     "check:m5:browser": "python scripts/m5_visual_gate.py",
+    "check:m3:live:browser": "python scripts/live_ai_visual_gate.py",
+    "check:live-ai": "npm run check:m3:live && npm run check:m3:live:browser",
     "check:m3-m5:core": "vitest run tests/m3 tests/m4 tests/m5 tests/integration",
     "check:m3-m5": "npm run check:m3-m5:core && npm run check:m5:browser",
     "preview": "vite preview"

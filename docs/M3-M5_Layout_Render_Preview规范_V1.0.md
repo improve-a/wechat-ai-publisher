@@ -270,7 +270,7 @@ LIVE_WECHAT_EDITOR_CHECK=NOT_RUN
 
 ## 15. Known Limitations
 
-- 尚无真实付费 AI Provider 实现或 live credential test；
+- 真实 DeepSeek Provider 与 7 篇 Live A/B Acceptance 已实现并通过；运行方法和证据见 `M3_DeepSeek_Live_AI_Acceptance_V1.0.md`；
 - 未实现微信图片上传，本地图片在 draft mode 中保持 blocker；
 - 未执行真实微信公众号后台粘贴验收；
 - V1 Component projection 保守，不做摘要、二次引用或任意异构 source grouping；
@@ -281,4 +281,4 @@ LIVE_WECHAT_EDITOR_CHECK=NOT_RUN
 ---
 
 **文档版本：V1.0**
-**下一状态：READY_FOR_M6_WECHAT_DRAFT（仅在本地 M3–M5 全部门禁通过后）**
+**当前 Live AI 下一状态：READY_FOR_HUMAN_AB_VISUAL_REVIEW**

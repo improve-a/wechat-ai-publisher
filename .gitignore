@@ -10,3 +10,4 @@ Thumbs.db
 .idea/
 __pycache__/
 *.py[cod]
+tests/m3_live_ai_acceptance_set_v1.zip
