@@ -1,0 +1,33 @@
+.theme-root {
+  width: 100%;
+  min-width: 0;
+  color: var(--theme-text);
+  background: var(--theme-background);
+  font-family: var(--theme-font-family);
+}
+
+.article-canvas {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 34px var(--theme-page-inline) 44px;
+  color: var(--theme-text);
+  background: var(--theme-background);
+  font-size: var(--theme-body-size);
+  line-height: var(--theme-body-line-height);
+  overflow-wrap: anywhere;
+}
+
+.article-canvas h1,
+.article-canvas h2,
+.article-canvas h3,
+.article-canvas p,
+.article-canvas blockquote,
+.article-canvas figure,
+.article-canvas ol,
+.article-canvas ul,
+.article-canvas dl,
+.article-canvas dd {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}

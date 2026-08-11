@@ -1,8 +1,10 @@
-# M1 三套主题设计规范与 Codex 实施提示词 V1.1
+# M1 三套主题设计规范与 Codex 实施提示词 V1.2
 
 > **文档性质：M1 附件 / Theme 视觉规范 / Codex 实施约束**
 >
 > **V1.1 修订说明：**在 V1.0 的北理官微与官方 VI 基础上，进一步参考徐特立学院、特立书院的学院新闻、迎新晚会、体育赛事、学科专业体验、国际研学、社会实践等代表性内容，对三套 Theme 的适用边界和视觉气质进行校准。
+>
+> **V1.2 修订说明：**不改项目总规划 V1.0；补齐总规划 Article AST 已明确支持的 `code` / `table` 展示链路，将 M1 基础组件从 17 个扩展为 19 个；正式区分 `ThemeVariantId` 与 `ComponentVariantId`；统一 `defaultVariant` 合同；并明确 M1 最终 PASS 必须有真实 375px 浏览器视觉验收证据。
 >
 > 本文档不单独启动开发。  
 > 后续应与《M1 组件 + Theme 系统》主提示词一并提供给 Codex。
@@ -12,7 +14,7 @@
 >
 > **本附件不要求建立重型测试体系。**
 >
-> 文档状态：`THEME_SPEC_FROZEN_V1`
+> 文档状态：`THEME_SPEC_FROZEN_V1_2`
 
 ---
 
@@ -306,6 +308,128 @@ https://xuteli.bit.edu.cn/sysh/fbe9aa3f306b411ba06cd550924695d8.htm
 https://xuteli.bit.edu.cn/sysh/a71b02e3b651468cb7b683ee60894b6a.htm
 https://xuteli.bit.edu.cn/zhxw/6d11d74765cf423fa0091f46db2b8b36.htm
 ```
+
+---
+
+## 1.5 V1.2：code / table 链路与 Variant 合同校准
+
+项目总规划 V1.0 已将 `code` 与 `table` 列入第一版 Article AST 支持范围。
+
+因此 M1 组件层必须存在稳定承接组件，避免后续出现：
+
+```text
+Article AST
+  有 code / table
+        ↓
+Layout AST
+        ↓
+Components
+  无对应组件
+```
+
+V1.2 正式新增：
+
+```text
+CodeBlock
+Table
+```
+
+基础组件总数由：
+
+```text
+17
+```
+
+升级为：
+
+```text
+19
+```
+
+M1 只负责稳定展示：
+
+```text
+CodeBlock
+→ 代码文本 / language / caption 的稳定排版
+
+Table
+→ columns / rows / caption 的稳定排版
+```
+
+第一版明确不做：
+
+- 复杂语法高亮引擎；
+- 可编辑代码 IDE；
+- 表格编辑器；
+- Markdown → Table / CodeBlock 转换；
+- 超复杂合并单元格；
+- Dashboard。
+
+V1.2 同时正式区分两种完全不同的 Variant：
+
+```text
+ThemeVariantId
+```
+
+表示整篇文章在某个 Theme 下的轻量风格分支，例如：
+
+```text
+bit-innovation / data
+bit-youth / event
+```
+
+以及：
+
+```text
+ComponentVariantId
+```
+
+表示单个组件自身的表现分支，例如：
+
+```text
+highlight / metric
+```
+
+后续不得再使用一个含糊的 `variant` 字段同时表达这两种概念。
+
+未来 Layout AST 语义建议：
+
+```json
+{
+  "theme": "bit-innovation",
+  "themeVariant": "data",
+  "component": "highlight",
+  "componentVariant": "metric",
+  "sourceBlockIds": ["a17"]
+}
+```
+
+Theme 的默认 Variant 合同统一冻结为：
+
+```text
+defaultVariant: ThemeVariantId | null
+```
+
+正式值：
+
+```text
+bit-official
+→ defaultVariant = "default"
+
+bit-innovation
+→ defaultVariant = "research"
+
+bit-youth
+→ defaultVariant = null
+```
+
+其中：
+
+```text
+null = bit-youth 基础视觉
+```
+
+不得默认假定所有青年内容都是 `story`。
 
 ---
 
@@ -1027,7 +1151,47 @@ textSecondary
 
 ---
 
-## 4.17 BIT Official Variants
+## 4.17 CodeBlock
+
+BIT Official 下的 `CodeBlock` 应服务于：
+
+- 命令；
+- 配置；
+- 简短代码；
+- 正式信息中的技术片段。
+
+建议：
+
+```text
+浅灰 / 浅灰绿色背景
+深色代码文字
+轻边框
+4～6px 圆角
+清晰 caption / language 元信息
+```
+
+不要做黑底终端风，也不要通过高饱和语法色破坏正式气质。
+
+---
+
+## 4.18 Table
+
+BIT Official 下的 `Table` 应像正式信息表，而不是 Excel 截图。
+
+建议：
+
+```text
+清晰表头
+低对比度边框
+适度单元格 padding
+白色 / 极浅灰绿色背景
+```
+
+优先保证扫描效率、信息对应关系和 375px 可用性。
+
+---
+
+## 4.19 BIT Official Variants
 
 第一版只需少量 Variant。
 
@@ -1071,7 +1235,7 @@ InfoCard 更突出
 
 ---
 
-## 4.18 BIT Official 禁止项
+## 4.20 BIT Official 禁止项
 
 禁止：
 
@@ -1626,7 +1790,46 @@ Fig. 1
 
 ---
 
-## 5.22 BIT Innovation Variants
+## 5.22 CodeBlock
+
+BIT Innovation 是三套 Theme 中最适合承载 `CodeBlock` 的主题，但仍然坚持白底工科气质。
+
+建议：
+
+```text
+冷灰 / 浅灰绿色背景
+更明确的 language / caption 层级
+细边框
+紧凑但可读的内边距
+```
+
+禁止：
+
+```text
+黑底赛博
+霓虹语法色
+代码雨
+终端发光效果
+```
+
+---
+
+## 5.23 Table
+
+BIT Innovation 下的 `Table` 可以更强调数据层级：
+
+```text
+更清楚的表头
+北理绿 / 墨绿色的轻量强调
+清晰的行列分隔
+数字对齐尽量稳定
+```
+
+但不得演变为 Dashboard，也不得因为表格过宽导致整页横向溢出。
+
+---
+
+## 5.24 BIT Innovation Variants
 
 ### research
 
@@ -1690,7 +1893,7 @@ Fig. 1
 
 ---
 
-## 5.23 BIT Innovation 禁止项
+## 5.25 BIT Innovation 禁止项
 
 禁止：
 
@@ -2246,7 +2449,38 @@ Theme 不生成文案。
 
 ---
 
-## 6.21 BIT Youth Variants
+## 6.21 CodeBlock
+
+BIT Youth 可以正常承载 `CodeBlock`，但不主动把代码做成视觉重点。
+
+建议：
+
+```text
+浅色中性背景
+适度圆角
+低装饰
+清晰可读
+```
+
+用于学生科创故事、教程或活动内容中确有代码 / 命令时的稳定展示。
+
+---
+
+## 6.22 Table
+
+BIT Youth 下的 `Table` 可以比 Official 更柔和，但第一优先级仍是：
+
+```text
+可读
+不爆宽
+信息关系清楚
+```
+
+可采用浅暖色 / 浅绿色轻量表头，不做卡通表格或彩虹行列。
+
+---
+
+## 6.23 BIT Youth Variants
 
 ### story
 
@@ -2299,6 +2533,8 @@ ChapterTitle 更突出
 ```text
 ChapterTitle
 Highlight.metric
+CodeBlock
+Table
 团队 / 项目分段
 图片
 QuoteCard
@@ -2334,7 +2570,7 @@ NumberList
 
 ---
 
-## 6.22 BIT Youth 禁止项
+## 6.24 BIT Youth 禁止项
 
 禁止：
 
@@ -2505,6 +2741,8 @@ Image
 ImageCaption
 Divider
 Ending
+CodeBlock
+Table
 ```
 
 三套 Theme 必须作用于同一套组件。
@@ -2522,9 +2760,9 @@ YouthQuoteCard
 ```text
 QuoteCard
 +
-theme
+theme / themeVariant
 +
-variant
+componentVariant
 ```
 
 ---
@@ -2550,10 +2788,12 @@ variant
 | ImageCaption | 中性 | 图号 / 数据说明友好 | 柔和编辑感 |
 | Divider | 细线 | 技术短线 | 轻量点 / 短线 |
 | Ending | 克制 | 总结型 | 温暖昂扬型 |
+| CodeBlock | 浅灰绿、信息型、克制 | 技术信息层级更明确，不做黑底赛博 | 轻量中性，不主动强化技术感 |
+| Table | 正式、清晰边框、易扫描 | 数据层级更明确、表头更强 | 柔和但以可读性和防爆宽为先 |
 
 ---
 
-## 8.2 V1.1 新增重点能力
+## 8.2 V1.1～V1.2 累积重点能力
 
 ### ChapterTitle
 
@@ -2612,9 +2852,81 @@ note (optional)
 
 不要为此新增 Dashboard 组件体系。
 
+
+### CodeBlock
+
+`CodeBlock` 在 V1.2 中正式进入 M1 基础语义组件集合。
+
+最低语义：
+
+```text
+code: string
+language?: string
+caption?: string
+```
+
+要求：
+
+- 稳定展示多行代码 / 命令 / 配置文本；
+- 保留必要空白和换行；
+- 375px 下不得撑破文章页面；
+- 长行应采用安全的换行或组件内部横向处理策略，不能导致整页横向溢出；
+- `language` / `caption` 只有数据传入时才展示；
+- M1 不要求复杂语法高亮。
+
+### Table
+
+`Table` 在 V1.2 中正式进入 M1 基础语义组件集合。
+
+最低语义：
+
+```text
+columns: string[]
+rows: Array<string[]>
+caption?: string
+```
+
+要求：
+
+- 稳定展示普通二维表格；
+- 375px 下不得导致整页爆宽；
+- 优先保证表头、行列关系与文本可读性；
+- 必须为较宽内容提供组件内部安全策略；
+- 不做复杂单元格合并；
+- 不做表格编辑器。
+
 ---
 
 # 9. Variant 设计原则
+
+V1.2 起，Variant 正式拆分为：
+
+```text
+ThemeVariantId
+ComponentVariantId
+```
+
+其中：
+
+```text
+ThemeVariantId
+→ 整篇 Theme 的轻量分支
+
+ComponentVariantId
+→ 单个组件的表现分支
+```
+
+例如：
+
+```text
+theme = bit-innovation
+themeVariant = data
+
+component = highlight
+componentVariant = metric
+```
+
+禁止再用一个未限定语义的 `variant` 同时表达两者。
 
 Variant 必须有限。
 
@@ -2654,7 +2966,8 @@ description
 keywords
 recommendedFor
 avoidFor
-defaultVariants
+themeVariants
+defaultVariant
 ```
 
 例如：
@@ -2676,11 +2989,29 @@ defaultVariants
     "学科体验",
     "研学",
     "拔尖培养"
-  ]
+  ],
+  "themeVariants": ["research", "data", "profile", "project", "explore"],
+  "defaultVariant": "research"
 }
 ```
 
 M1 只需要提供元数据。
+
+`defaultVariant` 合同冻结为：
+
+```text
+defaultVariant: ThemeVariantId | null
+```
+
+正式值：
+
+```text
+bit-official    → "default"
+bit-innovation  → "research"
+bit-youth       → null
+```
+
+`defaultVariant` 非 `null` 时，必须引用该 Theme 已登记的合法 `ThemeVariantId`。
 
 后续 M3 再由 AI 使用。
 
@@ -2788,6 +3119,7 @@ Codex 在 M1 实现时必须遵守：
 12. Theme 核心效果必须能为后续微信 Renderer 复现。
 13. 优先完成整体视觉一致性，不追求复杂设计系统。
 14. 不因为本附件额外建立重型测试框架。
+15. 实现 Registry 时，以 Theme Registry / Component Registry 为单一事实源，Catalog 应派生而不是手工复制。
 
 ---
 
@@ -2863,33 +3195,103 @@ Image
 ImageCaption
 Divider
 Ending
+CodeBlock
+Table
 ```
 
 ---
 
-# 15. 轻量验收
+# 15. 轻量验收与 Visual PASS Gate
 
-本附件不要求重型自动化测试。
+本附件仍然不要求重型自动化测试体系。
 
-Theme 部分只需要确认：
+但是从 V1.2 起，**M1 的最终 PASS 必须包含真实浏览器视觉验收证据**。
+
+原因：本 Theme 规范本身已经要求：
+
+- 三套 Theme 肉眼存在明确差异；
+- 375px 不明显炸版；
+- CodeBlock / Table 不导致页面爆宽；
+- 项目正常 build。
+
+因此完全没有实际浏览器渲染检查时，不得声明：
 
 ```text
-1. 三套 Theme 均可正常加载
-2. Theme 可以切换
-3. 所有主要组件均能使用三套 Theme
-4. 三套 Theme 肉眼存在明确差异
-5. 375px 下没有明显横向溢出或炸版
-6. 项目正常 build
+M1_COMPONENT_THEME_PASS
 ```
 
-不要因为 Theme 设计额外建立：
+## 15.1 正常 Visual Gate
 
+当开发环境已有可用浏览器自动化能力时，应轻量执行：
+
+```text
+实现完成
+↓
+npm run build PASS
+↓
+启动 Demo
+↓
+真实 Chromium 375px 渲染
+↓
+三套 Theme 实测 + 截图
+↓
+Visual Gate PASS
+↓
+M1_COMPONENT_THEME_PASS
+```
+
+最低 Visual Gate：
+
+```text
+1. Chromium 成功打开 Demo
+2. bit-official 正常加载
+3. bit-innovation 正常加载
+4. bit-youth 正常加载
+5. ThemeVariant 可切换
+6. 19 个基础组件均存在
+7. ChapterTitle 正常
+8. Highlight / metric 正常
+9. CodeBlock 正常
+10. Table 正常
+11. 无 page error
+12. 无明显 console error
+13. 375px 无横向页面溢出
+14. 长标题正常换行
+15. metric 不撑破容器
+16. Table / CodeBlock 不导致整页爆宽
+17. 三套 Theme 各保存至少一张截图
+18. 肉眼可确认三套 Theme 视觉语言明显不同
+```
+
+## 15.2 环境阻塞
+
+只有实际浏览器能力因环境故障无法使用时，才允许：
+
+```text
+IMPLEMENTATION_RESULT=M1_IMPLEMENTATION_COMPLETE
+VISUAL_CHECK=BLOCKED_BY_ENVIRONMENT
+NEXT_STATE=READY_FOR_M1_VISUAL_ACCEPTANCE
+```
+
+此时不得报告：
+
+```text
+M1_COMPONENT_THEME_PASS
+```
+
+## 15.3 仍禁止重型测试
+
+不要因为 Visual Gate 建立：
+
+- Playwright Test 工程；
 - 大量 snapshot test；
 - 大量视觉回归；
 - 大量 E2E；
 - 复杂测试矩阵。
 
-后续真正的微信兼容校验由 Renderer / Validator 阶段承担。
+只需要轻量浏览器 smoke + 截图。
+
+后续真正的微信公众号兼容校验仍由 Renderer / Validator 阶段承担。
 
 ---
 
@@ -3039,9 +3441,13 @@ M1 只做一套组件系统。
 3. bit-youth
    学生、校园、昂扬、温暖、成长、篇章叙事、图片
 
-V1.1 额外要求：
+V1.1～V1.2 累积要求：
 - 增加 ChapterTitle 篇章级组件；
-- Highlight 支持 metric 数字成果型 Variant；
+- Highlight 支持 metric 数字成果型 Component Variant；
+- 增加 CodeBlock 与 Table；
+- 基础组件冻结为 19 个；
+- ThemeVariant / ComponentVariant 正式拆分；
+- defaultVariant 合同冻结；
 - Youth 不做“小清新”，要有青年成长与使命感；
 - Innovation 覆盖专业探索、研学和拔尖培养。
 
@@ -3085,17 +3491,51 @@ bit-youth
 
 优先先把这三套做出明显、稳定、有北理辨识度的效果。
 
-V1.1 同时冻结以下两项 M1 能力：
+V1.2 冻结以下新增 / 重点能力：
 
 ```text
 ChapterTitle
 Highlight.metric
+CodeBlock
+Table
 ```
 
-其中 `ChapterTitle` 作为第 17 个语义组件进入 M1 基础组件集合；`Highlight.metric` 作为 Highlight 的正式 Variant，不另建 Dashboard 系统。
+版本演进关系仅表达为：
+
+```text
+V1.1 新增 ChapterTitle。
+V1.2 新增 CodeBlock 与 Table。
+```
+
+当前 M1 基础语义组件总数冻结为 **19 个**，具体组件集合与机器 ID 以正式组件清单为准。
+
+`CodeBlock` / `Table` 已正式进入基础组件集合；`Highlight.metric` 是 Highlight 的 `ComponentVariantId`，不另建 Dashboard 系统。
+
+V1.2 同时冻结：
+
+```text
+ThemeVariantId
+ComponentVariantId
+```
+
+以及：
+
+```text
+defaultVariant: ThemeVariantId | null
+```
+
+正式默认值：
+
+```text
+bit-official    = "default"
+bit-innovation  = "research"
+bit-youth       = null
+```
+
+Visual Gate 未真实完成时，不得报告 `M1_COMPONENT_THEME_PASS`。
 
 ---
 
-**文档版本：V1.1**  
-**文档状态：THEME_SPEC_FROZEN_V1_1**  
+**文档版本：V1.2**  
+**文档状态：THEME_SPEC_FROZEN_V1_2**  
 **用途：M1_COMPONENT_THEME 主提示词附件**
