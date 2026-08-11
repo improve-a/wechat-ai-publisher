@@ -36,6 +36,10 @@ export const componentCompatibility = {
     sourceTypes: ["paragraph"],
     grouping: "homogeneous-contiguous",
   },
+  "section-intro": {
+    sourceTypes: ["paragraph"],
+    grouping: "homogeneous-contiguous",
+  },
   highlight: {
     sourceTypes: ["paragraph", "quote"],
     grouping: "homogeneous-contiguous",
@@ -64,6 +68,9 @@ export const componentCompatibility = {
   },
   "code-block": { sourceTypes: ["code"], grouping: "single" },
   table: { sourceTypes: ["table"], grouping: "single" },
+  "key-metrics": { sourceTypes: ["table"], grouping: "single" },
+  "key-value-facts": { sourceTypes: ["table"], grouping: "single" },
+  timeline: { sourceTypes: ["table"], grouping: "single" },
 } as const satisfies Record<ComponentId, ComponentCompatibilityRule>;
 
 if (

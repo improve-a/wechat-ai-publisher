@@ -115,6 +115,70 @@
   line-height: 1.85;
 }
 
+.component-section-intro {
+  margin: -4px 0 var(--space-paragraph);
+  padding-left: 12px;
+  color: var(--color-text-secondary);
+  border-left: 2px solid var(--color-primary);
+  font-size: 15px;
+  line-height: var(--line-height-body);
+}
+
+.component-key-metrics,
+.component-key-value-facts,
+.component-timeline {
+  margin: 0 0 var(--space-section);
+  padding: var(--space-card);
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+}
+
+.component-key-metrics h3,
+.component-key-value-facts h3,
+.component-timeline h3 {
+  margin: 0 0 8px;
+  color: var(--color-text-strong);
+}
+
+.table-column-labels {
+  margin: 0 0 8px;
+  color: var(--color-text-muted);
+  font-size: 12px;
+}
+
+.component-key-metrics dl,
+.component-key-value-facts dl > div,
+.component-timeline article {
+  margin: 0;
+  padding: 12px 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.component-key-metrics dt,
+.component-key-value-facts dt,
+.component-timeline article > strong {
+  color: var(--color-text-secondary);
+  font-size: 13px;
+}
+
+.component-key-metrics dd,
+.component-key-value-facts dd {
+  margin: 4px 0 0;
+  color: var(--color-text-strong);
+}
+
+.component-key-metrics dd {
+  color: var(--color-primary);
+  font-size: 22px;
+  font-weight: 750;
+}
+
+.component-timeline article h3,
+.component-timeline article p {
+  margin: 4px 0 0;
+}
+
 .component-highlight {
   margin: 25px 0;
   padding: 14px 16px;

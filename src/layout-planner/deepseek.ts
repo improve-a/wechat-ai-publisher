@@ -78,11 +78,20 @@ Hard rules:
 - Prefer one source block per Layout block. Only group blocks when the capability explicitly allows homogeneous-contiguous grouping.
 - Use source types and grouping rules from capabilities.components. A registered component name alone is not enough.
 - Keep all content Layout blocks in the original Article order. Decorative blocks may not contain semantic text.
-- Use only registered variants. The metric ComponentVariant is valid only for the highlight component.
+- Use only registered variants. The metric ComponentVariant is valid only where a component capability registers it.
 - assetIds may only reference IDs present in ArticleAST.assets.
 - IDs must be unique and stable, using l001, l002, ... in Layout order.
 - For repair mode, correct every supplied diagnostic without weakening any rule.
 - The response must be valid JSON.`;
+
+const LAYOUT_GUIDANCE = `Layout guidance:
+- Use contentSignals as evidence, not as permission to change content. Prefer its article type, block roles, table presentation and rhythm budget unless the ArticleAST clearly contradicts them.
+- Keep ordinary reading components dominant: body-text, section-intro and lead-text should normally represent at least 60% of paragraph sources.
+- Reserve highlight, quote-card, info-card and note for genuinely important sources. Never place two emphasis/card components next to each other merely for decoration.
+- Use lead-text only for the opening paragraph, section-intro only for a short paragraph immediately following a heading, and ending only for the final paragraph.
+- For two-column numeric or metric tables choose key-metrics/metric; for other two-column key-value tables choose key-value-facts; for three-column schedules choose timeline; keep table for genuinely complex matrices.
+- Prefer step-list for procedural ordered lists and number-list for non-procedural ordered lists.
+- Create rhythm through semantic component choice and registered ThemeVariant selection, not by replacing every paragraph with a card.`;
 
 function buildUserPrompt(request: LayoutModelRequest): string {
   return JSON.stringify({
@@ -168,7 +177,7 @@ export class DeepSeekLayoutModelClient implements LayoutModelClient {
         body: JSON.stringify({
           model: this.model,
           messages: [
-            { role: "system", content: SYSTEM_PROMPT },
+            { role: "system", content: `${SYSTEM_PROMPT}\n\n${LAYOUT_GUIDANCE}` },
             { role: "user", content: buildUserPrompt(request) },
           ],
           thinking: { type: "disabled" },

@@ -35,7 +35,7 @@ def frame_metrics(frame: FrameLocator) -> dict[str, object]:
           const image = document.querySelector('img');
           const pre = document.querySelector('pre');
           const table = document.querySelector('table');
-          const tableScroller = table?.closest('figure');
+          const tableScroller = table?.closest('[data-table-scroll="true"]');
           if (!article || !image || !pre || !table || !tableScroller) {
             throw new Error('Required article-frame gate element is missing');
           }
@@ -60,6 +60,9 @@ def frame_metrics(frame: FrameLocator) -> dict[str, object]:
             tableScrollerScrollWidth: tableScroller.scrollWidth,
             maxRight: Math.max(...allRightEdges),
             articleTheme: article.getAttribute('data-theme'),
+            articleThemeVariant: article.getAttribute('data-theme-variant'),
+            articleBorderTopColor: getComputedStyle(article).borderTopColor,
+            articleBorderTopWidth: getComputedStyle(article).borderTopWidth,
             titleBackground: getComputedStyle(
               document.querySelector('[data-component="article-title"]')
             ).backgroundColor,
@@ -69,6 +72,28 @@ def frame_metrics(frame: FrameLocator) -> dict[str, object]:
             titleBorderLeft: getComputedStyle(
               document.querySelector('[data-component="article-title"]')
             ).borderLeftWidth,
+            titleBorderTop: getComputedStyle(
+              document.querySelector('[data-component="article-title"]')
+            ).borderTopWidth,
+            titleBorderBottom: getComputedStyle(
+              document.querySelector('[data-component="article-title"]')
+            ).borderBottomWidth,
+            titlePadding: getComputedStyle(
+              document.querySelector('[data-component="article-title"]')
+            ).padding,
+            paragraphLineHeight: getComputedStyle(
+              document.querySelector('[data-component="lead-text"] p')
+            ).lineHeight,
+            quoteBackground: getComputedStyle(
+              document.querySelector('[data-component="quote-card"]')
+            ).backgroundColor,
+            listBackground: getComputedStyle(
+              document.querySelector('[data-component="bullet-list"]')
+            ).backgroundColor,
+            codeBackground: getComputedStyle(pre).backgroundColor,
+            dividerHeight: getComputedStyle(
+              document.querySelector('[data-component="divider"]')
+            ).height,
             articleHeight: article.getBoundingClientRect().height,
           };
         }
@@ -76,7 +101,7 @@ def frame_metrics(frame: FrameLocator) -> dict[str, object]:
     )
 
 
-def assert_article_frame(page: Page, frame: FrameLocator, theme: str) -> tuple[str, str, str]:
+def assert_article_frame(page: Page, frame: FrameLocator, theme: str) -> dict[str, object]:
     iframe = page.locator('[data-testid="m5-article-frame"]')
     box = iframe.bounding_box()
     assert box is not None
@@ -108,18 +133,15 @@ def assert_article_frame(page: Page, frame: FrameLocator, theme: str) -> tuple[s
         1, metrics["tableClientWidth"] - metrics["tableScrollerClientWidth"]
     ), f"Unexpected element geometry: {metrics}"
 
-    return (
-        str(metrics["titleBackground"]),
-        str(metrics["titleBorderRadius"]),
-        str(metrics["titleBorderLeft"]),
-    )
+    return metrics
 
 
 def run_gate(url: str, screenshot_dir: Path) -> None:
     screenshot_dir.mkdir(parents=True, exist_ok=True)
     page_errors: list[str] = []
     console_errors: list[str] = []
-    visual_signatures: set[tuple[str, str, str]] = set()
+    visual_signatures: set[tuple[str, ...]] = set()
+    variant_signatures: dict[str, set[tuple[str, ...]]] = {}
 
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True)
@@ -148,9 +170,34 @@ def run_gate(url: str, screenshot_dir: Path) -> None:
             frame.locator("img").evaluate(
                 "image => image.complete ? true : new Promise(resolve => { image.onload = () => resolve(true); image.onerror = () => resolve(false); })"
             )
-            visual_signatures.add(assert_article_frame(page, frame, theme))
+            metrics = assert_article_frame(page, frame, theme)
+            visual_signatures.add(tuple(str(metrics[key]) for key in (
+                "titleBackground", "titleBorderRadius", "titleBorderLeft",
+                "paragraphLineHeight", "quoteBackground", "listBackground",
+                "codeBackground", "dividerHeight"
+            )))
             frame.locator('section[data-theme]').screenshot(
                 path=str(screenshot_dir / f"{theme}.png")
+            )
+            variants = page.locator('#m5-theme-variant option').evaluate_all(
+                "options => options.map(option => option.value)"
+            )
+            signatures: set[tuple[str, ...]] = set()
+            for variant in variants:
+                page.locator('#m5-theme-variant').select_option(variant)
+                frame.locator(
+                    f'section[data-theme="{theme}"][data-theme-variant="{variant}"]'
+                ).wait_for()
+                variant_metrics = assert_article_frame(page, frame, theme)
+                signatures.add(tuple(str(variant_metrics[key]) for key in (
+                    "articleBorderTopColor", "articleBorderTopWidth", "titleBackground",
+                    "titleBorderRadius", "titleBorderLeft", "titleBorderTop",
+                    "titleBorderBottom", "titlePadding", "articleHeight"
+                    , "quoteBackground", "listBackground", "codeBackground"
+                )))
+            variant_signatures[theme] = signatures
+            assert len(signatures) == len(variants), (
+                f"ThemeVariants lack distinct final styles for {theme}: {signatures}"
             )
 
         page.locator("#m5-fixture").select_option("official")
@@ -163,6 +210,7 @@ def run_gate(url: str, screenshot_dir: Path) -> None:
         browser.close()
 
     assert len(visual_signatures) == 3, f"Themes lack distinct visual signatures: {visual_signatures}"
+    assert all(variant_signatures.values()), f"ThemeVariant signatures missing: {variant_signatures}"
     assert not page_errors, f"Page/frame errors: {page_errors}"
     assert not console_errors, f"Page/frame console errors: {console_errors}"
 
@@ -206,6 +254,7 @@ def main() -> int:
     print("M5_BROWSER_RESULT=PASS")
     print("M5_ARTICLE_FRAME_OVERFLOW_RESULT=PASS")
     print("M5_PREVIEW_ISOLATION_RESULT=PASS")
+    print("M5_THEME_VARIANT_RESULT=PASS")
     print("M5_SCREENSHOT_RESULT=3/3 PASS")
     return 0
 

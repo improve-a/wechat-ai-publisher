@@ -8,6 +8,7 @@ export const COMPONENT_IDS = [
   "chapter-title",
   "body-text",
   "lead-text",
+  "section-intro",
   "highlight",
   "quote-card",
   "info-card",
@@ -21,6 +22,9 @@ export const COMPONENT_IDS = [
   "ending",
   "code-block",
   "table",
+  "key-metrics",
+  "key-value-facts",
+  "timeline",
 ] as const;
 
 export type ComponentId = (typeof COMPONENT_IDS)[number];

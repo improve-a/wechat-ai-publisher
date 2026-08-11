@@ -22,12 +22,13 @@ import {
 } from "../src/layout-ast";
 import { buildPreviewDocument } from "../src/preview";
 import { validateWeChatHTML, type ValidatorResult } from "../src/wechat-validator";
-import { renderWeChatArticle } from "../src/wechat-renderer";
+import { hasCompleteSourceTrace, renderWeChatArticle } from "../src/wechat-renderer";
 import type { ArticleAST } from "../src/article-ast";
 import type { ResolvedAssetMap } from "../src/asset-resolution";
 
 const ACCEPTANCE_INPUT_ROOT = "tests/m3_live_ai_acceptance_set_v1";
-const ARTIFACT_ROOT = "artifacts/live-ai-acceptance";
+const ARTIFACT_ROOT =
+  process.env.LIVE_AI_ARTIFACT_ROOT?.trim() || "artifacts/live-ai-acceptance";
 const LEDGER_PATH = join(ARTIFACT_ROOT, "request-ledger.json");
 const RESULT_PATH = join(ARTIFACT_ROOT, "acceptance.json");
 const USER_REQUEST =
@@ -142,9 +143,7 @@ function evaluateBranch(
   const sourceExactlyOnce =
     consumed.length === articleOrder.length && new Set(consumed).size === articleOrder.length;
   const sourceOrderPreserved = JSON.stringify(consumed) === JSON.stringify(articleOrder);
-  const contentTraceComplete = articleOrder.every((id) =>
-    firstHtml.includes(`data-source-block-ids=\"${id}\"`),
-  );
+  const contentTraceComplete = hasCompleteSourceTrace(firstHtml, articleOrder);
   const rendererDeterministic = firstHtml === secondHtml;
   const previewValidation = validateWeChatHTML(firstHtml, { mode: "preview" });
   const draftValidation = validateWeChatHTML(firstHtml, { mode: "wechat-draft" });

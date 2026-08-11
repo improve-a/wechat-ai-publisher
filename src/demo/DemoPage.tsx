@@ -13,6 +13,10 @@ import {
   ImageCaption,
   InfoCard,
   LeadText,
+  SectionIntro,
+  KeyMetrics,
+  KeyValueFacts,
+  Timeline,
   Note,
   NumberList,
   QuoteCard,
@@ -51,7 +55,7 @@ export function DemoPage() {
           <p className="demo-kicker">M1 · COMPONENT + THEME SYSTEM</p>
           <h1>北理公众号语义组件预览</h1>
           <p>
-            同一份 Demo 内容切换三套主题，验证 19 个共享语义组件与有限 Variant。
+            同一份 Demo 内容切换三套主题，验证 23 个共享语义组件与有限 Variant。
           </p>
         </div>
         <div className="demo-count" aria-label={`${componentCatalog.length} 个语义组件`}>
@@ -132,6 +136,7 @@ export function DemoPage() {
                 <LeadText {...demoContent.leadText} />
 
                 <SectionTitle {...demoContent.firstSection} />
+                <SectionIntro text="先看关键结论，再进入完整的实验过程与验证细节。" />
                 <BodyText text={demoContent.bodyText} />
 
                 <ChapterTitle {...demoContent.chapterTitle} />
@@ -157,6 +162,21 @@ export function DemoPage() {
                   caption={demoContent.table.caption}
                   columns={[...demoContent.table.columns]}
                   rows={demoContent.table.rows.map((row) => [...row])}
+                />
+                <KeyMetrics
+                  caption="关键指标"
+                  columns={["指标", "结果"]}
+                  rows={[["推理延迟", "18 ms"], ["能耗下降", "32%"]]}
+                />
+                <KeyValueFacts
+                  caption="实验设置"
+                  columns={["项目", "设置"]}
+                  rows={[["采样率", "1 GS/s"], ["触发方式", "边沿触发"]]}
+                />
+                <Timeline
+                  caption="开放日安排"
+                  columns={["时间", "活动", "地点"]}
+                  rows={[["09:00", "实验室参观", "信息楼一层"], ["14:00", "项目分享", "报告厅"]]}
                 />
 
                 <Divider />

@@ -121,6 +121,22 @@ export function LeadText({ text, label, className }: LeadTextProps) {
   );
 }
 
+export interface SectionIntroProps {
+  text: string;
+  className?: string;
+}
+
+export function SectionIntro({ text, className }: SectionIntroProps) {
+  return (
+    <p
+      className={componentClass("section-intro", className)}
+      data-component="section-intro"
+    >
+      {text}
+    </p>
+  );
+}
+
 interface DefaultHighlightProps {
   componentVariant?: "default";
   text: string;
@@ -416,5 +432,63 @@ export function Table({ columns, rows, caption, className }: TableProps) {
         </table>
       </div>
     </figure>
+  );
+}
+
+export interface KeyMetricsProps extends TableProps {}
+
+export function KeyMetrics({ columns, rows, caption, className }: KeyMetricsProps) {
+  return (
+    <section
+      className={componentClass("key-metrics", className)}
+      data-component="key-metrics"
+      data-component-variant="metric"
+    >
+      {caption ? <h3>{caption}</h3> : null}
+      <p className="table-column-labels">{columns.join(" · ")}</p>
+      {rows.map((row, index) => (
+        <dl key={`metric-${index}`}>
+          <dt>{row[0] ?? ""}</dt>
+          <dd>{row[1] ?? ""}</dd>
+        </dl>
+      ))}
+    </section>
+  );
+}
+
+export interface KeyValueFactsProps extends TableProps {}
+
+export function KeyValueFacts({ columns, rows, caption, className }: KeyValueFactsProps) {
+  return (
+    <section className={componentClass("key-value-facts", className)} data-component="key-value-facts">
+      {caption ? <h3>{caption}</h3> : null}
+      <p className="table-column-labels">{columns.join(" · ")}</p>
+      <dl>
+        {rows.map((row, index) => (
+          <div key={`fact-${index}`}>
+            <dt>{row[0] ?? ""}</dt>
+            <dd>{row[1] ?? ""}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  );
+}
+
+export interface TimelineProps extends TableProps {}
+
+export function Timeline({ columns, rows, caption, className }: TimelineProps) {
+  return (
+    <section className={componentClass("timeline", className)} data-component="timeline">
+      {caption ? <h3>{caption}</h3> : null}
+      <p className="table-column-labels">{columns.join(" · ")}</p>
+      {rows.map((row, index) => (
+        <article key={`timeline-${index}`}>
+          <strong>{row[0] ?? ""}</strong>
+          <h3>{row[1] ?? ""}</h3>
+          <p>{row[2] ?? ""}</p>
+        </article>
+      ))}
+    </section>
   );
 }

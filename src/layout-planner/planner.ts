@@ -12,6 +12,8 @@ import type {
   LayoutPlannerInput,
   LayoutPlannerResult,
 } from "./types";
+import { analyzeArticleContent } from "./contentAnalysis";
+import { enforceLayoutRhythm } from "./rhythmPolicy";
 
 export const MAX_MODEL_ATTEMPTS = 2;
 
@@ -19,11 +21,19 @@ function capabilities(): LayoutModelRequest["capabilities"] {
   return {
     themes: themeDefinitions.map((theme) => ({
       id: theme.id,
-      variants: theme.themeVariants.map((variant) => variant.id),
+      description: theme.description,
+      recommendedFor: [...theme.recommendedFor],
+      avoidFor: [...theme.avoidFor],
+      variants: theme.themeVariants.map((variant) => ({
+        id: variant.id,
+        description: variant.description,
+        visualIntent: `${variant.visual.titleTreatment}/${variant.visual.density}/${variant.visual.surface}/${variant.visual.accent}`,
+      })),
       defaultVariant: theme.defaultVariant,
     })),
     components: componentRegistry.map((component) => ({
       id: component.id,
+      description: component.description,
       variants: [...component.supportedComponentVariants],
       sourceTypes: [...componentCompatibility[component.id].sourceTypes],
       grouping: componentCompatibility[component.id].grouping,
@@ -61,14 +71,23 @@ export async function planLayoutWithModel(
         article: input.article,
         ...(input.userRequest ? { userRequest: input.userRequest } : {}),
         ...(input.requestedTheme ? { requestedTheme: input.requestedTheme } : {}),
+        contentSignals: analyzeArticleContent(input.article, {
+          userRequest: input.userRequest,
+          requestedTheme: input.requestedTheme,
+        }),
         capabilities: capabilities(),
         ...(attempt > 1 ? { previousCandidate, diagnostics } : {}),
       };
       previousCandidate = await client.generateLayout(request);
       const candidate = parseModelValue(previousCandidate);
-      const layout = normalizeLayoutCandidate(candidate, input.article, {
+      const canonical = normalizeLayoutCandidate(candidate, input.article, {
         requestedTheme: input.requestedTheme,
       });
+      const layout = enforceLayoutRhythm(
+        canonical,
+        input.article,
+        request.contentSignals,
+      ).layout;
       return { ok: true, layout, attempts: attempt, diagnostics };
     } catch (error) {
       diagnostics = failureDiagnostics(error);

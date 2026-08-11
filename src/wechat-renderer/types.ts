@@ -2,7 +2,7 @@ import type { ArticleAST, ArticleBlock } from "../article-ast";
 import type { ResolvedAssetMap } from "../asset-resolution";
 import type { ComponentId } from "../components/types";
 import type { LayoutAST, LayoutBlock } from "../layout-ast";
-import type { ThemeDefinition } from "../themes/types";
+import type { ThemeDefinition, ThemeVariantDefinition } from "../themes/types";
 
 export interface WeChatRenderInput {
   article: ArticleAST;
@@ -15,6 +15,7 @@ export interface WeChatComponentAdapterInput {
   sourceBlocks: ArticleBlock[];
   article: ArticleAST;
   theme: ThemeDefinition;
+  themeVariant: ThemeVariantDefinition;
   resolvedAssets: ResolvedAssetMap;
 }
 

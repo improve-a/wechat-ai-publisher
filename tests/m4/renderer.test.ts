@@ -2,12 +2,15 @@ import { describe, expect, it } from "vitest";
 import { componentRegistry } from "../../src/components/registry";
 import { parseArticle } from "../../src/article-parser";
 import { planDeterministicLayout } from "../../src/layout-planner";
+import { switchLayoutThemeVariant } from "../../src/layout-planner";
+import { themeDefinitions } from "../../src/themes/registry";
 import {
   createAssetIdPreviewUrl,
   resolveArticleAssets,
 } from "../../src/asset-resolution";
 import {
   renderWeChatArticle,
+  hasCompleteSourceTrace,
   weChatComponentAdapters,
 } from "../../src/wechat-renderer";
 import { allComponentArticle, allComponentLayout } from "./helpers";
@@ -98,6 +101,68 @@ describe("WeChat Renderer", () => {
     expect(html).toContain("&lt;escaped&gt;");
   });
 
+  it("makes every registered ThemeVariant affect final inline HTML", () => {
+    const article = parseArticle({ format: "markdown", content: COMPLEX_MARKDOWN }).article;
+    const resolvedAssets = resolveArticleAssets(article, {
+      previewUrlByAssetId: { img001: "/demo/m1-exploration.svg" },
+    });
+    for (const theme of themeDefinitions) {
+      const base = planDeterministicLayout(article, { requestedTheme: theme.id });
+      const outputs = new Set(
+        theme.themeVariants.map((variant) =>
+          renderWeChatArticle({
+            article,
+            layout: switchLayoutThemeVariant(article, base, variant.id),
+            resolvedAssets,
+          }),
+        ),
+      );
+      expect(outputs.size).toBe(theme.themeVariants.length);
+    }
+  });
+
+  it("gives every registered component a distinct three-theme M4 rendering", () => {
+    const article = allComponentArticle();
+    const byTheme = ["bit-official", "bit-innovation", "bit-youth"].map((theme) => {
+      const layout = allComponentLayout(article, theme as "bit-official" | "bit-innovation" | "bit-youth");
+      return {
+        layout,
+        html: renderWeChatArticle({
+          article,
+          layout,
+          resolvedAssets: resolveArticleAssets(article, {
+            previewUrlByAssetId: { img001: "/demo/m1-exploration.svg" },
+          }),
+        }),
+      };
+    });
+    for (const [index, component] of componentRegistry.entries()) {
+      const segments = byTheme.map(({ layout, html }) => {
+        const marker = `data-layout-block-id="${layout.blocks[index]!.id}"`;
+        const start = html.lastIndexOf("<", html.indexOf(marker));
+        const nextMarker = layout.blocks[index + 1]
+          ? html.indexOf(`data-layout-block-id="${layout.blocks[index + 1]!.id}"`)
+          : html.length;
+        return html.slice(start, nextMarker);
+      });
+      expect(new Set(segments).size, component.id).toBe(3);
+    }
+  });
+
+  it("uses mobile patterns for simple tables and scroll plus hint only for complex tables", () => {
+    const markdown = `# 表格\n\n| 指标 | 数值 |\n| --- | --- |\n| 时延 | 18 ms |\n\n| 时间 | 活动 | 地点 |\n| --- | --- | --- |\n| 09:00 | 参观 | 实验楼 |\n\n| A | B | C | D |\n| --- | --- | --- | --- |\n| 1 | 2 | 3 | 4 |`;
+    const article = parseArticle({ format: "markdown", content: markdown }).article;
+    const layout = planDeterministicLayout(article);
+    const html = renderWeChatArticle({ article, layout, resolvedAssets: {} });
+    expect(html).toContain('data-component="key-metrics"');
+    expect(html).toContain('data-table-presentation="metrics"');
+    expect(html).toContain('data-component="timeline"');
+    expect(html).toContain('data-table-presentation="schedule"');
+    expect(html).toContain('data-table-presentation="complex-table"');
+    expect(html).toContain("横向滑动查看完整表格");
+    expect(html.match(/data-table-scroll="true"/gu)).toHaveLength(1);
+  });
+
   it("rejects unsafe link URLs instead of emitting executable markup", () => {
     const article = parseArticle({
       format: "markdown",
@@ -107,6 +172,15 @@ describe("WeChat Renderer", () => {
     expect(() =>
       renderWeChatArticle({ article, layout, resolvedAssets: {} }),
     ).toThrow(/Unsafe link URL rejected/);
+  });
+
+  it("recognizes every source ID in a valid grouped provenance trace", () => {
+    expect(
+      hasCompleteSourceTrace(
+        '<section data-source-block-ids="a001,a002"><p>一</p><p>二</p></section>',
+        ["a001", "a002"],
+      ),
+    ).toBe(true);
   });
 });
 

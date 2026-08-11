@@ -2,6 +2,7 @@ import type { ArticleAST } from "../article-ast";
 import type { ComponentId } from "../components/types";
 import type { LayoutAST, LayoutDiagnostic } from "../layout-ast";
 import type { ThemeId } from "../themes/types";
+import type { ArticleContentSignals } from "./contentAnalysis";
 
 export interface LayoutPlannerInput {
   article: ArticleAST;
@@ -14,10 +15,19 @@ export interface LayoutModelRequest {
   article: ArticleAST;
   userRequest?: string;
   requestedTheme?: ThemeId;
+  contentSignals: ArticleContentSignals;
   capabilities: {
-    themes: Array<{ id: ThemeId; variants: string[]; defaultVariant: string | null }>;
+    themes: Array<{
+      id: ThemeId;
+      description: string;
+      recommendedFor: string[];
+      avoidFor: string[];
+      variants: Array<{ id: string; description: string; visualIntent: string }>;
+      defaultVariant: string | null;
+    }>;
     components: Array<{
       id: ComponentId;
+      description: string;
       variants: string[];
       sourceTypes: string[];
       grouping: "single" | "homogeneous-contiguous";

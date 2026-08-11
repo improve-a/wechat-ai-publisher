@@ -1,6 +1,6 @@
 import { validateArticleAST } from "../article-ast";
 import { validateCanonicalLayoutAST } from "../layout-ast";
-import { themeRegistry } from "../themes/registry";
+import { getThemeVariantDefinition, themeRegistry } from "../themes/registry";
 import { weChatComponentAdapters } from "./adapters";
 import { element, styleAttribute } from "./html";
 import { projectLayoutBlock } from "./projection";
@@ -14,6 +14,7 @@ export function renderWeChatArticle(input: WeChatRenderInput): string {
   const article = validateArticleAST(input.article);
   const layout = validateCanonicalLayoutAST(input.layout, article);
   const theme = themeRegistry[layout.theme];
+  const themeVariant = getThemeVariantDefinition(theme, layout.themeVariant);
   const renderedBlocks = layout.blocks
     .map((layoutBlock) => {
       const adapter = weChatComponentAdapters[layoutBlock.component];
@@ -22,6 +23,7 @@ export function renderWeChatArticle(input: WeChatRenderInput): string {
         sourceBlocks: projectLayoutBlock(layoutBlock, article),
         article,
         theme,
+        themeVariant,
         resolvedAssets: input.resolvedAssets,
       });
     })
@@ -31,7 +33,7 @@ export function renderWeChatArticle(input: WeChatRenderInput): string {
     [
       ["data-theme", layout.theme],
       ["data-theme-variant", layout.themeVariant],
-      styleAttribute(articleStyle(theme)),
+      styleAttribute(articleStyle(theme, themeVariant)),
     ],
     renderedBlocks,
   );

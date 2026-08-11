@@ -2,7 +2,11 @@ import { useMemo, useState } from "react";
 import { parseArticle } from "../article-parser";
 import { resolveArticleAssets } from "../asset-resolution";
 import { previewFixtures } from "../integration";
-import { planDeterministicLayout, switchLayoutTheme } from "../layout-planner";
+import {
+  planDeterministicLayout,
+  switchLayoutTheme,
+  switchLayoutThemeVariant,
+} from "../layout-planner";
 import { themeDefinitions } from "../themes/registry";
 import type { ThemeId } from "../themes/types";
 import { validateWeChatHTML } from "../wechat-validator";
@@ -47,6 +51,13 @@ export function M3M5PreviewPage() {
     setState((current) => ({
       ...current,
       layout: switchLayoutTheme(current.article, current.layout, theme),
+    }));
+  }
+
+  function selectThemeVariant(themeVariant: string) {
+    setState((current) => ({
+      ...current,
+      layout: switchLayoutThemeVariant(current.article, current.layout, themeVariant),
     }));
   }
 
@@ -96,6 +107,23 @@ export function M3M5PreviewPage() {
             </button>
           ))}
         </div>
+        <label htmlFor="m5-theme-variant">
+          主题变体
+          <select
+            id="m5-theme-variant"
+            data-testid="m5-theme-variant"
+            value={layout.themeVariant}
+            onChange={(event) => selectThemeVariant(event.target.value)}
+          >
+            {themeDefinitions
+              .find((theme) => theme.id === layout.theme)!
+              .themeVariants.map((variant) => (
+                <option key={variant.id} value={variant.id}>
+                  {variant.name}
+                </option>
+              ))}
+          </select>
+        </label>
       </section>
 
       <section className="m5-validator-status" aria-label="Validator 状态">

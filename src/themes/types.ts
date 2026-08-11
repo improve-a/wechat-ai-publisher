@@ -12,6 +12,12 @@ export interface ThemeVariantDefinition {
   id: ThemeVariantId;
   name: string;
   description: string;
+  visual: {
+    titleTreatment: "rule" | "panel" | "framed" | "technical" | "soft" | "story";
+    accent: "primary" | "accent";
+    density: "compact" | "balanced" | "relaxed";
+    surface: "plain" | "muted" | "strong";
+  };
 }
 
 export interface ThemeTokens {

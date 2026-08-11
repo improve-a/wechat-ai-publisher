@@ -34,7 +34,12 @@ export const bitOfficial = {
       codeBackground: "#F3F6F4",
       tableHeader: "#EEF4F0",
     },
-    typography: commonTypography,
+    typography: {
+      ...commonTypography,
+      bodyLineHeight: "1.82",
+      titleSize: "28px",
+      sectionSize: "20px",
+    },
     spacing: {
       pageInline: "20px",
       sectionGap: "38px",
@@ -53,10 +58,30 @@ export const bitOfficial = {
     image: { density: "balanced", emphasis: "quiet", shape: "linear" },
   },
   themeVariants: [
-    { id: "default", name: "默认", description: "普通正式稿件的平衡视觉。" },
-    { id: "notice", name: "通知", description: "加强信息卡与列表的扫描效率。" },
-    { id: "honor", name: "荣誉", description: "以克制暖色强调荣誉和关键数字。" },
-    { id: "ceremonial", name: "重大主题", description: "保留庄重层级与少量强调色。" },
+    {
+      id: "default",
+      name: "默认",
+      description: "普通正式稿件的平衡视觉。",
+      visual: { titleTreatment: "rule", accent: "primary", density: "balanced", surface: "plain" },
+    },
+    {
+      id: "notice",
+      name: "通知",
+      description: "加强信息卡与列表的扫描效率。",
+      visual: { titleTreatment: "framed", accent: "primary", density: "compact", surface: "muted" },
+    },
+    {
+      id: "honor",
+      name: "荣誉",
+      description: "以克制暖色强调荣誉和关键数字。",
+      visual: { titleTreatment: "panel", accent: "accent", density: "balanced", surface: "muted" },
+    },
+    {
+      id: "ceremonial",
+      name: "重大主题",
+      description: "保留庄重层级与少量强调色。",
+      visual: { titleTreatment: "framed", accent: "accent", density: "relaxed", surface: "strong" },
+    },
   ],
   defaultVariant: "default",
 } satisfies ThemeDefinition;
