@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">协作探索抽象示意图</title>
+  <desc id="desc">由绿色、墨绿色和暖棕色几何块组成的本地演示占位图</desc>
+  <rect width="800" height="500" fill="#F4F8F6"/>
+  <rect x="56" y="58" width="688" height="384" rx="22" fill="#FFFFFF" stroke="#D6E3DA" stroke-width="3"/>
+  <rect x="102" y="106" width="236" height="20" rx="10" fill="#046A38"/>
+  <rect x="102" y="144" width="154" height="10" rx="5" fill="#B9CFC0"/>
+  <rect x="102" y="204" width="164" height="142" rx="12" fill="#ECF4EF" stroke="#009A44" stroke-width="3"/>
+  <circle cx="184" cy="275" r="42" fill="#009A44"/>
+  <path d="M168 276l12 12 25-31" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="302" y="204" width="164" height="142" rx="12" fill="#F8F3EC" stroke="#94450B" stroke-width="3"/>
+  <circle cx="384" cy="275" r="42" fill="#94450B"/>
+  <path d="M359 286h50M384 251v50" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+  <rect x="502" y="204" width="196" height="142" rx="12" fill="#EDF4EF" stroke="#046A38" stroke-width="3"/>
+  <path d="M542 309l36-40 30 22 50-58" fill="none" stroke="#046A38" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="542" cy="309" r="7" fill="#009A44"/>
+  <circle cx="578" cy="269" r="7" fill="#009A44"/>
+  <circle cx="608" cy="291" r="7" fill="#009A44"/>
+  <circle cx="658" cy="233" r="7" fill="#009A44"/>
+  <rect x="102" y="378" width="596" height="10" rx="5" fill="#E4E9E5"/>
+  <rect x="102" y="378" width="356" height="10" rx="5" fill="#009A44"/>
+</svg>

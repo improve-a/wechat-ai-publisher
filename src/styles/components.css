@@ -1,0 +1,750 @@
+.article-component {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.component-article-title {
+  margin-bottom: 9px;
+  padding-top: 14px;
+  border-top: 4px solid var(--theme-primary);
+}
+
+.component-article-title h1 {
+  color: var(--theme-text-strong);
+  font-size: var(--theme-title-size);
+  font-weight: 720;
+  line-height: var(--theme-title-line-height);
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
+}
+
+.article-eyebrow {
+  display: inline-block;
+  margin-bottom: 9px;
+  color: var(--theme-primary-strong);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+}
+
+.component-subtitle {
+  margin-bottom: 26px !important;
+  color: var(--theme-text-secondary);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.component-section-title {
+  margin-top: var(--theme-section-gap);
+  margin-bottom: 16px;
+  padding: 3px 0 3px 13px;
+  border-left: 4px solid var(--theme-primary);
+}
+
+.section-title-meta,
+.chapter-title-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  margin-bottom: 5px;
+  color: var(--theme-primary);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+}
+
+.component-section-title h2 {
+  color: var(--theme-text-strong);
+  font-size: var(--theme-section-size);
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.component-chapter-title {
+  margin-top: calc(var(--theme-section-gap) + 6px);
+  margin-bottom: 19px;
+  padding: 17px 0;
+  border-top: var(--theme-border-width) var(--theme-border-style) var(--theme-border-strong);
+  border-bottom: var(--theme-border-width) var(--theme-border-style) var(--theme-border);
+}
+
+.component-chapter-title h2 {
+  color: var(--theme-text-strong);
+  font-size: 23px;
+  font-weight: 720;
+  line-height: 1.4;
+}
+
+.component-chapter-title > p {
+  margin-top: 6px;
+  color: var(--theme-text-secondary);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.component-body-text {
+  margin-bottom: var(--theme-paragraph-gap) !important;
+  color: var(--theme-text);
+  font-size: var(--theme-body-size);
+  line-height: var(--theme-body-line-height);
+  letter-spacing: 0.012em;
+}
+
+.component-lead-text {
+  margin: 0 0 30px;
+  padding: 15px 0 15px 17px;
+  border-left: 3px solid var(--theme-primary-strong);
+}
+
+.lead-text-label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--theme-primary-strong);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+}
+
+.component-lead-text p {
+  color: var(--theme-text-strong);
+  font-size: 17px;
+  font-weight: 520;
+  line-height: 1.85;
+}
+
+.component-highlight {
+  margin: 25px 0;
+  padding: 14px 16px;
+  color: var(--theme-primary-strong);
+  background: var(--theme-surface-muted);
+  border-left: 3px solid var(--theme-primary);
+  border-radius: var(--theme-radius-small);
+}
+
+.component-highlight > p {
+  font-size: 17px;
+  font-weight: 670;
+  line-height: 1.75;
+}
+
+.component-highlight.metric {
+  padding: 18px;
+  color: var(--theme-text);
+  background: var(--theme-surface-strong);
+  border: var(--theme-border-width) var(--theme-border-style) var(--theme-border);
+  border-left: 4px solid var(--theme-primary);
+  border-radius: var(--theme-radius-medium);
+}
+
+.highlight-metric-value {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  min-width: 0;
+  color: var(--theme-primary-strong);
+}
+
+.highlight-metric-value strong {
+  min-width: 0;
+  font-size: 40px;
+  font-weight: 780;
+  line-height: 1;
+  overflow-wrap: anywhere;
+}
+
+.highlight-metric-value span {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.highlight-metric-label {
+  margin-top: 8px !important;
+  color: var(--theme-text-strong);
+  font-size: 16px;
+  font-weight: 680;
+}
+
+.highlight-metric-note {
+  margin-top: 5px !important;
+  color: var(--theme-text-secondary);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.component-quote-card {
+  margin: 26px 0;
+  padding: var(--theme-card-padding);
+  color: var(--theme-text);
+  background: var(--theme-surface-muted);
+  border-left: 4px solid var(--theme-primary-strong);
+  border-radius: 0 var(--theme-radius-medium) var(--theme-radius-medium) 0;
+}
+
+.quote-card-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--theme-primary-strong);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+}
+
+.component-quote-card > p {
+  color: var(--theme-text-strong);
+  font-size: 17px;
+  font-weight: 540;
+  line-height: 1.8;
+}
+
+.component-quote-card footer {
+  margin-top: 10px;
+  color: var(--theme-text-secondary);
+  font-size: 13px;
+  text-align: right;
+}
+
+.component-info-card {
+  margin: 24px 0;
+  padding: var(--theme-card-padding);
+  background: var(--theme-surface-muted);
+  border: var(--theme-border-width) var(--theme-border-style) var(--theme-border);
+  border-radius: var(--theme-radius-medium);
+  box-shadow: var(--theme-card-shadow);
+}
+
+.component-info-card h3 {
+  color: var(--theme-text-strong);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.component-info-card > p {
+  margin-top: 6px;
+  color: var(--theme-text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.component-info-card dl {
+  margin-top: 13px;
+}
+
+.component-info-card dl > div {
+  display: flex;
+  gap: 12px;
+  padding: 8px 0;
+  border-top: 1px solid var(--theme-border);
+}
+
+.component-info-card dt {
+  flex: 0 0 46px;
+  color: var(--theme-primary-strong);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.component-info-card dd {
+  min-width: 0;
+  color: var(--theme-text);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.component-note {
+  display: flex;
+  gap: 8px;
+  margin: 21px 0;
+  padding: 11px 13px;
+  color: var(--theme-text-secondary);
+  background: var(--theme-surface-muted);
+  border-radius: var(--theme-radius-small);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.component-note strong {
+  flex: 0 0 auto;
+  color: var(--theme-primary-strong);
+}
+
+.component-bullet-list {
+  margin: 19px 0 25px !important;
+  padding-left: 1.35em;
+  color: var(--theme-text);
+}
+
+.component-bullet-list li {
+  margin: 8px 0;
+  padding-left: 4px;
+  line-height: 1.75;
+}
+
+.component-bullet-list li::marker {
+  color: var(--theme-primary);
+  font-size: 0.78em;
+}
+
+.component-number-list,
+.component-step-list {
+  margin: 23px 0 28px !important;
+  padding: 0;
+  list-style: none;
+}
+
+.component-number-list li,
+.component-step-list li {
+  display: flex;
+  gap: 13px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--theme-border);
+}
+
+.number-list-index,
+.step-list-index {
+  flex: 0 0 32px;
+  color: var(--theme-primary);
+  font-size: 14px;
+  font-weight: 780;
+  letter-spacing: 0.05em;
+}
+
+.component-number-list li > div,
+.component-step-list li > div {
+  min-width: 0;
+}
+
+.component-number-list strong,
+.component-step-list strong {
+  display: block;
+  color: var(--theme-text-strong);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.component-number-list p,
+.component-step-list p {
+  margin-top: 4px !important;
+  color: var(--theme-text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.component-image {
+  margin: 29px 0 0 !important;
+}
+
+.component-image img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+  background: var(--theme-surface-muted);
+  border-radius: var(--theme-radius-image);
+}
+
+.component-image-caption {
+  display: flex;
+  gap: 7px;
+  margin: 8px 0 28px !important;
+  color: var(--theme-text-secondary);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.component-image-caption strong {
+  flex: 0 0 auto;
+  color: var(--theme-primary-strong);
+}
+
+.component-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 36px auto;
+  height: 12px;
+}
+
+.component-divider span:first-child {
+  width: 52px;
+  height: 1px;
+  background: var(--theme-primary);
+}
+
+.component-divider span:nth-child(2),
+.component-divider span:nth-child(3) {
+  display: none;
+}
+
+.component-ending {
+  padding: 20px 0 8px;
+  text-align: center;
+}
+
+.component-ending > span {
+  display: block;
+  width: 32px;
+  height: 3px;
+  margin: 0 auto 16px;
+  background: var(--theme-primary);
+}
+
+.component-ending p {
+  color: var(--theme-text-strong);
+  font-size: 16px;
+  font-weight: 620;
+  line-height: 1.85;
+}
+
+.component-code-block,
+.component-table {
+  margin: 28px 0 !important;
+  max-width: 100%;
+}
+
+.component-code-block figcaption,
+.component-table > figcaption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+  color: var(--theme-text-secondary);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.component-code-block figcaption strong {
+  color: var(--theme-primary-strong);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.component-code-block pre {
+  max-width: 100%;
+  margin: 0;
+  padding: 16px;
+  overflow-x: auto;
+  color: var(--theme-text-strong);
+  background: var(--theme-code-background);
+  border: var(--theme-border-width) var(--theme-border-style) var(--theme-border);
+  border-radius: var(--theme-radius-medium);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 12px;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  tab-size: 2;
+}
+
+.component-table-scroll {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  border: var(--theme-border-width) var(--theme-border-style) var(--theme-border);
+  border-radius: var(--theme-radius-medium);
+}
+
+.component-table table {
+  width: 100%;
+  min-width: 510px;
+  border-collapse: collapse;
+  color: var(--theme-text);
+  background: var(--theme-surface);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.component-table th,
+.component-table td {
+  padding: 10px 11px;
+  border-right: 1px solid var(--theme-border);
+  border-bottom: 1px solid var(--theme-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.component-table th:last-child,
+.component-table td:last-child {
+  border-right: 0;
+}
+
+.component-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.component-table th {
+  color: var(--theme-text-strong);
+  background: var(--theme-table-header);
+  font-weight: 700;
+}
+
+/* BIT Innovation: compact engineering rhythm and numbered information structure. */
+.theme-root[data-theme="bit-innovation"] .component-article-title {
+  padding-top: 0;
+  padding-bottom: 17px;
+  border-top: 0;
+  border-bottom: 1px solid var(--theme-border-strong);
+}
+
+.theme-root[data-theme="bit-innovation"] .article-eyebrow {
+  padding: 5px 8px;
+  background: var(--theme-surface-strong);
+  border-left: 3px solid var(--theme-primary);
+  letter-spacing: 0.16em;
+}
+
+.theme-root[data-theme="bit-innovation"] .component-section-title {
+  padding: 0 0 10px;
+  border-left: 0;
+  border-bottom: 1px solid var(--theme-border-strong);
+}
+
+.theme-root[data-theme="bit-innovation"] .section-title-meta {
+  margin-bottom: 6px;
+}
+
+.theme-root[data-theme="bit-innovation"] .section-title-index {
+  padding: 2px 5px;
+  color: var(--theme-background);
+  background: var(--theme-primary);
+}
+
+.theme-root[data-theme="bit-innovation"] .component-chapter-title {
+  padding: 18px;
+  background: var(--theme-surface-strong);
+  border: 1px solid var(--theme-border);
+  border-left: 4px solid var(--theme-primary-strong);
+  border-radius: var(--theme-radius-medium);
+}
+
+.theme-root[data-theme="bit-innovation"] .component-lead-text {
+  padding: 17px;
+  background: var(--theme-surface);
+  border: 1px solid var(--theme-border);
+  border-top: 3px solid var(--theme-primary);
+  border-radius: var(--theme-radius-medium);
+}
+
+.theme-root[data-theme="bit-innovation"] .component-highlight.metric {
+  border-left-width: 6px;
+}
+
+.theme-root[data-theme="bit-innovation"] .component-quote-card {
+  border: 1px solid var(--theme-border);
+  border-top: 3px solid var(--theme-primary-strong);
+  border-radius: var(--theme-radius-medium);
+}
+
+.theme-root[data-theme="bit-innovation"] .component-bullet-list li::marker {
+  content: "▪  ";
+}
+
+.theme-root[data-theme="bit-innovation"] .number-list-index,
+.theme-root[data-theme="bit-innovation"] .step-list-index {
+  color: var(--theme-background);
+  background: var(--theme-primary-strong);
+  height: 28px;
+  padding-top: 3px;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.theme-root[data-theme="bit-innovation"] .component-divider {
+  justify-content: flex-start;
+}
+
+.theme-root[data-theme="bit-innovation"] .component-divider span:first-child {
+  width: 74px;
+  height: 2px;
+}
+
+.theme-root[data-theme="bit-innovation"] .component-divider span:nth-child(2) {
+  display: block;
+  width: 18px;
+  height: 2px;
+  margin-left: 5px;
+  background: var(--theme-border-strong);
+}
+
+/* BIT Youth: warmer surfaces, larger breathing room and chapter-led storytelling. */
+.theme-root[data-theme="bit-youth"] .component-article-title {
+  padding-top: 4px;
+  border-top: 0;
+}
+
+.theme-root[data-theme="bit-youth"] .article-eyebrow {
+  padding: 5px 10px;
+  color: var(--theme-accent);
+  background: var(--theme-surface);
+  border-radius: 999px;
+  letter-spacing: 0.08em;
+}
+
+.theme-root[data-theme="bit-youth"] .component-subtitle {
+  margin-bottom: 31px !important;
+}
+
+.theme-root[data-theme="bit-youth"] .component-section-title {
+  padding: 12px 14px;
+  background: var(--theme-surface-strong);
+  border-left: 0;
+  border-radius: var(--theme-radius-medium);
+}
+
+.theme-root[data-theme="bit-youth"] .section-title-index {
+  color: var(--theme-accent);
+}
+
+.theme-root[data-theme="bit-youth"] .component-chapter-title {
+  padding: 21px 18px;
+  background: var(--theme-surface);
+  border: 0;
+  border-top: 4px solid var(--theme-accent);
+  border-radius: var(--theme-radius-large);
+  box-shadow: var(--theme-card-shadow);
+}
+
+.theme-root[data-theme="bit-youth"] .chapter-title-meta {
+  color: var(--theme-accent);
+}
+
+.theme-root[data-theme="bit-youth"] .component-lead-text {
+  padding: 18px;
+  background: var(--theme-surface);
+  border-left: 0;
+  border-radius: var(--theme-radius-large);
+}
+
+.theme-root[data-theme="bit-youth"] .component-highlight {
+  color: var(--theme-text-strong);
+  background: var(--theme-surface);
+  border-left-color: var(--theme-accent);
+  border-radius: var(--theme-radius-medium);
+}
+
+.theme-root[data-theme="bit-youth"] .component-highlight.metric {
+  background: var(--theme-surface-strong);
+  border-left-color: var(--theme-accent);
+}
+
+.theme-root[data-theme="bit-youth"] .highlight-metric-value {
+  color: var(--theme-accent);
+}
+
+.theme-root[data-theme="bit-youth"] .component-quote-card {
+  padding-block: 23px;
+  background: var(--theme-surface);
+  border-left: 0;
+  border-radius: var(--theme-radius-large);
+  box-shadow: var(--theme-card-shadow);
+}
+
+.theme-root[data-theme="bit-youth"] .quote-card-label {
+  color: var(--theme-accent);
+}
+
+.theme-root[data-theme="bit-youth"] .number-list-index,
+.theme-root[data-theme="bit-youth"] .step-list-index {
+  height: 32px;
+  padding-top: 4px;
+  color: var(--theme-primary-strong);
+  background: var(--theme-surface-strong);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.theme-root[data-theme="bit-youth"] .component-divider {
+  gap: 7px;
+}
+
+.theme-root[data-theme="bit-youth"] .component-divider span,
+.theme-root[data-theme="bit-youth"] .component-divider span:nth-child(2),
+.theme-root[data-theme="bit-youth"] .component-divider span:nth-child(3) {
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: var(--theme-primary);
+  border-radius: 50%;
+}
+
+.theme-root[data-theme="bit-youth"] .component-ending > span {
+  background: var(--theme-accent);
+  border-radius: 999px;
+}
+
+/* ThemeVariant overrides are intentionally limited to components they materially affect. */
+.theme-root[data-theme="bit-official"][data-theme-variant="notice"] .component-info-card {
+  border-color: var(--theme-primary);
+  border-left-width: 4px;
+}
+
+.theme-root[data-theme="bit-official"][data-theme-variant="notice"] .number-list-index,
+.theme-root[data-theme="bit-official"][data-theme-variant="notice"] .step-list-index {
+  font-weight: 820;
+}
+
+.theme-root[data-theme="bit-official"][data-theme-variant="honor"] .component-highlight.metric {
+  border-left-color: var(--theme-accent);
+}
+
+.theme-root[data-theme="bit-official"][data-theme-variant="honor"] .highlight-metric-value {
+  color: var(--theme-accent);
+}
+
+.theme-root[data-theme="bit-official"][data-theme-variant="ceremonial"] .component-chapter-title {
+  border-top-color: var(--theme-accent);
+}
+
+.theme-root[data-theme="bit-innovation"][data-theme-variant="data"] .component-highlight.metric {
+  background: var(--theme-table-header);
+  border-color: var(--theme-primary);
+}
+
+.theme-root[data-theme="bit-innovation"][data-theme-variant="profile"] .component-quote-card {
+  padding-block: 23px;
+}
+
+.theme-root[data-theme="bit-innovation"][data-theme-variant="profile"] .component-image img {
+  border-radius: 10px;
+}
+
+.theme-root[data-theme="bit-innovation"][data-theme-variant="project"] .component-step-list {
+  padding-inline: 12px;
+  background: var(--theme-surface-muted);
+  border: 1px solid var(--theme-border);
+}
+
+.theme-root[data-theme="bit-innovation"][data-theme-variant="explore"] .component-chapter-title {
+  border-top: 3px solid var(--theme-primary);
+  border-left-width: 1px;
+}
+
+.theme-root[data-theme="bit-youth"][data-theme-variant="story"] .component-quote-card {
+  border-bottom: 3px solid var(--theme-accent);
+}
+
+.theme-root[data-theme="bit-youth"][data-theme-variant="campus"] .component-image img {
+  border-radius: 16px;
+}
+
+.theme-root[data-theme="bit-youth"][data-theme-variant="event"] .component-chapter-title {
+  border-top-width: 6px;
+}
+
+.theme-root[data-theme="bit-youth"][data-theme-variant="practice"] .component-highlight.metric {
+  border-color: var(--theme-accent);
+}
+
+.theme-root[data-theme="bit-youth"][data-theme-variant="guide"] .component-info-card {
+  border-color: var(--theme-primary);
+}
+
+.theme-root[data-theme="bit-youth"][data-theme-variant="festival"] .article-eyebrow,
+.theme-root[data-theme="bit-youth"][data-theme-variant="festival"] .chapter-title-meta {
+  color: var(--theme-accent);
+}
