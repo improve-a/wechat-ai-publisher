@@ -8,9 +8,16 @@
     "build": "tsc -b && vite build",
     "check:m1": "tsx scripts/check-m1.ts",
     "check:m2": "vitest run tests/m2",
+    "check:m3": "vitest run tests/m3",
+    "check:m4": "vitest run tests/m4",
+    "check:m5": "vitest run tests/m5",
+    "check:m5:browser": "python scripts/m5_visual_gate.py",
+    "check:m3-m5:core": "vitest run tests/m3 tests/m4 tests/m5 tests/integration",
+    "check:m3-m5": "npm run check:m3-m5:core && npm run check:m5:browser",
     "preview": "vite preview"
   },
   "dependencies": {
+    "parse5": "^8.0.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "remark-gfm": "^4.0.1",
