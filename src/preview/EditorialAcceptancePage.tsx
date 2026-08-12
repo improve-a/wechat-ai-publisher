@@ -4,6 +4,7 @@ import {
   IMAGE_RICH_EDITORIAL_ACCEPTANCE_SET_V1, planLegacyMappingBaseline,
 } from "../editorial-acceptance";
 import { compileEditorialPlan, planEditorialDeterministically } from "../editorial";
+import { planArtDirectionDeterministically } from "../art-direction";
 import { renderWeChatArticle } from "../wechat-renderer";
 import { validateWeChatHTML } from "../wechat-validator";
 import { PreviewFrame } from "./PreviewFrame";
@@ -16,9 +17,10 @@ export function EditorialAcceptancePage() {
     ?? IMAGE_RICH_EDITORIAL_ACCEPTANCE_SET_V1[0]!;
   const result = useMemo(() => {
     const editorialPlan = planEditorialDeterministically(fixture.article, fixture.assetUnderstanding);
+    const artDirection = planArtDirectionDeterministically(fixture.article, fixture.assetUnderstanding, editorialPlan);
     const layout = branch === "baseline"
       ? planLegacyMappingBaseline(fixture.article)
-      : compileEditorialPlan(editorialPlan, fixture.article, fixture.assetUnderstanding);
+      : compileEditorialPlan(editorialPlan, fixture.article, fixture.assetUnderstanding, artDirection);
     const resolvedAssets = resolveArticleAssets(fixture.article, {
       previewUrlByAssetId: fixture.previewUrlByAssetId,
     });

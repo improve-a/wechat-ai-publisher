@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { COMPONENT_IDS } from "../components/types";
 import { COMPOSITION_IDS } from "../compositions";
+import { artDirectionPlanSchema } from "../art-direction/schema";
 import { THEME_IDS, type ComponentVariantId } from "../themes/types";
 import {
   LAYOUT_AST_SCHEMA_VERSION,
@@ -29,6 +30,7 @@ export const layoutProvenanceSchema: z.ZodType<LayoutProvenance> =
       kind: z.literal("editorial-composition"),
       sourceBlockIds: z.array(nonBlankString),
       usesArticleTitle: z.boolean().optional(),
+      editorialUnitId: nonBlankString.optional(),
     }),
     z.strictObject({ kind: z.literal("decorative") }),
   ]);
@@ -53,6 +55,7 @@ export const layoutCandidateSchema: z.ZodType<LayoutCandidate> = z.strictObject(
   themeVariant: nonBlankString.nullable().optional(),
   blocks: z.array(candidateBlockSchema),
   assetPlacements: z.array(assetPlacementSchema).optional(),
+  artDirection: artDirectionPlanSchema.optional(),
 });
 
 const canonicalBlockSchema = candidateBlockSchema.extend({
@@ -65,6 +68,7 @@ export const layoutASTSchema: z.ZodType<LayoutAST> = z.strictObject({
   themeVariant: nonBlankString,
   blocks: z.array(canonicalBlockSchema),
   assetPlacements: z.array(assetPlacementSchema),
+  artDirection: artDirectionPlanSchema.optional(),
 });
 
 export function parseLayoutCandidate(value: unknown): LayoutCandidate {

@@ -12,15 +12,27 @@ function editorialType(
   article: ArticleAST,
   type: ReturnType<typeof analyzeArticleContent>["articleType"],
 ): EditorialArticleType {
-  const text = [article.title ?? "", ...article.blocks.flatMap((block) => "text" in block ? [block.text] : [])].join(" ").toLocaleLowerCase();
-  const specialized: Array<[EditorialArticleType, RegExp]> = [
+  const title = (article.title ?? "").toLocaleLowerCase();
+  const titleSpecialized: Array<[EditorialArticleType, RegExp]> = [
+    ["person-profile", /人物|专访|教师|肖像|profile/u],
+    ["competition", /竞赛|比赛|决赛|挑战赛|冠军|competition/u],
+    ["performance", /演出|音乐会|舞台|剧场|performance/u],
     ["welcome", /迎新|新生|报到|welcome/u],
+    ["practice", /社会实践|实践队|社区|志愿服务/u],
+    ["event-recap", /活动回顾|现场回顾|开放日回顾|纪实|event recap/u],
+    ["achievement", /获奖|奖项|成果发布|achievement/u],
+  ];
+  const titleSelected = titleSpecialized.find(([, pattern]) => pattern.test(title));
+  if (titleSelected) return titleSelected[0];
+  const text = article.blocks.flatMap((block) => "text" in block ? [block.text] : []).join(" ").toLocaleLowerCase();
+  const specialized: Array<[EditorialArticleType, RegExp]> = [
     ["competition", /竞赛|比赛|决赛|挑战赛|competition/u],
     ["performance", /演出|音乐会|舞台|剧场|performance/u],
     ["event-recap", /活动回顾|现场回顾|纪实|event recap/u],
-    ["person-profile", /人物专访|人物故事|教师|肖像|profile/u],
+    ["person-profile", /人物专访|人物故事|profile/u],
     ["achievement", /获奖|奖项|成果发布|achievement/u],
     ["practice", /社会实践|社区|志愿服务|实践活动/u],
+    ["welcome", /迎新服务|新生报到|welcome/u],
   ];
   const selected = specialized.find(([, pattern]) => pattern.test(text));
   if (selected) return selected[0];
@@ -119,8 +131,9 @@ export function planEditorialDeterministically(
   while (cursor < remaining.length) {
     const start = cursor;
     const current = remaining[cursor]!;
-    if (current.type === "heading" && remaining[cursor + 1]?.type === "paragraph") {
-      cursor += 2;
+    if (current.type === "heading") {
+      cursor += 1;
+      while (cursor < remaining.length && remaining[cursor]?.type !== "heading") cursor += 1;
     } else if (current.type === "paragraph" && remaining[cursor + 1]?.type === "image") {
       cursor += 2;
       if (remaining[cursor]?.type === "image-caption") cursor += 1;
@@ -147,7 +160,7 @@ export function planEditorialDeterministically(
     const hasEvidence = assetIds.some((assetId) =>
       understandingByAsset.get(assetId)?.semanticRoles.includes("evidence"),
     );
-    const intent: EditorialSection["compositionIntent"] = current.type === "heading" && sourceBlockIds.length <= 2
+    const intent: EditorialSection["compositionIntent"] = current.type === "heading" && imageCount === 0
       ? "section-opener"
       : imageCount === 2
         ? "photo-pair"
@@ -161,8 +174,9 @@ export function planEditorialDeterministically(
                 : "media-story"
             : current.type === "table" ? "achievement-spotlight" : "section-opener";
     sections.push({
-      ...unit(`e-section-${String(sections.length + 1).padStart(3, "0")}`, sourceBlockIds, assetIds, intent, imageCount ? 4 : 2),
+      ...unit(`e-section-${String(sections.length + 1).padStart(3, "0")}`, sourceBlockIds, assetIds, intent, imageCount >= 3 ? 5 : imageCount ? 4 : 2),
       role: roleFor(type, imageCount > 0, sections.length === 0 && !hero),
+      ...(current.type === "heading" ? { label: current.text } : {}),
       sequence: sequence++,
     });
   }
@@ -170,11 +184,16 @@ export function planEditorialDeterministically(
   if (closing) closing.sequence = sequence++;
 
   const placed = new Set([...(hero?.assetIds ?? []), ...sections.flatMap((section) => section.assetIds), ...(closing?.assetIds ?? [])]);
+  const selectedTheme: ThemeId = options.requestedTheme ?? (type === "welcome" || type === "performance" || type === "humanities"
+    ? "bit-youth"
+    : type === "science-technology" || type === "competition" || type === "tutorial"
+      ? "bit-innovation"
+      : "bit-official");
   const plan: EditorialPlan = {
     schemaVersion: "1",
     articleType: type,
-    theme: signals.recommendedTheme,
-    themeVariant: signals.recommendedThemeVariant,
+    theme: selectedTheme,
+    themeVariant: selectedTheme === signals.recommendedTheme ? signals.recommendedThemeVariant : null,
     hero,
     sections,
     closing,

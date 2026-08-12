@@ -1,0 +1,207 @@
+{
+  "schemaVersion": "1",
+  "assets": [
+    {
+      "assetId": "img001",
+      "description": "清晨河道与步行调查队",
+      "subjects": [
+        "河道",
+        "实践队"
+      ],
+      "scene": "河道踏查",
+      "shotType": "wide",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 9,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "hero-candidate"
+      ],
+      "relatedSourceBlockIds": [
+        "a002"
+      ]
+    },
+    {
+      "assetId": "img002",
+      "description": "队员沿河记录排口",
+      "subjects": [
+        "队员",
+        "河道"
+      ],
+      "scene": "地图绘制",
+      "shotType": "wide",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 5,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a008"
+      ]
+    },
+    {
+      "assetId": "img003",
+      "description": "保留空白的手绘河道图",
+      "subjects": [
+        "地图",
+        "手部"
+      ],
+      "scene": "地图绘制",
+      "shotType": "detail",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 1,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a010"
+      ]
+    },
+    {
+      "assetId": "img004",
+      "description": "雨后弯道采样行动",
+      "subjects": [
+        "队员",
+        "采样器"
+      ],
+      "scene": "雨后观察",
+      "shotType": "medium",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 4,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a016"
+      ]
+    },
+    {
+      "assetId": "img005",
+      "description": "水面漂浮物聚集细节",
+      "subjects": [
+        "水面",
+        "漂浮物"
+      ],
+      "scene": "雨后观察",
+      "shotType": "detail",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 0,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a018"
+      ]
+    },
+    {
+      "assetId": "img006",
+      "description": "居民在窗边接受访谈",
+      "subjects": [
+        "居民"
+      ],
+      "scene": "居民访谈",
+      "shotType": "portrait",
+      "orientation": "portrait",
+      "aspectRatio": 0.75,
+      "peopleCount": 1,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "portrait",
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a025"
+      ]
+    },
+    {
+      "assetId": "img007",
+      "description": "居民在地图上标记地点",
+      "subjects": [
+        "居民",
+        "地图"
+      ],
+      "scene": "居民访谈",
+      "shotType": "close-up",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 2,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a027"
+      ]
+    },
+    {
+      "assetId": "img008",
+      "description": "社区调整收集点后的现场",
+      "subjects": [
+        "社区",
+        "收集点"
+      ],
+      "scene": "方案试验",
+      "shotType": "wide",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 7,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence",
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a033"
+      ]
+    },
+    {
+      "assetId": "img009",
+      "description": "观察资料交接给社区",
+      "subjects": [
+        "队员",
+        "社区工作者"
+      ],
+      "scene": "资料交接",
+      "shotType": "medium",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 5,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a039"
+      ]
+    },
+    {
+      "assetId": "img010",
+      "description": "居民与实践队在河边合影",
+      "subjects": [
+        "居民",
+        "实践队"
+      ],
+      "scene": "共同维护",
+      "shotType": "group",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 18,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "closing-candidate",
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a042"
+      ]
+    }
+  ]
+}

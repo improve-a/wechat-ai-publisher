@@ -11,10 +11,19 @@ const EditorialAcceptancePage = lazy(() =>
     default: module.EditorialAcceptancePage,
   })),
 );
+const EditorialAcceptanceV2Page = lazy(() =>
+  import("../preview/EditorialAcceptanceV2Page").then((module) => ({
+    default: module.EditorialAcceptanceV2Page,
+  })),
+);
 
 export function App() {
   const view = new URLSearchParams(window.location.search).get("view");
-  return view === "editorial" ? (
+  return view === "editorial-v2" ? (
+    <Suspense fallback={<main>正在加载 V2 编辑视觉验收…</main>}>
+      <EditorialAcceptanceV2Page />
+    </Suspense>
+  ) : view === "editorial" ? (
     <Suspense fallback={<main>正在加载图文验收…</main>}>
       <EditorialAcceptancePage />
     </Suspense>

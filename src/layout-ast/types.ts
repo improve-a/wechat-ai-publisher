@@ -1,5 +1,6 @@
 import type { ComponentId } from "../components/types";
 import type { CompositionId } from "../compositions";
+import type { ArtDirectionPlan } from "../art-direction";
 import type {
   ComponentVariantId,
   ThemeId,
@@ -11,7 +12,7 @@ export const LAYOUT_AST_SCHEMA_VERSION = "1" as const;
 export type LayoutProvenance =
   | { kind: "article-title" }
   | { kind: "article-blocks"; sourceBlockIds: string[] }
-  | { kind: "editorial-composition"; sourceBlockIds: string[]; usesArticleTitle?: boolean }
+  | { kind: "editorial-composition"; sourceBlockIds: string[]; usesArticleTitle?: boolean; editorialUnitId?: string }
   | { kind: "decorative" };
 
 export type LayoutPresentationId = ComponentId | CompositionId;
@@ -36,6 +37,7 @@ export interface LayoutAST {
   themeVariant: ThemeVariantId;
   blocks: LayoutBlock[];
   assetPlacements: LayoutAssetPlacement[];
+  artDirection?: ArtDirectionPlan;
 }
 
 export interface LayoutCandidateBlock {
@@ -52,6 +54,7 @@ export interface LayoutCandidate {
   themeVariant?: ThemeVariantId | null;
   blocks: LayoutCandidateBlock[];
   assetPlacements?: LayoutAssetPlacement[];
+  artDirection?: ArtDirectionPlan;
 }
 
 export interface LayoutDiagnostic {

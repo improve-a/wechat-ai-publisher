@@ -7,6 +7,7 @@ import { classifyTable, type TablePresentation } from "../layout-planner/content
 import { element, renderInline, renderListItems, styleAttribute } from "./html";
 import {
   cardStyle,
+  editorialToneAccent,
   listItemStyle,
   listStyle,
   textStyle,
@@ -149,7 +150,7 @@ function renderCard(
   ];
   return element(
     tag,
-    [...traceAttributes(input), styleAttribute(resolvedStyle)],
+    [...traceAttributes(input), ["data-surface", "card"], styleAttribute(resolvedStyle)],
     renderTextCollection(input, "p", [
       ["margin", "0"],
       ["color", metric ? input.theme.tokens.colors.textStrong : input.theme.tokens.colors.text],
@@ -441,6 +442,7 @@ function renderMobileTable(
     [
       ...traceAttributes(input),
       ["data-table-presentation", presentation],
+      ["data-surface", "card"],
       styleAttribute(tableFigureStyle(input)),
     ],
     `${renderMobileHeaders(block, input)}${rows}`,
@@ -579,7 +581,7 @@ function renderCompositionImage(input: WeChatComponentAdapterInput, block: Image
     styleAttribute([
       ["display", "block"], ["box-sizing", "border-box"], ["width", "100%"],
       ["max-width", "100%"], ["height", "auto"], ["object-fit", "cover"],
-      ["border-radius", input.theme.tokens.radius.image],
+      ["border-radius", ["full-width", "asymmetric", "closing-visual"].includes(input.sectionArtDirection?.compositionPreference === "asymmetric-photo-pair" ? "asymmetric" : input.artDirection?.imageTreatment ?? "") ? "0" : input.theme.tokens.radius.image],
     ]),
   ], "");
 }
@@ -591,8 +593,13 @@ function renderCompositionSource(input: WeChatComponentAdapterInput, block: Arti
     ["font-size", "12px"], ["line-height", "1.6"],
   ])], renderInline(block.inline, block.text));
   if (block.type === "heading") return element("h2", [styleAttribute([
-    ["margin", "0 0 12px"], ["color", input.theme.tokens.colors.textStrong],
-    ["font-size", input.theme.tokens.typography.sectionSize], ["line-height", "1.45"],
+    ["margin", "0 0 14px"],
+    ["padding", input.artDirection?.sectionTitleTreatment === "rule" ? "0 0 8px" : "0"],
+    ["color", input.theme.tokens.colors.textStrong],
+    ["font-size", input.artDirection?.sectionTitleTreatment === "statement" ? "23px" : input.artDirection?.sectionTitleTreatment === "minimal" ? "18px" : input.theme.tokens.typography.sectionSize],
+    ["font-weight", input.artDirection?.sectionTitleTreatment === "minimal" ? "650" : "780"],
+    ["line-height", "1.45"],
+    ["border-bottom", input.artDirection?.sectionTitleTreatment === "rule" ? `1px solid ${editorialToneAccent(input.theme, input.themeVariant, input.artDirection.visualTone)}` : "0 solid transparent"],
     ["overflow-wrap", "anywhere"],
   ])], renderInline(block.inline, block.text));
   if (block.type === "paragraph") return element("p", [styleAttribute([
@@ -611,47 +618,104 @@ function renderCompositionSource(input: WeChatComponentAdapterInput, block: Arti
 
 function renderComposition(input: WeChatComponentAdapterInput): string {
   const composition = input.layoutBlock.component as CompositionId;
-  const accent = variantAccent(input.theme, input.themeVariant);
+  const accent = editorialToneAccent(input.theme, input.themeVariant, input.artDirection?.visualTone);
+  const global = input.artDirection;
+  const section = input.sectionArtDirection;
   const images = input.sourceBlocks.filter((block) => block.type === "image");
   const captions = input.sourceBlocks.filter((block) => block.type === "image-caption");
   const captionByImageBlockId = new Map(captions.map((caption) => [caption.imageBlockId, caption]));
   const textBlocks = input.sourceBlocks.filter((block) => block.type !== "image" && block.type !== "image-caption");
   const headingBlocks = textBlocks.filter((block) => block.type === "heading");
   const narrativeBlocks = textBlocks.filter((block) => block.type !== "heading");
+  const titleTreatment = global?.titleTreatment ?? "formal";
   const heroTitle = composition === "hero-visual" && input.article.title
     ? element("h1", [styleAttribute([
-        ["margin", "0 0 16px"], ["color", input.theme.tokens.colors.textStrong],
-        ["font-size", input.theme.tokens.typography.titleSize], ["line-height", input.theme.tokens.typography.titleLineHeight],
-        ["letter-spacing", "-0.02em"], ["overflow-wrap", "anywhere"],
+        ["margin", titleTreatment === "statement" ? "12px 0 22px" : "0 0 16px"],
+        ["padding", titleTreatment === "formal" ? "0 0 14px" : "0"],
+        ["color", input.theme.tokens.colors.textStrong],
+        ["font-size", titleTreatment === "statement" || titleTreatment === "poster-led" ? "30px" : input.theme.tokens.typography.titleSize],
+        ["font-weight", titleTreatment === "minimal" ? "650" : "800"],
+        ["line-height", titleTreatment === "statement" ? "1.28" : input.theme.tokens.typography.titleLineHeight],
+        ["letter-spacing", titleTreatment === "formal" ? "0.04em" : "-0.02em"],
+        ["text-align", titleTreatment === "poster-led" ? "center" : "left"],
+        ["border-bottom", titleTreatment === "formal" ? `2px solid ${accent}` : "0 solid transparent"],
+        ["overflow-wrap", "anywhere"],
       ])], renderInline(undefined, input.article.title))
     : "";
   const textHtml = textBlocks.map((block) => renderCompositionSource(input, block)).join("");
   const headingHtml = headingBlocks.map((block) => renderCompositionSource(input, block)).join("");
   const narrativeHtml = narrativeBlocks.map((block) => renderCompositionSource(input, block)).join("");
-  const mediaItems = images.map((block) => element("figure", [styleAttribute([
-    ["box-sizing", "border-box"], ["min-width", "0"], ["margin", "0"],
-  ])], `${renderCompositionImage(input, block)}${captionByImageBlockId.has(block.id) ? renderCompositionSource(input, captionByImageBlockId.get(block.id)!) : ""}`));
-  const mediaHtml = mediaItems.length
-    ? element("div", [styleAttribute([
-        ["display", mediaItems.length > 1 ? "grid" : "block"],
-        ...(mediaItems.length > 1 ? ([["grid-template-columns", "repeat(2,minmax(0,1fr))"], ["gap", "8px"]] as const) : []),
-        ["box-sizing", "border-box"], ["max-width", "100%"], ["margin", textHtml ? "8px 0 0" : "0"],
-      ])], mediaItems.join(""))
+  const dominantAssetId = section?.dominantAssetId;
+  const figure = (block: ImageBlock, width = "100%", margin = "0 0 10px") => element("figure", [styleAttribute([
+    ["box-sizing", "border-box"], ["display", width === "100%" ? "block" : "inline-block"],
+    ["width", width], ["max-width", "100%"], ["min-width", "0"], ["margin", margin], ["vertical-align", "top"],
+  ])], `${renderCompositionImage(input, block)}${captionByImageBlockId.has(block.id) ? renderCompositionSource(input, captionByImageBlockId.get(block.id)!) : ""}`);
+  const ordered = dominantAssetId
+    ? [...images.filter((block) => block.assetId === dominantAssetId), ...images.filter((block) => block.assetId !== dominantAssetId)]
+    : images;
+  const mediaHtml = (() => {
+    if (!ordered.length) return "";
+    if (composition === "asymmetric-photo-pair") {
+      return element("div", [styleAttribute([["box-sizing", "border-box"], ["max-width", "100%"], ["font-size", "0"], ["margin", "10px 0 0"]])],
+        `${figure(ordered[0]!, "63%", "0 2% 0 0")}${figure(ordered[1]!, "35%", "0")}`);
+    }
+    if (composition === "photo-pair") {
+      return element("div", [styleAttribute([["box-sizing", "border-box"], ["max-width", "100%"], ["font-size", "0"], ["margin", "10px 0 0"]])],
+        ordered.map((block, index) => figure(block, "49%", index === 0 ? "0 2% 0 0" : "0")).join(""));
+    }
+    if (composition === "photo-grid" || composition === "visual-climax") {
+      return element("div", [styleAttribute([["box-sizing", "border-box"], ["max-width", "100%"], ["font-size", "0"], ["margin", "12px 0 0"]])],
+        ordered.map((block, index) => figure(block, index === 0 ? "100%" : "49%", index === 0 ? "0 0 9px" : index % 2 === 1 ? "0 2% 9px 0" : "0 0 9px")).join(""));
+    }
+    if (composition === "portrait-story" || composition === "profile-spotlight" || composition === "poster-feature") {
+      const width = composition === "poster-feature" ? "76%" : "72%";
+      return element("div", [styleAttribute([["box-sizing", "border-box"], ["max-width", "100%"], ["margin", "12px 0 16px"], ["text-align", "center"]])], figure(ordered[0]!, width, "0 auto"));
+    }
+    if (composition === "quote-with-portrait") {
+      return element("div", [styleAttribute([["box-sizing", "border-box"], ["max-width", "100%"], ["font-size", "0"], ["margin", "12px 0 16px"]])], figure(ordered[0]!, "44%", "0 4% 0 0"));
+    }
+    return element("div", [styleAttribute([["box-sizing", "border-box"], ["max-width", "100%"], ["margin", "12px 0 0"]])], ordered.map((block) => figure(block)).join(""));
+  })();
+  const sectionLabel = section?.sectionLabel && section.sectionLabelStyle !== "none"
+    ? element("p", [["data-section-label", section.sectionLabel], styleAttribute([
+        ["margin", "0 0 10px"], ["color", accent], ["font-size", "12px"], ["font-weight", "750"],
+        ["letter-spacing", section.sectionLabelStyle === "eyebrow" ? "0.14em" : "0.04em"],
+        ["line-height", "1.5"],
+      ])], renderInline(undefined, section.sectionLabel))
     : "";
-  const framed = composition !== "section-opener";
-  const compositionContent = composition === "profile-spotlight"
-    ? `${heroTitle}${headingHtml}${mediaHtml}${narrativeHtml}`
-    : `${heroTitle}${textHtml}${mediaHtml}`;
+  const compositionContent = composition === "profile-spotlight" || composition === "portrait-story"
+    ? `${sectionLabel}${heroTitle}${headingHtml}${mediaHtml}${narrativeHtml}`
+    : composition === "media-story" || composition === "full-width-story"
+      ? `${sectionLabel}${heroTitle}${headingHtml}${mediaHtml}${narrativeHtml}`
+      : composition === "quote-with-portrait"
+        ? `${sectionLabel}${headingHtml}${mediaHtml}${narrativeHtml}`
+        : `${sectionLabel}${heroTitle}${textHtml}${mediaHtml}`;
+  const cardSurface = composition === "achievement-spotlight";
+  const transition = section?.transition ?? global?.transitionStyle ?? "whitespace";
+  const imageTreatment = composition === "asymmetric-photo-pair" ? "asymmetric"
+    : composition === "photo-pair" ? "paired"
+      : composition === "photo-grid" ? "grid"
+        : composition === "portrait-story" || composition === "quote-with-portrait" ? "portrait-led"
+          : composition === "poster-feature" ? "poster-led"
+            : composition === "closing-visual" ? "closing-visual"
+              : "full-width";
   return element("section", [
     ...traceAttributes(input), ["data-composition", composition],
+    ["data-surface", cardSurface ? "card" : "flat"],
+    ["data-image-treatment", imageTreatment],
+    ["data-transition", transition],
+    ["data-visual-weight", section?.visualWeight ?? (composition === "hero-visual" ? "strong" : "normal")],
+    ...(input.layoutBlock.provenance.kind === "editorial-composition" && input.layoutBlock.provenance.editorialUnitId
+      ? ([["data-editorial-unit-id", input.layoutBlock.provenance.editorialUnitId]] as const)
+      : []),
     styleAttribute([
       ["box-sizing", "border-box"], ["max-width", "100%"],
-      ["margin", `0 0 ${input.theme.tokens.spacing.sectionGap}`],
-      ["padding", framed ? input.theme.tokens.spacing.cardPadding : "4px 0 2px"],
-      ["background-color", framed ? variantSurface(input.theme, input.themeVariant) : input.theme.tokens.colors.background],
-      ["border", framed ? `1px solid ${input.theme.tokens.colors.border}` : "0 solid transparent"],
-      ["border-top", composition === "hero-visual" ? `5px solid ${accent}` : framed ? `2px solid ${accent}` : `1px solid ${accent}`],
-      ["border-radius", framed ? input.theme.tokens.radius.medium : "0"],
+      ["margin", `0 0 ${section?.density === "airy" || global?.density === "airy" ? "46px" : input.theme.tokens.spacing.sectionGap}`],
+      ["padding", cardSurface ? input.theme.tokens.spacing.cardPadding : composition === "hero-visual" ? "8px 0 4px" : "2px 0"],
+      ["background-color", cardSurface ? variantSurface(input.theme, input.themeVariant) : input.theme.tokens.colors.background],
+      ["border", cardSurface ? `1px solid ${input.theme.tokens.colors.border}` : "0 solid transparent"],
+      ["border-top", cardSurface ? `3px solid ${accent}` : transition === "subtle-rule" ? `1px solid ${input.theme.tokens.colors.border}` : "0 solid transparent"],
+      ["border-radius", cardSurface ? input.theme.tokens.radius.medium : "0"],
       ["overflow", "hidden"],
     ]),
   ], compositionContent);

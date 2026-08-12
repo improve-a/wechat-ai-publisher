@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { parseArticle } from "../../src/article-parser";
+import { COMPOSITION_IDS } from "../../src/compositions";
 import { createDefaultAssetUnderstandingMap, planEditorialDeterministically } from "../../src/editorial";
 import type { EditorialPlannerClient, EditorialPlannerRequest } from "../../src/layout-planner";
 import {
@@ -86,7 +87,7 @@ describe("AI Layout Planner seam", () => {
     expect(result.ok).toBe(true);
     expect(result.attempts).toBe(1);
     expect(client.requests[0]!.capabilities.themes).toHaveLength(3);
-    expect(client.requests[0]!.capabilities.compositions).toHaveLength(8);
+    expect(client.requests[0]!.capabilities.compositions).toHaveLength(COMPOSITION_IDS.length);
     expect(client.requests[0]!.assetUnderstanding.assets).toHaveLength(article.assets.length);
     expect(client.requests[0]!.contentSignals.blocks).toHaveLength(article.blocks.length);
     expect(JSON.stringify(client.requests[0])).not.toMatch(/html|css/i);

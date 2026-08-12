@@ -1,4 +1,5 @@
 import type { ArticleAST } from "../article-ast";
+import type { ArtDirectionPlan } from "../art-direction";
 import type { CompositionId } from "../compositions";
 import type {
   AssetUnderstandingMap, EditorialArticleType, EditorialDiagnostic,
@@ -60,6 +61,7 @@ export type LayoutPlannerResult =
       ok: true;
       layout: LayoutAST;
       editorialPlan: EditorialPlan;
+      artDirection: ArtDirectionPlan;
       assetUnderstanding: AssetUnderstandingMap;
       attempts: number;
       diagnostics: EditorialDiagnostic[];

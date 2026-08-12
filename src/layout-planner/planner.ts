@@ -1,4 +1,5 @@
 import { compositionRegistry } from "../compositions";
+import { planArtDirectionDeterministically } from "../art-direction";
 import {
   ARTICLE_TYPES, EDITORIAL_SECTION_ROLES, EditorialValidationError,
   compileEditorialPlan, createDefaultAssetUnderstandingMap, validateAssetUnderstandingMap,
@@ -94,8 +95,9 @@ export async function planLayoutWithEditorialPlanner(
           message: `Requested ${input.requestedTheme}, editorial plan selected ${editorialPlan.theme}`,
         }]);
       }
-      const canonical = compileEditorialPlan(editorialPlan, input.article, assetUnderstanding);
-      return { ok: true, layout: canonical, editorialPlan, assetUnderstanding, attempts: attempt, diagnostics };
+      const artDirection = planArtDirectionDeterministically(input.article, assetUnderstanding, editorialPlan);
+      const canonical = compileEditorialPlan(editorialPlan, input.article, assetUnderstanding, artDirection);
+      return { ok: true, layout: canonical, editorialPlan, artDirection, assetUnderstanding, attempts: attempt, diagnostics };
     } catch (error) {
       diagnostics = failureDiagnostics(error);
     }

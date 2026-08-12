@@ -381,6 +381,7 @@ export function normalizeLayoutCandidate(
             ? { assetId: asset.id, status: "placed" as const }
             : { assetId: asset.id, status: "intentionally-unplaced" as const, reason: "Not selected by legacy LayoutCandidate" };
         }),
+    ...(candidate.artDirection ? { artDirection: candidate.artDirection } : {}),
   };
 
   validateLayoutASTShape(layout);

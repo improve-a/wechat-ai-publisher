@@ -1,0 +1,196 @@
+{
+  "acceptanceSet": "REALISTIC_EDITORIAL_ACCEPTANCE_SET_V2",
+  "generatedAt": "2026-08-12T08:46:20.386Z",
+  "officialAccountLevel": "AWAITING_HUMAN_REVIEW",
+  "cases": [
+    {
+      "id": "welcome-journey",
+      "category": "迎新",
+      "articleType": "welcome",
+      "sourceCharacterCount": 1685,
+      "sourceImageCount": 10,
+      "naturalSectionCount": 5,
+      "compositionSequence": [
+        "hero-visual",
+        "asymmetric-photo-pair",
+        "asymmetric-photo-pair",
+        "asymmetric-photo-pair",
+        "full-width-story",
+        "full-width-story",
+        "closing-visual"
+      ],
+      "visualTone": "official-youth",
+      "theme": "bit-youth",
+      "themeVariant": "campus",
+      "determinism": {
+        "editorialPlanSha256": "24766d43145f108db527e314fca2b5bb88604eb333790aabf505b3635598a15f",
+        "artDirectionPlanSha256": "19fd53e738772e601698424435f155c19b066f27a2ebe1331898d3f991c98e79",
+        "layoutAstSha256": "3a2256a5b1058974624801bf6a9b1e63d15c1d7271f8bad9faf4ac16ed3dc8c1",
+        "renderHtmlSha256": "008d69791b6298e20c787cbbbaa831411fee2cab456b8e43c3ef32f408aa1dbe"
+      },
+      "validation": "PASS"
+    },
+    {
+      "id": "competition-climax",
+      "category": "竞赛",
+      "articleType": "competition",
+      "sourceCharacterCount": 1714,
+      "sourceImageCount": 10,
+      "naturalSectionCount": 5,
+      "compositionSequence": [
+        "hero-visual",
+        "asymmetric-photo-pair",
+        "asymmetric-photo-pair",
+        "visual-climax",
+        "media-story",
+        "achievement-spotlight",
+        "closing-visual"
+      ],
+      "visualTone": "ceremonial",
+      "theme": "bit-innovation",
+      "themeVariant": "research",
+      "determinism": {
+        "editorialPlanSha256": "cd41844a315b31a39505c93d1b654a71abb0e9deb24b7c655fe6a90cd6c4d0ff",
+        "artDirectionPlanSha256": "040dccad07e132705656da3fc15eaa2f302b96e59a2ffbca5a9ea7f06b005963",
+        "layoutAstSha256": "7b684b784ab56376c47e6e50d22c05e4373c94cab1477acb079769a4a5d436ba",
+        "renderHtmlSha256": "ed81e5870b33c3828410e3fed4390a33b85f0ad0a5259aa383486a43e7c448db"
+      },
+      "validation": "PASS"
+    },
+    {
+      "id": "person-award-portrait",
+      "category": "人物获奖",
+      "articleType": "person-profile",
+      "sourceCharacterCount": 1729,
+      "sourceImageCount": 10,
+      "naturalSectionCount": 5,
+      "compositionSequence": [
+        "hero-visual",
+        "asymmetric-photo-pair",
+        "visual-climax",
+        "asymmetric-photo-pair",
+        "full-width-story",
+        "full-width-story",
+        "closing-visual"
+      ],
+      "visualTone": "humanistic",
+      "theme": "bit-official",
+      "themeVariant": "default",
+      "determinism": {
+        "editorialPlanSha256": "d97b92855007c1d849c0ebac8ba8f24d566563d06fda203c689e87d14ad442e8",
+        "artDirectionPlanSha256": "da2a813b8aa513bc4fcaf9e355dfd785f801a6f580d7ac9eef0e168ff72d7040",
+        "layoutAstSha256": "203a04997c6b91fdc90f83a8cfd31268ef112639429cf67357721713c1001cec",
+        "renderHtmlSha256": "f2bee2e81baf6f419caf1b6e35303d7908726638116a25e1caa716078eadfb19"
+      },
+      "validation": "PASS"
+    },
+    {
+      "id": "performance-night",
+      "category": "演出",
+      "articleType": "performance",
+      "sourceCharacterCount": 1678,
+      "sourceImageCount": 10,
+      "naturalSectionCount": 5,
+      "compositionSequence": [
+        "hero-visual",
+        "asymmetric-photo-pair",
+        "asymmetric-photo-pair",
+        "visual-climax",
+        "poster-feature",
+        "visual-climax",
+        "closing-visual"
+      ],
+      "visualTone": "theatrical",
+      "theme": "bit-youth",
+      "themeVariant": "story",
+      "determinism": {
+        "editorialPlanSha256": "0a9e1a0037629488a75af33e8dca33316dabd2d969c2b3c0e824c8747638e09d",
+        "artDirectionPlanSha256": "42d3ced506a4069d879d6903247a455a9b5538b1af4473f1afde3c2455ea21ef",
+        "layoutAstSha256": "62fcfbdee6b44d97b289ac2b8af87281f0413936890c51f0b15c0ed77ba0fa8d",
+        "renderHtmlSha256": "2e8f097477ef73c53d2f4bfb86aa4668a0a68f6eb26200df6fbf611464eff7e3"
+      },
+      "validation": "PASS"
+    },
+    {
+      "id": "science-evidence",
+      "category": "科研成果",
+      "articleType": "science-technology",
+      "sourceCharacterCount": 1649,
+      "sourceImageCount": 10,
+      "naturalSectionCount": 5,
+      "compositionSequence": [
+        "hero-visual",
+        "full-width-story",
+        "full-width-story",
+        "visual-climax",
+        "achievement-spotlight",
+        "achievement-spotlight",
+        "closing-visual"
+      ],
+      "visualTone": "technical",
+      "theme": "bit-innovation",
+      "themeVariant": "research",
+      "determinism": {
+        "editorialPlanSha256": "120307318fd7ec4b61b247e348d9548c8dd659fa90da971841e32d41852394a6",
+        "artDirectionPlanSha256": "523a5f510e4c2db1e6967eecd980d8bc30073de5584c6a9042e09a2bd764214c",
+        "layoutAstSha256": "57d8abb5d5da70126c8af019015c1dd83f3b5733263efbdd180012b0f7ecd872",
+        "renderHtmlSha256": "23e746b87f5d49fea9daeeb247516a8fe78e379c700c277c62fc01e3fea7c9cf"
+      },
+      "validation": "PASS"
+    },
+    {
+      "id": "practice-fieldnotes",
+      "category": "社会实践",
+      "articleType": "practice",
+      "sourceCharacterCount": 1630,
+      "sourceImageCount": 10,
+      "naturalSectionCount": 5,
+      "compositionSequence": [
+        "hero-visual",
+        "asymmetric-photo-pair",
+        "asymmetric-photo-pair",
+        "visual-climax",
+        "full-width-story",
+        "full-width-story",
+        "closing-visual"
+      ],
+      "visualTone": "documentary",
+      "theme": "bit-official",
+      "themeVariant": "notice",
+      "determinism": {
+        "editorialPlanSha256": "730a52e0295bd04e3745992fbcdbe7364f198cbb5cc77081aac58958ac8c90ed",
+        "artDirectionPlanSha256": "5d90422c8222e6b88f3eb0ea34df9c8b64990283c46cd4ccba5a387e68521009",
+        "layoutAstSha256": "4962799536af2c231667982bdfc8b546a4d082c9cf9876319cca77ed1ca75875",
+        "renderHtmlSha256": "7aac8907a499dce7f38ed49ba849dd525aa8d943902b15234c7d42e588554672"
+      },
+      "validation": "PASS"
+    },
+    {
+      "id": "event-open-day",
+      "category": "活动回顾",
+      "articleType": "event-recap",
+      "sourceCharacterCount": 1581,
+      "sourceImageCount": 10,
+      "naturalSectionCount": 5,
+      "compositionSequence": [
+        "hero-visual",
+        "photo-pair",
+        "photo-pair",
+        "photo-pair",
+        "full-width-story",
+        "full-width-story",
+        "closing-visual"
+      ],
+      "visualTone": "documentary",
+      "theme": "bit-official",
+      "themeVariant": "default",
+      "determinism": {
+        "editorialPlanSha256": "9cd7e0415370264f29dc11f1c35f17281b97e9403a3f4d6a635d8456ef6efcab",
+        "artDirectionPlanSha256": "c4e8abecfc2b99de20db8a3a1c159d120faafa0cce11eb0e64abe303e35f3da7",
+        "layoutAstSha256": "b44384a84055bb91ecf97cd5e6aed09a74d2db7c75bb94c3f54585df560dd673",
+        "renderHtmlSha256": "197c7df34ccdca4d6a01253fc9b3697e0cdfa2f6d1585768d4b6d76266ed86ea"
+      },
+      "validation": "PASS"
+    }
+  ]
+}

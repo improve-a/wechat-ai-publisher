@@ -1,0 +1,136 @@
+{
+  "schemaVersion": "1",
+  "articleType": "welcome",
+  "theme": "bit-youth",
+  "themeVariant": "story",
+  "hero": {
+    "id": "e-hero-001",
+    "sourceBlockIds": [
+      "a001",
+      "a002",
+      "a003"
+    ],
+    "assetIds": [
+      "img001"
+    ],
+    "importance": 5,
+    "compositionIntent": "hero-visual",
+    "sequence": 0
+  },
+  "sections": [
+    {
+      "id": "e-section-001",
+      "sourceBlockIds": [
+        "a004",
+        "a005",
+        "a006",
+        "a007",
+        "a008",
+        "a009",
+        "a010",
+        "a011"
+      ],
+      "assetIds": [
+        "img002",
+        "img003"
+      ],
+      "importance": 4,
+      "compositionIntent": "asymmetric-photo-pair",
+      "sequence": 1,
+      "role": "scene-setting"
+    },
+    {
+      "id": "e-section-002",
+      "sourceBlockIds": [
+        "a012",
+        "a013",
+        "a014",
+        "a015",
+        "a016",
+        "a017",
+        "a018",
+        "a019"
+      ],
+      "assetIds": [
+        "img004",
+        "img005"
+      ],
+      "importance": 4,
+      "compositionIntent": "asymmetric-photo-pair",
+      "sequence": 2,
+      "role": "process"
+    },
+    {
+      "id": "e-section-003",
+      "sourceBlockIds": [
+        "a020",
+        "a021",
+        "a022",
+        "a023",
+        "a024",
+        "a025",
+        "a026",
+        "a027"
+      ],
+      "assetIds": [
+        "img006",
+        "img007"
+      ],
+      "importance": 4,
+      "compositionIntent": "asymmetric-photo-pair",
+      "sequence": 3,
+      "role": "event-highlight"
+    },
+    {
+      "id": "e-section-004",
+      "sourceBlockIds": [
+        "a028",
+        "a029",
+        "a030",
+        "a031",
+        "a032",
+        "a033"
+      ],
+      "assetIds": [
+        "img008"
+      ],
+      "importance": 3,
+      "compositionIntent": "full-width-story",
+      "sequence": 4,
+      "role": "turning-point"
+    },
+    {
+      "id": "e-section-005",
+      "sourceBlockIds": [
+        "a034",
+        "a035",
+        "a036",
+        "a037",
+        "a038",
+        "a039"
+      ],
+      "assetIds": [
+        "img009"
+      ],
+      "importance": 3,
+      "compositionIntent": "media-story",
+      "sequence": 5,
+      "role": "reflection"
+    }
+  ],
+  "closing": {
+    "id": "e-closing-001",
+    "sourceBlockIds": [
+      "a040",
+      "a041",
+      "a042"
+    ],
+    "assetIds": [
+      "img010"
+    ],
+    "importance": 4,
+    "compositionIntent": "closing-visual",
+    "sequence": 6
+  },
+  "unusedAssets": []
+}

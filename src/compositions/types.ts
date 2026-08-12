@@ -8,6 +8,12 @@ export const COMPOSITION_IDS = [
   "media-story",
   "profile-spotlight",
   "achievement-spotlight",
+  "full-width-story",
+  "asymmetric-photo-pair",
+  "portrait-story",
+  "quote-with-portrait",
+  "poster-feature",
+  "visual-climax",
   "closing-visual",
 ] as const;
 

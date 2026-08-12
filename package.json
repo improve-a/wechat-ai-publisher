@@ -10,6 +10,7 @@
     "check:m2": "vitest run tests/m2",
     "check:m3": "vitest run tests/m3",
     "check:m3:live": "node --env-file=.env.local --import tsx scripts/run-live-ai-acceptance.ts",
+    "check:editorial:v2:live": "node --env-file=.env.local --import tsx scripts/run-editorial-v2-live-acceptance.ts",
     "check:m4": "vitest run tests/m4",
     "check:m5": "vitest run tests/m5",
     "check:m5:browser": "python scripts/m5_visual_gate.py",
@@ -19,7 +20,11 @@
     "check:m3-m5": "npm run check:m3-m5:core && npm run check:m5:browser && npm run check:editorial:all",
     "check:editorial": "vitest run tests/editorial",
     "check:editorial:browser": "python scripts/editorial_visual_gate.py",
-    "check:editorial:all": "npm run check:editorial && npm run check:editorial:browser",
+    "check:editorial:v2:browser": "python scripts/editorial_visual_gate_v2.py",
+    "check:editorial:v2": "vitest run tests/editorial/art-direction-v2.test.ts",
+    "export:editorial:v2": "tsx scripts/export-editorial-v2-artifacts.ts",
+    "check:editorial:v2:all": "npm run check:editorial:v2 && npm run check:editorial:v2:browser && npm run export:editorial:v2",
+    "check:editorial:all": "npm run check:editorial && npm run check:editorial:browser && npm run check:editorial:v2:browser",
     "preview": "vite preview"
   },
   "dependencies": {

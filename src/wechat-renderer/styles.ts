@@ -1,4 +1,5 @@
 import type { ComponentId } from "../components/types";
+import type { VisualTone } from "../art-direction";
 import type { ThemeDefinition, ThemeVariantDefinition } from "../themes/types";
 import type { StyleDeclaration } from "./html";
 
@@ -9,6 +10,19 @@ export function variantAccent(
   return variant.visual.accent === "accent"
     ? theme.tokens.colors.accent
     : theme.tokens.colors.primary;
+}
+
+export function editorialToneAccent(
+  theme: ThemeDefinition,
+  variant: ThemeVariantDefinition,
+  tone?: VisualTone,
+): string {
+  if (tone === "theatrical") return "#8B3A62";
+  if (tone === "technical") return "#315E88";
+  if (tone === "evidence-led") return "#8A5B20";
+  if (tone === "ceremonial") return "#7A344D";
+  if (tone === "humanistic") return "#9A6238";
+  return variantAccent(theme, variant);
 }
 
 export function variantSurface(
@@ -29,8 +43,9 @@ function sectionGap(theme: ThemeDefinition, variant: ThemeVariantDefinition): st
 export function articleStyle(
   theme: ThemeDefinition,
   variant: ThemeVariantDefinition,
+  visualTone?: VisualTone,
 ): StyleDeclaration[] {
-  const accent = variantAccent(theme, variant);
+  const accent = editorialToneAccent(theme, variant, visualTone);
   return [
     ["box-sizing", "border-box"],
     ["width", "100%"],

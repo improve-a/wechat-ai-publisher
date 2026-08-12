@@ -57,7 +57,7 @@ function assetIds(article: ReturnType<typeof parseArticle>["article"], sourceBlo
 }
 
 describe("controlled Composition Registry", () => {
-  it("covers and renders all eight typed composition intents", () => {
+  it("keeps the original eight composition intents compatible while registering new editorial compositions", () => {
     const article = parseArticle({ format: "markdown", content: MARKDOWN }).article;
     expect(article.blocks).toHaveLength(28);
     const sources = (...indices: number[]) => indices.map((index) => article.blocks[index]!.id);
@@ -94,15 +94,19 @@ describe("controlled Composition Registry", () => {
     };
     const understanding = createDefaultAssetUnderstandingMap(article);
     const layout = compileEditorialPlan(plan, article, understanding);
-    expect(layout.blocks.map((block) => block.component)).toEqual([...COMPOSITION_IDS]);
+    const originalCompositionIds = [
+      "hero-visual", "section-opener", "photo-pair", "photo-grid", "media-story",
+      "profile-spotlight", "achievement-spotlight", "closing-visual",
+    ];
+    expect(layout.blocks.map((block) => block.component)).toEqual(originalCompositionIds);
     expect(Object.keys(weChatCompositionAdapters).sort()).toEqual([...COMPOSITION_IDS].sort());
-    expect(compositionRegistry).toHaveLength(8);
+    expect(compositionRegistry).toHaveLength(COMPOSITION_IDS.length);
     const html = renderWeChatArticle({
       article, layout,
       resolvedAssets: resolveArticleAssets(article, {
         previewUrlByAssetId: Object.fromEntries(article.assets.map((asset) => [asset.id, "/demo/m1-exploration.svg"])),
       }),
     });
-    for (const id of COMPOSITION_IDS) expect(html).toContain(`data-composition="${id}"`);
+    for (const id of originalCompositionIds) expect(html).toContain(`data-composition="${id}"`);
   });
 });

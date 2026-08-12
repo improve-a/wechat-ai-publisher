@@ -43,6 +43,8 @@ describe("DeepSeek EditorialPlannerClient", () => {
       expect(body.thinking).toEqual({ type: "disabled" });
       expect(JSON.stringify(body)).toContain("EditorialPlan");
       expect(JSON.stringify(body)).toContain("AssetUnderstandingMap");
+      expect(JSON.stringify(body)).toContain("MUST NOT contain role");
+      expect(JSON.stringify(body)).toContain("never valid inside sections");
       expect(JSON.stringify(body)).not.toContain("registered-component-id");
       return new Response(
         JSON.stringify({

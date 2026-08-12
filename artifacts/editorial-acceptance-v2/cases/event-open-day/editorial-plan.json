@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "1",
+  "articleType": "event-recap",
+  "theme": "bit-official",
+  "themeVariant": null,
+  "hero": {
+    "id": "e-hero",
+    "sourceBlockIds": [
+      "a001",
+      "a002",
+      "a003"
+    ],
+    "assetIds": [
+      "img001"
+    ],
+    "importance": 5,
+    "compositionIntent": "hero-visual",
+    "sequence": 1,
+    "eyebrow": "EVENT-RECAP"
+  },
+  "sections": [
+    {
+      "id": "e-section-001",
+      "sourceBlockIds": [
+        "a004",
+        "a005",
+        "a006",
+        "a007",
+        "a008",
+        "a009",
+        "a010",
+        "a011"
+      ],
+      "assetIds": [
+        "img002",
+        "img003"
+      ],
+      "importance": 4,
+      "compositionIntent": "photo-pair",
+      "label": "从主会场出发，而不是停在主会场",
+      "sequence": 2,
+      "role": "photo-story"
+    },
+    {
+      "id": "e-section-002",
+      "sourceBlockIds": [
+        "a012",
+        "a013",
+        "a014",
+        "a015",
+        "a016",
+        "a017",
+        "a018",
+        "a019"
+      ],
+      "assetIds": [
+        "img004",
+        "img005"
+      ],
+      "importance": 4,
+      "compositionIntent": "photo-pair",
+      "label": "实验室里，先允许设备失败一次",
+      "sequence": 3,
+      "role": "photo-story"
+    },
+    {
+      "id": "e-section-003",
+      "sourceBlockIds": [
+        "a020",
+        "a021",
+        "a022",
+        "a023",
+        "a024",
+        "a025",
+        "a026",
+        "a027"
+      ],
+      "assetIds": [
+        "img006",
+        "img007"
+      ],
+      "importance": 4,
+      "compositionIntent": "photo-pair",
+      "label": "一张材料样片引出的十个追问",
+      "sequence": 4,
+      "role": "photo-story"
+    },
+    {
+      "id": "e-section-004",
+      "sourceBlockIds": [
+        "a028",
+        "a029",
+        "a030",
+        "a031",
+        "a032",
+        "a033",
+        "a034"
+      ],
+      "assetIds": [
+        "img008"
+      ],
+      "importance": 4,
+      "compositionIntent": "media-story",
+      "label": "学生圆桌，把选择说得更具体",
+      "sequence": 5,
+      "role": "photo-story"
+    },
+    {
+      "id": "e-section-005",
+      "sourceBlockIds": [
+        "a035",
+        "a036",
+        "a037",
+        "a038",
+        "a039",
+        "a040"
+      ],
+      "assetIds": [
+        "img009"
+      ],
+      "importance": 4,
+      "compositionIntent": "media-story",
+      "label": "反馈墙上，问题继续生长",
+      "sequence": 6,
+      "role": "photo-story"
+    }
+  ],
+  "closing": {
+    "id": "e-closing",
+    "sourceBlockIds": [
+      "a041",
+      "a042",
+      "a043"
+    ],
+    "assetIds": [
+      "img010"
+    ],
+    "importance": 3,
+    "compositionIntent": "closing-visual",
+    "sequence": 7
+  },
+  "unusedAssets": []
+}

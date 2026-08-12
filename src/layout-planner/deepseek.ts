@@ -67,25 +67,35 @@ The JSON object must have this shape:
   "unusedAssets": [{"assetId": "img001", "reason": "specific editorial reason"}]
 }
 
+Unit shape rules:
+- hero is null or an object with id, sourceBlockIds, assetIds, importance, compositionIntent="hero-visual", optional label/sequence/eyebrow. It MUST NOT contain role.
+- every sections item MUST contain role and MUST use a section composition intent; it MUST NOT use hero-visual or closing-visual.
+- closing is null or an object with id, sourceBlockIds, assetIds, importance, compositionIntent="closing-visual", optional label/sequence/eyebrow. It MUST NOT contain role.
+- Strict schemas reject every unlisted key. When diagnostics say "Unrecognized key", remove that key in repair output.
+
 Hard rules:
 - Consume every ArticleAST.blocks ID exactly once across hero, sections and closing. Never omit, duplicate, summarize, or reorder a source block.
 - Group only contiguous sources. Use composition capabilities as intent; the compiler will enforce legal typed multi-source composition.
 - Use each ArticleAST asset exactly once: either assign it to one unit or list it in unusedAssets with a concrete reason. Never silently lose an image.
 - Base asset roles on AssetUnderstandingMap. Do not infer identity beyond supplied descriptions and subjects.
 - A hero uses hero-visual and may combine the title, an opening paragraph and exactly one hero image. Title is metadata and must not appear in sourceBlockIds.
+- Only hero may use hero-visual and only closing may use closing-visual; these intents are never valid inside sections.
 - Use only registered article types, section roles, themes, variants and composition intents.
 - IDs must be unique and stable. sequence must preserve Article order.
 - Do not create a card per Markdown block. Plan coherent editorial sections.
+- Prefer content-derived labels backed by supplied headings, scenes or subjects. Never repeat generic labels such as "精彩瞬间" or "现场与过程" across sections.
 - For repair mode, correct every supplied diagnostic without weakening any rule.
 - The response must be valid JSON.`;
 
 const LAYOUT_GUIDANCE = `Editorial guidance:
 - Use contentSignals as evidence, not as permission to change content.
 - Let images lead when the understanding sidecar marks hero, portrait, evidence or closing roles.
-- Use photo-pair for exactly two related images and photo-grid for three or four; do not fabricate relationships.
+- Group images only when sidecar scene, subjects or related source IDs provide a reason; do not treat adjacency as a relationship.
+- Select full-width-story, asymmetric-photo-pair, portrait-story, quote-with-portrait, poster-feature or visual-climax only when their registered source and image constraints fit.
 - Use profile-spotlight for a supplied portrait plus related person text, and achievement-spotlight for supplied result evidence.
 - Keep ordinary body reading inside coherent sections. Emphasis is an editorial importance signal, not decoration.
-- Preserve captions with their source image and preserve provenance. The compiler maps the accepted plan to Registry-safe Layout AST.`;
+- Preserve captions with their source image and preserve provenance. A separate controlled Art Direction Policy uses the accepted EditorialPlan and sidecar to select visual tone, density, image treatment and transitions; never emit CSS or visual free-form fields here.
+- The compiler maps the accepted plan plus validated ArtDirectionPlan to Registry-safe Layout AST.`;
 
 function buildUserPrompt(request: EditorialPlannerRequest): string {
   return JSON.stringify({

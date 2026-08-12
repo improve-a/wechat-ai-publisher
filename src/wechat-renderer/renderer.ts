@@ -22,6 +22,9 @@ export function renderWeChatArticle(input: WeChatRenderInput): string {
       const adapter = COMPOSITION_IDS.includes(layoutBlock.component as CompositionId)
         ? weChatCompositionAdapters[layoutBlock.component as CompositionId]
         : weChatComponentAdapters[layoutBlock.component as ComponentId];
+      const editorialUnitId = layoutBlock.provenance.kind === "editorial-composition"
+        ? layoutBlock.provenance.editorialUnitId
+        : undefined;
       return adapter.render({
         layoutBlock,
         sourceBlocks: projectLayoutBlock(layoutBlock, article),
@@ -29,6 +32,10 @@ export function renderWeChatArticle(input: WeChatRenderInput): string {
         theme,
         themeVariant,
         resolvedAssets: input.resolvedAssets,
+        ...(layout.artDirection ? { artDirection: layout.artDirection } : {}),
+        ...(editorialUnitId
+          ? { sectionArtDirection: layout.artDirection?.sections.find((section) => section.sectionId === editorialUnitId) }
+          : {}),
       });
     })
     .join("");
@@ -37,7 +44,13 @@ export function renderWeChatArticle(input: WeChatRenderInput): string {
     [
       ["data-theme", layout.theme],
       ["data-theme-variant", layout.themeVariant],
-      styleAttribute(articleStyle(theme, themeVariant)),
+      ...(layout.artDirection ? ([
+        ["data-visual-tone", layout.artDirection.visualTone],
+        ["data-editorial-density", layout.artDirection.density],
+        ["data-editorial-pace", layout.artDirection.pace],
+        ["data-title-treatment", layout.artDirection.titleTreatment],
+      ] as const) : []),
+      styleAttribute(articleStyle(theme, themeVariant, layout.artDirection?.visualTone)),
     ],
     renderedBlocks,
   );
