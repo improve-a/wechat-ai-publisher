@@ -30,6 +30,7 @@ function request(): EditorialPlannerRequest {
       ],
       articleTypes: ["general"],
       sectionRoles: ["opening"],
+      promptContract: {},
     },
   };
 }

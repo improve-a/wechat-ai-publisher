@@ -2,6 +2,7 @@ import { z } from "zod";
 import { COMPONENT_IDS } from "../components/types";
 import { COMPOSITION_IDS } from "../compositions";
 import { artDirectionPlanSchema } from "../art-direction/schema";
+import { VISUAL_PATTERN_IDS } from "../visual-patterns";
 import { THEME_IDS, type ComponentVariantId } from "../themes/types";
 import {
   LAYOUT_AST_SCHEMA_VERSION,
@@ -41,6 +42,7 @@ const candidateBlockSchema = z.strictObject({
   componentVariant: componentVariantSchema.optional(),
   provenance: layoutProvenanceSchema,
   assetIds: z.array(nonBlankString).min(1).optional(),
+  visualPattern: z.enum(VISUAL_PATTERN_IDS).optional(),
 });
 
 const assetPlacementSchema = z.strictObject({

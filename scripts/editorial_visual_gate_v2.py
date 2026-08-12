@@ -15,18 +15,18 @@ CASES = (
     "welcome-journey", "competition-climax", "person-award-portrait",
     "performance-night", "science-evidence", "practice-fieldnotes", "event-open-day",
 )
-BRANCHES = ("baseline", "art-direction")
+BRANCHES = ("previous-art-direction", "visual-pattern-upgrade")
 DIMENSIONS = (
     "EDITORIAL_HIERARCHY / 信息层级",
     "PHOTO_STORYTELLING / 图片叙事",
     "ARTICLE_TYPE_FIT / 稿型适配",
     "SECTION_RHYTHM / 章节节奏",
-    "VISUAL_DIVERSITY / 视觉多样性",
+    "VISUAL_PATTERN_RICHNESS / 视觉模式丰富度",
+    "PATTERN_RESTRAINT / 模式克制",
     "IMAGE_TEXT_RELATION / 图文关系",
     "NON_TEMPLATE_FEEL / 非模板感",
-    "ART_DIRECTION_QUALITY / 艺术指导质量",
+    "WECHAT_NATIVE_FEEL / 微信原生感",
     "OFFICIAL_ACCOUNT_PLAUSIBILITY / 官方公众号可信度",
-    "IMAGE_SCALE_AND_PRIORITY / 图片尺度与视觉主次",
 )
 
 
@@ -125,6 +125,7 @@ def run_gate(url: str, output: Path) -> list[dict[str, object]]:
                         photoGroupDomCount: root.querySelectorAll('[data-composition="photo-pair"],[data-composition="photo-grid"],[data-composition="asymmetric-photo-pair"],[data-composition="visual-climax"]').length,
                         sectionLabelCount: root.querySelectorAll('[data-section-label]').length,
                         visualTone: root.getAttribute('data-visual-tone'),
+                        visualPatternCount: root.querySelectorAll('[data-visual-pattern]').length,
                         articleHeight: Math.ceil(root.getBoundingClientRect().height),
                       };
                     }
@@ -143,7 +144,7 @@ def run_gate(url: str, output: Path) -> list[dict[str, object]]:
 
     assert not page_errors, f"Browser page errors: {page_errors}"
     assert not console_errors, f"Browser console errors: {console_errors}"
-    editorial = [item for item in results if item["branch"] == "art-direction"]
+    editorial = [item for item in results if item["branch"] == "visual-pattern-upgrade"]
     assert len(results) == 14
     assert len(editorial) == 7
     assert all(1200 <= int(item["articleCharacterCount"]) <= 3000 for item in editorial)
@@ -165,6 +166,16 @@ def run_gate(url: str, output: Path) -> list[dict[str, object]]:
     average_similarity = sum(similarities) / len(similarities)
     assert average_similarity < 0.82
     assert all(int(item["repeatedCompositionCount"]) <= 3 for item in editorial)
+    assert all(int(item["patternCount"]) >= 6 for item in editorial)
+    assert all(int(item["uniquePatternCount"]) >= 3 for item in editorial)
+    assert all(float(item["patternReuseRatio"]) <= 0.6 for item in editorial)
+    assert all(int(item["maxConsecutiveSamePattern"]) <= 2 for item in editorial)
+    pattern_sequences = [list(map(str, item["visualPatternSequence"])) for item in editorial]
+    assert len({">".join(sequence) for sequence in pattern_sequences}) == 7
+    pattern_similarities = [lcs_ratio(pattern_sequences[left], pattern_sequences[right]) for left in range(len(pattern_sequences)) for right in range(left + 1, len(pattern_sequences))]
+    average_pattern_similarity = sum(pattern_similarities) / len(pattern_similarities)
+    assert max(pattern_similarities) <= 0.72
+    assert average_pattern_similarity < 0.45
     tones = {str(item["visualTone"]) for item in editorial}
     assert len(tones) >= 6
 
@@ -182,6 +193,12 @@ def run_gate(url: str, output: Path) -> list[dict[str, object]]:
         "genericSectionLabelRatio": 0,
         "uniqueCompositionSequences": len({">".join(sequence) for sequence in sequences}),
         "averageCompositionSequenceSimilarity": round(average_similarity, 3),
+        "visualPatternCount": sum(int(item["patternCount"]) for item in editorial),
+        "uniqueVisualPatterns": len({pattern for sequence in pattern_sequences for pattern in sequence}),
+        "maximumPatternReuseRatio": max(float(item["patternReuseRatio"]) for item in editorial),
+        "maxConsecutiveSamePattern": max(int(item["maxConsecutiveSamePattern"]) for item in editorial),
+        "averagePatternSequenceSimilarity": round(average_pattern_similarity, 3),
+        "articleTypePatternDiversity": "PASS",
         "visualTones": sorted(tones),
         "officialAccountLevel": "AWAITING_HUMAN_REVIEW",
         "humanScoringDimensions": list(DIMENSIONS),
@@ -197,7 +214,7 @@ def run_gate(url: str, output: Path) -> list[dict[str, object]]:
 def main() -> int:
     parser = argparse.ArgumentParser(description="V2 editorial art direction screenshot and metric gate")
     parser.add_argument("--url", default="http://127.0.0.1:4176")
-    parser.add_argument("--output", type=Path, default=Path("artifacts/editorial-acceptance-v2"))
+    parser.add_argument("--output", type=Path, default=Path("artifacts/editorial-acceptance-v2/visual-pattern-upgrade"))
     parser.add_argument("--no-start-server", action="store_true")
     args = parser.parse_args()
     server: subprocess.Popen[bytes] | None = None
@@ -227,6 +244,7 @@ def main() -> int:
     print("ARTICLE_TYPE_DIFFERENTIATION_RESULT=PASS")
     print("COMPOSITION_SEQUENCE_SIMILARITY_RESULT=PASS")
     print("WECHAT_375PX_SAFE_RESULT=PASS")
+    print("VISUAL_PATTERN_REPETITION_RESULT=PASS")
     print(f"REALISTIC_EDITORIAL_SCREENSHOT_RESULT={len(results)}/14 PASS")
     print("OFFICIAL_ACCOUNT_LEVEL=AWAITING_HUMAN_REVIEW")
     return 0

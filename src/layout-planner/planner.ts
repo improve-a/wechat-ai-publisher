@@ -16,6 +16,11 @@ import type {
   LayoutPlannerResult,
 } from "./types";
 import { analyzeArticleContent } from "./contentAnalysis";
+import { editorialPlanSchema } from "../editorial/schema";
+import {
+  buildRepairTargets, canonicalizeEditorialCandidate, EDITORIAL_PROMPT_CONTRACT,
+  verifyUnaffectedFieldStability, type CanonicalizationRecord,
+} from "./contract";
 
 export const MAX_MODEL_ATTEMPTS = 2;
 
@@ -43,6 +48,7 @@ function capabilities(): EditorialPlannerRequest["capabilities"] {
     })),
     articleTypes: [...ARTICLE_TYPES],
     sectionRoles: [...EDITORIAL_SECTION_ROLES],
+    promptContract: EDITORIAL_PROMPT_CONTRACT,
   };
 }
 
@@ -65,7 +71,10 @@ export async function planLayoutWithEditorialPlanner(
   client: EditorialPlannerClient,
 ): Promise<LayoutPlannerResult> {
   let previousPlan: unknown;
+  let previousCandidate: unknown;
   let diagnostics: EditorialDiagnostic[] = [];
+  let initialSchemaPass = false;
+  const canonicalizations: CanonicalizationRecord[] = [];
   const assetUnderstanding = validateAssetUnderstandingMap(
     input.assetUnderstanding ?? createDefaultAssetUnderstandingMap(input.article),
     input.article,
@@ -84,10 +93,23 @@ export async function planLayoutWithEditorialPlanner(
           requestedTheme: input.requestedTheme,
         }),
         capabilities: capabilities(),
-        ...(attempt > 1 ? { previousPlan, diagnostics } : {}),
+        ...(attempt > 1 ? { previousPlan: previousCandidate ?? previousPlan, diagnostics, repairTargets: buildRepairTargets(diagnostics) } : {}),
       };
       previousPlan = await client.generateEditorialPlan(request);
-      const candidate = parseModelValue(previousPlan);
+      const parsedCandidate = parseModelValue(previousPlan);
+      if (attempt === 1) initialSchemaPass = editorialPlanSchema.safeParse(parsedCandidate).success;
+      const canonicalized = canonicalizeEditorialCandidate(parsedCandidate);
+      canonicalizations.push(...canonicalized.records);
+      const candidate = canonicalized.candidate;
+      if (attempt > 1 && previousCandidate !== undefined) {
+        const stability = verifyUnaffectedFieldStability(previousCandidate, candidate, request.repairTargets ?? []);
+        if (!stability.stable) throw new EditorialValidationError([{
+          code: "UNAFFECTED_FIELD_STABILITY_FAILED",
+          message: `Repair changed unaffected fields: ${stability.changedPaths.map((path) => path.join(".")).join(", ")}`,
+          path: stability.changedPaths[0],
+        }]);
+      }
+      previousCandidate = candidate;
       const editorialPlan = validateEditorialPlan(candidate, input.article, assetUnderstanding);
       if (input.requestedTheme && editorialPlan.theme !== input.requestedTheme) {
         throw new EditorialValidationError([{
@@ -95,11 +117,22 @@ export async function planLayoutWithEditorialPlanner(
           message: `Requested ${input.requestedTheme}, editorial plan selected ${editorialPlan.theme}`,
         }]);
       }
-      const artDirection = planArtDirectionDeterministically(input.article, assetUnderstanding, editorialPlan);
+      const artDirection = planArtDirectionDeterministically(input.article, assetUnderstanding, editorialPlan, input.styleBrief);
       const canonical = compileEditorialPlan(editorialPlan, input.article, assetUnderstanding, artDirection);
-      return { ok: true, layout: canonical, editorialPlan, artDirection, assetUnderstanding, attempts: attempt, diagnostics };
+      return {
+        ok: true, layout: canonical, editorialPlan, artDirection, assetUnderstanding, attempts: attempt, diagnostics,
+        initialSchemaPass, canonicalizations, unaffectedFieldStability: attempt > 1 ? "PASS" : "NOT_APPLICABLE",
+      };
     } catch (error) {
       diagnostics = failureDiagnostics(error);
+      if (previousPlan !== undefined) {
+        try {
+          const parsed = parseModelValue(previousPlan);
+          const canonicalized = canonicalizeEditorialCandidate(parsed);
+          previousCandidate = canonicalized.candidate;
+          canonicalizations.push(...canonicalized.records.filter((record) => !canonicalizations.some((item) => item.field === record.field && item.reason === record.reason)));
+        } catch { /* the repair prompt can still receive the raw malformed response */ }
+      }
     }
   }
 

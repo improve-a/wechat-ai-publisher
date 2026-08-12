@@ -1,0 +1,207 @@
+{
+  "schemaVersion": "1",
+  "assets": [
+    {
+      "assetId": "img001",
+      "description": "晨光中的校门与报到人流",
+      "subjects": [
+        "新生",
+        "家长",
+        "校门"
+      ],
+      "scene": "校门抵达",
+      "shotType": "wide",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 36,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "hero-candidate"
+      ],
+      "relatedSourceBlockIds": [
+        "a002"
+      ]
+    },
+    {
+      "assetId": "img002",
+      "description": "志愿者指向迎新地图",
+      "subjects": [
+        "志愿者",
+        "新生",
+        "地图"
+      ],
+      "scene": "路线咨询",
+      "shotType": "medium",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 4,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a008"
+      ]
+    },
+    {
+      "assetId": "img003",
+      "description": "手绘地图与楼宇标记",
+      "subjects": [
+        "地图",
+        "楼宇编号"
+      ],
+      "scene": "路线咨询",
+      "shotType": "detail",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 0,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a010"
+      ]
+    },
+    {
+      "assetId": "img004",
+      "description": "接驳点行李接力",
+      "subjects": [
+        "志愿者",
+        "行李"
+      ],
+      "scene": "行李接驳",
+      "shotType": "wide",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 18,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a016"
+      ]
+    },
+    {
+      "assetId": "img005",
+      "description": "防雨行李标签特写",
+      "subjects": [
+        "行李标签"
+      ],
+      "scene": "行李接驳",
+      "shotType": "detail",
+      "orientation": "square",
+      "aspectRatio": 1,
+      "peopleCount": 0,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a018"
+      ]
+    },
+    {
+      "assetId": "img006",
+      "description": "学院报到窗口全景",
+      "subjects": [
+        "新生",
+        "工作人员"
+      ],
+      "scene": "身份核验",
+      "shotType": "wide",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 20,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a024"
+      ]
+    },
+    {
+      "assetId": "img007",
+      "description": "校园卡激活界面",
+      "subjects": [
+        "校园卡",
+        "屏幕"
+      ],
+      "scene": "身份核验",
+      "shotType": "close-up",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 1,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a026"
+      ]
+    },
+    {
+      "assetId": "img008",
+      "description": "夜间服务站值班",
+      "subjects": [
+        "志愿者",
+        "服务站"
+      ],
+      "scene": "夜间守候",
+      "shotType": "wide",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 8,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a032"
+      ]
+    },
+    {
+      "assetId": "img009",
+      "description": "宿舍走廊初次相识",
+      "subjects": [
+        "新生",
+        "宿舍"
+      ],
+      "scene": "宿舍相识",
+      "shotType": "medium",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 6,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a038"
+      ]
+    },
+    {
+      "assetId": "img010",
+      "description": "新生与志愿者报到日合影",
+      "subjects": [
+        "新生",
+        "志愿者"
+      ],
+      "scene": "完成报到",
+      "shotType": "group",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 24,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "closing-candidate",
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a041"
+      ]
+    }
+  ]
+}

@@ -3,6 +3,7 @@ import { validateArticleAST, type ArticleAST } from "../article-ast";
 import { validateAssetUnderstandingMap, validateEditorialPlan, type AssetUnderstandingMap, type EditorialPlan } from "../editorial";
 import { artDirectionPlanSchema } from "./schema";
 import type { ArtDirectionDiagnostic, ArtDirectionPlan } from "./types";
+import { isVisualPatternCompatible, visualPatternRegistryById } from "../visual-patterns";
 
 const GENERIC_LABELS = new Set(["现场与过程", "精彩瞬间", "活动现场", "更多内容", "回望", "现场", "过程", "高光时刻", "图片故事"]);
 
@@ -37,6 +38,16 @@ export function validateArtDirectionPlan(
   const blockIds = new Set(article.blocks.map((block) => block.id));
   const sectionById = new Map(editorial.sections.map((section) => [section.id, section]));
   const seen = new Set<string>();
+  const heroAssetCount = editorial.hero?.assetIds.length ?? 0;
+  if (!isVisualPatternCompatible(plan.openingVisualPattern, "hero-visual", heroAssetCount)) diagnostics.push({
+    code: "ART_DIRECTION_PATTERN_INCOMPATIBLE", message: `${plan.openingVisualPattern} cannot present hero-visual with ${heroAssetCount} assets`, path: ["openingVisualPattern"],
+  });
+  if (plan.closingVisualPattern && !isVisualPatternCompatible(plan.closingVisualPattern, "closing-visual", editorial.closing?.assetIds.length ?? 0)) diagnostics.push({
+    code: "ART_DIRECTION_PATTERN_INCOMPATIBLE", message: `${plan.closingVisualPattern} cannot present closing-visual`, path: ["closingVisualPattern"],
+  });
+  if (plan.decorativePatterns.length !== plan.decorativePatternCount) diagnostics.push({
+    code: "ART_DIRECTION_DECORATION_BUDGET_MISMATCH", message: "decorativePatternCount must equal the selected decorative vocabulary size", path: ["decorativePatternCount"],
+  });
   for (const section of plan.sections) {
     if (seen.has(section.sectionId)) diagnostics.push({ code: "ART_DIRECTION_SECTION_DUPLICATE", message: `Duplicate art direction section ${section.sectionId}`, sectionId: section.sectionId });
     seen.add(section.sectionId);
@@ -46,6 +57,13 @@ export function validateArtDirectionPlan(
       continue;
     }
     const sectionAssets = new Set(editorialSection.assetIds);
+    if (!isVisualPatternCompatible(section.preferredVisualPattern, section.compositionPreference, editorialSection.assetIds.length)) diagnostics.push({
+      code: "ART_DIRECTION_PATTERN_INCOMPATIBLE", message: `${section.preferredVisualPattern} cannot present ${section.compositionPreference} with ${editorialSection.assetIds.length} assets`, sectionId: section.sectionId, path: ["sections", section.sectionId, "preferredVisualPattern"],
+    });
+    const pattern = visualPatternRegistryById[section.preferredVisualPattern];
+    if (pattern.supportedArticleTypes && !pattern.supportedArticleTypes.includes(editorial.articleType as never)) diagnostics.push({
+      code: "ART_DIRECTION_PATTERN_ARTICLE_TYPE_MISMATCH", message: `${section.preferredVisualPattern} is not preferred for ${editorial.articleType}`, sectionId: section.sectionId,
+    });
     const selected = [...(section.dominantAssetId ? [section.dominantAssetId] : []), ...section.secondaryAssetIds];
     for (const assetId of selected) if (!sectionAssets.has(assetId)) diagnostics.push({
       code: "ART_DIRECTION_ASSET_OUTSIDE_SECTION", message: `${assetId} is not assigned to ${section.sectionId}`, sectionId: section.sectionId, assetIds: [assetId],

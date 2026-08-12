@@ -16,6 +16,15 @@
   "closingStrategy": "group-photo",
   "heroAssetId": "img001",
   "closingAssetId": "img010",
+  "openingVisualPattern": "title-over-image",
+  "closingVisualPattern": "poster-isolated",
+  "decorativePatternCount": 3,
+  "decorativeDensity": "sparse",
+  "decorativePatterns": [
+    "line",
+    "dot",
+    "diamond"
+  ],
   "sections": [
     {
       "sectionId": "e-section-001",
@@ -27,6 +36,7 @@
         "img002"
       ],
       "compositionPreference": "asymmetric-photo-pair",
+      "preferredVisualPattern": "large-plus-detail",
       "transition": "none",
       "groupingReason": "按 sequence 组织 故障排查/medium、故障排查/detail，主画面优先视觉质量与叙事角色。",
       "sectionLabel": "故障排查",
@@ -45,13 +55,15 @@
         "img004"
       ],
       "compositionPreference": "asymmetric-photo-pair",
+      "preferredVisualPattern": "numbered-section-title",
       "transition": "numbered-break",
       "groupingReason": "按 sequence 组织 策略重写/medium、策略重写/detail，主画面优先视觉质量与叙事角色。",
       "sectionLabel": "策略重写",
       "labelEvidenceSourceIds": [
         "a018"
       ],
-      "sectionLabelStyle": "numbered"
+      "sectionLabelStyle": "numbered",
+      "decorativePattern": "dot"
     },
     {
       "sectionId": "e-section-003",
@@ -63,6 +75,7 @@
         "img007"
       ],
       "compositionPreference": "visual-climax",
+      "preferredVisualPattern": "large-plus-detail",
       "transition": "numbered-break",
       "groupingReason": "按 sequence 组织 决赛高潮/wide、决赛高潮/close-up，主画面优先视觉质量与叙事角色。",
       "sectionLabel": "决赛高潮",
@@ -79,6 +92,7 @@
       "dominantAssetId": "img008",
       "secondaryAssetIds": [],
       "compositionPreference": "media-story",
+      "preferredVisualPattern": "numbered-section-title",
       "transition": "numbered-break",
       "groupingReason": "按 sequence 组织 等待结果/medium，主画面优先视觉质量与叙事角色。",
       "sectionLabel": "等待结果",
@@ -95,13 +109,15 @@
       "dominantAssetId": "img009",
       "secondaryAssetIds": [],
       "compositionPreference": "achievement-spotlight",
+      "preferredVisualPattern": "numbered-section-title",
       "transition": "numbered-break",
       "groupingReason": "按 sequence 组织 冠军复盘/detail，主画面优先视觉质量与叙事角色。",
       "sectionLabel": "冠军复盘",
       "labelEvidenceSourceIds": [
         "a039"
       ],
-      "sectionLabelStyle": "numbered"
+      "sectionLabelStyle": "numbered",
+      "decorativePattern": "line"
     }
   ],
   "reasons": {

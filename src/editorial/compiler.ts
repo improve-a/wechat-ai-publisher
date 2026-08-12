@@ -12,6 +12,7 @@ import {
   planArtDirectionDeterministically, validateArtDirectionPlan,
   type ArtDirectionPlan, type SectionArtDirection,
 } from "../art-direction";
+import { isVisualPatternCompatible, selectVisualPattern, type VisualPatternId } from "../visual-patterns";
 
 function sourceAssets(blocks: readonly ArticleBlock[]): string[] {
   return blocks.filter((block) => block.type === "image").map((block) => block.assetId);
@@ -30,6 +31,7 @@ export function compileEditorialPlan(
     article, understanding, plan,
   );
   const artBySection = new Map(artDirection.sections.map((section) => [section.sectionId, section]));
+  const assetUnderstandingById = new Map(understanding.assets.map((asset) => [asset.assetId, asset]));
   const byId = new Map(article.blocks.map((block) => [block.id, block]));
   const signals = analyzeArticleContent(article, { requestedTheme: plan.theme });
   const signalById = new Map(signals.blocks.map((signal) => [signal.sourceBlockId, signal]));
@@ -42,7 +44,21 @@ export function compileEditorialPlan(
     sources: ArticleBlock[],
     usesArticleTitle = false,
     editorialUnitId?: string,
+    preferredVisualPattern?: VisualPatternId,
   ) => {
+    const assetIds = sourceAssets(sources);
+    const priorPatterns = blocks.flatMap((block) => block.visualPattern ? [block.visualPattern] : []);
+    const visualPattern = !artDirectionValue
+      ? undefined
+      : preferredVisualPattern && isVisualPatternCompatible(preferredVisualPattern, composition, assetIds.length)
+      ? preferredVisualPattern
+      : composition === "closing-visual" && assetIds.length === 0
+        ? undefined
+      : selectVisualPattern(
+          composition, plan.articleType,
+          assetIds.map((id) => assetUnderstandingById.get(id)!).filter(Boolean),
+          priorPatterns, blocks.length, artDirection.styleBrief,
+        );
     blocks.push({
       id: nextId(), component: composition, componentVariant: "default",
       provenance: {
@@ -51,7 +67,8 @@ export function compileEditorialPlan(
         ...(usesArticleTitle ? { usesArticleTitle: true } : {}),
         ...(editorialUnitId ? { editorialUnitId } : {}),
       },
-      ...(sourceAssets(sources).length ? { assetIds: sourceAssets(sources) } : {}),
+      ...(assetIds.length ? { assetIds } : {}),
+      ...(visualPattern ? { visualPattern } : {}),
     });
   };
 
@@ -69,17 +86,17 @@ export function compileEditorialPlan(
     });
   };
 
-  const compileUnit = (editorialUnit: EditorialUnit, usesArticleTitle = false, sectionArt?: SectionArtDirection) => {
+  const compileUnit = (editorialUnit: EditorialUnit, usesArticleTitle = false, sectionArt?: SectionArtDirection, unitPattern?: VisualPatternId) => {
     const sources = editorialUnit.sourceBlockIds.map((id) => byId.get(id)!);
     const legacySingleTable = sources.length === 1 && sources[0]?.type === "table";
     const legacyTableSection = Boolean(artDirectionValue) && sources.some((source) => source.type === "table") && sourceAssets(sources).length === 0;
     const preferred = sectionArt?.compositionPreference ?? editorialUnit.compositionIntent;
     if (!legacyTableSection && !legacySingleTable && validateCompositionSources(preferred, sources, usesArticleTitle).length === 0) {
-      pushComposition(preferred, sources, usesArticleTitle, editorialUnit.id);
+      pushComposition(preferred, sources, usesArticleTitle, editorialUnit.id, unitPattern ?? sectionArt?.preferredVisualPattern);
       return;
     }
     if (!legacyTableSection && !legacySingleTable && validateCompositionSources(editorialUnit.compositionIntent, sources, usesArticleTitle).length === 0) {
-      pushComposition(editorialUnit.compositionIntent, sources, usesArticleTitle, editorialUnit.id);
+      pushComposition(editorialUnit.compositionIntent, sources, usesArticleTitle, editorialUnit.id, unitPattern ?? sectionArt?.preferredVisualPattern);
       return;
     }
     let cursor = 0;
@@ -105,10 +122,10 @@ export function compileEditorialPlan(
     }
   };
 
-  if (plan.hero) compileUnit(plan.hero, true);
+  if (plan.hero) compileUnit(plan.hero, true, undefined, artDirection.openingVisualPattern);
   else if (article.title) blocks.push({ id: nextId(), component: "article-title", provenance: { kind: "article-title" } });
   for (const section of plan.sections) compileUnit(section, false, artDirectionValue ? artBySection.get(section.id) : undefined);
-  if (plan.closing) compileUnit(plan.closing);
+  if (plan.closing) compileUnit(plan.closing, false, undefined, artDirection.closingVisualPattern);
 
   return normalizeLayoutCandidate({
     schemaVersion: LAYOUT_AST_SCHEMA_VERSION,

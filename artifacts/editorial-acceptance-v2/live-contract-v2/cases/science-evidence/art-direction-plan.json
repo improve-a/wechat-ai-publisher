@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "1",
+  "visualTone": "technical",
+  "density": "dense",
+  "pace": "steady",
+  "mediaDominance": "balanced",
+  "textDominance": "narrative-led",
+  "sectionRhythm": "evidence-sequence",
+  "titleTreatment": "formal",
+  "sectionTitleTreatment": "rule",
+  "imageTreatment": "inline-story",
+  "captionTreatment": "metadata",
+  "groupingStrategy": "evidence",
+  "transitionStyle": "subtle-rule",
+  "emphasisStrategy": "metric-led",
+  "closingStrategy": "statement",
+  "heroAssetId": "img001",
+  "closingAssetId": "img010",
+  "openingVisualPattern": "text-first-header",
+  "closingVisualPattern": "framed-image",
+  "decorativePatternCount": 3,
+  "decorativeDensity": "sparse",
+  "decorativePatterns": [
+    "line",
+    "dot",
+    "diamond"
+  ],
+  "sections": [
+    {
+      "sectionId": "e-section-001",
+      "visualWeight": "normal",
+      "density": "dense",
+      "pace": "steady",
+      "dominantAssetId": "img002",
+      "secondaryAssetIds": [
+        "img003"
+      ],
+      "compositionPreference": "full-width-story",
+      "preferredVisualPattern": "minimal-rule-title",
+      "transition": "none",
+      "groupingReason": "按 evidence 组织 架构方法/detail、架构方法/close-up，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "架构方法",
+      "labelEvidenceSourceIds": [
+        "a008"
+      ],
+      "sectionLabelStyle": "minimal"
+    },
+    {
+      "sectionId": "e-section-002",
+      "visualWeight": "normal",
+      "density": "dense",
+      "pace": "steady",
+      "dominantAssetId": "img004",
+      "secondaryAssetIds": [
+        "img005"
+      ],
+      "compositionPreference": "full-width-story",
+      "preferredVisualPattern": "full-width-image",
+      "transition": "subtle-rule",
+      "groupingReason": "按 evidence 组织 流片验证/detail、流片验证/medium，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "流片验证",
+      "labelEvidenceSourceIds": [
+        "a016"
+      ],
+      "sectionLabelStyle": "minimal",
+      "decorativePattern": "dot"
+    },
+    {
+      "sectionId": "e-section-003",
+      "visualWeight": "strong",
+      "density": "dense",
+      "pace": "steady",
+      "dominantAssetId": "img006",
+      "secondaryAssetIds": [
+        "img007"
+      ],
+      "compositionPreference": "visual-climax",
+      "preferredVisualPattern": "large-plus-detail",
+      "transition": "subtle-rule",
+      "groupingReason": "按 evidence 组织 真实任务/wide、真实任务/detail，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "真实任务",
+      "labelEvidenceSourceIds": [
+        "a025"
+      ],
+      "sectionLabelStyle": "minimal"
+    },
+    {
+      "sectionId": "e-section-004",
+      "visualWeight": "normal",
+      "density": "dense",
+      "pace": "steady",
+      "dominantAssetId": "img008",
+      "secondaryAssetIds": [],
+      "compositionPreference": "achievement-spotlight",
+      "preferredVisualPattern": "minimal-rule-title",
+      "transition": "subtle-rule",
+      "groupingReason": "按 evidence 组织 结论边界/detail，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "结论边界",
+      "labelEvidenceSourceIds": [
+        "a033"
+      ],
+      "sectionLabelStyle": "minimal"
+    },
+    {
+      "sectionId": "e-section-005",
+      "visualWeight": "strong",
+      "density": "dense",
+      "pace": "steady",
+      "dominantAssetId": "img009",
+      "secondaryAssetIds": [],
+      "compositionPreference": "achievement-spotlight",
+      "preferredVisualPattern": "full-width-image",
+      "transition": "subtle-rule",
+      "groupingReason": "按 evidence 组织 开放复核/detail，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "开放复核",
+      "labelEvidenceSourceIds": [
+        "a039"
+      ],
+      "sectionLabelStyle": "minimal",
+      "decorativePattern": "line"
+    }
+  ],
+  "reasons": {
+    "whyThisHero": "img001 是 wide 景别、landscape 构图、high 质量，并承担 hero-candidate/evidence 角色。",
+    "whyThisGroup": "图片按 evidence 组织；只组合 EditorialPlan 同一节内且有 scene/subject/evidence 关系的资产。",
+    "whyThisDominantImage": "各节主画面依据角色、景别、方向和质量排序：e-section-001:detail/landscape/high；e-section-002:detail/landscape/high；e-section-003:wide/landscape/high；e-section-004:detail/landscape/high；e-section-005:detail/landscape/high。",
+    "whyThisClosingImage": "img010 的 scene=共同验证、shotType=group、roles=closing-candidate/supporting 支持 statement 收束。"
+  }
+}

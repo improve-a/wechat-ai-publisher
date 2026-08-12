@@ -19,7 +19,8 @@
       },
       "assetIds": [
         "img001"
-      ]
+      ],
+      "visualPattern": "compact-image-header"
     },
     {
       "id": "l002",
@@ -42,7 +43,8 @@
       "assetIds": [
         "img002",
         "img003"
-      ]
+      ],
+      "visualPattern": "numbered-section-title"
     },
     {
       "id": "l003",
@@ -65,7 +67,8 @@
       "assetIds": [
         "img004",
         "img005"
-      ]
+      ],
+      "visualPattern": "full-width-image"
     },
     {
       "id": "l004",
@@ -89,7 +92,8 @@
       "assetIds": [
         "img006",
         "img007"
-      ]
+      ],
+      "visualPattern": "numbered-section-title"
     },
     {
       "id": "l005",
@@ -109,7 +113,8 @@
       },
       "assetIds": [
         "img008"
-      ]
+      ],
+      "visualPattern": "full-width-image"
     },
     {
       "id": "l006",
@@ -129,7 +134,8 @@
       },
       "assetIds": [
         "img009"
-      ]
+      ],
+      "visualPattern": "numbered-section-title"
     },
     {
       "id": "l007",
@@ -146,7 +152,8 @@
       },
       "assetIds": [
         "img010"
-      ]
+      ],
+      "visualPattern": "full-width-image"
     }
   ],
   "assetPlacements": [
@@ -209,6 +216,15 @@
     "closingStrategy": "group-photo",
     "heroAssetId": "img001",
     "closingAssetId": "img010",
+    "openingVisualPattern": "compact-image-header",
+    "closingVisualPattern": "full-width-image",
+    "decorativePatternCount": 3,
+    "decorativeDensity": "sparse",
+    "decorativePatterns": [
+      "line",
+      "dot",
+      "diamond"
+    ],
     "sections": [
       {
         "sectionId": "e-section-001",
@@ -220,6 +236,7 @@
           "img003"
         ],
         "compositionPreference": "asymmetric-photo-pair",
+        "preferredVisualPattern": "numbered-section-title",
         "transition": "none",
         "groupingReason": "按 chronology 组织 地图绘制/wide、地图绘制/detail，主画面优先视觉质量与叙事角色。",
         "sectionLabel": "地图绘制",
@@ -238,13 +255,15 @@
           "img004"
         ],
         "compositionPreference": "asymmetric-photo-pair",
+        "preferredVisualPattern": "full-width-image",
         "transition": "whitespace",
         "groupingReason": "按 chronology 组织 雨后观察/medium、雨后观察/detail，主画面优先视觉质量与叙事角色。",
         "sectionLabel": "雨后观察",
         "labelEvidenceSourceIds": [
           "a018"
         ],
-        "sectionLabelStyle": "eyebrow"
+        "sectionLabelStyle": "eyebrow",
+        "decorativePattern": "dot"
       },
       {
         "sectionId": "e-section-003",
@@ -256,6 +275,7 @@
           "img006"
         ],
         "compositionPreference": "visual-climax",
+        "preferredVisualPattern": "numbered-section-title",
         "transition": "whitespace",
         "groupingReason": "按 chronology 组织 居民访谈/portrait、居民访谈/close-up，主画面优先视觉质量与叙事角色。",
         "sectionLabel": "居民访谈",
@@ -272,6 +292,7 @@
         "dominantAssetId": "img008",
         "secondaryAssetIds": [],
         "compositionPreference": "full-width-story",
+        "preferredVisualPattern": "full-width-image",
         "transition": "whitespace",
         "groupingReason": "按 chronology 组织 方案试验/wide，主画面优先视觉质量与叙事角色。",
         "sectionLabel": "方案试验",
@@ -288,13 +309,15 @@
         "dominantAssetId": "img009",
         "secondaryAssetIds": [],
         "compositionPreference": "full-width-story",
+        "preferredVisualPattern": "numbered-section-title",
         "transition": "whitespace",
         "groupingReason": "按 chronology 组织 资料交接/medium，主画面优先视觉质量与叙事角色。",
         "sectionLabel": "资料交接",
         "labelEvidenceSourceIds": [
           "a039"
         ],
-        "sectionLabelStyle": "eyebrow"
+        "sectionLabelStyle": "eyebrow",
+        "decorativePattern": "line"
       }
     ],
     "reasons": {

@@ -19,7 +19,8 @@
       },
       "assetIds": [
         "img001"
-      ]
+      ],
+      "visualPattern": "text-first-header"
     },
     {
       "id": "l002",
@@ -42,7 +43,8 @@
       "assetIds": [
         "img002",
         "img003"
-      ]
+      ],
+      "visualPattern": "label-title"
     },
     {
       "id": "l003",
@@ -66,7 +68,8 @@
       "assetIds": [
         "img004",
         "img005"
-      ]
+      ],
+      "visualPattern": "label-title"
     },
     {
       "id": "l004",
@@ -89,7 +92,8 @@
       "assetIds": [
         "img006",
         "img007"
-      ]
+      ],
+      "visualPattern": "image-over-image"
     },
     {
       "id": "l005",
@@ -109,7 +113,8 @@
       },
       "assetIds": [
         "img008"
-      ]
+      ],
+      "visualPattern": "label-title"
     },
     {
       "id": "l006",
@@ -129,7 +134,8 @@
       },
       "assetIds": [
         "img009"
-      ]
+      ],
+      "visualPattern": "framed-image"
     },
     {
       "id": "l007",
@@ -146,7 +152,8 @@
       },
       "assetIds": [
         "img010"
-      ]
+      ],
+      "visualPattern": "framed-image"
     }
   ],
   "assetPlacements": [
@@ -209,6 +216,15 @@
     "closingStrategy": "visual-echo",
     "heroAssetId": "img001",
     "closingAssetId": "img010",
+    "openingVisualPattern": "text-first-header",
+    "closingVisualPattern": "framed-image",
+    "decorativePatternCount": 3,
+    "decorativeDensity": "sparse",
+    "decorativePatterns": [
+      "line",
+      "dot",
+      "diamond"
+    ],
     "sections": [
       {
         "sectionId": "e-section-001",
@@ -220,6 +236,7 @@
           "img002"
         ],
         "compositionPreference": "asymmetric-photo-pair",
+        "preferredVisualPattern": "label-title",
         "transition": "none",
         "groupingReason": "按 subject 组织 问题起点/medium、问题起点/detail，主画面优先视觉质量与叙事角色。",
         "sectionLabel": "问题起点",
@@ -238,13 +255,15 @@
           "img004"
         ],
         "compositionPreference": "visual-climax",
+        "preferredVisualPattern": "label-title",
         "transition": "whitespace",
         "groupingReason": "按 subject 组织 测量方法/medium、测量方法/detail，主画面优先视觉质量与叙事角色。",
         "sectionLabel": "测量方法",
         "labelEvidenceSourceIds": [
           "a019"
         ],
-        "sectionLabelStyle": "statement"
+        "sectionLabelStyle": "statement",
+        "decorativePattern": "dot"
       },
       {
         "sectionId": "e-section-003",
@@ -256,6 +275,7 @@
           "img007"
         ],
         "compositionPreference": "asymmetric-photo-pair",
+        "preferredVisualPattern": "image-over-image",
         "transition": "whitespace",
         "groupingReason": "按 subject 组织 学生培养/portrait、学生培养/medium，主画面优先视觉质量与叙事角色。",
         "sectionLabel": "学生培养",
@@ -272,6 +292,7 @@
         "dominantAssetId": "img008",
         "secondaryAssetIds": [],
         "compositionPreference": "full-width-story",
+        "preferredVisualPattern": "label-title",
         "transition": "whitespace",
         "groupingReason": "按 subject 组织 奖项节点/wide，主画面优先视觉质量与叙事角色。",
         "sectionLabel": "奖项节点",
@@ -288,13 +309,15 @@
         "dominantAssetId": "img009",
         "secondaryAssetIds": [],
         "compositionPreference": "full-width-story",
+        "preferredVisualPattern": "framed-image",
         "transition": "whitespace",
         "groupingReason": "按 subject 组织 研究传承/detail，主画面优先视觉质量与叙事角色。",
         "sectionLabel": "研究传承",
         "labelEvidenceSourceIds": [
           "a039"
         ],
-        "sectionLabelStyle": "statement"
+        "sectionLabelStyle": "statement",
+        "decorativePattern": "line"
       }
     ],
     "reasons": {

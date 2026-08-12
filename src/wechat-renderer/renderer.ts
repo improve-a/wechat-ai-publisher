@@ -49,6 +49,8 @@ export function renderWeChatArticle(input: WeChatRenderInput): string {
         ["data-editorial-density", layout.artDirection.density],
         ["data-editorial-pace", layout.artDirection.pace],
         ["data-title-treatment", layout.artDirection.titleTreatment],
+        ["data-decorative-pattern-count", String(layout.artDirection.decorativePatternCount)],
+        ["data-decorative-density", layout.artDirection.decorativeDensity],
       ] as const) : []),
       styleAttribute(articleStyle(theme, themeVariant, layout.artDirection?.visualTone)),
     ],

@@ -12,7 +12,7 @@ import { serializeArtDirectionPlan } from "../src/art-direction";
 import { serializeAssetUnderstandingMap, serializeEditorialPlan } from "../src/editorial";
 import { serializeLayoutAST } from "../src/layout-ast";
 
-const ROOT = process.env.EDITORIAL_V2_LIVE_ARTIFACT_ROOT?.trim() || "artifacts/editorial-acceptance-v2/live-ai";
+const ROOT = process.env.EDITORIAL_V2_LIVE_ARTIFACT_ROOT?.trim() || "artifacts/editorial-acceptance-v2/live-contract-v2";
 const MARKER = join(ROOT, "run-once-marker.json");
 const LEDGER = join(ROOT, "request-ledger.json");
 const RESULT = join(ROOT, "acceptance.json");
@@ -85,12 +85,16 @@ async function main(): Promise<void> {
       result: validation.valid && sourceExactlyOnce && sourceOrderPreserved ? "PASS" : "FAIL",
       attempts: planner.attempts,
       repairTriggered: planner.attempts > 1,
+      initialSchemaPass: planner.initialSchemaPass,
+      canonicalizations: planner.canonicalizations.map((item) => ({ event: "CANONICALIZATION_APPLIED", ...item })),
+      unaffectedFieldStability: planner.unaffectedFieldStability,
       requestCount: requests.length,
       diagnostics: planner.diagnostics,
       sourceExactlyOnce,
       sourceOrderPreserved,
       previewValidation: validation,
       compositionSequence: planner.layout.blocks.filter((block) => block.provenance.kind === "editorial-composition").map((block) => block.component),
+      visualPatternSequence: planner.layout.blocks.flatMap((block) => block.visualPattern ? [block.visualPattern] : []),
     });
   }
 
@@ -98,7 +102,8 @@ async function main(): Promise<void> {
   const repairCount = records.filter((record) => record.mode === "repair").length;
   const apiFailure = records.filter((record) => record.status !== "success").length;
   const passed = results.filter((item) => item.result === "PASS").length;
-  const liveResult = passed === REALISTIC_EDITORIAL_ACCEPTANCE_SET_V2.length && apiFailure === 0 ? "PASS" : "FAIL";
+  const initialSchemaPass = results.filter((item) => item.initialSchemaPass === true).length;
+  const liveResult = passed === REALISTIC_EDITORIAL_ACCEPTANCE_SET_V2.length && apiFailure === 0 && initialSchemaPass >= 6 && repairCount <= 1 ? "PASS" : "FAIL";
   const acceptance = {
     acceptanceSet: "REALISTIC_EDITORIAL_ACCEPTANCE_SET_V2",
     liveAcceptanceRunCount: 1,
@@ -108,6 +113,7 @@ async function main(): Promise<void> {
     completedAt: new Date().toISOString(),
     liveAiRequestCount: records.length,
     repairCount,
+    initialSchemaPass,
     apiFailure,
     tokenUsage,
     liveResult,
@@ -122,6 +128,7 @@ async function main(): Promise<void> {
   console.log(`LIVE_AI_MODEL=${DEEPSEEK_LIVE_MODEL}`);
   console.log(`LIVE_AI_REQUEST_COUNT=${records.length}`);
   console.log(`REPAIR_COUNT=${repairCount}`);
+  console.log(`LIVE_INITIAL_SCHEMA_PASS=${initialSchemaPass}/7`);
   console.log(`API_FAILURE=${apiFailure}`);
   console.log(`TOKEN_USAGE=${JSON.stringify(tokenUsage)}`);
   console.log(`LIVE_AI_RESULT=${liveResult}`);

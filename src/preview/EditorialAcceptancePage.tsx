@@ -18,9 +18,17 @@ export function EditorialAcceptancePage() {
   const result = useMemo(() => {
     const editorialPlan = planEditorialDeterministically(fixture.article, fixture.assetUnderstanding);
     const artDirection = planArtDirectionDeterministically(fixture.article, fixture.assetUnderstanding, editorialPlan);
+    const compiled = compileEditorialPlan(editorialPlan, fixture.article, fixture.assetUnderstanding, artDirection);
     const layout = branch === "baseline"
       ? planLegacyMappingBaseline(fixture.article)
-      : compileEditorialPlan(editorialPlan, fixture.article, fixture.assetUnderstanding, artDirection);
+      : {
+          ...compiled,
+          blocks: compiled.blocks.map(({ visualPattern: _visualPattern, ...block }) => block),
+          artDirection: {
+            ...artDirection, decorativePatternCount: 0, decorativeDensity: "none" as const, decorativePatterns: [],
+            sections: artDirection.sections.map(({ decorativePattern: _decorativePattern, ...section }) => section),
+          },
+        };
     const resolvedAssets = resolveArticleAssets(fixture.article, {
       previewUrlByAssetId: fixture.previewUrlByAssetId,
     });

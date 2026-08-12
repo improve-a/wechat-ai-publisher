@@ -5,6 +5,7 @@ import type { ComponentId, ComponentRegistryEntry } from "../components/types";
 import { COMPOSITION_IDS, compositionRegistry, type CompositionId } from "../compositions";
 import { themeRegistry } from "../themes/registry";
 import type { ComponentVariantId, ThemeId } from "../themes/types";
+import { isVisualPatternCompatible } from "../visual-patterns";
 import { validateBlockCompatibility } from "./compatibility";
 import { parseLayoutCandidate, validateLayoutASTShape } from "./schema";
 import {
@@ -141,6 +142,15 @@ function validateCanonicalAgainstArticle(
           layoutBlockId: layoutBlock.id,
         });
       }
+    }
+
+    if (layoutBlock.visualPattern) {
+      if (!COMPOSITION_IDS.includes(layoutBlock.component as CompositionId)) diagnostics.push({
+        code: "VISUAL_PATTERN_COMPOSITION_REQUIRED", message: `${layoutBlock.visualPattern} requires a registered composition`, layoutBlockId: layoutBlock.id,
+      });
+      else if (!isVisualPatternCompatible(layoutBlock.visualPattern, layoutBlock.component as CompositionId, layoutBlock.assetIds?.length ?? 0)) diagnostics.push({
+        code: "VISUAL_PATTERN_INCOMPATIBLE", message: `${layoutBlock.visualPattern} cannot present ${layoutBlock.component} with ${layoutBlock.assetIds?.length ?? 0} assets`, layoutBlockId: layoutBlock.id,
+      });
     }
 
     if (layoutBlock.provenance.kind === "article-title") {
@@ -372,6 +382,7 @@ export function normalizeLayoutCandidate(
       ),
       provenance: block.provenance,
       ...(block.assetIds ? { assetIds: [...block.assetIds] } : {}),
+      ...(block.visualPattern ? { visualPattern: block.visualPattern } : {}),
     })),
     assetPlacements: candidate.assetPlacements
       ? candidate.assetPlacements.map((placement) => ({ ...placement }))

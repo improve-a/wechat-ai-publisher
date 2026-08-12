@@ -1,4 +1,5 @@
 import type { CompositionId } from "../compositions";
+import type { DecorativeDensity, DecorativePatternId, StyleBrief, VisualPatternId } from "../visual-patterns";
 
 export const ART_DIRECTION_PLAN_SCHEMA_VERSION = "1" as const;
 
@@ -49,11 +50,13 @@ export interface SectionArtDirection {
   dominantAssetId?: string;
   secondaryAssetIds: string[];
   compositionPreference: SectionCompositionPreference;
+  preferredVisualPattern: VisualPatternId;
   transition: TransitionStyle;
   groupingReason: string;
   sectionLabel?: string;
   labelEvidenceSourceIds?: string[];
   sectionLabelStyle?: SectionLabelStyle;
+  decorativePattern?: DecorativePatternId;
 }
 
 export interface ArtDirectionReasons {
@@ -81,6 +84,12 @@ export interface ArtDirectionPlan {
   closingStrategy: ClosingStrategy;
   heroAssetId?: string;
   closingAssetId?: string;
+  openingVisualPattern: VisualPatternId;
+  closingVisualPattern?: VisualPatternId;
+  decorativePatternCount: number;
+  decorativeDensity: DecorativeDensity;
+  decorativePatterns: DecorativePatternId[];
+  styleBrief?: StyleBrief;
   sections: SectionArtDirection[];
   reasons: ArtDirectionReasons;
 }

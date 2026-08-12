@@ -2,10 +2,18 @@ import { validateArticleAST, type ArticleAST, type ArticleBlock } from "../artic
 import { validateAssetUnderstandingMap, validateEditorialPlan, type AssetUnderstanding, type AssetUnderstandingMap, type EditorialArticleType, type EditorialPlan } from "../editorial";
 import type { ArtDirectionPlan, SectionArtDirection } from "./types";
 import { validateArtDirectionPlan } from "./validator";
+import {
+  selectOpeningVisualPattern, selectVisualPattern,
+  type DecorativePatternId, type StyleBrief, type VisualPatternId,
+} from "../visual-patterns";
 
 const GENERIC = /^(现场与过程|精彩瞬间|活动现场|更多内容|回望|现场|过程|高光时刻|图片故事)$/u;
 
-type Grammar = Omit<ArtDirectionPlan, "schemaVersion" | "heroAssetId" | "closingAssetId" | "sections" | "reasons">;
+type Grammar = Omit<ArtDirectionPlan,
+  "schemaVersion" | "heroAssetId" | "closingAssetId" | "sections" | "reasons" |
+  "openingVisualPattern" | "closingVisualPattern" | "decorativePatternCount" |
+  "decorativeDensity" | "decorativePatterns" | "styleBrief"
+>;
 
 const GRAMMARS: Record<EditorialArticleType, Grammar> = {
   welcome: { visualTone: "official-youth", density: "airy", pace: "dynamic", mediaDominance: "image-led", textDominance: "restrained", sectionRhythm: "alternating", titleTreatment: "editorial", sectionTitleTreatment: "eyebrow", imageTreatment: "asymmetric", captionTreatment: "editorial", groupingStrategy: "scene", transitionStyle: "image-bridge", emphasisStrategy: "image-led", closingStrategy: "group-photo" },
@@ -83,6 +91,7 @@ export function planArtDirectionDeterministically(
   articleValue: ArticleAST,
   understandingValue: AssetUnderstandingMap,
   editorialValue: EditorialPlan,
+  styleBrief?: StyleBrief,
 ): ArtDirectionPlan {
   const article = validateArticleAST(articleValue);
   const understanding = validateAssetUnderstandingMap(understandingValue, article);
@@ -90,6 +99,8 @@ export function planArtDirectionDeterministically(
   const grammar = GRAMMARS[editorial.articleType];
   const blockById = new Map(article.blocks.map((block) => [block.id, block]));
   const assetById = new Map(understanding.assets.map((asset) => [asset.assetId, asset]));
+  const patternSequence: VisualPatternId[] = [];
+  const decorationVocabulary: DecorativePatternId[] = ["line", "dot", "diamond", "asymmetric-corner"];
   const sectionDirections = editorial.sections.map((section, index): SectionArtDirection => {
     const sources = section.sourceBlockIds.map((id) => blockById.get(id)!);
     const assets = section.assetIds.map((id) => assetById.get(id)!).filter(Boolean);
@@ -99,6 +110,12 @@ export function planArtDirectionDeterministically(
       ? (last || index >= Math.floor(editorial.sections.length * 0.6) ? "climax" : "strong")
       : assets.length ? (last ? "strong" : "normal") : "quiet";
     const label = sourceLabel(sources, dominant);
+    const compositionPreference = preference(editorial.articleType, sources, assets, visualWeight);
+    const preferredVisualPattern = selectVisualPattern(
+      compositionPreference, editorial.articleType, assets, patternSequence, index, styleBrief,
+    );
+    patternSequence.push(preferredVisualPattern);
+    const decorate = index > 0 && index % 3 === 1 && styleBrief?.refinementLevel !== "clean";
     return {
       sectionId: section.id,
       visualWeight,
@@ -106,7 +123,8 @@ export function planArtDirectionDeterministically(
       pace: visualWeight === "climax" ? "dynamic" : grammar.pace,
       ...(dominant ? { dominantAssetId: dominant.assetId } : {}),
       secondaryAssetIds: assets.filter((asset) => asset.assetId !== dominant?.assetId).map((asset) => asset.assetId),
-      compositionPreference: preference(editorial.articleType, sources, assets, visualWeight),
+      compositionPreference,
+      preferredVisualPattern,
       transition: index === 0 ? "none" : visualWeight === "climax" ? "image-bridge" : grammar.transitionStyle,
       groupingReason: assets.length
         ? `按 ${grammar.groupingStrategy} 组织 ${assets.map((asset) => `${asset.scene}/${asset.shotType}`).join("、")}，主画面优先视觉质量与叙事角色。`
@@ -122,12 +140,22 @@ export function planArtDirectionDeterministically(
                 : grammar.sectionTitleTreatment,
           }
         : { sectionLabelStyle: "none" as const }),
+      ...(decorate ? { decorativePattern: decorationVocabulary[index % decorationVocabulary.length] } : {}),
     };
   });
   const heroAssetId = editorial.hero?.assetIds[0];
   const closingAssetId = editorial.closing?.assetIds[0];
   const hero = heroAssetId ? assetById.get(heroAssetId) : undefined;
   const closing = closingAssetId ? assetById.get(closingAssetId) : undefined;
+  const heroAssets = editorial.hero?.assetIds.map((id) => assetById.get(id)!).filter(Boolean) ?? [];
+  const openingVisualPattern = selectOpeningVisualPattern(editorial.articleType, heroAssets, styleBrief);
+  const closingAssets = editorial.closing?.assetIds.map((id) => assetById.get(id)!).filter(Boolean) ?? [];
+  const closingVisualPattern = editorial.closing && closingAssets.length
+    ? selectVisualPattern("closing-visual", editorial.articleType, closingAssets, patternSequence, sectionDirections.length, styleBrief)
+    : undefined;
+  const decorativeDensity = styleBrief?.refinementLevel === "clean" ? "none" as const
+    : styleBrief?.refinementLevel === "rich" ? "restrained" as const : "sparse" as const;
+  const decorativePatternCount = decorativeDensity === "none" ? 0 : Math.min(4, sectionDirections.filter((section) => section.decorativePattern).length + 1);
   const dominantReasons = sectionDirections.filter((section) => section.dominantAssetId).map((section) => {
     const asset = assetById.get(section.dominantAssetId!);
     return `${section.sectionId}:${asset?.shotType}/${asset?.orientation}/${asset?.visualQuality}`;
@@ -136,6 +164,12 @@ export function planArtDirectionDeterministically(
     schemaVersion: "1", ...grammar,
     ...(heroAssetId ? { heroAssetId } : {}),
     ...(closingAssetId ? { closingAssetId } : {}),
+    openingVisualPattern,
+    ...(closingVisualPattern ? { closingVisualPattern } : {}),
+    decorativePatternCount,
+    decorativeDensity,
+    decorativePatterns: decorationVocabulary.slice(0, decorativePatternCount),
+    ...(styleBrief ? { styleBrief } : {}),
     sections: sectionDirections,
     reasons: {
       whyThisHero: hero ? `${hero.assetId} 是 ${hero.shotType} 景别、${hero.orientation} 构图、${hero.visualQuality} 质量，并承担 ${hero.semanticRoles.join("/")} 角色。` : "文章没有满足来源连续性与主视觉角色约束的 hero 资产。",

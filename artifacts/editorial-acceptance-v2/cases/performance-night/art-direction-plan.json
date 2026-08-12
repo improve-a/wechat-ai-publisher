@@ -16,6 +16,15 @@
   "closingStrategy": "visual-echo",
   "heroAssetId": "img001",
   "closingAssetId": "img010",
+  "openingVisualPattern": "full-image-hero",
+  "closingVisualPattern": "full-width-image",
+  "decorativePatternCount": 3,
+  "decorativeDensity": "sparse",
+  "decorativePatterns": [
+    "line",
+    "dot",
+    "diamond"
+  ],
   "sections": [
     {
       "sectionId": "e-section-001",
@@ -27,6 +36,7 @@
         "img003"
       ],
       "compositionPreference": "asymmetric-photo-pair",
+      "preferredVisualPattern": "full-width-image",
       "transition": "none",
       "groupingReason": "按 sequence 组织 开场准备/wide、开场准备/detail，主画面优先视觉质量与叙事角色。",
       "sectionLabel": "开场准备",
@@ -45,13 +55,15 @@
         "img005"
       ],
       "compositionPreference": "asymmetric-photo-pair",
+      "preferredVisualPattern": "large-number-side-title",
       "transition": "image-bridge",
       "groupingReason": "按 sequence 组织 第一次合奏/wide、第一次合奏/close-up，主画面优先视觉质量与叙事角色。",
       "sectionLabel": "第一次合奏",
       "labelEvidenceSourceIds": [
         "a016"
       ],
-      "sectionLabelStyle": "minimal"
+      "sectionLabelStyle": "minimal",
+      "decorativePattern": "dot"
     },
     {
       "sectionId": "e-section-003",
@@ -63,6 +75,7 @@
         "img006"
       ],
       "compositionPreference": "visual-climax",
+      "preferredVisualPattern": "full-width-image",
       "transition": "image-bridge",
       "groupingReason": "按 sequence 组织 独奏时刻/portrait、独奏时刻/detail，主画面优先视觉质量与叙事角色。",
       "sectionLabel": "独奏时刻",
@@ -79,6 +92,7 @@
       "dominantAssetId": "img008",
       "secondaryAssetIds": [],
       "compositionPreference": "poster-feature",
+      "preferredVisualPattern": "large-number-side-title",
       "transition": "image-bridge",
       "groupingReason": "按 sequence 组织 演出识别/other，主画面优先视觉质量与叙事角色。",
       "sectionLabel": "演出识别",
@@ -95,13 +109,15 @@
       "dominantAssetId": "img009",
       "secondaryAssetIds": [],
       "compositionPreference": "visual-climax",
+      "preferredVisualPattern": "full-width-image",
       "transition": "image-bridge",
       "groupingReason": "按 sequence 组织 谢幕高潮/wide，主画面优先视觉质量与叙事角色。",
       "sectionLabel": "谢幕高潮",
       "labelEvidenceSourceIds": [
         "a039"
       ],
-      "sectionLabelStyle": "minimal"
+      "sectionLabelStyle": "minimal",
+      "decorativePattern": "line"
     }
   ],
   "reasons": {

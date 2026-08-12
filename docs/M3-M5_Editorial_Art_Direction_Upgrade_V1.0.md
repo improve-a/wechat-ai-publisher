@@ -12,6 +12,8 @@ ArticleAST + AssetUnderstandingMap + UserRequest
   → EditorialPlan
   → Art Direction Planner / Policy
   → ArtDirectionPlan
+  → Composition
+  → VisualPattern Selection
   → Composition Compiler
   → LayoutAST
   → WeChat Renderer
@@ -36,7 +38,7 @@ transitionStyle, emphasisStrategy, closingStrategy
 ```text
 sectionId, visualWeight, density, pace,
 dominantAssetId?, secondaryAssetIds,
-compositionPreference, transition, groupingReason,
+compositionPreference, preferredVisualPattern, transition, groupingReason,
 sectionLabel?, labelEvidenceSourceIds?, sectionLabelStyle?
 ```
 
@@ -77,7 +79,7 @@ Renderer 改动：
 
 - `achievement-spotlight` 和语义表格保留 card surface；普通 Composition 默认 flat；
 - hero、组图、人物、演出、实践和 closing 不再默认加背景、边框、圆角；
-- `asymmetric-photo-pair` 使用 63% / 35% inline-block，保留来源顺序且不依赖 CSS Grid；
+- 非对称图片 Pattern 使用 60/40、55/45、large + detail 的微信安全近似比例，列总宽不超过 92%，保留来源顺序且不依赖 CSS Grid；
 - `photo-grid / visual-climax` 使用一张主图加后续双列，主画面由 sidecar 评分决定；
 - portrait / poster 采用受控窄幅居中；
 - `visualTone` 只映射到 Renderer 内部受控语义色，ArtDirectionPlan 不含颜色；当前包含绿、棕、梅红、蓝、琥珀等语义强调，不再只有绿色；
@@ -184,37 +186,36 @@ OFFICIAL_ACCOUNT_LEVEL=AWAITING_HUMAN_REVIEW
 - `colspan / rowspan / merged cells` 仍不属于当前 Table 合同；
 - 本次不涉及 M1 视觉组件重做，不涉及 M6 / M7，不包含发布或自动合并。
 
-## 10. 唯一一次 DeepSeek V2 Live Acceptance
+## 10. 唯一一次新 DeepSeek V2 Live Acceptance
 
-本轮在所有离线和 Chromium Gate 通过后执行了一次、且仅一次 V2 Live Acceptance。一次运行覆盖 7 篇文章，沿用 `MAX_MODEL_ATTEMPTS=2`，因此实际调用 14 次。
+在 Visual Pattern、single-source prompt contract、canonicalizer、targeted repair 和全部离线/Chromium Gate 通过后，执行了一次、且仅一次新的 V2 Live Acceptance。7 篇文章全部首次通过 strict schema，未触发 repair 或 canonicalization。
 
 ```text
 LIVE_AI_MODEL=deepseek-v4-flash
 LIVE_ACCEPTANCE_RUN_COUNT=1
-LIVE_AI_REQUEST_COUNT=14
-REPAIR_COUNT=7
+LIVE_AI_REQUEST_COUNT=7
+LIVE_INITIAL_SCHEMA_PASS=7/7
+REPAIR_COUNT=0
 API_FAILURE=0
-PROMPT_TOKENS=99872
-PROMPT_CACHE_HIT_TOKENS=8960
-PROMPT_CACHE_MISS_TOKENS=90912
-COMPLETION_TOKENS=9084
-TOTAL_TOKENS=108956
-PASSED_ARTICLES=4/7
-LIVE_AI_RESULT=FAIL
+PROMPT_TOKENS=50846
+PROMPT_CACHE_HIT_TOKENS=4480
+PROMPT_CACHE_MISS_TOKENS=46366
+COMPLETION_TOKENS=5168
+TOTAL_TOKENS=56014
+PASSED_ARTICLES=7/7
+SOURCE_EXACTLY_ONCE=7/7
+SOURCE_ORDER_PRESERVED=7/7
+M4_M5=7/7
+LIVE_AI_RESULT=PASS
 ```
-
-4 篇在 repair 后通过来源、顺序、Renderer 和 Validator；3 篇在第二次输出后仍未通过 strict EditorialPlan schema。失败原因不是 API 故障：
-
-- 模型在 hero / closing 中保留了 section-only 的 `role` 字段；
-- 模型在普通 section 中选择了 hero / closing 专用 Composition intent。
-
-Live 后没有再次调用 API。根据诊断，Planner prompt 已补充 hero / section / closing 的互斥 shape、strict key 删除要求和 section intent 禁止项，并加入本地 provider 断言；该修正只做离线验证，不伪造新的 Live PASS。
 
 完整记录：
 
-- `artifacts/editorial-acceptance-v2/live-ai/acceptance.json`
-- `artifacts/editorial-acceptance-v2/live-ai/request-ledger.json`
-- `artifacts/editorial-acceptance-v2/live-ai/run-once-marker.json`
+- `artifacts/editorial-acceptance-v2/live-contract-v2/acceptance.json`
+- `artifacts/editorial-acceptance-v2/live-contract-v2/request-ledger.json`
+- `artifacts/editorial-acceptance-v2/live-contract-v2/run-once-marker.json`
+
+旧的失败运行仍保留在 `artifacts/editorial-acceptance-v2/live-ai/`，作为修复前基线，不覆盖、不伪造。
 
 ## 11. 工程侧截图自审
 
@@ -241,7 +242,7 @@ CARD_SURFACE_RATIO=0.075
 GENERIC_SECTION_LABEL_RATIO=0
 TEMPLATE_REPETITION_RESULT=PASS (average sequence similarity 0.599)
 ARTICLE_TYPE_VISUAL_DIFFERENTIATION_RESULT=PASS
-REALISTIC_EDITORIAL_ACCEPTANCE_RESULT=OFFLINE_PASS; LIVE_4_OF_7
+REALISTIC_EDITORIAL_ACCEPTANCE_RESULT=OFFLINE_PASS; LIVE_7_OF_7
 375PX_CHROMIUM_RESULT=PASS
 CONTENT_DOM_FIDELITY_RESULT=PASS
 ASSET_COVERAGE_RESULT=PASS
@@ -252,9 +253,56 @@ M4_RESULT=PASS
 M5_RESULT=PASS
 BUILD_RESULT=PASS
 LIVE_AI_MODEL=deepseek-v4-flash
-LIVE_AI_REQUEST_COUNT=14
-LIVE_AI_RESULT=FAIL
+LIVE_AI_REQUEST_COUNT=7
+LIVE_INITIAL_SCHEMA_PASS=7/7
+LIVE_REPAIR_COUNT=0
+LIVE_AI_RESULT=PASS
 HUMAN_EDITORIAL_VISUAL_REVIEW_REQUIRED=YES
-FINAL_RESULT=ENGINEERING_GATES_PASS_LIVE_PARTIAL_FAIL
+FINAL_RESULT=ENGINEERING_GATES_AND_LIVE_CONTRACT_PASS
 NEXT_STATE=HUMAN_EDITORIAL_VISUAL_REVIEW; DO_NOT_START_M6
 ```
+
+## 13. Visual Pattern 与 Live Contract Reliability 升级
+
+外部能力采纳审计见 [EXTERNAL_VISUAL_PATTERN_ADOPTION_AUDIT_V1.0.md](./EXTERNAL_VISUAL_PATTERN_ADOPTION_AUDIT_V1.0.md)。实现保持 Composition 为语义组合，Visual Pattern 只描述同一组合的受控呈现：
+
+```text
+Composition = photo-pair
+VisualPattern = asymmetric-pair | staggered-pair | large-plus-detail | image-over-image
+```
+
+首版冻结 18 个 Pattern，覆盖 opening、section-title、image 三个 family。合同包含 Composition、稿型、资产数量、方向、景别、微信安全等级、视觉重量、密度影响及 caption/overlap/asymmetry/decoration capability；不存在自由 CSS 字段。`ArtDirectionPlan` 记录 `openingVisualPattern`、章节 `preferredVisualPattern`、可选 `closingVisualPattern`，并以 `decorativePatternCount / decorativeDensity / decorativePatterns` 约束装饰预算。
+
+微信安全实现包括：normal flow + controlled negative margin 的 title-over-image / image-over-image，独立行容器和安全总宽的非对称双图，按稿型选择的编号标题，text-first / compact opening，以及 framed / isolated poster。长正文不允许进入 overlap。
+
+DeepSeek 合同增加：
+
+- 由 Editorial Schema、Composition Registry 和 capability registry 生成的 prompt contract；
+- 只删除 `hero.role=opening`、`closing.role=closing` 这类天然冗余字段的可审计 canonicalizer；
+- `CANONICALIZATION_APPLIED field reason` 记录；
+- 包含原候选、精确诊断路径和该路径合法值的 targeted repair；
+- `UNAFFECTED_FIELD_STABILITY` 机器验证，阻止 repair 重新策划未报错字段。
+
+最新离线和 Chromium 指标：
+
+```text
+VISUAL_PATTERN_COUNT=18
+V2_PATTERN_COUNT=49
+V2_UNIQUE_VISUAL_PATTERNS=14
+MAX_PATTERN_REUSE_RATIO=0.571
+MAX_CONSECUTIVE_SAME_PATTERN=2
+AVERAGE_PATTERN_SEQUENCE_SIMILARITY=0.265
+ARTICLE_TYPE_PATTERN_DIVERSITY=PASS
+CARD_SURFACE_RATIO=0.075
+GENERIC_SECTION_LABEL_RATIO=0
+375PX_CHROMIUM=14/14 PASS
+OFFICIAL_ACCOUNT_LEVEL=AWAITING_HUMAN_REVIEW
+```
+
+最新对照图位于：
+
+```text
+artifacts/editorial-acceptance-v2/visual-pattern-upgrade/screenshots/
+```
+
+共 14 张：7 张 `previous-art-direction` 与 7 张 `visual-pattern-upgrade`。人工评分固定为 `EDITORIAL_HIERARCHY`、`PHOTO_STORYTELLING`、`VISUAL_PATTERN_RICHNESS`、`PATTERN_RESTRAINT`、`ARTICLE_TYPE_FIT`、`SECTION_RHYTHM`、`IMAGE_TEXT_RELATION`、`NON_TEMPLATE_FEEL`、`WECHAT_NATIVE_FEEL`、`OFFICIAL_ACCOUNT_PLAUSIBILITY`；机器不宣称官方号水准 PASS。

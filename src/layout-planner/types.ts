@@ -7,13 +7,16 @@ import type {
 } from "../editorial";
 import type { LayoutAST } from "../layout-ast";
 import type { ThemeId } from "../themes/types";
+import type { StyleBrief } from "../visual-patterns";
 import type { ArticleContentSignals } from "./contentAnalysis";
+import type { CanonicalizationRecord, RepairTarget } from "./contract";
 
 export interface LayoutPlannerInput {
   article: ArticleAST;
   userRequest?: string;
   requestedTheme?: ThemeId;
   assetUnderstanding?: AssetUnderstandingMap;
+  styleBrief?: StyleBrief;
 }
 
 export interface EditorialPlannerRequest {
@@ -42,9 +45,11 @@ export interface EditorialPlannerRequest {
     }>;
     articleTypes: EditorialArticleType[];
     sectionRoles: EditorialSectionRole[];
+    promptContract: Record<string, unknown>;
   };
   previousPlan?: unknown;
   diagnostics?: EditorialDiagnostic[];
+  repairTargets?: RepairTarget[];
 }
 
 export interface EditorialPlannerClient {
@@ -65,6 +70,9 @@ export type LayoutPlannerResult =
       assetUnderstanding: AssetUnderstandingMap;
       attempts: number;
       diagnostics: EditorialDiagnostic[];
+      initialSchemaPass: boolean;
+      canonicalizations: CanonicalizationRecord[];
+      unaffectedFieldStability: "PASS" | "NOT_APPLICABLE";
     }
   | {
       ok: false;

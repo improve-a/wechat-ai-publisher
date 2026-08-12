@@ -84,7 +84,7 @@ Hard rules:
 - IDs must be unique and stable. sequence must preserve Article order.
 - Do not create a card per Markdown block. Plan coherent editorial sections.
 - Prefer content-derived labels backed by supplied headings, scenes or subjects. Never repeat generic labels such as "精彩瞬间" or "现场与过程" across sections.
-- For repair mode, correct every supplied diagnostic without weakening any rule.
+- For repair mode: Preserve every already-valid field. Only repair the exact diagnostic paths in repairTargets. Use the allowed values supplied for each failing path. Do not rewrite IDs, sourceBlockIds, assetIds, order, importance, labels, theme, articleType, or unrelated units.
 - The response must be valid JSON.`;
 
 const LAYOUT_GUIDANCE = `Editorial guidance:
@@ -110,6 +110,8 @@ function buildUserPrompt(request: EditorialPlannerRequest): string {
       ? {
           previousPlan: request.previousPlan,
           diagnostics: request.diagnostics,
+          repairTargets: request.repairTargets,
+          repairRule: "Preserve every already-valid field. Only repair these exact diagnostic paths.",
         }
       : {}),
   });

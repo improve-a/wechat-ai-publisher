@@ -24,6 +24,9 @@
     "check:editorial:v2": "vitest run tests/editorial/art-direction-v2.test.ts",
     "export:editorial:v2": "tsx scripts/export-editorial-v2-artifacts.ts",
     "check:editorial:v2:all": "npm run check:editorial:v2 && npm run check:editorial:v2:browser && npm run export:editorial:v2",
+    "check:visual-patterns": "vitest run tests/editorial/visual-patterns.test.ts",
+    "check:visual-pattern-repetition": "vitest run tests/editorial/visual-pattern-repetition.test.ts",
+    "check:live-contract": "vitest run tests/editorial/live-contract.test.ts",
     "check:editorial:all": "npm run check:editorial && npm run check:editorial:browser && npm run check:editorial:v2:browser",
     "preview": "vite preview"
   },

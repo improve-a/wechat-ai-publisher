@@ -1,6 +1,7 @@
 import type { ComponentId } from "../components/types";
 import type { CompositionId } from "../compositions";
 import type { ArtDirectionPlan } from "../art-direction";
+import type { VisualPatternId } from "../visual-patterns";
 import type {
   ComponentVariantId,
   ThemeId,
@@ -29,6 +30,7 @@ export interface LayoutBlock {
   componentVariant: ComponentVariantId;
   provenance: LayoutProvenance;
   assetIds?: string[];
+  visualPattern?: VisualPatternId;
 }
 
 export interface LayoutAST {
@@ -46,6 +48,7 @@ export interface LayoutCandidateBlock {
   componentVariant?: ComponentVariantId;
   provenance: LayoutProvenance;
   assetIds?: string[];
+  visualPattern?: VisualPatternId;
 }
 
 export interface LayoutCandidate {

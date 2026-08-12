@@ -56,6 +56,7 @@ for (const fixture of REALISTIC_EDITORIAL_ACCEPTANCE_SET_V2) {
     sourceImageCount: fixture.article.assets.length,
     naturalSectionCount: editorial.sections.length,
     compositionSequence: layout.blocks.filter((block) => block.provenance.kind === "editorial-composition").map((block) => block.component),
+    visualPatternSequence: layout.blocks.flatMap((block) => block.visualPattern ? [block.visualPattern] : []),
     visualTone: artDirection.visualTone,
     theme: layout.theme,
     themeVariant: layout.themeVariant,

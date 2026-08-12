@@ -16,6 +16,15 @@
   "closingStrategy": "statement",
   "heroAssetId": "img001",
   "closingAssetId": "img010",
+  "openingVisualPattern": "text-first-header",
+  "closingVisualPattern": "framed-image",
+  "decorativePatternCount": 3,
+  "decorativeDensity": "sparse",
+  "decorativePatterns": [
+    "line",
+    "dot",
+    "diamond"
+  ],
   "sections": [
     {
       "sectionId": "e-section-001",
@@ -27,6 +36,7 @@
         "img003"
       ],
       "compositionPreference": "full-width-story",
+      "preferredVisualPattern": "minimal-rule-title",
       "transition": "none",
       "groupingReason": "按 evidence 组织 架构方法/detail、架构方法/close-up，主画面优先视觉质量与叙事角色。",
       "sectionLabel": "架构方法",
@@ -45,13 +55,15 @@
         "img005"
       ],
       "compositionPreference": "full-width-story",
+      "preferredVisualPattern": "full-width-image",
       "transition": "subtle-rule",
       "groupingReason": "按 evidence 组织 流片验证/detail、流片验证/medium，主画面优先视觉质量与叙事角色。",
       "sectionLabel": "流片验证",
       "labelEvidenceSourceIds": [
         "a016"
       ],
-      "sectionLabelStyle": "minimal"
+      "sectionLabelStyle": "minimal",
+      "decorativePattern": "dot"
     },
     {
       "sectionId": "e-section-003",
@@ -63,6 +75,7 @@
         "img007"
       ],
       "compositionPreference": "visual-climax",
+      "preferredVisualPattern": "large-plus-detail",
       "transition": "subtle-rule",
       "groupingReason": "按 evidence 组织 真实任务/wide、真实任务/detail，主画面优先视觉质量与叙事角色。",
       "sectionLabel": "真实任务",
@@ -79,6 +92,7 @@
       "dominantAssetId": "img008",
       "secondaryAssetIds": [],
       "compositionPreference": "achievement-spotlight",
+      "preferredVisualPattern": "minimal-rule-title",
       "transition": "subtle-rule",
       "groupingReason": "按 evidence 组织 结论边界/detail，主画面优先视觉质量与叙事角色。",
       "sectionLabel": "结论边界",
@@ -95,13 +109,15 @@
       "dominantAssetId": "img009",
       "secondaryAssetIds": [],
       "compositionPreference": "achievement-spotlight",
+      "preferredVisualPattern": "full-width-image",
       "transition": "subtle-rule",
       "groupingReason": "按 evidence 组织 开放复核/detail，主画面优先视觉质量与叙事角色。",
       "sectionLabel": "开放复核",
       "labelEvidenceSourceIds": [
         "a039"
       ],
-      "sectionLabelStyle": "minimal"
+      "sectionLabelStyle": "minimal",
+      "decorativePattern": "line"
     }
   ],
   "reasons": {

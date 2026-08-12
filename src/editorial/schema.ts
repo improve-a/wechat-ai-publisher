@@ -8,7 +8,7 @@ import {
 } from "./types";
 
 const nonBlank = z.string().trim().min(1);
-const SECTION_COMPOSITION_IDS = COMPOSITION_IDS.filter(
+export const SECTION_COMPOSITION_IDS = COMPOSITION_IDS.filter(
   (id) => id !== "hero-visual" && id !== "closing-visual",
 ) as Exclude<(typeof COMPOSITION_IDS)[number], "hero-visual" | "closing-visual">[];
 const editorialUnitShape = {

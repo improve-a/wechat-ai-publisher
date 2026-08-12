@@ -1,6 +1,6 @@
 {
   "acceptanceSet": "REALISTIC_EDITORIAL_ACCEPTANCE_SET_V2",
-  "generatedAt": "2026-08-12T08:46:20.386Z",
+  "generatedAt": "2026-08-12T09:41:30.445Z",
   "officialAccountLevel": "AWAITING_HUMAN_REVIEW",
   "cases": [
     {
@@ -19,14 +19,23 @@
         "full-width-story",
         "closing-visual"
       ],
+      "visualPatternSequence": [
+        "compact-image-header",
+        "label-title",
+        "full-width-image",
+        "label-title",
+        "full-width-image",
+        "label-title",
+        "full-width-image"
+      ],
       "visualTone": "official-youth",
       "theme": "bit-youth",
       "themeVariant": "campus",
       "determinism": {
         "editorialPlanSha256": "24766d43145f108db527e314fca2b5bb88604eb333790aabf505b3635598a15f",
-        "artDirectionPlanSha256": "19fd53e738772e601698424435f155c19b066f27a2ebe1331898d3f991c98e79",
-        "layoutAstSha256": "3a2256a5b1058974624801bf6a9b1e63d15c1d7271f8bad9faf4ac16ed3dc8c1",
-        "renderHtmlSha256": "008d69791b6298e20c787cbbbaa831411fee2cab456b8e43c3ef32f408aa1dbe"
+        "artDirectionPlanSha256": "3c3c11e1a91925b2b24e39d1d2992965f5170177a63995bbe99ae41c93edb9ae",
+        "layoutAstSha256": "40b2620c2803413972f03e37476c51b3c813839798c26f13c7948f0d1c443eba",
+        "renderHtmlSha256": "5639f131c893d1a7f67bbd8ea36a6db4fe76b77018fbc1499ccbbb6c47dd0331"
       },
       "validation": "PASS"
     },
@@ -46,14 +55,23 @@
         "achievement-spotlight",
         "closing-visual"
       ],
+      "visualPatternSequence": [
+        "title-over-image",
+        "large-plus-detail",
+        "numbered-section-title",
+        "large-plus-detail",
+        "numbered-section-title",
+        "numbered-section-title",
+        "poster-isolated"
+      ],
       "visualTone": "ceremonial",
       "theme": "bit-innovation",
       "themeVariant": "research",
       "determinism": {
         "editorialPlanSha256": "cd41844a315b31a39505c93d1b654a71abb0e9deb24b7c655fe6a90cd6c4d0ff",
-        "artDirectionPlanSha256": "040dccad07e132705656da3fc15eaa2f302b96e59a2ffbca5a9ea7f06b005963",
-        "layoutAstSha256": "7b684b784ab56376c47e6e50d22c05e4373c94cab1477acb079769a4a5d436ba",
-        "renderHtmlSha256": "ed81e5870b33c3828410e3fed4390a33b85f0ad0a5259aa383486a43e7c448db"
+        "artDirectionPlanSha256": "5a3c12d9d9fe52fad372390c3b53d61a5ac1f5d505643c97e7b13514818e5530",
+        "layoutAstSha256": "49ae2b6191d42d9674190c8cae0d3b127295142358c1c7f5d2b8e461f4eb3a8c",
+        "renderHtmlSha256": "c2978947bb8e2a7bdef22b70d35bba0e501b9cd42a9f3ae3695028c8abc96d16"
       },
       "validation": "PASS"
     },
@@ -73,14 +91,23 @@
         "full-width-story",
         "closing-visual"
       ],
+      "visualPatternSequence": [
+        "text-first-header",
+        "label-title",
+        "label-title",
+        "image-over-image",
+        "label-title",
+        "framed-image",
+        "framed-image"
+      ],
       "visualTone": "humanistic",
       "theme": "bit-official",
       "themeVariant": "default",
       "determinism": {
         "editorialPlanSha256": "d97b92855007c1d849c0ebac8ba8f24d566563d06fda203c689e87d14ad442e8",
-        "artDirectionPlanSha256": "da2a813b8aa513bc4fcaf9e355dfd785f801a6f580d7ac9eef0e168ff72d7040",
-        "layoutAstSha256": "203a04997c6b91fdc90f83a8cfd31268ef112639429cf67357721713c1001cec",
-        "renderHtmlSha256": "f2bee2e81baf6f419caf1b6e35303d7908726638116a25e1caa716078eadfb19"
+        "artDirectionPlanSha256": "8e4113f4bfcef9d2ef149e4eede14b693a67c58e0f0e884f24d122efff8a7410",
+        "layoutAstSha256": "26ce2009795e4ccdbfc87396d1d5f1a944fcfed3652dce0827d0891b70e4c557",
+        "renderHtmlSha256": "c175ec8f6276b7eead3ab79423341659f89761aedf1a2c3045801fa36b02c29d"
       },
       "validation": "PASS"
     },
@@ -100,14 +127,23 @@
         "visual-climax",
         "closing-visual"
       ],
+      "visualPatternSequence": [
+        "full-image-hero",
+        "full-width-image",
+        "large-number-side-title",
+        "full-width-image",
+        "large-number-side-title",
+        "full-width-image",
+        "full-width-image"
+      ],
       "visualTone": "theatrical",
       "theme": "bit-youth",
       "themeVariant": "story",
       "determinism": {
         "editorialPlanSha256": "0a9e1a0037629488a75af33e8dca33316dabd2d969c2b3c0e824c8747638e09d",
-        "artDirectionPlanSha256": "42d3ced506a4069d879d6903247a455a9b5538b1af4473f1afde3c2455ea21ef",
-        "layoutAstSha256": "62fcfbdee6b44d97b289ac2b8af87281f0413936890c51f0b15c0ed77ba0fa8d",
-        "renderHtmlSha256": "2e8f097477ef73c53d2f4bfb86aa4668a0a68f6eb26200df6fbf611464eff7e3"
+        "artDirectionPlanSha256": "3fa624c051303431d15c404c2a276da00b8ff577c2a512e5151915a59cccde05",
+        "layoutAstSha256": "7e5b439e01ee7a06af6628254f871fe489ca0afcc4f491fc8bfa7f0cfcdec19e",
+        "renderHtmlSha256": "9b6391f813841669c3cd3db2c7a74c868c7d93c299a4313abd10756e788d553f"
       },
       "validation": "PASS"
     },
@@ -127,14 +163,23 @@
         "achievement-spotlight",
         "closing-visual"
       ],
+      "visualPatternSequence": [
+        "text-first-header",
+        "minimal-rule-title",
+        "full-width-image",
+        "large-plus-detail",
+        "minimal-rule-title",
+        "full-width-image",
+        "framed-image"
+      ],
       "visualTone": "technical",
       "theme": "bit-innovation",
       "themeVariant": "research",
       "determinism": {
         "editorialPlanSha256": "120307318fd7ec4b61b247e348d9548c8dd659fa90da971841e32d41852394a6",
-        "artDirectionPlanSha256": "523a5f510e4c2db1e6967eecd980d8bc30073de5584c6a9042e09a2bd764214c",
-        "layoutAstSha256": "57d8abb5d5da70126c8af019015c1dd83f3b5733263efbdd180012b0f7ecd872",
-        "renderHtmlSha256": "23e746b87f5d49fea9daeeb247516a8fe78e379c700c277c62fc01e3fea7c9cf"
+        "artDirectionPlanSha256": "91e76800203f9a65bc12dc3d2e0416242a7c0fe6aad763a1b56afad0648653fe",
+        "layoutAstSha256": "60c6a59a2f693fdb979ba0e2715d77527b6441e1ad13f32d1dcbe1bab47f320d",
+        "renderHtmlSha256": "a80d9076f4afb4671b92d746bef26b301b16502d89b5e1ab5d2737b8b3942094"
       },
       "validation": "PASS"
     },
@@ -154,14 +199,23 @@
         "full-width-story",
         "closing-visual"
       ],
+      "visualPatternSequence": [
+        "compact-image-header",
+        "numbered-section-title",
+        "full-width-image",
+        "numbered-section-title",
+        "full-width-image",
+        "numbered-section-title",
+        "full-width-image"
+      ],
       "visualTone": "documentary",
       "theme": "bit-official",
       "themeVariant": "notice",
       "determinism": {
         "editorialPlanSha256": "730a52e0295bd04e3745992fbcdbe7364f198cbb5cc77081aac58958ac8c90ed",
-        "artDirectionPlanSha256": "5d90422c8222e6b88f3eb0ea34df9c8b64990283c46cd4ccba5a387e68521009",
-        "layoutAstSha256": "4962799536af2c231667982bdfc8b546a4d082c9cf9876319cca77ed1ca75875",
-        "renderHtmlSha256": "7aac8907a499dce7f38ed49ba849dd525aa8d943902b15234c7d42e588554672"
+        "artDirectionPlanSha256": "06a59b47bf3a769e6a084a7e0e2af42d96f0a6cfe358dcc3eea170d577a115c8",
+        "layoutAstSha256": "b9e5611cbf30451ec2122f190ca4841af06eaeecfb35766a2263f077cbf416de",
+        "renderHtmlSha256": "e2c0626c7d3206ba5980cdc8e1ee829f381aeb75449a52b6dbbdfb6c72310abb"
       },
       "validation": "PASS"
     },
@@ -181,14 +235,23 @@
         "full-width-story",
         "closing-visual"
       ],
+      "visualPatternSequence": [
+        "title-over-image",
+        "asymmetric-pair",
+        "full-width-image",
+        "asymmetric-pair",
+        "numbered-section-title",
+        "full-width-image",
+        "full-width-image"
+      ],
       "visualTone": "documentary",
       "theme": "bit-official",
       "themeVariant": "default",
       "determinism": {
         "editorialPlanSha256": "9cd7e0415370264f29dc11f1c35f17281b97e9403a3f4d6a635d8456ef6efcab",
-        "artDirectionPlanSha256": "c4e8abecfc2b99de20db8a3a1c159d120faafa0cce11eb0e64abe303e35f3da7",
-        "layoutAstSha256": "b44384a84055bb91ecf97cd5e6aed09a74d2db7c75bb94c3f54585df560dd673",
-        "renderHtmlSha256": "197c7df34ccdca4d6a01253fc9b3697e0cdfa2f6d1585768d4b6d76266ed86ea"
+        "artDirectionPlanSha256": "7f94eb593f1284e87250a261c1522f3e7b78ae02d735333606c38e1c2a2ba884",
+        "layoutAstSha256": "f0eaf2e264e6ac9f7ea31a075ec491d5ed789739782c02ad8056cc689c7dcb61",
+        "renderHtmlSha256": "ef5c8e15d04b236557ce3d477770a206817560fbfb919f2f2d8cba077b0572c6"
       },
       "validation": "PASS"
     }

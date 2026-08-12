@@ -1,0 +1,330 @@
+{
+  "schemaVersion": "1",
+  "theme": "bit-innovation",
+  "themeVariant": "research",
+  "blocks": [
+    {
+      "id": "l001",
+      "component": "hero-visual",
+      "componentVariant": "default",
+      "provenance": {
+        "kind": "editorial-composition",
+        "sourceBlockIds": [
+          "a001",
+          "a002",
+          "a003"
+        ],
+        "usesArticleTitle": true,
+        "editorialUnitId": "e-hero-001"
+      },
+      "assetIds": [
+        "img001"
+      ],
+      "visualPattern": "text-first-header"
+    },
+    {
+      "id": "l002",
+      "component": "full-width-story",
+      "componentVariant": "default",
+      "provenance": {
+        "kind": "editorial-composition",
+        "sourceBlockIds": [
+          "a004",
+          "a005",
+          "a006",
+          "a007",
+          "a008",
+          "a009",
+          "a010",
+          "a011"
+        ],
+        "editorialUnitId": "e-section-001"
+      },
+      "assetIds": [
+        "img002",
+        "img003"
+      ],
+      "visualPattern": "minimal-rule-title"
+    },
+    {
+      "id": "l003",
+      "component": "full-width-story",
+      "componentVariant": "default",
+      "provenance": {
+        "kind": "editorial-composition",
+        "sourceBlockIds": [
+          "a012",
+          "a013",
+          "a014",
+          "a015",
+          "a016",
+          "a017",
+          "a018",
+          "a019"
+        ],
+        "editorialUnitId": "e-section-002"
+      },
+      "assetIds": [
+        "img004",
+        "img005"
+      ],
+      "visualPattern": "full-width-image"
+    },
+    {
+      "id": "l004",
+      "component": "visual-climax",
+      "componentVariant": "default",
+      "provenance": {
+        "kind": "editorial-composition",
+        "sourceBlockIds": [
+          "a020",
+          "a021",
+          "a022",
+          "a023",
+          "a024",
+          "a025",
+          "a026",
+          "a027",
+          "a028"
+        ],
+        "editorialUnitId": "e-section-003"
+      },
+      "assetIds": [
+        "img006",
+        "img007"
+      ],
+      "visualPattern": "large-plus-detail"
+    },
+    {
+      "id": "l005",
+      "component": "achievement-spotlight",
+      "componentVariant": "default",
+      "provenance": {
+        "kind": "editorial-composition",
+        "sourceBlockIds": [
+          "a029",
+          "a030",
+          "a031",
+          "a032",
+          "a033",
+          "a034"
+        ],
+        "editorialUnitId": "e-section-004"
+      },
+      "assetIds": [
+        "img008"
+      ],
+      "visualPattern": "minimal-rule-title"
+    },
+    {
+      "id": "l006",
+      "component": "achievement-spotlight",
+      "componentVariant": "default",
+      "provenance": {
+        "kind": "editorial-composition",
+        "sourceBlockIds": [
+          "a035",
+          "a036",
+          "a037",
+          "a038",
+          "a039",
+          "a040"
+        ],
+        "editorialUnitId": "e-section-005"
+      },
+      "assetIds": [
+        "img009"
+      ],
+      "visualPattern": "full-width-image"
+    },
+    {
+      "id": "l007",
+      "component": "closing-visual",
+      "componentVariant": "default",
+      "provenance": {
+        "kind": "editorial-composition",
+        "sourceBlockIds": [
+          "a041",
+          "a042",
+          "a043"
+        ],
+        "editorialUnitId": "e-closing-001"
+      },
+      "assetIds": [
+        "img010"
+      ],
+      "visualPattern": "framed-image"
+    }
+  ],
+  "assetPlacements": [
+    {
+      "assetId": "img001",
+      "status": "placed"
+    },
+    {
+      "assetId": "img002",
+      "status": "placed"
+    },
+    {
+      "assetId": "img003",
+      "status": "placed"
+    },
+    {
+      "assetId": "img004",
+      "status": "placed"
+    },
+    {
+      "assetId": "img005",
+      "status": "placed"
+    },
+    {
+      "assetId": "img006",
+      "status": "placed"
+    },
+    {
+      "assetId": "img007",
+      "status": "placed"
+    },
+    {
+      "assetId": "img008",
+      "status": "placed"
+    },
+    {
+      "assetId": "img009",
+      "status": "placed"
+    },
+    {
+      "assetId": "img010",
+      "status": "placed"
+    }
+  ],
+  "artDirection": {
+    "schemaVersion": "1",
+    "visualTone": "technical",
+    "density": "dense",
+    "pace": "steady",
+    "mediaDominance": "balanced",
+    "textDominance": "narrative-led",
+    "sectionRhythm": "evidence-sequence",
+    "titleTreatment": "formal",
+    "sectionTitleTreatment": "rule",
+    "imageTreatment": "inline-story",
+    "captionTreatment": "metadata",
+    "groupingStrategy": "evidence",
+    "transitionStyle": "subtle-rule",
+    "emphasisStrategy": "metric-led",
+    "closingStrategy": "statement",
+    "heroAssetId": "img001",
+    "closingAssetId": "img010",
+    "openingVisualPattern": "text-first-header",
+    "closingVisualPattern": "framed-image",
+    "decorativePatternCount": 3,
+    "decorativeDensity": "sparse",
+    "decorativePatterns": [
+      "line",
+      "dot",
+      "diamond"
+    ],
+    "sections": [
+      {
+        "sectionId": "e-section-001",
+        "visualWeight": "normal",
+        "density": "dense",
+        "pace": "steady",
+        "dominantAssetId": "img002",
+        "secondaryAssetIds": [
+          "img003"
+        ],
+        "compositionPreference": "full-width-story",
+        "preferredVisualPattern": "minimal-rule-title",
+        "transition": "none",
+        "groupingReason": "按 evidence 组织 架构方法/detail、架构方法/close-up，主画面优先视觉质量与叙事角色。",
+        "sectionLabel": "架构方法",
+        "labelEvidenceSourceIds": [
+          "a008"
+        ],
+        "sectionLabelStyle": "minimal"
+      },
+      {
+        "sectionId": "e-section-002",
+        "visualWeight": "normal",
+        "density": "dense",
+        "pace": "steady",
+        "dominantAssetId": "img004",
+        "secondaryAssetIds": [
+          "img005"
+        ],
+        "compositionPreference": "full-width-story",
+        "preferredVisualPattern": "full-width-image",
+        "transition": "subtle-rule",
+        "groupingReason": "按 evidence 组织 流片验证/detail、流片验证/medium，主画面优先视觉质量与叙事角色。",
+        "sectionLabel": "流片验证",
+        "labelEvidenceSourceIds": [
+          "a016"
+        ],
+        "sectionLabelStyle": "minimal",
+        "decorativePattern": "dot"
+      },
+      {
+        "sectionId": "e-section-003",
+        "visualWeight": "strong",
+        "density": "dense",
+        "pace": "steady",
+        "dominantAssetId": "img006",
+        "secondaryAssetIds": [
+          "img007"
+        ],
+        "compositionPreference": "visual-climax",
+        "preferredVisualPattern": "large-plus-detail",
+        "transition": "subtle-rule",
+        "groupingReason": "按 evidence 组织 真实任务/wide、真实任务/detail，主画面优先视觉质量与叙事角色。",
+        "sectionLabel": "真实任务",
+        "labelEvidenceSourceIds": [
+          "a025"
+        ],
+        "sectionLabelStyle": "minimal"
+      },
+      {
+        "sectionId": "e-section-004",
+        "visualWeight": "normal",
+        "density": "dense",
+        "pace": "steady",
+        "dominantAssetId": "img008",
+        "secondaryAssetIds": [],
+        "compositionPreference": "achievement-spotlight",
+        "preferredVisualPattern": "minimal-rule-title",
+        "transition": "subtle-rule",
+        "groupingReason": "按 evidence 组织 结论边界/detail，主画面优先视觉质量与叙事角色。",
+        "sectionLabel": "结论边界",
+        "labelEvidenceSourceIds": [
+          "a033"
+        ],
+        "sectionLabelStyle": "minimal"
+      },
+      {
+        "sectionId": "e-section-005",
+        "visualWeight": "strong",
+        "density": "dense",
+        "pace": "steady",
+        "dominantAssetId": "img009",
+        "secondaryAssetIds": [],
+        "compositionPreference": "achievement-spotlight",
+        "preferredVisualPattern": "full-width-image",
+        "transition": "subtle-rule",
+        "groupingReason": "按 evidence 组织 开放复核/detail，主画面优先视觉质量与叙事角色。",
+        "sectionLabel": "开放复核",
+        "labelEvidenceSourceIds": [
+          "a039"
+        ],
+        "sectionLabelStyle": "minimal",
+        "decorativePattern": "line"
+      }
+    ],
+    "reasons": {
+      "whyThisHero": "img001 是 wide 景别、landscape 构图、high 质量，并承担 hero-candidate/evidence 角色。",
+      "whyThisGroup": "图片按 evidence 组织；只组合 EditorialPlan 同一节内且有 scene/subject/evidence 关系的资产。",
+      "whyThisDominantImage": "各节主画面依据角色、景别、方向和质量排序：e-section-001:detail/landscape/high；e-section-002:detail/landscape/high；e-section-003:wide/landscape/high；e-section-004:detail/landscape/high；e-section-005:detail/landscape/high。",
+      "whyThisClosingImage": "img010 的 scene=共同验证、shotType=group、roles=closing-candidate/supporting 支持 statement 收束。"
+    }
+  }
+}
