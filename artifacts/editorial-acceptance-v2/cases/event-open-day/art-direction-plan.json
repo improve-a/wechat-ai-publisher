@@ -14,21 +14,22 @@
   "transitionStyle": "image-bridge",
   "emphasisStrategy": "image-led",
   "closingStrategy": "group-photo",
+  "sectionNumberingPolicy": "none",
   "heroAssetId": "img001",
   "closingAssetId": "img010",
   "openingVisualPattern": "title-over-image",
   "closingVisualPattern": "full-width-image",
-  "decorativePatternCount": 3,
+  "decorativePatternCount": 2,
   "decorativeDensity": "sparse",
   "decorativePatterns": [
     "line",
-    "dot",
-    "diamond"
+    "dot"
   ],
   "sections": [
     {
       "sectionId": "e-section-001",
       "visualWeight": "normal",
+      "visualIntensity": "normal",
       "density": "balanced",
       "pace": "dynamic",
       "dominantAssetId": "img002",
@@ -48,6 +49,7 @@
     {
       "sectionId": "e-section-002",
       "visualWeight": "normal",
+      "visualIntensity": "normal",
       "density": "balanced",
       "pace": "dynamic",
       "dominantAssetId": "img005",
@@ -68,6 +70,7 @@
     {
       "sectionId": "e-section-003",
       "visualWeight": "normal",
+      "visualIntensity": "normal",
       "density": "balanced",
       "pace": "dynamic",
       "dominantAssetId": "img007",
@@ -87,12 +90,13 @@
     {
       "sectionId": "e-section-004",
       "visualWeight": "normal",
+      "visualIntensity": "normal",
       "density": "balanced",
       "pace": "dynamic",
       "dominantAssetId": "img008",
       "secondaryAssetIds": [],
       "compositionPreference": "full-width-story",
-      "preferredVisualPattern": "numbered-section-title",
+      "preferredVisualPattern": "plain-section-title",
       "transition": "image-bridge",
       "groupingReason": "按 chronology 组织 学生圆桌/wide，主画面优先视觉质量与叙事角色。",
       "sectionLabel": "学生圆桌",
@@ -104,6 +108,7 @@
     {
       "sectionId": "e-section-005",
       "visualWeight": "strong",
+      "visualIntensity": "strong",
       "density": "balanced",
       "pace": "dynamic",
       "dominantAssetId": "img009",

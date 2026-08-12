@@ -110,14 +110,17 @@ export function planEditorialDeterministically(
   }
 
   let closing: EditorialPlan["closing"] = null;
-  const tail = article.blocks.slice(-3);
-  const tailImage = tail[1];
+  const lastBlock = article.blocks.at(-1);
+  const finalCaption = lastBlock?.type === "image-caption" ? lastBlock : undefined;
+  const finalImageIndex = finalCaption ? article.blocks.length - 2 : article.blocks.length - 1;
+  const tailImage = article.blocks[finalImageIndex];
+  const tailParagraph = article.blocks[finalImageIndex - 1];
   if (
-    tail[0]?.type === "paragraph" && tailImage?.type === "image" &&
-    tail[2]?.type === "image-caption" && tail[2].imageBlockId === tailImage.id &&
+    tailParagraph?.type === "paragraph" && tailImage?.type === "image" &&
+    (!finalCaption || finalCaption.imageBlockId === tailImage.id) &&
     understandingByAsset.get(tailImage.assetId)?.semanticRoles.includes("closing-candidate")
   ) {
-    const closingSources = tail.map((block) => block.id);
+    const closingSources = [tailParagraph.id, tailImage.id, ...(finalCaption ? [finalCaption.id] : [])];
     closingSources.forEach((id) => consumed.add(id));
     closing = {
       ...unit("e-closing", closingSources, [tailImage.assetId], "closing-visual", 3),

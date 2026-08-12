@@ -14,21 +14,22 @@
   "transitionStyle": "subtle-rule",
   "emphasisStrategy": "metric-led",
   "closingStrategy": "statement",
+  "sectionNumberingPolicy": "none",
   "heroAssetId": "img001",
   "closingAssetId": "img010",
   "openingVisualPattern": "text-first-header",
-  "closingVisualPattern": "framed-image",
-  "decorativePatternCount": 3,
+  "closingVisualPattern": "full-width-image",
+  "decorativePatternCount": 2,
   "decorativeDensity": "sparse",
   "decorativePatterns": [
     "line",
-    "dot",
-    "diamond"
+    "dot"
   ],
   "sections": [
     {
       "sectionId": "e-section-001",
       "visualWeight": "normal",
+      "visualIntensity": "normal",
       "density": "dense",
       "pace": "steady",
       "dominantAssetId": "img002",
@@ -48,6 +49,7 @@
     {
       "sectionId": "e-section-002",
       "visualWeight": "normal",
+      "visualIntensity": "normal",
       "density": "dense",
       "pace": "steady",
       "dominantAssetId": "img004",
@@ -68,6 +70,7 @@
     {
       "sectionId": "e-section-003",
       "visualWeight": "normal",
+      "visualIntensity": "normal",
       "density": "dense",
       "pace": "steady",
       "dominantAssetId": "img006",
@@ -75,7 +78,7 @@
         "img007"
       ],
       "compositionPreference": "visual-climax",
-      "preferredVisualPattern": "large-plus-detail",
+      "preferredVisualPattern": "minimal-rule-title",
       "transition": "subtle-rule",
       "groupingReason": "按 evidence 组织 真实任务/wide、真实任务/detail，主画面优先视觉质量与叙事角色。",
       "sectionLabel": "真实任务",
@@ -87,12 +90,13 @@
     {
       "sectionId": "e-section-004",
       "visualWeight": "normal",
+      "visualIntensity": "normal",
       "density": "dense",
       "pace": "steady",
       "dominantAssetId": "img008",
       "secondaryAssetIds": [],
       "compositionPreference": "achievement-spotlight",
-      "preferredVisualPattern": "minimal-rule-title",
+      "preferredVisualPattern": "full-width-image",
       "transition": "subtle-rule",
       "groupingReason": "按 evidence 组织 结论边界/detail，主画面优先视觉质量与叙事角色。",
       "sectionLabel": "结论边界",
@@ -104,12 +108,13 @@
     {
       "sectionId": "e-section-005",
       "visualWeight": "strong",
+      "visualIntensity": "strong",
       "density": "dense",
       "pace": "steady",
       "dominantAssetId": "img009",
       "secondaryAssetIds": [],
       "compositionPreference": "achievement-spotlight",
-      "preferredVisualPattern": "full-width-image",
+      "preferredVisualPattern": "minimal-rule-title",
       "transition": "subtle-rule",
       "groupingReason": "按 evidence 组织 开放复核/detail，主画面优先视觉质量与叙事角色。",
       "sectionLabel": "开放复核",

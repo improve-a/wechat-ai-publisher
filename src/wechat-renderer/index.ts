@@ -4,3 +4,4 @@ export * from "./projection";
 export * from "./renderer";
 export * from "./trace";
 export * from "./types";
+export * from "./readingRhythm";

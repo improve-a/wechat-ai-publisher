@@ -9,6 +9,7 @@ import {
   ART_DIRECTION_DENSITIES, ART_DIRECTION_PACES, ART_DIRECTION_PLAN_SCHEMA_VERSION,
   CAPTION_TREATMENTS, CLOSING_STRATEGIES, EMPHASIS_STRATEGIES, GROUPING_STRATEGIES,
   IMAGE_TREATMENTS, MEDIA_DOMINANCES, SECTION_LABEL_STYLES, SECTION_RHYTHMS,
+  SECTION_NUMBERING_POLICIES,
   SECTION_TITLE_TREATMENTS, TEXT_DOMINANCES, TITLE_TREATMENTS, TRANSITION_STYLES,
   VISUAL_TONES, VISUAL_WEIGHTS, type ArtDirectionPlan,
 } from "./types";
@@ -32,6 +33,7 @@ export const artDirectionPlanSchema: z.ZodType<ArtDirectionPlan> = z.strictObjec
   transitionStyle: z.enum(TRANSITION_STYLES),
   emphasisStrategy: z.enum(EMPHASIS_STRATEGIES),
   closingStrategy: z.enum(CLOSING_STRATEGIES),
+  sectionNumberingPolicy: z.enum(SECTION_NUMBERING_POLICIES),
   heroAssetId: nonBlank.optional(),
   closingAssetId: nonBlank.optional(),
   openingVisualPattern: z.enum(VISUAL_PATTERN_IDS),
@@ -50,6 +52,8 @@ export const artDirectionPlanSchema: z.ZodType<ArtDirectionPlan> = z.strictObjec
   sections: z.array(z.strictObject({
     sectionId: nonBlank,
     visualWeight: z.enum(VISUAL_WEIGHTS),
+    visualIntensity: z.enum(VISUAL_WEIGHTS),
+    sectionNumber: z.number().int().positive().optional(),
     density: z.enum(ART_DIRECTION_DENSITIES),
     pace: z.enum(ART_DIRECTION_PACES),
     dominantAssetId: nonBlank.optional(),

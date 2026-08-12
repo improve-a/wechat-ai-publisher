@@ -17,6 +17,16 @@ function compatiblePatterns(compositionId: CompositionId, articleType: Editorial
   ).map((pattern) => pattern.patternId);
 }
 
+const NUMBERED_PATTERNS = new Set<VisualPatternId>(["numbered-section-title", "large-number-side-title"]);
+const COMPLEX_PATTERNS = new Set<VisualPatternId>([
+  "title-over-image", "large-number-side-title", "staggered-pair", "large-plus-detail",
+  "image-over-image", "photo-triptych",
+]);
+
+export interface VisualPatternSelectionOptions {
+  allowNumbered?: boolean;
+}
+
 function preferenceScore(patternId: VisualPatternId, articleType: EditorialArticleType, assets: AssetUnderstanding[], styleBrief?: StyleBrief): number {
   const pattern = visualPatternRegistryById[patternId];
   const articleRank = ARTICLE_TYPE_PATTERN_PREFERENCES[articleType].indexOf(patternId);
@@ -26,6 +36,15 @@ function preferenceScore(patternId: VisualPatternId, articleType: EditorialArtic
   if (styleBrief?.imageStyle === "framed" && ["framed-image", "poster-isolated"].includes(patternId)) score += 20;
   if (styleBrief?.imageStyle === "staggered" && ["staggered-pair", "asymmetric-pair", "photo-triptych"].includes(patternId)) score += 20;
   if (styleBrief?.imageStyle === "full-width" && ["full-width-image", "full-image-hero"].includes(patternId)) score += 20;
+  score += COMPLEX_PATTERNS.has(patternId) ? -14 : 10;
+  if (patternId === "large-plus-detail") {
+    const hasContext = assets.some((asset) => asset.shotType === "wide" || asset.shotType === "group");
+    const hasDetail = assets.some((asset) => asset.shotType === "detail" || asset.shotType === "close-up");
+    score += hasContext && hasDetail ? 34 : -80;
+  }
+  if (patternId === "staggered-pair") score += ["welcome", "practice"].includes(articleType) ? 20 : -30;
+  if (patternId === "image-over-image") score += ["person-profile", "performance"].includes(articleType) ? 16 : -50;
+  if (patternId === "photo-triptych") score += assets.length >= 3 && ["welcome", "event-recap", "performance"].includes(articleType) ? 18 : -24;
   return score;
 }
 
@@ -37,6 +56,13 @@ export function selectOpeningVisualPattern(articleType: EditorialArticleType, as
   if (styleBrief?.openingStyle && isVisualPatternCompatible(explicit[styleBrief.openingStyle], "hero-visual", assets.length)) {
     return explicit[styleBrief.openingStyle];
   }
+  const articleDefault: Partial<Record<EditorialArticleType, VisualPatternId>> = {
+    welcome: "full-image-hero",
+    practice: "text-first-header",
+    "event-recap": "title-over-image",
+  };
+  const preferred = articleDefault[articleType];
+  if (preferred && isVisualPatternCompatible(preferred, "hero-visual", assets.length)) return preferred;
   return selectVisualPattern("hero-visual", articleType, assets, [], 0, styleBrief);
 }
 
@@ -47,14 +73,27 @@ export function selectVisualPattern(
   previous: VisualPatternId[],
   index: number,
   styleBrief?: StyleBrief,
+  options: VisualPatternSelectionOptions = {},
 ): VisualPatternId {
-  const candidates = compatiblePatterns(compositionId, articleType, assets);
+  const candidates = compatiblePatterns(compositionId, articleType, assets)
+    .filter((patternId) => options.allowNumbered !== false || !NUMBERED_PATTERNS.has(patternId));
   if (!candidates.length) throw new Error(`No VisualPattern supports ${compositionId} with ${assets.length} assets`);
   const prior = previous.at(-1);
   const priorTwoSame = previous.length >= 2 && prior === previous.at(-2);
   return [...candidates].sort((left, right) => {
     const repeatPenalty = (id: VisualPatternId) => (id === prior ? (priorTwoSame ? 1000 : 10) : 0);
-    const score = (id: VisualPatternId) => preferenceScore(id, articleType, assets, styleBrief) - repeatPenalty(id) + ((index + VISUAL_PATTERN_IDS_INDEX[id]) % 3);
+    const score = (id: VisualPatternId) => {
+      const current = visualPatternRegistryById[id];
+      const previousPattern = prior ? visualPatternRegistryById[prior] : undefined;
+      const highAfterHigh = previousPattern && ["strong", "climax"].includes(previousPattern.visualWeight)
+        && ["strong", "climax"].includes(current.visualWeight) ? 34 : 0;
+      const repeatedClimax = current.visualWeight === "climax"
+        && previous.some((patternId) => visualPatternRegistryById[patternId].visualWeight === "climax") ? 70 : 0;
+      const repeatedOverlap = current.supportsOverlap
+        && previous.some((patternId) => visualPatternRegistryById[patternId].supportsOverlap) ? 90 : 0;
+      return preferenceScore(id, articleType, assets, styleBrief) - repeatPenalty(id) - highAfterHigh - repeatedClimax - repeatedOverlap
+        + ((index + VISUAL_PATTERN_IDS_INDEX[id]) % 3);
+    };
     return score(right) - score(left) || left.localeCompare(right);
   })[0]!;
 }

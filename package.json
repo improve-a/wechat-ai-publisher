@@ -27,6 +27,11 @@
     "check:visual-patterns": "vitest run tests/editorial/visual-patterns.test.ts",
     "check:visual-pattern-repetition": "vitest run tests/editorial/visual-pattern-repetition.test.ts",
     "check:live-contract": "vitest run tests/editorial/live-contract.test.ts",
+    "check:section-numbering": "vitest run tests/editorial/final-visual-refinement.test.ts -t \"numbering policy\"",
+    "check:reading-rhythm": "vitest run tests/editorial/final-visual-refinement.test.ts -t \"segments long\"",
+    "check:article-coherence": "vitest run tests/editorial/final-visual-refinement.test.ts -t \"article grammars distinct\"",
+    "check:real-photo-stress": "vitest run tests/editorial/real-photo-stress.test.ts",
+    "check:visual-refinement": "vitest run tests/editorial/final-visual-refinement.test.ts tests/editorial/real-photo-stress.test.ts && python scripts/final_visual_refinement_gate.py",
     "check:editorial:all": "npm run check:editorial && npm run check:editorial:browser && npm run check:editorial:v2:browser",
     "preview": "vite preview"
   },

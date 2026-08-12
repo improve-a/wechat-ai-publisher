@@ -20,7 +20,7 @@
       "assetIds": [
         "img001"
       ],
-      "visualPattern": "compact-image-header"
+      "visualPattern": "full-image-hero"
     },
     {
       "id": "l002",
@@ -213,21 +213,22 @@
     "transitionStyle": "image-bridge",
     "emphasisStrategy": "image-led",
     "closingStrategy": "group-photo",
+    "sectionNumberingPolicy": "none",
     "heroAssetId": "img001",
     "closingAssetId": "img010",
-    "openingVisualPattern": "compact-image-header",
+    "openingVisualPattern": "full-image-hero",
     "closingVisualPattern": "full-width-image",
-    "decorativePatternCount": 3,
+    "decorativePatternCount": 2,
     "decorativeDensity": "sparse",
     "decorativePatterns": [
       "line",
-      "dot",
-      "diamond"
+      "dot"
     ],
     "sections": [
       {
         "sectionId": "e-section-001",
         "visualWeight": "normal",
+        "visualIntensity": "normal",
         "density": "airy",
         "pace": "dynamic",
         "dominantAssetId": "img003",
@@ -247,6 +248,7 @@
       {
         "sectionId": "e-section-002",
         "visualWeight": "normal",
+        "visualIntensity": "normal",
         "density": "airy",
         "pace": "dynamic",
         "dominantAssetId": "img004",
@@ -267,6 +269,7 @@
       {
         "sectionId": "e-section-003",
         "visualWeight": "normal",
+        "visualIntensity": "normal",
         "density": "airy",
         "pace": "dynamic",
         "dominantAssetId": "img006",
@@ -286,6 +289,7 @@
       {
         "sectionId": "e-section-004",
         "visualWeight": "normal",
+        "visualIntensity": "normal",
         "density": "airy",
         "pace": "dynamic",
         "dominantAssetId": "img008",
@@ -303,6 +307,7 @@
       {
         "sectionId": "e-section-005",
         "visualWeight": "strong",
+        "visualIntensity": "strong",
         "density": "airy",
         "pace": "dynamic",
         "dominantAssetId": "img009",

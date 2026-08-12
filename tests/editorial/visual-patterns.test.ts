@@ -53,12 +53,10 @@ describe("VisualPatternRegistry and deterministic rendering", () => {
     }
     const combined = html.join("\n");
     expect(combined).toContain('data-visual-pattern="title-over-image"');
-    expect(combined).toContain('data-visual-pattern="image-over-image"');
     expect(combined).toMatch(/margin:-42px 18px 18px/iu);
-    expect(combined).toMatch(/margin:-52px 6% 0/iu);
     expect(combined).toMatch(/width:54%/iu);
     expect(combined).toMatch(/width:36%/iu);
-    expect(combined).toContain('data-visual-pattern="poster-isolated"');
+    expect(combined).toContain('data-visual-pattern="framed-image"');
   });
 
   it("lets an explicit StyleBrief override the automatically derived opening", () => {

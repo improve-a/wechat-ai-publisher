@@ -17,6 +17,8 @@ import {
 } from "./styles";
 import type { WeChatComponentAdapter, WeChatComponentAdapterInput } from "./types";
 import type { VisualPatternId } from "../visual-patterns";
+import { visualPatternRegistryById } from "../visual-patterns";
+import { segmentParagraphForPresentation } from "./readingRhythm";
 
 function traceAttributes(input: WeChatComponentAdapterInput) {
   const sourceIds = input.sourceBlocks.map((block) => block.id).join(",");
@@ -581,7 +583,7 @@ function renderCompositionImage(input: WeChatComponentAdapterInput, block: Image
     ["data-asset-state", asset.state],
     styleAttribute([
       ["display", "block"], ["box-sizing", "border-box"], ["width", "100%"],
-      ["max-width", "100%"], ["height", "auto"], ["object-fit", "cover"],
+      ["max-width", "100%"], ["height", "auto"], ["object-fit", "contain"],
       ["border-radius", ["full-width", "asymmetric", "closing-visual"].includes(input.sectionArtDirection?.compositionPreference === "asymmetric-photo-pair" ? "asymmetric" : input.artDirection?.imageTreatment ?? "") ? "0" : input.theme.tokens.radius.image],
     ]),
   ], "");
@@ -589,10 +591,21 @@ function renderCompositionImage(input: WeChatComponentAdapterInput, block: Image
 
 function renderCompositionSource(input: WeChatComponentAdapterInput, block: ArticleBlock): string {
   if (block.type === "image") return renderCompositionImage(input, block);
-  if (block.type === "image-caption") return element("p", [styleAttribute([
-    ["margin", "7px 0 0"], ["color", input.theme.tokens.colors.textMuted],
-    ["font-size", "12px"], ["line-height", "1.6"],
-  ])], renderInline(block.inline, block.text));
+  if (block.type === "image-caption") {
+    const treatment = input.artDirection?.captionTreatment ?? "editorial";
+    const role = treatment === "metadata" ? "technical" : treatment === "quiet" ? "contextual" : "documentary";
+    return element("p", [
+      ["data-caption-source", "article-ast"], ["data-caption-role", role], ["data-caption-treatment", treatment],
+      styleAttribute([
+        ["margin", treatment === "quiet" ? "6px 8% 0" : "7px 0 0"],
+        ["padding", treatment === "metadata" ? "0 0 0 8px" : "0"],
+        ["color", input.theme.tokens.colors.textMuted],
+        ["font-size", treatment === "quiet" ? "11px" : "12px"], ["line-height", "1.6"],
+        ["text-align", treatment === "quiet" ? "center" : "left"],
+        ["border-left", treatment === "metadata" ? `1px solid ${input.theme.tokens.colors.border}` : "0 solid transparent"],
+      ]),
+    ], renderInline(block.inline, block.text));
+  }
   if (block.type === "heading") {
     const pattern = input.layoutBlock.visualPattern;
     const accent = editorialToneAccent(input.theme, input.themeVariant, input.artDirection?.visualTone);
@@ -606,8 +619,8 @@ function renderCompositionSource(input: WeChatComponentAdapterInput, block: Arti
       ["border-bottom", input.artDirection?.sectionTitleTreatment === "rule" ? `1px solid ${accent}` : "0 solid transparent"],
       ["overflow-wrap", "anywhere"],
     ])], renderInline(block.inline, block.text));
-    const sectionIndex = Math.max(0, input.artDirection?.sections.findIndex((section) => section.sectionId === input.sectionArtDirection?.sectionId) ?? 0);
-    const number = String(sectionIndex + 1).padStart(2, "0");
+    const sectionNumber = input.sectionArtDirection?.sectionNumber;
+    const number = sectionNumber ? String(sectionNumber).padStart(2, "0") : undefined;
     const heading = element("h2", [styleAttribute([
       ["display", pattern === "large-number-side-title" ? "inline-block" : "block"],
       ["box-sizing", "border-box"],
@@ -622,19 +635,30 @@ function renderCompositionSource(input: WeChatComponentAdapterInput, block: Arti
       ["border-bottom", pattern === "minimal-rule-title" ? `1px solid ${accent}` : "0 solid transparent"],
       ["overflow-wrap", "anywhere"],
       ["vertical-align", "middle"],
-    ])], `${pattern === "numbered-section-title" ? `<span style="color:${accent};margin-right:8px;">${number}</span>` : ""}${renderInline(block.inline, block.text)}`);
+    ])], `${number && pattern !== "large-number-side-title" ? `<span data-section-number="${number}" style="color:${accent};margin-right:8px;">${number}</span>` : ""}${renderInline(block.inline, block.text)}`);
     if (pattern !== "large-number-side-title") return heading;
-    const largeNumber = element("span", [styleAttribute([
+    const largeNumber = element("span", [["data-section-number", number ?? ""], styleAttribute([
       ["display", "inline-block"], ["box-sizing", "border-box"], ["width", "24%"],
       ["color", accent], ["font-size", "38px"], ["font-weight", "800"], ["line-height", "1"], ["vertical-align", "middle"],
-    ])], number);
+    ])], number ?? "");
+    if (!number) return heading;
     return element("section", [styleAttribute([["box-sizing", "border-box"], ["max-width", "100%"], ["font-size", "0"]])], `${largeNumber}${heading}`);
   }
-  if (block.type === "paragraph") return element("p", [styleAttribute([
-    ["margin", "0 0 12px"], ["color", input.theme.tokens.colors.text],
-    ["font-size", input.theme.tokens.typography.bodySize],
-    ["line-height", input.theme.tokens.typography.bodyLineHeight], ["overflow-wrap", "anywhere"],
-  ])], renderInline(block.inline, block.text));
+  if (block.type === "paragraph") {
+    const segments = segmentParagraphForPresentation(block);
+    const rendered = segments.map((segment, index) => element("p", [
+      ["data-reading-segment", String(index + 1)], ["data-source-block-id", block.id],
+      styleAttribute([
+        ["margin", index === segments.length - 1 ? "0 0 16px" : "0 0 20px"],
+        ["color", input.theme.tokens.colors.text], ["font-size", input.theme.tokens.typography.bodySize],
+        ["line-height", input.theme.tokens.typography.bodyLineHeight], ["overflow-wrap", "anywhere"],
+      ]),
+    ], renderInline(segment.inline, segment.text))).join("");
+    return element("section", [
+      ["data-reading-block", block.id], ["data-presentation-segment-count", String(segments.length)],
+      styleAttribute([["box-sizing", "border-box"], ["max-width", "100%"]]),
+    ], rendered);
+  }
   if (block.type === "quote") return element("blockquote", [styleAttribute([
     ["margin", "10px 0"], ["padding", "10px 12px"],
     ["border-left", `3px solid ${variantAccent(input.theme, input.themeVariant)}`],
@@ -684,7 +708,11 @@ function renderComposition(input: WeChatComponentAdapterInput): string {
   const headingHtml = headingBlocks.map((block) => renderCompositionSource(input, block)).join("");
   const narrativeHtml = narrativeBlocks.map((block) => renderCompositionSource(input, block)).join("");
   const dominantAssetId = section?.dominantAssetId;
-  const figure = (block: ImageBlock, width = "100%", margin = "0 0 10px", extra: ReadonlyArray<readonly [string, string]> = []) => element("figure", [styleAttribute([
+  const figure = (block: ImageBlock, width = "100%", margin = "0 0 10px", extra: ReadonlyArray<readonly [string, string]> = []) => element("figure", [
+    ["data-caption-role", captionByImageBlockId.has(block.id)
+      ? global?.captionTreatment === "metadata" ? "technical" : global?.captionTreatment === "quiet" ? "contextual" : "documentary"
+      : "silent"],
+    styleAttribute([
     ["box-sizing", "border-box"], ["display", width === "100%" ? "block" : "inline-block"],
     ["width", width], ["max-width", "100%"], ["min-width", "0"], ["margin", margin], ["vertical-align", "top"],
     ...extra,
@@ -706,6 +734,12 @@ function renderComposition(input: WeChatComponentAdapterInput): string {
     if (pattern === "portrait-focus") {
       return element("div", [styleAttribute([["box-sizing", "border-box"], ["max-width", "100%"], ["text-align", "center"], ["margin", "14px 0 18px"]])],
         figure(ordered[0]!, "68%", "0 auto"));
+    }
+    if (composition === "full-width-story" && ordered.length === 2 && pattern !== "large-plus-detail") {
+      return element("div", [
+        ["data-photo-pair-policy", "stack-preserve-aspect-ratio"],
+        styleAttribute([["box-sizing", "border-box"], ["max-width", "100%"], ["margin", "12px 0 0"]]),
+      ], ordered.map((block) => figure(block, "100%", "0 0 18px")).join(""));
     }
     if (pattern === "full-width-image") {
       return element("div", [styleAttribute([["box-sizing", "border-box"], ["max-width", "100%"], ["margin", "12px 0 0"]])],
@@ -798,6 +832,7 @@ function renderComposition(input: WeChatComponentAdapterInput): string {
     ["data-surface", cardSurface ? "card" : "flat"],
     ["data-image-treatment", imageTreatment],
     ...(pattern ? ([['data-visual-pattern', pattern]] as const) : []),
+    ...(pattern ? ([["data-visual-intensity", section?.visualIntensity ?? visualPatternRegistryById[pattern].visualWeight]] as const) : []),
     ["data-transition", transition],
     ["data-visual-weight", section?.visualWeight ?? (composition === "hero-visual" ? "strong" : "normal")],
     ...(input.layoutBlock.provenance.kind === "editorial-composition" && input.layoutBlock.provenance.editorialUnitId

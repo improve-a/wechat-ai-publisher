@@ -37,6 +37,8 @@ export const CLOSING_STRATEGIES = ["group-photo", "visual-echo", "statement", "m
 export type ClosingStrategy = (typeof CLOSING_STRATEGIES)[number];
 export const VISUAL_WEIGHTS = ["quiet", "normal", "strong", "climax"] as const;
 export type VisualWeight = (typeof VISUAL_WEIGHTS)[number];
+export const SECTION_NUMBERING_POLICIES = ["none", "continuous"] as const;
+export type SectionNumberingPolicy = (typeof SECTION_NUMBERING_POLICIES)[number];
 export const SECTION_LABEL_STYLES = ["eyebrow", "numbered", "statement", "minimal", "none"] as const;
 export type SectionLabelStyle = (typeof SECTION_LABEL_STYLES)[number];
 
@@ -45,6 +47,8 @@ export type SectionCompositionPreference = Exclude<CompositionId, "hero-visual" 
 export interface SectionArtDirection {
   sectionId: string;
   visualWeight: VisualWeight;
+  visualIntensity: VisualWeight;
+  sectionNumber?: number;
   density: ArtDirectionDensity;
   pace: ArtDirectionPace;
   dominantAssetId?: string;
@@ -82,6 +86,7 @@ export interface ArtDirectionPlan {
   transitionStyle: TransitionStyle;
   emphasisStrategy: EmphasisStrategy;
   closingStrategy: ClosingStrategy;
+  sectionNumberingPolicy: SectionNumberingPolicy;
   heroAssetId?: string;
   closingAssetId?: string;
   openingVisualPattern: VisualPatternId;

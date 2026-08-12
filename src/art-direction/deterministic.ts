@@ -12,8 +12,12 @@ const GENERIC = /^(现场与过程|精彩瞬间|活动现场|更多内容|回望
 type Grammar = Omit<ArtDirectionPlan,
   "schemaVersion" | "heroAssetId" | "closingAssetId" | "sections" | "reasons" |
   "openingVisualPattern" | "closingVisualPattern" | "decorativePatternCount" |
-  "decorativeDensity" | "decorativePatterns" | "styleBrief"
+  "decorativeDensity" | "decorativePatterns" | "styleBrief" | "sectionNumberingPolicy"
 >;
+
+const CONTINUOUS_NUMBERING_TYPES = new Set<EditorialArticleType>([
+  "competition", "practice", "notice", "tutorial",
+]);
 
 const GRAMMARS: Record<EditorialArticleType, Grammar> = {
   welcome: { visualTone: "official-youth", density: "airy", pace: "dynamic", mediaDominance: "image-led", textDominance: "restrained", sectionRhythm: "alternating", titleTreatment: "editorial", sectionTitleTreatment: "eyebrow", imageTreatment: "asymmetric", captionTreatment: "editorial", groupingStrategy: "scene", transitionStyle: "image-bridge", emphasisStrategy: "image-led", closingStrategy: "group-photo" },
@@ -75,6 +79,8 @@ function preference(
   if (portrait && images === 1) return hasQuote ? "quote-with-portrait" : "portrait-story";
   if (images >= 3) return visualWeight === "climax" ? "visual-climax" : "photo-grid";
   if (images === 2) {
+    const orientationSet = new Set(assets.map((asset) => asset.orientation));
+    if (orientationSet.has("portrait")) return "full-width-story";
     if (hasTable || hasQuote) return "visual-climax";
     if (type === "science-technology") return "full-width-story";
     if (type === "event-recap") return "photo-pair";
@@ -97,6 +103,9 @@ export function planArtDirectionDeterministically(
   const understanding = validateAssetUnderstandingMap(understandingValue, article);
   const editorial = validateEditorialPlan(editorialValue, article, understanding);
   const grammar = GRAMMARS[editorial.articleType];
+  const sectionNumberingPolicy = CONTINUOUS_NUMBERING_TYPES.has(editorial.articleType)
+    ? "continuous" as const
+    : "none" as const;
   const blockById = new Map(article.blocks.map((block) => [block.id, block]));
   const assetById = new Map(understanding.assets.map((asset) => [asset.assetId, asset]));
   const patternSequence: VisualPatternId[] = [];
@@ -113,12 +122,15 @@ export function planArtDirectionDeterministically(
     const compositionPreference = preference(editorial.articleType, sources, assets, visualWeight);
     const preferredVisualPattern = selectVisualPattern(
       compositionPreference, editorial.articleType, assets, patternSequence, index, styleBrief,
+      { allowNumbered: sectionNumberingPolicy === "continuous" },
     );
     patternSequence.push(preferredVisualPattern);
     const decorate = index > 0 && index % 3 === 1 && styleBrief?.refinementLevel !== "clean";
     return {
       sectionId: section.id,
       visualWeight,
+      visualIntensity: visualWeight,
+      ...(sectionNumberingPolicy === "continuous" ? { sectionNumber: index + 1 } : {}),
       density: visualWeight === "quiet" ? "airy" : grammar.density,
       pace: visualWeight === "climax" ? "dynamic" : grammar.pace,
       ...(dominant ? { dominantAssetId: dominant.assetId } : {}),
@@ -151,17 +163,19 @@ export function planArtDirectionDeterministically(
   const openingVisualPattern = selectOpeningVisualPattern(editorial.articleType, heroAssets, styleBrief);
   const closingAssets = editorial.closing?.assetIds.map((id) => assetById.get(id)!).filter(Boolean) ?? [];
   const closingVisualPattern = editorial.closing && closingAssets.length
-    ? selectVisualPattern("closing-visual", editorial.articleType, closingAssets, patternSequence, sectionDirections.length, styleBrief)
+    ? grammar.closingStrategy === "group-photo" && closingAssets[0]?.shotType === "group"
+      ? "full-width-image" as const
+      : selectVisualPattern("closing-visual", editorial.articleType, closingAssets, patternSequence, sectionDirections.length, styleBrief, { allowNumbered: false })
     : undefined;
   const decorativeDensity = styleBrief?.refinementLevel === "clean" ? "none" as const
     : styleBrief?.refinementLevel === "rich" ? "restrained" as const : "sparse" as const;
-  const decorativePatternCount = decorativeDensity === "none" ? 0 : Math.min(4, sectionDirections.filter((section) => section.decorativePattern).length + 1);
+  const decorativePatternCount = decorativeDensity === "none" ? 0 : Math.min(2, sectionDirections.filter((section) => section.decorativePattern).length + 1);
   const dominantReasons = sectionDirections.filter((section) => section.dominantAssetId).map((section) => {
     const asset = assetById.get(section.dominantAssetId!);
     return `${section.sectionId}:${asset?.shotType}/${asset?.orientation}/${asset?.visualQuality}`;
   });
   const plan: ArtDirectionPlan = {
-    schemaVersion: "1", ...grammar,
+    schemaVersion: "1", ...grammar, sectionNumberingPolicy,
     ...(heroAssetId ? { heroAssetId } : {}),
     ...(closingAssetId ? { closingAssetId } : {}),
     openingVisualPattern,

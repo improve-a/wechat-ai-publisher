@@ -1,0 +1,943 @@
+[
+  {
+    "case": "welcome-journey",
+    "set": "v2",
+    "screenshot": "screenshots/welcome-journey-final-visual-refinement.png",
+    "fixtureId": "welcome-journey",
+    "branch": "final-visual-refinement",
+    "articleType": "welcome",
+    "articleCharacterCount": 1685,
+    "sourceImageCount": 10,
+    "naturalSectionCount": 5,
+    "compositionCount": 7,
+    "compositionSequence": [
+      "hero-visual",
+      "asymmetric-photo-pair",
+      "asymmetric-photo-pair",
+      "asymmetric-photo-pair",
+      "full-width-story",
+      "full-width-story",
+      "closing-visual"
+    ],
+    "cardSurfaceCount": 0,
+    "cardSurfaceRatio": 0,
+    "fullWidthImageCount": 4,
+    "photoGroupCount": 3,
+    "asymmetricCompositionCount": 3,
+    "imageLedCompositionCount": 7,
+    "genericSectionLabelCount": 0,
+    "genericSectionLabelRatio": 0,
+    "uniqueImageTreatmentCount": 3,
+    "imageTreatments": [
+      "full-width",
+      "asymmetric",
+      "closing-visual"
+    ],
+    "heroCount": 1,
+    "closingCount": 1,
+    "dominantAssetDecisionCount": 5,
+    "groupingReasonCount": 5,
+    "storytellingDecisionCount": 5,
+    "repeatedCompositionCount": 3,
+    "visualPatternSequence": [
+      "full-image-hero",
+      "label-title",
+      "full-width-image",
+      "label-title",
+      "full-width-image",
+      "label-title",
+      "full-width-image"
+    ],
+    "patternCount": 7,
+    "uniquePatternCount": 3,
+    "patternReuseRatio": 0.5714285714285714,
+    "maxConsecutiveSamePattern": 1,
+    "visualTone": "official-youth",
+    "titleTreatment": "editorial",
+    "closingStrategy": "group-photo",
+    "theme": "bit-youth",
+    "themeVariant": "campus",
+    "whyThisHero": "img001 是 wide 景别、landscape 构图、high 质量，并承担 hero-candidate 角色。",
+    "whyThisGroup": "图片按 scene 组织；只组合 EditorialPlan 同一节内且有 scene/subject/evidence 关系的资产。",
+    "whyThisDominantImage": "各节主画面依据角色、景别、方向和质量排序：e-section-001:detail/landscape/high；e-section-002:wide/landscape/high；e-section-003:wide/landscape/high；e-section-004:wide/landscape/high；e-section-005:medium/landscape/high。",
+    "whyThisClosingImage": "img010 的 scene=完成报到、shotType=group、roles=closing-candidate/supporting 支持 group-photo 收束。",
+    "viewportWidth": 375,
+    "documentClientWidth": 375,
+    "documentScrollWidth": 375,
+    "articleClientWidth": 375,
+    "articleScrollWidth": 375,
+    "articleHeight": 5692,
+    "imageCount": 10,
+    "failedImageCount": 0,
+    "maxAspectRatioError": 0.0022222222222223476,
+    "visibleSectionNumbers": [],
+    "sectionNumberingPolicy": "none",
+    "maxContinuousTextHeight": 229,
+    "longTextRunCount": 0,
+    "visualBreakFrequency": 2.987,
+    "maximumStrongPatternRun": 2,
+    "climaxCount": 1,
+    "overlapPatternCount": 0,
+    "flatSurfaceCount": 7,
+    "sourceCaptionCount": 10,
+    "silentImageCount": 0
+  },
+  {
+    "case": "competition-climax",
+    "set": "v2",
+    "screenshot": "screenshots/competition-climax-final-visual-refinement.png",
+    "fixtureId": "competition-climax",
+    "branch": "final-visual-refinement",
+    "articleType": "competition",
+    "articleCharacterCount": 1714,
+    "sourceImageCount": 10,
+    "naturalSectionCount": 5,
+    "compositionCount": 7,
+    "compositionSequence": [
+      "hero-visual",
+      "asymmetric-photo-pair",
+      "asymmetric-photo-pair",
+      "visual-climax",
+      "media-story",
+      "achievement-spotlight",
+      "closing-visual"
+    ],
+    "cardSurfaceCount": 2,
+    "cardSurfaceRatio": 0.25,
+    "fullWidthImageCount": 3,
+    "photoGroupCount": 3,
+    "asymmetricCompositionCount": 2,
+    "imageLedCompositionCount": 5,
+    "genericSectionLabelCount": 0,
+    "genericSectionLabelRatio": 0,
+    "uniqueImageTreatmentCount": 3,
+    "imageTreatments": [
+      "full-width",
+      "asymmetric",
+      "closing-visual"
+    ],
+    "heroCount": 1,
+    "closingCount": 1,
+    "dominantAssetDecisionCount": 5,
+    "groupingReasonCount": 5,
+    "storytellingDecisionCount": 5,
+    "repeatedCompositionCount": 1,
+    "visualPatternSequence": [
+      "full-image-hero",
+      "numbered-section-title",
+      "plain-section-title",
+      "large-plus-detail",
+      "framed-image",
+      "numbered-section-title",
+      "full-width-image"
+    ],
+    "patternCount": 7,
+    "uniquePatternCount": 6,
+    "patternReuseRatio": 0.1428571428571429,
+    "maxConsecutiveSamePattern": 1,
+    "visualTone": "ceremonial",
+    "titleTreatment": "statement",
+    "closingStrategy": "group-photo",
+    "theme": "bit-innovation",
+    "themeVariant": "research",
+    "whyThisHero": "img001 是 wide 景别、landscape 构图、high 质量，并承担 hero-candidate 角色。",
+    "whyThisGroup": "图片按 sequence 组织；只组合 EditorialPlan 同一节内且有 scene/subject/evidence 关系的资产。",
+    "whyThisDominantImage": "各节主画面依据角色、景别、方向和质量排序：e-section-001:detail/landscape/high；e-section-002:detail/square/high；e-section-003:wide/landscape/high；e-section-004:medium/landscape/high；e-section-005:detail/landscape/high。",
+    "whyThisClosingImage": "img010 的 scene=冠军公布、shotType=group、roles=closing-candidate/supporting 支持 group-photo 收束。",
+    "viewportWidth": 375,
+    "documentClientWidth": 375,
+    "documentScrollWidth": 375,
+    "articleClientWidth": 375,
+    "articleScrollWidth": 375,
+    "articleHeight": 5076,
+    "imageCount": 10,
+    "failedImageCount": 0,
+    "maxAspectRatioError": 0.0022222222222223476,
+    "visibleSectionNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "sectionNumberingPolicy": "continuous",
+    "maxContinuousTextHeight": 217,
+    "longTextRunCount": 0,
+    "visualBreakFrequency": 3.349,
+    "maximumStrongPatternRun": 2,
+    "climaxCount": 1,
+    "overlapPatternCount": 0,
+    "flatSurfaceCount": 6,
+    "sourceCaptionCount": 10,
+    "silentImageCount": 0
+  },
+  {
+    "case": "person-award-portrait",
+    "set": "v2",
+    "screenshot": "screenshots/person-award-portrait-final-visual-refinement.png",
+    "fixtureId": "person-award-portrait",
+    "branch": "final-visual-refinement",
+    "articleType": "person-profile",
+    "articleCharacterCount": 1729,
+    "sourceImageCount": 10,
+    "naturalSectionCount": 5,
+    "compositionCount": 7,
+    "compositionSequence": [
+      "hero-visual",
+      "full-width-story",
+      "visual-climax",
+      "full-width-story",
+      "full-width-story",
+      "full-width-story",
+      "closing-visual"
+    ],
+    "cardSurfaceCount": 0,
+    "cardSurfaceRatio": 0,
+    "fullWidthImageCount": 8,
+    "photoGroupCount": 1,
+    "asymmetricCompositionCount": 0,
+    "imageLedCompositionCount": 7,
+    "genericSectionLabelCount": 0,
+    "genericSectionLabelRatio": 0,
+    "uniqueImageTreatmentCount": 2,
+    "imageTreatments": [
+      "full-width",
+      "closing-visual"
+    ],
+    "heroCount": 1,
+    "closingCount": 1,
+    "dominantAssetDecisionCount": 5,
+    "groupingReasonCount": 5,
+    "storytellingDecisionCount": 5,
+    "repeatedCompositionCount": 2,
+    "visualPatternSequence": [
+      "text-first-header",
+      "label-title",
+      "label-title",
+      "full-width-image",
+      "label-title",
+      "framed-image",
+      "framed-image"
+    ],
+    "patternCount": 7,
+    "uniquePatternCount": 4,
+    "patternReuseRatio": 0.4285714285714286,
+    "maxConsecutiveSamePattern": 2,
+    "visualTone": "humanistic",
+    "titleTreatment": "portrait-led",
+    "closingStrategy": "visual-echo",
+    "theme": "bit-official",
+    "themeVariant": "default",
+    "whyThisHero": "img001 是 portrait 景别、portrait 构图、high 质量，并承担 hero-candidate/portrait 角色。",
+    "whyThisGroup": "图片按 subject 组织；只组合 EditorialPlan 同一节内且有 scene/subject/evidence 关系的资产。",
+    "whyThisDominantImage": "各节主画面依据角色、景别、方向和质量排序：e-section-001:detail/landscape/high；e-section-002:detail/square/high；e-section-003:portrait/portrait/high；e-section-004:wide/landscape/high；e-section-005:detail/landscape/high。",
+    "whyThisClosingImage": "img010 的 scene=研究传承、shotType=group、roles=closing-candidate/supporting 支持 visual-echo 收束。",
+    "viewportWidth": 375,
+    "documentClientWidth": 375,
+    "documentScrollWidth": 375,
+    "articleClientWidth": 375,
+    "articleScrollWidth": 375,
+    "articleHeight": 6554,
+    "imageCount": 10,
+    "failedImageCount": 0,
+    "maxAspectRatioError": 0.003315842253783896,
+    "visibleSectionNumbers": [],
+    "sectionNumberingPolicy": "none",
+    "maxContinuousTextHeight": 204,
+    "longTextRunCount": 0,
+    "visualBreakFrequency": 2.746,
+    "maximumStrongPatternRun": 1,
+    "climaxCount": 0,
+    "overlapPatternCount": 0,
+    "flatSurfaceCount": 7,
+    "sourceCaptionCount": 10,
+    "silentImageCount": 0
+  },
+  {
+    "case": "performance-night",
+    "set": "v2",
+    "screenshot": "screenshots/performance-night-final-visual-refinement.png",
+    "fixtureId": "performance-night",
+    "branch": "final-visual-refinement",
+    "articleType": "performance",
+    "articleCharacterCount": 1678,
+    "sourceImageCount": 10,
+    "naturalSectionCount": 5,
+    "compositionCount": 7,
+    "compositionSequence": [
+      "hero-visual",
+      "asymmetric-photo-pair",
+      "asymmetric-photo-pair",
+      "full-width-story",
+      "poster-feature",
+      "visual-climax",
+      "closing-visual"
+    ],
+    "cardSurfaceCount": 0,
+    "cardSurfaceRatio": 0,
+    "fullWidthImageCount": 4,
+    "photoGroupCount": 3,
+    "asymmetricCompositionCount": 2,
+    "imageLedCompositionCount": 7,
+    "genericSectionLabelCount": 0,
+    "genericSectionLabelRatio": 0,
+    "uniqueImageTreatmentCount": 4,
+    "imageTreatments": [
+      "full-width",
+      "asymmetric",
+      "poster-led",
+      "closing-visual"
+    ],
+    "heroCount": 1,
+    "closingCount": 1,
+    "dominantAssetDecisionCount": 5,
+    "groupingReasonCount": 5,
+    "storytellingDecisionCount": 5,
+    "repeatedCompositionCount": 1,
+    "visualPatternSequence": [
+      "full-image-hero",
+      "full-width-image",
+      "plain-section-title",
+      "full-width-image",
+      "framed-image",
+      "full-width-image",
+      "framed-image"
+    ],
+    "patternCount": 7,
+    "uniquePatternCount": 4,
+    "patternReuseRatio": 0.4285714285714286,
+    "maxConsecutiveSamePattern": 1,
+    "visualTone": "theatrical",
+    "titleTreatment": "poster-led",
+    "closingStrategy": "visual-echo",
+    "theme": "bit-youth",
+    "themeVariant": "story",
+    "whyThisHero": "img001 是 wide 景别、landscape 构图、high 质量，并承担 hero-candidate 角色。",
+    "whyThisGroup": "图片按 sequence 组织；只组合 EditorialPlan 同一节内且有 scene/subject/evidence 关系的资产。",
+    "whyThisDominantImage": "各节主画面依据角色、景别、方向和质量排序：e-section-001:wide/landscape/high；e-section-002:wide/landscape/high；e-section-003:detail/landscape/high；e-section-004:other/portrait/high；e-section-005:wide/landscape/high。",
+    "whyThisClosingImage": "img010 的 scene=散场余韵、shotType=group、roles=closing-candidate/supporting 支持 visual-echo 收束。",
+    "viewportWidth": 375,
+    "documentClientWidth": 375,
+    "documentScrollWidth": 375,
+    "articleClientWidth": 375,
+    "articleScrollWidth": 375,
+    "articleHeight": 6467,
+    "imageCount": 10,
+    "failedImageCount": 0,
+    "maxAspectRatioError": 0.0033333333333332993,
+    "visibleSectionNumbers": [],
+    "sectionNumberingPolicy": "none",
+    "maxContinuousTextHeight": 262,
+    "longTextRunCount": 0,
+    "visualBreakFrequency": 2.783,
+    "maximumStrongPatternRun": 1,
+    "climaxCount": 1,
+    "overlapPatternCount": 0,
+    "flatSurfaceCount": 7,
+    "sourceCaptionCount": 10,
+    "silentImageCount": 0
+  },
+  {
+    "case": "science-evidence",
+    "set": "v2",
+    "screenshot": "screenshots/science-evidence-final-visual-refinement.png",
+    "fixtureId": "science-evidence",
+    "branch": "final-visual-refinement",
+    "articleType": "science-technology",
+    "articleCharacterCount": 1649,
+    "sourceImageCount": 10,
+    "naturalSectionCount": 5,
+    "compositionCount": 7,
+    "compositionSequence": [
+      "hero-visual",
+      "full-width-story",
+      "full-width-story",
+      "visual-climax",
+      "achievement-spotlight",
+      "achievement-spotlight",
+      "closing-visual"
+    ],
+    "cardSurfaceCount": 2,
+    "cardSurfaceRatio": 0.286,
+    "fullWidthImageCount": 6,
+    "photoGroupCount": 1,
+    "asymmetricCompositionCount": 0,
+    "imageLedCompositionCount": 5,
+    "genericSectionLabelCount": 0,
+    "genericSectionLabelRatio": 0,
+    "uniqueImageTreatmentCount": 2,
+    "imageTreatments": [
+      "full-width",
+      "closing-visual"
+    ],
+    "heroCount": 1,
+    "closingCount": 1,
+    "dominantAssetDecisionCount": 5,
+    "groupingReasonCount": 5,
+    "storytellingDecisionCount": 5,
+    "repeatedCompositionCount": 2,
+    "visualPatternSequence": [
+      "text-first-header",
+      "minimal-rule-title",
+      "full-width-image",
+      "minimal-rule-title",
+      "full-width-image",
+      "minimal-rule-title",
+      "full-width-image"
+    ],
+    "patternCount": 7,
+    "uniquePatternCount": 3,
+    "patternReuseRatio": 0.5714285714285714,
+    "maxConsecutiveSamePattern": 1,
+    "visualTone": "technical",
+    "titleTreatment": "formal",
+    "closingStrategy": "statement",
+    "theme": "bit-innovation",
+    "themeVariant": "research",
+    "whyThisHero": "img001 是 wide 景别、landscape 构图、high 质量，并承担 hero-candidate/evidence 角色。",
+    "whyThisGroup": "图片按 evidence 组织；只组合 EditorialPlan 同一节内且有 scene/subject/evidence 关系的资产。",
+    "whyThisDominantImage": "各节主画面依据角色、景别、方向和质量排序：e-section-001:detail/landscape/high；e-section-002:detail/landscape/high；e-section-003:wide/landscape/high；e-section-004:detail/landscape/high；e-section-005:detail/landscape/high。",
+    "whyThisClosingImage": "img010 的 scene=共同验证、shotType=group、roles=closing-candidate/supporting 支持 statement 收束。",
+    "viewportWidth": 375,
+    "documentClientWidth": 375,
+    "documentScrollWidth": 375,
+    "articleClientWidth": 375,
+    "articleScrollWidth": 375,
+    "articleHeight": 5857,
+    "imageCount": 10,
+    "failedImageCount": 0,
+    "maxAspectRatioError": 0.0022222222222223476,
+    "visibleSectionNumbers": [],
+    "sectionNumberingPolicy": "none",
+    "maxContinuousTextHeight": 217,
+    "longTextRunCount": 0,
+    "visualBreakFrequency": 2.903,
+    "maximumStrongPatternRun": 2,
+    "climaxCount": 0,
+    "overlapPatternCount": 0,
+    "flatSurfaceCount": 5,
+    "sourceCaptionCount": 10,
+    "silentImageCount": 0
+  },
+  {
+    "case": "practice-fieldnotes",
+    "set": "v2",
+    "screenshot": "screenshots/practice-fieldnotes-final-visual-refinement.png",
+    "fixtureId": "practice-fieldnotes",
+    "branch": "final-visual-refinement",
+    "articleType": "practice",
+    "articleCharacterCount": 1630,
+    "sourceImageCount": 10,
+    "naturalSectionCount": 5,
+    "compositionCount": 7,
+    "compositionSequence": [
+      "hero-visual",
+      "asymmetric-photo-pair",
+      "asymmetric-photo-pair",
+      "full-width-story",
+      "full-width-story",
+      "full-width-story",
+      "closing-visual"
+    ],
+    "cardSurfaceCount": 0,
+    "cardSurfaceRatio": 0,
+    "fullWidthImageCount": 6,
+    "photoGroupCount": 2,
+    "asymmetricCompositionCount": 2,
+    "imageLedCompositionCount": 7,
+    "genericSectionLabelCount": 0,
+    "genericSectionLabelRatio": 0,
+    "uniqueImageTreatmentCount": 3,
+    "imageTreatments": [
+      "full-width",
+      "asymmetric",
+      "closing-visual"
+    ],
+    "heroCount": 1,
+    "closingCount": 1,
+    "dominantAssetDecisionCount": 5,
+    "groupingReasonCount": 5,
+    "storytellingDecisionCount": 5,
+    "repeatedCompositionCount": 3,
+    "visualPatternSequence": [
+      "text-first-header",
+      "large-plus-detail",
+      "minimal-rule-title",
+      "numbered-section-title",
+      "framed-image",
+      "numbered-section-title",
+      "full-width-image"
+    ],
+    "patternCount": 7,
+    "uniquePatternCount": 6,
+    "patternReuseRatio": 0.1428571428571429,
+    "maxConsecutiveSamePattern": 1,
+    "visualTone": "documentary",
+    "titleTreatment": "editorial",
+    "closingStrategy": "group-photo",
+    "theme": "bit-official",
+    "themeVariant": "notice",
+    "whyThisHero": "img001 是 wide 景别、landscape 构图、high 质量，并承担 hero-candidate 角色。",
+    "whyThisGroup": "图片按 chronology 组织；只组合 EditorialPlan 同一节内且有 scene/subject/evidence 关系的资产。",
+    "whyThisDominantImage": "各节主画面依据角色、景别、方向和质量排序：e-section-001:wide/landscape/high；e-section-002:detail/landscape/high；e-section-003:close-up/landscape/high；e-section-004:wide/landscape/high；e-section-005:medium/landscape/high。",
+    "whyThisClosingImage": "img010 的 scene=共同维护、shotType=group、roles=closing-candidate/supporting 支持 group-photo 收束。",
+    "viewportWidth": 375,
+    "documentClientWidth": 375,
+    "documentScrollWidth": 375,
+    "articleClientWidth": 375,
+    "articleScrollWidth": 375,
+    "articleHeight": 5427,
+    "imageCount": 10,
+    "failedImageCount": 0,
+    "maxAspectRatioError": 0.003315842253783896,
+    "visibleSectionNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "sectionNumberingPolicy": "continuous",
+    "maxContinuousTextHeight": 204,
+    "longTextRunCount": 0,
+    "visualBreakFrequency": 3.317,
+    "maximumStrongPatternRun": 2,
+    "climaxCount": 0,
+    "overlapPatternCount": 0,
+    "flatSurfaceCount": 7,
+    "sourceCaptionCount": 10,
+    "silentImageCount": 0
+  },
+  {
+    "case": "event-open-day",
+    "set": "v2",
+    "screenshot": "screenshots/event-open-day-final-visual-refinement.png",
+    "fixtureId": "event-open-day",
+    "branch": "final-visual-refinement",
+    "articleType": "event-recap",
+    "articleCharacterCount": 1581,
+    "sourceImageCount": 10,
+    "naturalSectionCount": 5,
+    "compositionCount": 7,
+    "compositionSequence": [
+      "hero-visual",
+      "photo-pair",
+      "photo-pair",
+      "photo-pair",
+      "full-width-story",
+      "full-width-story",
+      "closing-visual"
+    ],
+    "cardSurfaceCount": 0,
+    "cardSurfaceRatio": 0,
+    "fullWidthImageCount": 4,
+    "photoGroupCount": 3,
+    "asymmetricCompositionCount": 0,
+    "imageLedCompositionCount": 4,
+    "genericSectionLabelCount": 0,
+    "genericSectionLabelRatio": 0,
+    "uniqueImageTreatmentCount": 3,
+    "imageTreatments": [
+      "full-width",
+      "paired",
+      "closing-visual"
+    ],
+    "heroCount": 1,
+    "closingCount": 1,
+    "dominantAssetDecisionCount": 5,
+    "groupingReasonCount": 5,
+    "storytellingDecisionCount": 5,
+    "repeatedCompositionCount": 3,
+    "visualPatternSequence": [
+      "title-over-image",
+      "asymmetric-pair",
+      "full-width-image",
+      "asymmetric-pair",
+      "plain-section-title",
+      "full-width-image",
+      "full-width-image"
+    ],
+    "patternCount": 7,
+    "uniquePatternCount": 4,
+    "patternReuseRatio": 0.4285714285714286,
+    "maxConsecutiveSamePattern": 2,
+    "visualTone": "documentary",
+    "titleTreatment": "statement",
+    "closingStrategy": "group-photo",
+    "theme": "bit-official",
+    "themeVariant": "default",
+    "whyThisHero": "img001 是 wide 景别、landscape 构图、high 质量，并承担 hero-candidate 角色。",
+    "whyThisGroup": "图片按 chronology 组织；只组合 EditorialPlan 同一节内且有 scene/subject/evidence 关系的资产。",
+    "whyThisDominantImage": "各节主画面依据角色、景别、方向和质量排序：e-section-001:wide/landscape/high；e-section-002:detail/landscape/high；e-section-003:close-up/landscape/high；e-section-004:wide/landscape/high；e-section-005:detail/landscape/high。",
+    "whyThisClosingImage": "img010 的 scene=路线汇合、shotType=group、roles=closing-candidate/supporting 支持 group-photo 收束。",
+    "viewportWidth": 375,
+    "documentClientWidth": 375,
+    "documentScrollWidth": 375,
+    "articleClientWidth": 375,
+    "articleScrollWidth": 375,
+    "articleHeight": 5081,
+    "imageCount": 10,
+    "failedImageCount": 0,
+    "maxAspectRatioError": 0.0022222222222223476,
+    "visibleSectionNumbers": [],
+    "sectionNumberingPolicy": "none",
+    "maxContinuousTextHeight": 204,
+    "longTextRunCount": 0,
+    "visualBreakFrequency": 3.543,
+    "maximumStrongPatternRun": 2,
+    "climaxCount": 1,
+    "overlapPatternCount": 1,
+    "flatSurfaceCount": 7,
+    "sourceCaptionCount": 10,
+    "silentImageCount": 0
+  },
+  {
+    "case": "real-welcome",
+    "set": "real-photo",
+    "screenshot": "screenshots/real-welcome-real-photo-stress.png",
+    "fixtureId": "real-welcome",
+    "articleType": "welcome",
+    "imageCount": 10,
+    "heroAssetId": "img001",
+    "closingAssetId": "img010",
+    "sectionNumberingPolicy": "none",
+    "visibleSectionNumbers": [],
+    "portraitCount": 1,
+    "groupCount": 4,
+    "wideCount": 2,
+    "detailCount": 0,
+    "contentCaptionCount": 0,
+    "silentImageCount": 10,
+    "imageRoles": [
+      {
+        "assetId": "img001",
+        "orientation": "landscape",
+        "shotType": "wide",
+        "roles": [
+          "hero-candidate"
+        ]
+      },
+      {
+        "assetId": "img002",
+        "orientation": "landscape",
+        "shotType": "group",
+        "roles": [
+          "supporting"
+        ]
+      },
+      {
+        "assetId": "img003",
+        "orientation": "landscape",
+        "shotType": "medium",
+        "roles": [
+          "supporting"
+        ]
+      },
+      {
+        "assetId": "img004",
+        "orientation": "landscape",
+        "shotType": "wide",
+        "roles": [
+          "supporting"
+        ]
+      },
+      {
+        "assetId": "img005",
+        "orientation": "landscape",
+        "shotType": "medium",
+        "roles": [
+          "supporting"
+        ]
+      },
+      {
+        "assetId": "img006",
+        "orientation": "portrait",
+        "shotType": "portrait",
+        "roles": [
+          "portrait",
+          "supporting"
+        ]
+      },
+      {
+        "assetId": "img007",
+        "orientation": "landscape",
+        "shotType": "medium",
+        "roles": [
+          "supporting"
+        ]
+      },
+      {
+        "assetId": "img008",
+        "orientation": "landscape",
+        "shotType": "group",
+        "roles": [
+          "supporting"
+        ]
+      },
+      {
+        "assetId": "img009",
+        "orientation": "landscape",
+        "shotType": "group",
+        "roles": [
+          "supporting"
+        ]
+      },
+      {
+        "assetId": "img010",
+        "orientation": "landscape",
+        "shotType": "group",
+        "roles": [
+          "closing-candidate",
+          "supporting"
+        ]
+      }
+    ],
+    "viewportWidth": 375,
+    "documentClientWidth": 375,
+    "documentScrollWidth": 375,
+    "articleClientWidth": 375,
+    "articleScrollWidth": 375,
+    "articleHeight": 3754,
+    "failedImageCount": 0,
+    "maxAspectRatioError": 0.00010878127461633191,
+    "maxContinuousTextHeight": 131,
+    "longTextRunCount": 0,
+    "visualBreakFrequency": 3.996,
+    "maximumStrongPatternRun": 2,
+    "climaxCount": 2,
+    "overlapPatternCount": 0,
+    "cardSurfaceCount": 0,
+    "flatSurfaceCount": 6,
+    "sourceCaptionCount": 0
+  },
+  {
+    "case": "real-practice",
+    "set": "real-photo",
+    "screenshot": "screenshots/real-practice-real-photo-stress.png",
+    "fixtureId": "real-practice",
+    "articleType": "practice",
+    "imageCount": 9,
+    "heroAssetId": "img001",
+    "closingAssetId": "img009",
+    "sectionNumberingPolicy": "continuous",
+    "visibleSectionNumbers": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "portraitCount": 0,
+    "groupCount": 2,
+    "wideCount": 3,
+    "detailCount": 2,
+    "contentCaptionCount": 0,
+    "silentImageCount": 9,
+    "imageRoles": [
+      {
+        "assetId": "img001",
+        "orientation": "landscape",
+        "shotType": "wide",
+        "roles": [
+          "hero-candidate"
+        ]
+      },
+      {
+        "assetId": "img002",
+        "orientation": "landscape",
+        "shotType": "medium",
+        "roles": [
+          "supporting"
+        ]
+      },
+      {
+        "assetId": "img003",
+        "orientation": "landscape",
+        "shotType": "wide",
+        "roles": [
+          "supporting"
+        ]
+      },
+      {
+        "assetId": "img004",
+        "orientation": "landscape",
+        "shotType": "medium",
+        "roles": [
+          "supporting"
+        ]
+      },
+      {
+        "assetId": "img005",
+        "orientation": "square",
+        "shotType": "detail",
+        "roles": [
+          "detail",
+          "evidence"
+        ]
+      },
+      {
+        "assetId": "img006",
+        "orientation": "landscape",
+        "shotType": "wide",
+        "roles": [
+          "supporting"
+        ]
+      },
+      {
+        "assetId": "img007",
+        "orientation": "landscape",
+        "shotType": "close-up",
+        "roles": [
+          "detail",
+          "evidence"
+        ]
+      },
+      {
+        "assetId": "img008",
+        "orientation": "landscape",
+        "shotType": "group",
+        "roles": [
+          "supporting"
+        ]
+      },
+      {
+        "assetId": "img009",
+        "orientation": "landscape",
+        "shotType": "group",
+        "roles": [
+          "closing-candidate",
+          "supporting"
+        ]
+      }
+    ],
+    "viewportWidth": 375,
+    "documentClientWidth": 375,
+    "documentScrollWidth": 375,
+    "articleClientWidth": 375,
+    "articleScrollWidth": 375,
+    "articleHeight": 2509,
+    "failedImageCount": 0,
+    "maxAspectRatioError": 0.00019992003198709973,
+    "maxContinuousTextHeight": 117,
+    "longTextRunCount": 0,
+    "visualBreakFrequency": 5.58,
+    "maximumStrongPatternRun": 2,
+    "climaxCount": 0,
+    "overlapPatternCount": 0,
+    "cardSurfaceCount": 0,
+    "flatSurfaceCount": 6,
+    "sourceCaptionCount": 0
+  },
+  {
+    "case": "real-event-recap",
+    "set": "real-photo",
+    "screenshot": "screenshots/real-event-recap-real-photo-stress.png",
+    "fixtureId": "real-event-recap",
+    "articleType": "event-recap",
+    "imageCount": 9,
+    "heroAssetId": "img001",
+    "closingAssetId": "img009",
+    "sectionNumberingPolicy": "none",
+    "visibleSectionNumbers": [],
+    "portraitCount": 3,
+    "groupCount": 3,
+    "wideCount": 2,
+    "detailCount": 0,
+    "contentCaptionCount": 0,
+    "silentImageCount": 9,
+    "imageRoles": [
+      {
+        "assetId": "img001",
+        "orientation": "landscape",
+        "shotType": "wide",
+        "roles": [
+          "hero-candidate"
+        ]
+      },
+      {
+        "assetId": "img002",
+        "orientation": "portrait",
+        "shotType": "portrait",
+        "roles": [
+          "portrait",
+          "supporting"
+        ]
+      },
+      {
+        "assetId": "img003",
+        "orientation": "portrait",
+        "shotType": "portrait",
+        "roles": [
+          "portrait",
+          "supporting"
+        ]
+      },
+      {
+        "assetId": "img004",
+        "orientation": "landscape",
+        "shotType": "medium",
+        "roles": [
+          "supporting"
+        ]
+      },
+      {
+        "assetId": "img005",
+        "orientation": "landscape",
+        "shotType": "group",
+        "roles": [
+          "supporting"
+        ]
+      },
+      {
+        "assetId": "img006",
+        "orientation": "portrait",
+        "shotType": "portrait",
+        "roles": [
+          "portrait",
+          "supporting"
+        ]
+      },
+      {
+        "assetId": "img007",
+        "orientation": "landscape",
+        "shotType": "wide",
+        "roles": [
+          "supporting"
+        ]
+      },
+      {
+        "assetId": "img008",
+        "orientation": "landscape",
+        "shotType": "group",
+        "roles": [
+          "supporting"
+        ]
+      },
+      {
+        "assetId": "img009",
+        "orientation": "landscape",
+        "shotType": "group",
+        "roles": [
+          "closing-candidate",
+          "supporting"
+        ]
+      }
+    ],
+    "viewportWidth": 375,
+    "documentClientWidth": 375,
+    "documentScrollWidth": 375,
+    "articleClientWidth": 375,
+    "articleScrollWidth": 375,
+    "articleHeight": 4096,
+    "failedImageCount": 0,
+    "maxAspectRatioError": 6.970267264305718e-05,
+    "maxContinuousTextHeight": 146,
+    "longTextRunCount": 0,
+    "visualBreakFrequency": 3.418,
+    "maximumStrongPatternRun": 2,
+    "climaxCount": 1,
+    "overlapPatternCount": 1,
+    "cardSurfaceCount": 0,
+    "flatSurfaceCount": 6,
+    "sourceCaptionCount": 0
+  }
+]

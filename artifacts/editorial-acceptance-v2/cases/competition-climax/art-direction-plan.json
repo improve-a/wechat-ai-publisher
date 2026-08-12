@@ -14,21 +14,23 @@
   "transitionStyle": "numbered-break",
   "emphasisStrategy": "metric-led",
   "closingStrategy": "group-photo",
+  "sectionNumberingPolicy": "continuous",
   "heroAssetId": "img001",
   "closingAssetId": "img010",
-  "openingVisualPattern": "title-over-image",
-  "closingVisualPattern": "poster-isolated",
-  "decorativePatternCount": 3,
+  "openingVisualPattern": "full-image-hero",
+  "closingVisualPattern": "full-width-image",
+  "decorativePatternCount": 2,
   "decorativeDensity": "sparse",
   "decorativePatterns": [
     "line",
-    "dot",
-    "diamond"
+    "dot"
   ],
   "sections": [
     {
       "sectionId": "e-section-001",
       "visualWeight": "normal",
+      "visualIntensity": "normal",
+      "sectionNumber": 1,
       "density": "balanced",
       "pace": "dynamic",
       "dominantAssetId": "img003",
@@ -36,7 +38,7 @@
         "img002"
       ],
       "compositionPreference": "asymmetric-photo-pair",
-      "preferredVisualPattern": "large-plus-detail",
+      "preferredVisualPattern": "numbered-section-title",
       "transition": "none",
       "groupingReason": "按 sequence 组织 故障排查/medium、故障排查/detail，主画面优先视觉质量与叙事角色。",
       "sectionLabel": "故障排查",
@@ -48,6 +50,8 @@
     {
       "sectionId": "e-section-002",
       "visualWeight": "normal",
+      "visualIntensity": "normal",
+      "sectionNumber": 2,
       "density": "balanced",
       "pace": "dynamic",
       "dominantAssetId": "img005",
@@ -55,7 +59,7 @@
         "img004"
       ],
       "compositionPreference": "asymmetric-photo-pair",
-      "preferredVisualPattern": "numbered-section-title",
+      "preferredVisualPattern": "plain-section-title",
       "transition": "numbered-break",
       "groupingReason": "按 sequence 组织 策略重写/medium、策略重写/detail，主画面优先视觉质量与叙事角色。",
       "sectionLabel": "策略重写",
@@ -68,6 +72,8 @@
     {
       "sectionId": "e-section-003",
       "visualWeight": "normal",
+      "visualIntensity": "normal",
+      "sectionNumber": 3,
       "density": "balanced",
       "pace": "dynamic",
       "dominantAssetId": "img006",
@@ -87,12 +93,14 @@
     {
       "sectionId": "e-section-004",
       "visualWeight": "normal",
+      "visualIntensity": "normal",
+      "sectionNumber": 4,
       "density": "balanced",
       "pace": "dynamic",
       "dominantAssetId": "img008",
       "secondaryAssetIds": [],
       "compositionPreference": "media-story",
-      "preferredVisualPattern": "numbered-section-title",
+      "preferredVisualPattern": "framed-image",
       "transition": "numbered-break",
       "groupingReason": "按 sequence 组织 等待结果/medium，主画面优先视觉质量与叙事角色。",
       "sectionLabel": "等待结果",
@@ -104,6 +112,8 @@
     {
       "sectionId": "e-section-005",
       "visualWeight": "strong",
+      "visualIntensity": "strong",
+      "sectionNumber": 5,
       "density": "balanced",
       "pace": "dynamic",
       "dominantAssetId": "img009",

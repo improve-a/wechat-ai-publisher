@@ -12,6 +12,8 @@ M3–M5 提供 Canonical Layout AST、离线可测 Layout Planner、确定性微
 
 M3 另提供真实 DeepSeek Layout Provider 与 7 篇 Live A/B Acceptance。Live 测试只从 Git 忽略的项目本地 `.env.local` 读取 `DEEPSEEK_API_KEY`；报告与 artifacts 不保存凭据。验收方法与当前基线见 `docs/M3_DeepSeek_Live_AI_Acceptance_V1.0.md`。
 
+M3–M5 最终视觉收敛增加全篇连续章节号、长段展示分段、Pattern 克制/显著度门禁与 3 篇合法授权实拍压力集；规范与最新 17 张对照/实拍截图索引见 `docs/M3-M5_Final_Visual_Direction_Refinement_V1.0.md`。
+
 ```powershell
 npm install
 npm run dev

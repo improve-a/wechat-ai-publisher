@@ -6,6 +6,7 @@ import type { ArtDirectionDiagnostic, ArtDirectionPlan } from "./types";
 import { isVisualPatternCompatible, visualPatternRegistryById } from "../visual-patterns";
 
 const GENERIC_LABELS = new Set(["现场与过程", "精彩瞬间", "活动现场", "更多内容", "回望", "现场", "过程", "高光时刻", "图片故事"]);
+const NUMBERED_PATTERNS = new Set(["numbered-section-title", "large-number-side-title"]);
 
 export class ArtDirectionValidationError extends Error {
   constructor(readonly diagnostics: ArtDirectionDiagnostic[]) {
@@ -48,7 +49,7 @@ export function validateArtDirectionPlan(
   if (plan.decorativePatterns.length !== plan.decorativePatternCount) diagnostics.push({
     code: "ART_DIRECTION_DECORATION_BUDGET_MISMATCH", message: "decorativePatternCount must equal the selected decorative vocabulary size", path: ["decorativePatternCount"],
   });
-  for (const section of plan.sections) {
+  for (const [sectionIndex, section] of plan.sections.entries()) {
     if (seen.has(section.sectionId)) diagnostics.push({ code: "ART_DIRECTION_SECTION_DUPLICATE", message: `Duplicate art direction section ${section.sectionId}`, sectionId: section.sectionId });
     seen.add(section.sectionId);
     const editorialSection = sectionById.get(section.sectionId);
@@ -61,6 +62,18 @@ export function validateArtDirectionPlan(
       code: "ART_DIRECTION_PATTERN_INCOMPATIBLE", message: `${section.preferredVisualPattern} cannot present ${section.compositionPreference} with ${editorialSection.assetIds.length} assets`, sectionId: section.sectionId, path: ["sections", section.sectionId, "preferredVisualPattern"],
     });
     const pattern = visualPatternRegistryById[section.preferredVisualPattern];
+    if (section.visualIntensity !== section.visualWeight) diagnostics.push({
+      code: "ART_DIRECTION_INTENSITY_MISMATCH", message: `visualIntensity must match registry-compatible visualWeight in ${section.sectionId}`, sectionId: section.sectionId,
+    });
+    if (plan.sectionNumberingPolicy === "continuous" && section.sectionNumber !== sectionIndex + 1) diagnostics.push({
+      code: "SECTION_NUMBERING_DISCONTINUOUS", message: `Expected section number ${sectionIndex + 1} in ${section.sectionId}`, sectionId: section.sectionId,
+    });
+    if (plan.sectionNumberingPolicy === "none" && section.sectionNumber !== undefined) diagnostics.push({
+      code: "SECTION_NUMBERING_UNEXPECTED", message: `Unnumbered article cannot assign a number to ${section.sectionId}`, sectionId: section.sectionId,
+    });
+    if (plan.sectionNumberingPolicy === "none" && NUMBERED_PATTERNS.has(section.preferredVisualPattern)) diagnostics.push({
+      code: "SECTION_NUMBERING_PATTERN_UNEXPECTED", message: `${section.preferredVisualPattern} requires continuous article numbering`, sectionId: section.sectionId,
+    });
     if (pattern.supportedArticleTypes && !pattern.supportedArticleTypes.includes(editorial.articleType as never)) diagnostics.push({
       code: "ART_DIRECTION_PATTERN_ARTICLE_TYPE_MISMATCH", message: `${section.preferredVisualPattern} is not preferred for ${editorial.articleType}`, sectionId: section.sectionId,
     });

@@ -44,7 +44,7 @@ export const ARTICLE_TYPE_PATTERN_PREFERENCES: Record<EditorialArticleType, read
   performance: ["full-image-hero", "large-number-side-title", "full-width-image", "image-over-image", "photo-triptych"],
   "science-technology": ["text-first-header", "minimal-rule-title", "large-plus-detail", "framed-image", "full-width-image"],
   practice: ["compact-image-header", "numbered-section-title", "staggered-pair", "full-width-image", "large-plus-detail"],
-  "event-recap": ["title-over-image", "numbered-section-title", "asymmetric-pair", "photo-triptych", "full-width-image"],
+  "event-recap": ["title-over-image", "asymmetric-pair", "photo-triptych", "full-width-image", "plain-section-title"],
   achievement: ["text-first-header", "minimal-rule-title", "poster-isolated", "large-plus-detail", "framed-image"],
   news: ["text-first-header", "minimal-rule-title", "full-width-image", "framed-image", "asymmetric-pair"],
   notice: ["compact-image-header", "numbered-section-title", "poster-isolated", "framed-image", "minimal-rule-title"],

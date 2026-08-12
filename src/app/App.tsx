@@ -16,10 +16,17 @@ const EditorialAcceptanceV2Page = lazy(() =>
     default: module.EditorialAcceptanceV2Page,
   })),
 );
+const RealPhotoStressPage = lazy(() =>
+  import("../preview/RealPhotoStressPage").then((module) => ({ default: module.RealPhotoStressPage })),
+);
 
 export function App() {
   const view = new URLSearchParams(window.location.search).get("view");
-  return view === "editorial-v2" ? (
+  return view === "real-photo-stress" ? (
+    <Suspense fallback={<main>正在加载实拍压力集…</main>}>
+      <RealPhotoStressPage />
+    </Suspense>
+  ) : view === "editorial-v2" ? (
     <Suspense fallback={<main>正在加载 V2 编辑视觉验收…</main>}>
       <EditorialAcceptanceV2Page />
     </Suspense>

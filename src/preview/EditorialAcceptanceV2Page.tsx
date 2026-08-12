@@ -19,7 +19,8 @@ function countMatches(value: string, pattern: RegExp): number {
 export function EditorialAcceptanceV2Page() {
   const params = new URLSearchParams(window.location.search);
   const fixtureId = params.get("case") ?? REALISTIC_EDITORIAL_ACCEPTANCE_SET_V2[0]!.id;
-  const branch = params.get("branch") === "previous-art-direction" ? "previous-art-direction" : "visual-pattern-upgrade";
+  const requestedBranch = params.get("branch");
+  const branch = requestedBranch === "previous-art-direction" ? "previous-art-direction" : "final-visual-refinement";
   const fixture = REALISTIC_EDITORIAL_ACCEPTANCE_SET_V2.find((item) => item.id === fixtureId)
     ?? REALISTIC_EDITORIAL_ACCEPTANCE_SET_V2[0]!;
   const result = useMemo(() => {
@@ -49,7 +50,7 @@ export function EditorialAcceptanceV2Page() {
     const fullWidthImageCount = layout.blocks.reduce((total, block) => total + (["hero-visual", "full-width-story", "media-story", "closing-visual"].includes(block.component) ? block.assetIds?.length ?? 0 : 0), 0);
     const repeatedCompositionCount = compositionSequence.reduce((total, composition, index) => total + (index > 0 && composition === compositionSequence[index - 1] ? 1 : 0), 0);
     const visualPatternMetrics = computeVisualPatternMetrics(upgradedLayout.blocks.flatMap((block) =>
-      branch === "visual-pattern-upgrade" && block.visualPattern ? [block.visualPattern] : [],
+      branch === "final-visual-refinement" && block.visualPattern ? [block.visualPattern] : [],
     ));
     const stats = {
       fixtureId: fixture.id,
@@ -98,7 +99,7 @@ export function EditorialAcceptanceV2Page() {
     <main className="m5-preview-shell" data-testid="editorial-v2-page">
       <header className="m5-preview-header">
         <p>REALISTIC_EDITORIAL_ACCEPTANCE_SET_V2 · {fixture.category}</p>
-        <h1>{fixture.article.title} · {branch === "previous-art-direction" ? "上一版 Art Direction" : "Visual Pattern 升级"}</h1>
+        <h1>{fixture.article.title} · {branch === "previous-art-direction" ? "上一版 Art Direction" : "Final Visual Refinement"}</h1>
         <span>官方参考只用于提炼视觉语法；合成验收素材不冒充真实报道。</span>
       </header>
       <section className="m5-validator-status">
