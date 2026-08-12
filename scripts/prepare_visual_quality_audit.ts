@@ -4,7 +4,7 @@ import { inlineToPlainText, type ArticleAST, type InlineNode, type ListItem } fr
 import { parseArticle } from "../src/article-parser";
 import { resolveArticleAssets } from "../src/asset-resolution";
 import type { LayoutAST, LayoutBlock } from "../src/layout-ast";
-import { validateCanonicalLayoutAST } from "../src/layout-ast";
+import { normalizeLayoutCandidate } from "../src/layout-ast";
 import { projectLayoutBlock, renderWeChatArticle } from "../src/wechat-renderer";
 
 const ACCEPTANCE_PATH =
@@ -143,14 +143,14 @@ function blockText(block: ArticleAST["blocks"][number]): string {
 function layoutForSource(layout: LayoutAST, sourceId: string): LayoutBlock | undefined {
   return layout.blocks.find(
     (block) =>
-      block.provenance.kind === "article-blocks" &&
+      "sourceBlockIds" in block.provenance &&
       block.provenance.sourceBlockIds.includes(sourceId),
   );
 }
 
 function provenanceSignature(block: LayoutBlock | undefined): string | null {
   if (!block) return null;
-  if (block.provenance.kind === "article-blocks") {
+  if ("sourceBlockIds" in block.provenance) {
     return `article-blocks:${block.provenance.sourceBlockIds.join(",")}`;
   }
   return block.provenance.kind;
@@ -303,7 +303,9 @@ function main(): void {
 
     for (const branchName of ["deterministic", "deepseek"] satisfies BranchName[]) {
       const branch = acceptanceArticle[branchName];
-      const layout = validateCanonicalLayoutAST(branch.layout, article);
+      const layout = normalizeLayoutCandidate(branch.layout, article, {
+        requestedTheme: branch.layout.theme,
+      });
       const projected = layout.blocks.flatMap((block) => projectLayoutBlock(block, article));
       const renderedHtml = renderWeChatArticle({ article, layout, resolvedAssets });
       const sourceToLayout = Object.fromEntries(

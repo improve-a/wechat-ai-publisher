@@ -1,4 +1,5 @@
 import type { ComponentId } from "../components/types";
+import type { CompositionId } from "../compositions";
 import type {
   ComponentVariantId,
   ThemeId,
@@ -10,11 +11,20 @@ export const LAYOUT_AST_SCHEMA_VERSION = "1" as const;
 export type LayoutProvenance =
   | { kind: "article-title" }
   | { kind: "article-blocks"; sourceBlockIds: string[] }
+  | { kind: "editorial-composition"; sourceBlockIds: string[]; usesArticleTitle?: boolean }
   | { kind: "decorative" };
+
+export type LayoutPresentationId = ComponentId | CompositionId;
+
+export interface LayoutAssetPlacement {
+  assetId: string;
+  status: "placed" | "intentionally-unplaced";
+  reason?: string;
+}
 
 export interface LayoutBlock {
   id: string;
-  component: ComponentId;
+  component: LayoutPresentationId;
   componentVariant: ComponentVariantId;
   provenance: LayoutProvenance;
   assetIds?: string[];
@@ -25,11 +35,12 @@ export interface LayoutAST {
   theme: ThemeId;
   themeVariant: ThemeVariantId;
   blocks: LayoutBlock[];
+  assetPlacements: LayoutAssetPlacement[];
 }
 
 export interface LayoutCandidateBlock {
   id: string;
-  component: ComponentId;
+  component: LayoutPresentationId;
   componentVariant?: ComponentVariantId;
   provenance: LayoutProvenance;
   assetIds?: string[];
@@ -40,6 +51,7 @@ export interface LayoutCandidate {
   theme: ThemeId;
   themeVariant?: ThemeVariantId | null;
   blocks: LayoutCandidateBlock[];
+  assetPlacements?: LayoutAssetPlacement[];
 }
 
 export interface LayoutDiagnostic {

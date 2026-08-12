@@ -2,6 +2,7 @@ import type { ArticleBlock, ImageBlock, TableBlock, TableCell } from "../article
 import type { ResolvedAsset } from "../asset-resolution";
 import { componentRegistry } from "../components/registry";
 import type { ComponentId } from "../components/types";
+import { compositionRegistry, type CompositionId } from "../compositions";
 import { classifyTable, type TablePresentation } from "../layout-planner/contentAnalysis";
 import { element, renderInline, renderListItems, styleAttribute } from "./html";
 import {
@@ -125,7 +126,7 @@ function renderCard(
   input: WeChatComponentAdapterInput,
   tag: "aside" | "blockquote" | "footer" | "section",
 ): string {
-  const component = input.layoutBlock.component;
+  const component = input.layoutBlock.component as ComponentId;
   const accent = variantAccent(input.theme, input.themeVariant);
   const metric = component === "highlight" && input.layoutBlock.componentVariant === "metric";
   const base = cardStyle(input.theme, input.themeVariant, component);
@@ -564,6 +565,98 @@ function renderTable(input: WeChatComponentAdapterInput): string {
     : renderMobileTable(input, block, selected);
 }
 
+function renderCompositionImage(input: WeChatComponentAdapterInput, block: ImageBlock): string {
+  const asset = imageAsset(input, block);
+  if (asset.state === "unresolved") {
+    return element("span", [
+      ["data-asset-id", asset.assetId], ["data-asset-state", asset.state],
+      styleAttribute([["display", "block"], ["height", "1px"], ["overflow", "hidden"]]),
+    ], "");
+  }
+  return element("img", [
+    ["src", asset.src], ["alt", block.alt ?? ""], ["data-asset-id", asset.assetId],
+    ["data-asset-state", asset.state],
+    styleAttribute([
+      ["display", "block"], ["box-sizing", "border-box"], ["width", "100%"],
+      ["max-width", "100%"], ["height", "auto"], ["object-fit", "cover"],
+      ["border-radius", input.theme.tokens.radius.image],
+    ]),
+  ], "");
+}
+
+function renderCompositionSource(input: WeChatComponentAdapterInput, block: ArticleBlock): string {
+  if (block.type === "image") return renderCompositionImage(input, block);
+  if (block.type === "image-caption") return element("p", [styleAttribute([
+    ["margin", "7px 0 0"], ["color", input.theme.tokens.colors.textMuted],
+    ["font-size", "12px"], ["line-height", "1.6"],
+  ])], renderInline(block.inline, block.text));
+  if (block.type === "heading") return element("h2", [styleAttribute([
+    ["margin", "0 0 12px"], ["color", input.theme.tokens.colors.textStrong],
+    ["font-size", input.theme.tokens.typography.sectionSize], ["line-height", "1.45"],
+    ["overflow-wrap", "anywhere"],
+  ])], renderInline(block.inline, block.text));
+  if (block.type === "paragraph") return element("p", [styleAttribute([
+    ["margin", "0 0 12px"], ["color", input.theme.tokens.colors.text],
+    ["font-size", input.theme.tokens.typography.bodySize],
+    ["line-height", input.theme.tokens.typography.bodyLineHeight], ["overflow-wrap", "anywhere"],
+  ])], renderInline(block.inline, block.text));
+  if (block.type === "quote") return element("blockquote", [styleAttribute([
+    ["margin", "10px 0"], ["padding", "10px 12px"],
+    ["border-left", `3px solid ${variantAccent(input.theme, input.themeVariant)}`],
+    ["color", input.theme.tokens.colors.textSecondary], ["font-style", "italic"],
+  ])], renderInline(block.inline, block.text));
+  if (block.type === "table") return renderTable({ ...input, sourceBlocks: [block] });
+  throw new Error(`${block.type} is not supported inside ${input.layoutBlock.component}`);
+}
+
+function renderComposition(input: WeChatComponentAdapterInput): string {
+  const composition = input.layoutBlock.component as CompositionId;
+  const accent = variantAccent(input.theme, input.themeVariant);
+  const images = input.sourceBlocks.filter((block) => block.type === "image");
+  const captions = input.sourceBlocks.filter((block) => block.type === "image-caption");
+  const captionByImageBlockId = new Map(captions.map((caption) => [caption.imageBlockId, caption]));
+  const textBlocks = input.sourceBlocks.filter((block) => block.type !== "image" && block.type !== "image-caption");
+  const headingBlocks = textBlocks.filter((block) => block.type === "heading");
+  const narrativeBlocks = textBlocks.filter((block) => block.type !== "heading");
+  const heroTitle = composition === "hero-visual" && input.article.title
+    ? element("h1", [styleAttribute([
+        ["margin", "0 0 16px"], ["color", input.theme.tokens.colors.textStrong],
+        ["font-size", input.theme.tokens.typography.titleSize], ["line-height", input.theme.tokens.typography.titleLineHeight],
+        ["letter-spacing", "-0.02em"], ["overflow-wrap", "anywhere"],
+      ])], renderInline(undefined, input.article.title))
+    : "";
+  const textHtml = textBlocks.map((block) => renderCompositionSource(input, block)).join("");
+  const headingHtml = headingBlocks.map((block) => renderCompositionSource(input, block)).join("");
+  const narrativeHtml = narrativeBlocks.map((block) => renderCompositionSource(input, block)).join("");
+  const mediaItems = images.map((block) => element("figure", [styleAttribute([
+    ["box-sizing", "border-box"], ["min-width", "0"], ["margin", "0"],
+  ])], `${renderCompositionImage(input, block)}${captionByImageBlockId.has(block.id) ? renderCompositionSource(input, captionByImageBlockId.get(block.id)!) : ""}`));
+  const mediaHtml = mediaItems.length
+    ? element("div", [styleAttribute([
+        ["display", mediaItems.length > 1 ? "grid" : "block"],
+        ...(mediaItems.length > 1 ? ([["grid-template-columns", "repeat(2,minmax(0,1fr))"], ["gap", "8px"]] as const) : []),
+        ["box-sizing", "border-box"], ["max-width", "100%"], ["margin", textHtml ? "8px 0 0" : "0"],
+      ])], mediaItems.join(""))
+    : "";
+  const framed = composition !== "section-opener";
+  const compositionContent = composition === "profile-spotlight"
+    ? `${heroTitle}${headingHtml}${mediaHtml}${narrativeHtml}`
+    : `${heroTitle}${textHtml}${mediaHtml}`;
+  return element("section", [
+    ...traceAttributes(input), ["data-composition", composition],
+    styleAttribute([
+      ["box-sizing", "border-box"], ["max-width", "100%"],
+      ["margin", `0 0 ${input.theme.tokens.spacing.sectionGap}`],
+      ["padding", framed ? input.theme.tokens.spacing.cardPadding : "4px 0 2px"],
+      ["background-color", framed ? variantSurface(input.theme, input.themeVariant) : input.theme.tokens.colors.background],
+      ["border", framed ? `1px solid ${input.theme.tokens.colors.border}` : "0 solid transparent"],
+      ["border-top", composition === "hero-visual" ? `5px solid ${accent}` : framed ? `2px solid ${accent}` : `1px solid ${accent}`],
+      ["border-radius", framed ? input.theme.tokens.radius.medium : "0"],
+      ["overflow", "hidden"],
+    ]),
+  ], compositionContent);
+}
+
 const adapters = [
   { component: "article-title", render: renderTitle },
   { component: "subtitle", render: (input) => element("section", [...traceAttributes(input)], renderTextCollection(input, "p")) },
@@ -600,3 +693,10 @@ if (
 ) {
   throw new Error("WeChat adapters must cover the complete component registry");
 }
+
+export const weChatCompositionAdapters = Object.fromEntries(
+  compositionRegistry.map((entry) => [
+    entry.id,
+    { component: entry.id, render: renderComposition },
+  ]),
+) as Record<CompositionId, WeChatComponentAdapter>;

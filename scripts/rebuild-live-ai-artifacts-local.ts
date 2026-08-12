@@ -8,7 +8,7 @@ import {
   enforceLayoutRhythm,
   planDeterministicLayout,
 } from "../src/layout-planner";
-import { validateCanonicalLayoutAST, type LayoutAST } from "../src/layout-ast";
+import { normalizeLayoutCandidate, type LayoutAST } from "../src/layout-ast";
 import { buildPreviewDocument } from "../src/preview";
 import {
   hasCompleteSourceTrace,
@@ -83,11 +83,11 @@ function evaluateBranch(
   layoutValue: LayoutAST,
   resolvedAssets: ResolvedAssetMap,
 ) {
-  const layout = validateCanonicalLayoutAST(layoutValue, article);
+  const layout = normalizeLayoutCandidate(layoutValue, article, { requestedTheme: layoutValue.theme });
   const firstHtml = renderWeChatArticle({ article, layout, resolvedAssets });
   const secondHtml = renderWeChatArticle({ article, layout, resolvedAssets });
   const consumed = layout.blocks.flatMap((block) =>
-    block.provenance.kind === "article-blocks" ? block.provenance.sourceBlockIds : [],
+    "sourceBlockIds" in block.provenance ? block.provenance.sourceBlockIds : [],
   );
   const articleOrder = article.blocks.map((block) => block.id);
   const sourceExactlyOnce =
@@ -140,7 +140,9 @@ for (const articleResult of acceptance.articles) {
   }).article;
   const resolvedAssets = assetMap(article);
   const deterministicLayout = planDeterministicLayout(article, { userRequest: USER_REQUEST });
-  const providerLayout = validateCanonicalLayoutAST(articleResult.deepseek.layout, article);
+  const providerLayout = normalizeLayoutCandidate(articleResult.deepseek.layout, article, {
+    requestedTheme: articleResult.deepseek.layout.theme,
+  });
   const rhythmResult = enforceLayoutRhythm(
     providerLayout,
     article,

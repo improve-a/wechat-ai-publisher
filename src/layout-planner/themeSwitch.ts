@@ -12,11 +12,8 @@ function cloneBlocks(current: LayoutAST): LayoutCandidate["blocks"] {
     component: block.component,
     componentVariant: block.componentVariant,
     provenance:
-      block.provenance.kind === "article-blocks"
-        ? {
-            kind: "article-blocks" as const,
-            sourceBlockIds: [...block.provenance.sourceBlockIds],
-          }
+      "sourceBlockIds" in block.provenance
+        ? { ...block.provenance, sourceBlockIds: [...block.provenance.sourceBlockIds] }
         : { ...block.provenance },
     ...(block.assetIds ? { assetIds: [...block.assetIds] } : {}),
   }));
@@ -31,6 +28,7 @@ export function switchLayoutTheme(
     schemaVersion: current.schemaVersion,
     theme: targetTheme,
     blocks: cloneBlocks(current),
+    assetPlacements: current.assetPlacements.map((placement) => ({ ...placement })),
   };
   return normalizeLayoutCandidate(candidate, article, { requestedTheme: targetTheme });
 }
@@ -45,6 +43,7 @@ export function switchLayoutThemeVariant(
     theme: current.theme,
     themeVariant: targetVariant,
     blocks: cloneBlocks(current),
+    assetPlacements: current.assetPlacements.map((placement) => ({ ...placement })),
   };
   return normalizeLayoutCandidate(candidate, article, { requestedTheme: current.theme });
 }

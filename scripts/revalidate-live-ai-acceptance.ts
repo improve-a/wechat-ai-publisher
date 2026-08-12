@@ -45,7 +45,7 @@ function writeJson(path: string, value: unknown): void {
 
 function expectedIds(branch: ArticleResult["deterministic"] | ArticleResult["deepseek"]): string[] {
   return (branch.layout?.blocks ?? []).flatMap((block) =>
-    block.provenance.kind === "article-blocks" ? block.provenance.sourceBlockIds ?? [] : [],
+    "sourceBlockIds" in block.provenance ? block.provenance.sourceBlockIds ?? [] : [],
   );
 }
 

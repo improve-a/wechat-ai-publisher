@@ -33,10 +33,7 @@ export function enforceLayoutRhythm(
   const blocks: LayoutCandidateBlock[] = layout.blocks.map((block) => {
     let component = block.component;
     let componentVariant = block.componentVariant;
-    const sourceIds =
-      block.provenance.kind === "article-blocks"
-        ? block.provenance.sourceBlockIds
-        : [];
+    const sourceIds = "sourceBlockIds" in block.provenance ? block.provenance.sourceBlockIds : [];
     const sourceSignals = sourceIds
       .map((sourceId) => signalBySourceId.get(sourceId))
       .filter((signal) => signal !== undefined);
@@ -83,8 +80,8 @@ export function enforceLayoutRhythm(
       component,
       componentVariant,
       provenance:
-        block.provenance.kind === "article-blocks"
-          ? { kind: "article-blocks" as const, sourceBlockIds: [...sourceIds] }
+        "sourceBlockIds" in block.provenance
+          ? { ...block.provenance, sourceBlockIds: [...sourceIds] }
           : { ...block.provenance },
       ...(block.assetIds ? { assetIds: [...block.assetIds] } : {}),
     };
@@ -98,6 +95,7 @@ export function enforceLayoutRhythm(
         theme: layout.theme,
         themeVariant: layout.themeVariant,
         blocks,
+        assetPlacements: layout.assetPlacements.map((placement) => ({ ...placement })),
       },
       article,
       { requestedTheme: layout.theme },

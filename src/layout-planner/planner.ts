@@ -1,23 +1,24 @@
-import { componentRegistry } from "../components/registry";
+import { compositionRegistry } from "../compositions";
 import {
-  componentCompatibility,
+  ARTICLE_TYPES, EDITORIAL_SECTION_ROLES, EditorialValidationError,
+  compileEditorialPlan, createDefaultAssetUnderstandingMap, validateAssetUnderstandingMap,
+  validateEditorialPlan, type EditorialDiagnostic,
+} from "../editorial";
+import {
   LayoutValidationError,
-  normalizeLayoutCandidate,
-  type LayoutDiagnostic,
 } from "../layout-ast";
 import { themeDefinitions } from "../themes/registry";
 import type {
-  LayoutModelClient,
-  LayoutModelRequest,
+  EditorialPlannerClient,
+  EditorialPlannerRequest,
   LayoutPlannerInput,
   LayoutPlannerResult,
 } from "./types";
 import { analyzeArticleContent } from "./contentAnalysis";
-import { enforceLayoutRhythm } from "./rhythmPolicy";
 
 export const MAX_MODEL_ATTEMPTS = 2;
 
-function capabilities(): LayoutModelRequest["capabilities"] {
+function capabilities(): EditorialPlannerRequest["capabilities"] {
   return {
     themes: themeDefinitions.map((theme) => ({
       id: theme.id,
@@ -31,15 +32,16 @@ function capabilities(): LayoutModelRequest["capabilities"] {
       })),
       defaultVariant: theme.defaultVariant,
     })),
-    components: componentRegistry.map((component) => ({
-      id: component.id,
-      description: component.description,
-      variants: [...component.supportedComponentVariants],
-      sourceTypes: [...componentCompatibility[component.id].sourceTypes],
-      grouping: componentCompatibility[component.id].grouping,
-      titleMetadata: "titleMetadata" in componentCompatibility[component.id],
-      decorative: "decorative" in componentCompatibility[component.id],
+    compositions: compositionRegistry.map((composition) => ({
+      id: composition.id,
+      description: composition.description,
+      sourceTypes: [...composition.sourceTypes],
+      minimumImages: composition.minimumImages,
+      maximumImages: composition.maximumImages,
+      allowsArticleTitle: composition.allowsArticleTitle,
     })),
+    articleTypes: [...ARTICLE_TYPES],
+    sectionRoles: [...EDITORIAL_SECTION_ROLES],
   };
 }
 
@@ -47,8 +49,8 @@ function parseModelValue(value: unknown): unknown {
   return typeof value === "string" ? (JSON.parse(value) as unknown) : value;
 }
 
-function failureDiagnostics(error: unknown): LayoutDiagnostic[] {
-  if (error instanceof LayoutValidationError) return error.diagnostics;
+function failureDiagnostics(error: unknown): EditorialDiagnostic[] {
+  if (error instanceof EditorialValidationError || error instanceof LayoutValidationError) return error.diagnostics;
   return [
     {
       code: error instanceof SyntaxError ? "MODEL_JSON_INVALID" : "MODEL_CALL_FAILED",
@@ -57,18 +59,23 @@ function failureDiagnostics(error: unknown): LayoutDiagnostic[] {
   ];
 }
 
-export async function planLayoutWithModel(
+export async function planLayoutWithEditorialPlanner(
   input: LayoutPlannerInput,
-  client: LayoutModelClient,
+  client: EditorialPlannerClient,
 ): Promise<LayoutPlannerResult> {
-  let previousCandidate: unknown;
-  let diagnostics: LayoutDiagnostic[] = [];
+  let previousPlan: unknown;
+  let diagnostics: EditorialDiagnostic[] = [];
+  const assetUnderstanding = validateAssetUnderstandingMap(
+    input.assetUnderstanding ?? createDefaultAssetUnderstandingMap(input.article),
+    input.article,
+  );
 
   for (let attempt = 1; attempt <= MAX_MODEL_ATTEMPTS; attempt += 1) {
     try {
-      const request: LayoutModelRequest = {
+      const request: EditorialPlannerRequest = {
         mode: attempt === 1 ? "initial" : "repair",
         article: input.article,
+        assetUnderstanding,
         ...(input.userRequest ? { userRequest: input.userRequest } : {}),
         ...(input.requestedTheme ? { requestedTheme: input.requestedTheme } : {}),
         contentSignals: analyzeArticleContent(input.article, {
@@ -76,19 +83,19 @@ export async function planLayoutWithModel(
           requestedTheme: input.requestedTheme,
         }),
         capabilities: capabilities(),
-        ...(attempt > 1 ? { previousCandidate, diagnostics } : {}),
+        ...(attempt > 1 ? { previousPlan, diagnostics } : {}),
       };
-      previousCandidate = await client.generateLayout(request);
-      const candidate = parseModelValue(previousCandidate);
-      const canonical = normalizeLayoutCandidate(candidate, input.article, {
-        requestedTheme: input.requestedTheme,
-      });
-      const layout = enforceLayoutRhythm(
-        canonical,
-        input.article,
-        request.contentSignals,
-      ).layout;
-      return { ok: true, layout, attempts: attempt, diagnostics };
+      previousPlan = await client.generateEditorialPlan(request);
+      const candidate = parseModelValue(previousPlan);
+      const editorialPlan = validateEditorialPlan(candidate, input.article, assetUnderstanding);
+      if (input.requestedTheme && editorialPlan.theme !== input.requestedTheme) {
+        throw new EditorialValidationError([{
+          code: "REQUESTED_THEME_IGNORED",
+          message: `Requested ${input.requestedTheme}, editorial plan selected ${editorialPlan.theme}`,
+        }]);
+      }
+      const canonical = compileEditorialPlan(editorialPlan, input.article, assetUnderstanding);
+      return { ok: true, layout: canonical, editorialPlan, assetUnderstanding, attempts: attempt, diagnostics };
     } catch (error) {
       diagnostics = failureDiagnostics(error);
     }
@@ -101,3 +108,6 @@ export async function planLayoutWithModel(
     diagnostics,
   };
 }
+
+/** @deprecated Use planLayoutWithEditorialPlanner. */
+export const planLayoutWithModel = planLayoutWithEditorialPlanner;

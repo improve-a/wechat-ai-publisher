@@ -1,12 +1,12 @@
 # M3 DeepSeek Live AI A/B Acceptance V1.0
 
-> 验收状态：`LIVE_AI_PROVIDER_RESULT=PASS`
+> 历史纯文本验收状态：`LEGACY_TEXT_LIVE_AI_PROVIDER_RESULT=PASS`
 >
-> 视觉状态：`LIVE_AI_VISUAL_QUALITY=AWAITING_HUMAN_REVIEW`
+> EditorialPlan 架构升级本次调用：`LIVE_AI_REQUEST_COUNT=0`
 
 ## 1. 范围
 
-本验收在已经完成的 M3–M5 合同上接入真实 DeepSeek Layout Provider，不改变 M2 Article AST、M1 Registry、M4 Renderer 或 M5 Validator 的事实源。每篇文章使用同一份 Article AST、assets、Registry、Renderer、Validator 和 375 × 812 Chromium 环境，对比：
+本文件保留升级前 7 篇纯文本真实 DeepSeek 运行的历史证据，继续作为回归基线。当前主架构已升级为 DeepSeek Editorial Planner → EditorialPlan → deterministic Composition Compiler；本次升级没有发起新的付费真实调用，因此不得把下表结果解释为新 Prompt 的 live 结果。
 
 - Deterministic Planner；
 - DeepSeek Planner（`deepseek-v4-flash`）。
@@ -20,8 +20,9 @@
 - Response format：`json_object`；
 - Thinking：disabled；
 - 最大 Planner 尝试次数：2（initial + 最多一次 repair）；
-- Provider 只能输出 Layout JSON，不得生成或改写文章文本、HTML、CSS 或 JSX；
-- Prompt 只暴露中央 Registry 派生的 Theme、variant、Component、source type、grouping 和 metadata 能力。
+- 当前 Provider 只能输出 EditorialPlan JSON，不得生成或改写文章文本、身份、HTML、CSS 或 JSX；
+- 当前 Prompt 只暴露 Article AST、AssetUnderstandingMap、Theme 与受控 Composition 能力，不暴露 M1 Component 映射；
+- Component 与 HTML 由 deterministic Composition Compiler 和 M4 Renderer 决定。
 
 实现入口：`src/layout-planner/deepseek.ts`。所有请求记录只包含模型、状态、耗时和 token usage，不记录 Authorization header、请求 Prompt、响应正文或环境变量内容。
 
@@ -47,7 +48,7 @@ npm run check:m3:live
 6. M5 parser-backed Preview Validator；
 7. sandboxed iframe 中的 375 × 812 Chromium overflow、图片、Code、Table、page error 与 console error 检查。
 
-## 5. 真实运行结果
+## 5. 历史真实运行结果（升级前纯文本回归）
 
 | # | 类别 | Deterministic Theme | DeepSeek Theme | 尝试 | Repair | M3/M4/M5 |
 |---:|---|---|---|---:|---:|---|
@@ -100,11 +101,12 @@ artifacts/live-ai-acceptance/
 
 ## 7. 结论与人工 Gate
 
-真实 DeepSeek Provider 已完成 7/7 文章、M3/M4/M5 机器门禁与 14/14 Chromium 技术门禁，因此 Provider 结果为 PASS。截图只证明技术可渲染性，不自动判定 AI 方案比 Deterministic 更美观：
+历史 DeepSeek Provider 已完成 7/7 纯文本文章、M3/M4/M5 机器门禁与 14/14 Chromium 技术门禁。当前 EditorialPlan 新架构的离线 schema/compiler/image-rich/375px gates 另见 `M3-M5_Editorial_Architecture_Upgrade_V1.0.md`；截图只证明技术可渲染性，不自动判定 AI 方案比 Deterministic 更美观：
 
 ```text
 LIVE_AI_VISUAL_QUALITY=AWAITING_HUMAN_REVIEW
 NEXT_STATE=READY_FOR_HUMAN_AB_VISUAL_REVIEW
+LIVE_AI_REQUEST_COUNT=0
 ```
 
 本验收不开始 M6，不包含微信草稿 API，也不授权自动 merge。

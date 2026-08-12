@@ -34,7 +34,9 @@ describe("parser-backed WeChat Validator", () => {
     expect(draft.valid).toBe(false);
     expect(draft.errors.map((error) => error.code)).toContain("IMG_PREVIEW_ONLY");
     expect(draft.errors.find((error) => error.code === "IMG_PREVIEW_ONLY")?.layoutBlockId).toBeTruthy();
-    expect(draft.errors.find((error) => error.code === "IMG_PREVIEW_ONLY")?.sourceBlockIds).toHaveLength(1);
+    expect(draft.errors.find((error) => error.code === "IMG_PREVIEW_ONLY")?.sourceBlockIds).toContain(
+      article.blocks.find((block) => block.type === "image")?.id,
+    );
   });
 
   it("detects forbidden elements through the parsed HTML tree", () => {

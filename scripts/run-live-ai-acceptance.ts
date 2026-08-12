@@ -10,9 +10,9 @@ import { resolveArticleAssets } from "../src/asset-resolution";
 import {
   DEEPSEEK_API_ENDPOINT,
   DEEPSEEK_LIVE_MODEL,
-  DeepSeekLayoutModelClient,
+  DeepSeekEditorialPlannerClient,
   planDeterministicLayout,
-  planLayoutWithModel,
+  planLayoutWithEditorialPlanner,
   type DeepSeekCallRecord,
 } from "../src/layout-planner";
 import {
@@ -137,7 +137,7 @@ function evaluateBranch(
   const firstHtml = renderWeChatArticle({ article, layout, resolvedAssets });
   const secondHtml = renderWeChatArticle({ article, layout, resolvedAssets });
   const consumed = layout.blocks.flatMap((block) =>
-    block.provenance.kind === "article-blocks" ? block.provenance.sourceBlockIds : [],
+    "sourceBlockIds" in block.provenance ? block.provenance.sourceBlockIds : [],
   );
   const articleOrder = article.blocks.map((block) => block.id);
   const sourceExactlyOnce =
@@ -214,7 +214,7 @@ async function main(): Promise<void> {
   mkdirSync(ARTIFACT_ROOT, { recursive: true });
   const ledger = loadLedger();
   const ledgerStart = ledger.records.length;
-  const client = new DeepSeekLayoutModelClient({
+  const client = new DeepSeekEditorialPlannerClient({
     apiKey,
     endpoint: DEEPSEEK_API_ENDPOINT,
     model: DEEPSEEK_LIVE_MODEL,
@@ -234,7 +234,7 @@ async function main(): Promise<void> {
     });
     const deterministic = evaluateBranch(article, deterministicLayout, resolvedAssets);
     const requestStart = client.getCallRecords().length;
-    const plannerResult = await planLayoutWithModel(
+    const plannerResult = await planLayoutWithEditorialPlanner(
       { article, userRequest: USER_REQUEST },
       client,
     );

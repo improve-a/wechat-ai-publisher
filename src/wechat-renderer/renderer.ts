@@ -1,7 +1,9 @@
 import { validateArticleAST } from "../article-ast";
 import { validateCanonicalLayoutAST } from "../layout-ast";
 import { getThemeVariantDefinition, themeRegistry } from "../themes/registry";
-import { weChatComponentAdapters } from "./adapters";
+import { COMPOSITION_IDS, type CompositionId } from "../compositions";
+import { weChatComponentAdapters, weChatCompositionAdapters } from "./adapters";
+import type { ComponentId } from "../components/types";
 import { element, styleAttribute } from "./html";
 import { projectLayoutBlock } from "./projection";
 import { articleStyle } from "./styles";
@@ -17,7 +19,9 @@ export function renderWeChatArticle(input: WeChatRenderInput): string {
   const themeVariant = getThemeVariantDefinition(theme, layout.themeVariant);
   const renderedBlocks = layout.blocks
     .map((layoutBlock) => {
-      const adapter = weChatComponentAdapters[layoutBlock.component];
+      const adapter = COMPOSITION_IDS.includes(layoutBlock.component as CompositionId)
+        ? weChatCompositionAdapters[layoutBlock.component as CompositionId]
+        : weChatComponentAdapters[layoutBlock.component as ComponentId];
       return adapter.render({
         layoutBlock,
         sourceBlocks: projectLayoutBlock(layoutBlock, article),

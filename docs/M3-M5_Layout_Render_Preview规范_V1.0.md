@@ -1,8 +1,8 @@
 # M3–M5 Layout / Render / Preview 规范 V1.0
 
-> 文档状态：`M3_M5_CONTRACT_FROZEN_V1`
+> 文档状态：`M3_M5_EDITORIAL_ARCHITECTURE_UPGRADED_V1`
 >
-> 实现入口：`src/layout-ast/`、`src/layout-planner/`、`src/asset-resolution/`、`src/wechat-renderer/`、`src/wechat-validator/`、`src/preview/`、`src/integration/`
+> 实现入口：`src/editorial/`、`src/compositions/`、`src/layout-ast/`、`src/layout-planner/`、`src/asset-resolution/`、`src/wechat-renderer/`、`src/wechat-validator/`、`src/preview/`、`src/integration/`
 
 本文档记录 M3–M5 的已实现合同。M1 Registry 与 M2 Article AST 保持现有事实源和语义，不在本阶段复制或改写。
 
@@ -13,7 +13,11 @@ Markdown / Plaintext
         ↓
 M2 parseArticle → validated Article AST
         ↓
-M3 Layout Planner → candidate → normalization / validation
+M3 Article AST + AssetUnderstandingMap + user request
+        ↓
+Editorial Planner → validated EditorialPlan
+        ↓
+deterministic Composition Compiler
         ↓
 Canonical Layout AST
         ↓
@@ -38,11 +42,12 @@ interface LayoutAST {
   theme: ThemeId;
   themeVariant: ThemeVariantId;
   blocks: LayoutBlock[];
+  assetPlacements: LayoutAssetPlacement[];
 }
 
 interface LayoutBlock {
   id: string;
-  component: ComponentId;
+  component: ComponentId | CompositionId;
   componentVariant: ComponentVariantId;
   provenance: LayoutProvenance;
   assetIds?: string[];
@@ -51,10 +56,17 @@ interface LayoutBlock {
 type LayoutProvenance =
   | { kind: "article-title" }
   | { kind: "article-blocks"; sourceBlockIds: string[] }
+  | { kind: "editorial-composition"; sourceBlockIds: string[]; usesArticleTitle?: boolean }
   | { kind: "decorative" };
+
+interface LayoutAssetPlacement {
+  assetId: string;
+  status: "placed" | "intentionally-unplaced";
+  reason?: string;
+}
 ```
 
-Theme、Component 和 ComponentVariant 的能力集合取自 M1 Registry/types。Canonical AST 是 strict、纯 JSON、可往返的数据，不含 React、DOM、函数、CSS 或 HTML。
+Theme、Component 和 ComponentVariant 的能力集合取自 M1 Registry/types。8 个受控组合来自独立 Composition Registry，不扩充或修改 M1 的 23 个视觉组件。Canonical AST 是 strict、纯 JSON、可往返的数据，不含 React、DOM、函数、CSS 或 HTML。
 
 ### 2.1 Canonical Variant
 
@@ -74,13 +86,14 @@ Theme switch 不原地修改已验证对象，而是构造新 candidate，重新
 
 Article 顶层标题只通过 `article-title` 表达，不伪造 block ID。Article `blocks` 的每个 block 都是 consumable source，并必须：
 
-- 被一个且仅一个 `article-blocks` Layout block 消费；
+- 被一个且仅一个 `article-blocks` 或 `editorial-composition` Layout block 消费；
 - 引用真实存在的 source ID；
 - 多 source 分组在 Article 中连续且保持原顺序；
 - 多个内容 Layout block 的 source interval 保持原文顺序；
 - 不使用隐式 secondary reference；
 - `article-title` 在有标题时才合法，且最多一次；
 - `assetIds` 只能引用 Article 已有 asset。
+- Article 每个 asset 必须在 `assetPlacements` 中恰好出现一次：要么 `placed` 且由 Layout block 渲染，要么 `intentionally-unplaced` 且给出原因。
 
 `decorative` 不携带文章正文来源。当前只允许 Divider 作为纯装饰组件。
 
@@ -99,18 +112,20 @@ Article 顶层标题只通过 `article-title` 表达，不伪造 block ID。Arti
 | image / caption | `image` / `image-caption` |
 | divider / code / table | 同名语义组件 |
 
-多 block 投影仅允许规则明确标注的同类型连续分组。兼容入口同时接收 Theme/ThemeVariant，以便未来增加 Registry 级限制；V1 没有额外 Theme 禁配组合。
+传统 Component 多 block 投影仍只允许规则明确标注的同类型连续分组。异构多源只能通过 Composition Registry 的受控类型合同进入：`hero-visual`、`section-opener`、`photo-pair`、`photo-grid`、`media-story`、`profile-spotlight`、`achievement-spotlight`、`closing-visual`。Layout Validator 仍统一执行连续性、顺序和 exactly-once。
 
 ## 5. Layout Planner
 
-`LayoutModelClient` 只接收 Article AST、用户要求和由 Registry 派生的能力清单，只返回布局决策数据。请求中不提供 HTML/CSS 生成能力。
+`EditorialPlannerClient` 只接收 Article AST、AssetUnderstandingMap、用户要求、Theme 与 Composition 能力，只返回 EditorialPlan；请求中不暴露 M1 Component 列表，也不提供 HTML/CSS 生成能力。旧 `LayoutModelClient` 名称只作为迁移期 deprecated alias 保留，不再代表主架构。
+
+EditorialPlan `schemaVersion: "1"` 描述 articleType、hero、sections、closing、每段 editorial role、sourceBlockIds、assetIds、importance 与 compositionIntent。模型不决定最终 Component/HTML；确定性 Composition Compiler 才负责把合法计划编译成 canonical Layout AST。
 
 ```text
 MAX_MODEL_ATTEMPTS = 2
 = initial 1 次 + repair 最多 1 次
 ```
 
-第二次仍未通过 candidate schema、Registry normalization、compatibility 或 source Gate 时，Planner 返回结构化 failure 和 diagnostics，不继续调用模型。
+第二次仍未通过 EditorialPlan schema、source/asset coverage、order 或 compiler Gate 时，Planner 返回结构化 failure 和 diagnostics，不继续调用模型。
 
 自动测试使用 Fake Client，完全离线。`DeterministicLayoutPlanner` 只依赖 validated Article AST、Registry 和固定规则，用于 fallback、E2E 与调试；不代表真实 AI Provider。
 
@@ -128,7 +143,7 @@ Layout provenance
 
 Adapter 不自行搜索整篇 Article AST。`article-title` 从顶层 title 读取；`decorative` 的 `sourceBlocks` 为空。Renderer 不创作、摘要、改写、翻译或补正文。
 
-`weChatComponentAdapters` 覆盖当前 Component Registry 的 19/19 项，启动时会校验覆盖完整性。
+`weChatComponentAdapters` 覆盖当前 M1 Component Registry 的 23/23 项；`weChatCompositionAdapters` 覆盖 Composition Registry 的 8/8 项。两套 Registry 各自校验完整覆盖。
 
 ## 7. Renderer fragment 与确定性
 
@@ -146,7 +161,9 @@ Article AST + Canonical Layout AST + ResolvedAssetMap
 
 Inline Renderer 保留并转义：text、strong、emphasis、inline-code、link URL/title、break；TableCell 使用同一 inline tree，不回退为纯文本。
 
-## 8. Thin Asset Resolution
+## 8. AssetUnderstandingMap 与 Thin Asset Resolution
+
+`AssetUnderstandingMap` 是 Article AST 的严格 sidecar，按 assetId 提供 description、subjects、scene、shotType、orientation、aspectRatio、peopleCount、visualQuality、semanticRoles 与 relatedSourceBlockIds。Planner 不读取图片二进制；sidecar 必须完整覆盖 Article assets，且只能引用真实 source block。
 
 ```ts
 interface ResolvedAsset {
@@ -219,7 +236,7 @@ M5 页面入口：
 
 默认入口仍保留原 M1 Demo。M5 页面支持 375px 预览、三套 Theme switch、代表 fixture switch，以及 Preview/Draft Validator 状态展示。
 
-## 12. Browser Gate
+## 12. Browser Gate 与图文 A/B
 
 `scripts/m5_visual_gate.py` 使用既有 Python Playwright + Chromium，在 `375 × 812` viewport 中：
 
@@ -234,6 +251,12 @@ M5 页面入口：
 
 截图目录：`artifacts/m5-visual/`。
 
+`IMAGE_RICH_EDITORIAL_ACCEPTANCE_SET_V1` 位于 `src/editorial-acceptance/`，覆盖迎新、活动回顾、竞赛、人物/获奖、演出、科研成果和实践 7 类图文稿。`scripts/editorial_visual_gate.py` 在 375×812 Chromium 下生成 14 张全文 A/B 截图，对比回归专用逐块规则基线与 Editorial Planner 离线合同回放。机器统计 section/composition/hero/photo group/multi-source/ordinary body/emphasis/unused asset/decorative/平均段长，但不判断 AI 版本是否更美。
+
+```text
+HUMAN_EDITORIAL_VISUAL_REVIEW_REQUIRED=YES
+```
+
 ## 13. 测试命令与 PASS Gate
 
 ```powershell
@@ -241,13 +264,15 @@ npm run check:m3
 npm run check:m4
 npm run check:m5
 npm run check:m3-m5
+npm run check:editorial
+npm run check:editorial:browser
 npm run check:m5:browser
 npm run check:m2
 npm run check:m1
 npm run build
 ```
 
-覆盖内容包括：Canonical Schema/Variant、provenance traceability、coverage、exactly-once、order/continuity、compatibility、Fake Client repair/attempt limit、Layout round-trip/determinism、19/19 Adapter、三 Theme、asset states、byte determinism、HTML escape、Table inline、parser negative cases、sandbox contract、Theme switch 和联合 E2E。
+覆盖内容包括：EditorialPlan/AssetUnderstanding runtime schema、Canonical Schema/Variant、provenance traceability、source/asset coverage、exactly-once、order/continuity、Composition compatibility/compiler、Fake Client repair/attempt limit、Layout round-trip/determinism、23/23 Component Adapter、8/8 Composition Adapter、三 Theme、asset states、byte determinism、HTML escape、Table inline、parser negative cases、sandbox contract、Theme switch、图文 A/B 和联合 E2E。
 
 ## 14. Core PASS 与外部验证语义
 
@@ -270,10 +295,10 @@ LIVE_WECHAT_EDITOR_CHECK=NOT_RUN
 
 ## 15. Known Limitations
 
-- 真实 DeepSeek Provider 与 7 篇 Live A/B Acceptance 已实现并通过；运行方法和证据见 `M3_DeepSeek_Live_AI_Acceptance_V1.0.md`；
+- 7 篇纯文本 DeepSeek Live A/B 的历史证据保留为回归基线；EditorialPlan 新 Prompt 本次未付费重跑，`LIVE_AI_REQUEST_COUNT=0`；
 - 未实现微信图片上传，本地图片在 draft mode 中保持 blocker；
 - 未执行真实微信公众号后台粘贴验收；
-- V1 Component projection 保守，不做摘要、二次引用或任意异构 source grouping；
+- 不支持任意异构 source grouping；只允许 Composition Registry 中 8 种受控组合；
 - Theme/Component compatibility 已预留 Theme 限制入口，但当前 Registry 无禁配矩阵；
 - Preview 是验收 Host，不是富文本编辑器或拖拽式排版工具；
 - 不包含 M6 access token、素材上传、草稿 API，也不包含 M7 发布。

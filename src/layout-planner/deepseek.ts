@@ -1,4 +1,4 @@
-import type { LayoutModelClient, LayoutModelRequest } from "./types";
+import type { EditorialPlannerClient, EditorialPlannerRequest } from "./types";
 
 export const DEEPSEEK_API_ENDPOINT = "https://api.deepseek.com";
 export const DEEPSEEK_LIVE_MODEL = "deepseek-v4-flash";
@@ -13,7 +13,7 @@ export interface DeepSeekTokenUsage {
 
 export interface DeepSeekCallRecord extends DeepSeekTokenUsage {
   sequence: number;
-  mode: LayoutModelRequest["mode"];
+  mode: EditorialPlannerRequest["mode"];
   endpoint: string;
   requestedModel: string;
   responseModel?: string;
@@ -22,7 +22,7 @@ export interface DeepSeekCallRecord extends DeepSeekTokenUsage {
   durationMs: number;
 }
 
-export interface DeepSeekLayoutModelClientOptions {
+export interface DeepSeekEditorialPlannerClientOptions {
   apiKey: string;
   endpoint?: string;
   model?: string;
@@ -30,6 +30,9 @@ export interface DeepSeekLayoutModelClientOptions {
   fetchImplementation?: typeof fetch;
   onCallRecord?: (record: DeepSeekCallRecord) => void;
 }
+
+/** @deprecated Use DeepSeekEditorialPlannerClientOptions. */
+export type DeepSeekLayoutModelClientOptions = DeepSeekEditorialPlannerClientOptions;
 
 interface DeepSeekChatResponse {
   model?: string;
@@ -43,67 +46,59 @@ interface DeepSeekChatResponse {
   };
 }
 
-const SYSTEM_PROMPT = `You are the Layout Planner for a WeChat article pipeline.
+const SYSTEM_PROMPT = `You are the Editorial Planner for a WeChat article pipeline.
 Return exactly one JSON object and nothing else. Do not return markdown fences.
-You may only make layout decisions using the supplied themes, variants, components, provenance, and asset IDs.
-Never return article text, HTML, CSS, JSX, or new semantic content.
+Plan editorial roles and asset use from ArticleAST, AssetUnderstandingMap, the user request and registered composition intents.
+Never return article text, HTML, CSS, JSX, component IDs, or new semantic content. The deterministic Composition Compiler owns components and rendering.
 
 The JSON object must have this shape:
 {
   "schemaVersion": "1",
+  "articleType": "registered-article-type",
   "theme": "registered-theme-id",
   "themeVariant": "registered-theme-variant",
-  "blocks": [
-    {
-      "id": "l001",
-      "component": "registered-component-id",
-      "componentVariant": "registered-component-variant",
-      "provenance": { "kind": "article-title" }
-    },
-    {
-      "id": "l002",
-      "component": "registered-component-id",
-      "componentVariant": "registered-component-variant",
-      "provenance": {
-        "kind": "article-blocks",
-        "sourceBlockIds": ["a001"]
-      }
-    }
-  ]
+  "hero": null,
+  "sections": [{
+    "id": "e-section-001", "role": "registered-section-role",
+    "sourceBlockIds": ["a001"], "assetIds": [], "importance": 3,
+    "compositionIntent": "registered-composition-intent", "sequence": 1
+  }],
+  "closing": null,
+  "unusedAssets": [{"assetId": "img001", "reason": "specific editorial reason"}]
 }
 
 Hard rules:
-- If ArticleAST.title exists, represent it at most once with article-title provenance and the article-title component.
-- Consume every ArticleAST.blocks ID exactly once. Never omit, duplicate, summarize, or reorder a source block.
-- Prefer one source block per Layout block. Only group blocks when the capability explicitly allows homogeneous-contiguous grouping.
-- Use source types and grouping rules from capabilities.components. A registered component name alone is not enough.
-- Keep all content Layout blocks in the original Article order. Decorative blocks may not contain semantic text.
-- Use only registered variants. The metric ComponentVariant is valid only where a component capability registers it.
-- assetIds may only reference IDs present in ArticleAST.assets.
-- IDs must be unique and stable, using l001, l002, ... in Layout order.
+- Consume every ArticleAST.blocks ID exactly once across hero, sections and closing. Never omit, duplicate, summarize, or reorder a source block.
+- Group only contiguous sources. Use composition capabilities as intent; the compiler will enforce legal typed multi-source composition.
+- Use each ArticleAST asset exactly once: either assign it to one unit or list it in unusedAssets with a concrete reason. Never silently lose an image.
+- Base asset roles on AssetUnderstandingMap. Do not infer identity beyond supplied descriptions and subjects.
+- A hero uses hero-visual and may combine the title, an opening paragraph and exactly one hero image. Title is metadata and must not appear in sourceBlockIds.
+- Use only registered article types, section roles, themes, variants and composition intents.
+- IDs must be unique and stable. sequence must preserve Article order.
+- Do not create a card per Markdown block. Plan coherent editorial sections.
 - For repair mode, correct every supplied diagnostic without weakening any rule.
 - The response must be valid JSON.`;
 
-const LAYOUT_GUIDANCE = `Layout guidance:
-- Use contentSignals as evidence, not as permission to change content. Prefer its article type, block roles, table presentation and rhythm budget unless the ArticleAST clearly contradicts them.
-- Keep ordinary reading components dominant: body-text, section-intro and lead-text should normally represent at least 60% of paragraph sources.
-- Reserve highlight, quote-card, info-card and note for genuinely important sources. Never place two emphasis/card components next to each other merely for decoration.
-- Use lead-text only for the opening paragraph, section-intro only for a short paragraph immediately following a heading, and ending only for the final paragraph.
-- For two-column numeric or metric tables choose key-metrics/metric; for other two-column key-value tables choose key-value-facts; for three-column schedules choose timeline; keep table for genuinely complex matrices.
-- Prefer step-list for procedural ordered lists and number-list for non-procedural ordered lists.
-- Create rhythm through semantic component choice and registered ThemeVariant selection, not by replacing every paragraph with a card.`;
+const LAYOUT_GUIDANCE = `Editorial guidance:
+- Use contentSignals as evidence, not as permission to change content.
+- Let images lead when the understanding sidecar marks hero, portrait, evidence or closing roles.
+- Use photo-pair for exactly two related images and photo-grid for three or four; do not fabricate relationships.
+- Use profile-spotlight for a supplied portrait plus related person text, and achievement-spotlight for supplied result evidence.
+- Keep ordinary body reading inside coherent sections. Emphasis is an editorial importance signal, not decoration.
+- Preserve captions with their source image and preserve provenance. The compiler maps the accepted plan to Registry-safe Layout AST.`;
 
-function buildUserPrompt(request: LayoutModelRequest): string {
+function buildUserPrompt(request: EditorialPlannerRequest): string {
   return JSON.stringify({
-    task: request.mode === "initial" ? "Create a valid LayoutCandidate JSON." : "Repair the LayoutCandidate JSON.",
+    task: request.mode === "initial" ? "Create a valid EditorialPlan JSON." : "Repair the EditorialPlan JSON.",
     mode: request.mode,
     ...(request.userRequest ? { userRequest: request.userRequest } : {}),
     ...(request.requestedTheme ? { requestedTheme: request.requestedTheme } : {}),
     article: request.article,
+    assetUnderstanding: request.assetUnderstanding,
     capabilities: request.capabilities,
     ...(request.mode === "repair"
       ? {
-          previousCandidate: request.previousCandidate,
+          previousPlan: request.previousPlan,
           diagnostics: request.diagnostics,
         }
       : {}),
@@ -132,7 +127,7 @@ function usageFrom(response: DeepSeekChatResponse): DeepSeekTokenUsage {
   };
 }
 
-export class DeepSeekLayoutModelClient implements LayoutModelClient {
+export class DeepSeekEditorialPlannerClient implements EditorialPlannerClient {
   private readonly apiKey: string;
   private readonly endpoint: string;
   private readonly model: string;
@@ -141,7 +136,7 @@ export class DeepSeekLayoutModelClient implements LayoutModelClient {
   private readonly onCallRecord?: (record: DeepSeekCallRecord) => void;
   private readonly records: DeepSeekCallRecord[] = [];
 
-  constructor(options: DeepSeekLayoutModelClientOptions) {
+  constructor(options: DeepSeekEditorialPlannerClientOptions) {
     if (!options.apiKey.trim()) throw new Error("DeepSeek API key is missing");
     this.apiKey = options.apiKey;
     this.endpoint = (options.endpoint ?? DEEPSEEK_API_ENDPOINT).replace(/\/$/u, "");
@@ -160,7 +155,7 @@ export class DeepSeekLayoutModelClient implements LayoutModelClient {
     this.onCallRecord?.(record);
   }
 
-  async generateLayout(request: LayoutModelRequest): Promise<unknown> {
+  async generateEditorialPlan(request: EditorialPlannerRequest): Promise<unknown> {
     const sequence = this.records.length + 1;
     const startedAt = performance.now();
     const controller = new AbortController();
@@ -265,4 +260,12 @@ export class DeepSeekLayoutModelClient implements LayoutModelClient {
     }
     return content;
   }
+
+  /** @deprecated Use generateEditorialPlan; retained for callers migrating from the M3 seam. */
+  async generateLayout(request: EditorialPlannerRequest): Promise<unknown> {
+    return this.generateEditorialPlan(request);
+  }
 }
+
+/** @deprecated Use DeepSeekEditorialPlannerClient. */
+export { DeepSeekEditorialPlannerClient as DeepSeekLayoutModelClient };

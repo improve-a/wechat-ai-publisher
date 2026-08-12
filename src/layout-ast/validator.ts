@@ -2,6 +2,7 @@ import { z } from "zod";
 import { validateArticleAST, type ArticleAST, type ArticleBlock } from "../article-ast";
 import { componentRegistry } from "../components/registry";
 import type { ComponentId, ComponentRegistryEntry } from "../components/types";
+import { COMPOSITION_IDS, compositionRegistry, type CompositionId } from "../compositions";
 import { themeRegistry } from "../themes/registry";
 import type { ComponentVariantId, ThemeId } from "../themes/types";
 import { validateBlockCompatibility } from "./compatibility";
@@ -11,6 +12,7 @@ import {
   type LayoutAST,
   type LayoutCandidate,
   type LayoutDiagnostic,
+  type LayoutPresentationId,
 } from "./types";
 
 export class LayoutValidationError extends Error {
@@ -61,11 +63,23 @@ function resolveCanonicalThemeVariant(
 }
 
 function resolveCanonicalComponentVariant(
-  componentId: ComponentId,
+  componentId: LayoutPresentationId,
   requested: string | undefined,
 ): ComponentVariantId {
+  if (COMPOSITION_IDS.includes(componentId as CompositionId)) {
+    if (requested !== undefined && requested !== "default") {
+      throw new LayoutValidationError([{
+        code: "COMPONENT_VARIANT_UNKNOWN",
+        message: `${requested} is not registered for ${componentId}`,
+      }]);
+    }
+    if (!compositionRegistry.some((entry) => entry.id === componentId)) {
+      throw new LayoutValidationError([{ code: "COMPONENT_UNKNOWN", message: `${componentId} is not registered` }]);
+    }
+    return "default";
+  }
   const entry: ComponentRegistryEntry | undefined = componentRegistry.find(
-    (candidate) => candidate.id === componentId,
+    (candidate) => candidate.id === componentId as ComponentId,
   );
   if (!entry) {
     throw new LayoutValidationError([
@@ -146,7 +160,24 @@ function validateCanonicalAgainstArticle(
           layout.themeVariant,
         ),
       );
+      if (layoutBlock.assetIds?.length) diagnostics.push({
+        code: "ASSET_SOURCE_MISMATCH",
+        message: "article-title provenance cannot attach assets without image sources",
+        layoutBlockId: layoutBlock.id,
+      });
       continue;
+    }
+
+    if (
+      layoutBlock.provenance.kind === "editorial-composition" &&
+      layoutBlock.provenance.usesArticleTitle
+    ) {
+      titleCount += 1;
+      if (!article.title) diagnostics.push({
+        code: "ARTICLE_TITLE_MISSING",
+        message: "Editorial composition requires ArticleAST.title",
+        layoutBlockId: layoutBlock.id,
+      });
     }
 
     if (layoutBlock.provenance.kind === "decorative") {
@@ -158,6 +189,11 @@ function validateCanonicalAgainstArticle(
           layout.themeVariant,
         ),
       );
+      if (layoutBlock.assetIds?.length) diagnostics.push({
+        code: "ASSET_SOURCE_MISMATCH",
+        message: "decorative provenance cannot attach semantic assets",
+        layoutBlockId: layoutBlock.id,
+      });
       continue;
     }
 
@@ -211,6 +247,20 @@ function validateCanonicalAgainstArticle(
       lastContentIndex = indices.at(-1)!;
     }
 
+    const expectedAssetIds = sourceBlocks.flatMap((block) =>
+      block.type === "image" ? [block.assetId] : [],
+    );
+    const declaredAssetIds = layoutBlock.assetIds ?? [];
+    if (
+      expectedAssetIds.length !== declaredAssetIds.length ||
+      expectedAssetIds.some((assetId, index) => assetId !== declaredAssetIds[index])
+    ) diagnostics.push({
+      code: "ASSET_SOURCE_MISMATCH",
+      message: `Layout block assets must exactly match image sources: ${layoutBlock.id}`,
+      layoutBlockId: layoutBlock.id,
+      sourceBlockIds: sourceIds,
+    });
+
     diagnostics.push(
       ...validateBlockCompatibility(
         layoutBlock,
@@ -242,6 +292,35 @@ function validateCanonicalAgainstArticle(
         sourceBlockIds: [sourceId],
       });
     }
+  }
+
+  const placementCounts = new Map<string, number>();
+  const placedInBlocks = new Set(layout.blocks.flatMap((block) => block.assetIds ?? []));
+  for (const placement of layout.assetPlacements) {
+    placementCounts.set(placement.assetId, (placementCounts.get(placement.assetId) ?? 0) + 1);
+    if (!assetIds.has(placement.assetId)) diagnostics.push({
+      code: "ASSET_PLACEMENT_UNKNOWN",
+      message: `Asset placement references missing Article asset: ${placement.assetId}`,
+    });
+    if (placement.status === "placed" && !placedInBlocks.has(placement.assetId)) diagnostics.push({
+      code: "PLACED_ASSET_NOT_RENDERED",
+      message: `Placed asset is not attached to a Layout block: ${placement.assetId}`,
+    });
+    if (placement.status === "intentionally-unplaced" && !placement.reason) diagnostics.push({
+      code: "UNPLACED_ASSET_REASON_MISSING",
+      message: `Intentionally unplaced asset requires a reason: ${placement.assetId}`,
+    });
+    if (placement.status === "intentionally-unplaced" && placedInBlocks.has(placement.assetId)) diagnostics.push({
+      code: "ASSET_PLACEMENT_CONFLICT",
+      message: `Asset is both rendered and intentionally unplaced: ${placement.assetId}`,
+    });
+  }
+  for (const assetId of assetIds) {
+    const count = placementCounts.get(assetId) ?? 0;
+    if (count !== 1) diagnostics.push({
+      code: "PLACED_ASSET_COVERAGE",
+      message: `Asset must have one explicit placement decision: ${assetId}; received ${count}`,
+    });
   }
 
   return diagnostics;
@@ -294,6 +373,14 @@ export function normalizeLayoutCandidate(
       provenance: block.provenance,
       ...(block.assetIds ? { assetIds: [...block.assetIds] } : {}),
     })),
+    assetPlacements: candidate.assetPlacements
+      ? candidate.assetPlacements.map((placement) => ({ ...placement }))
+      : article.assets.map((asset) => {
+          const placed = candidate.blocks.some((block) => block.assetIds?.includes(asset.id));
+          return placed
+            ? { assetId: asset.id, status: "placed" as const }
+            : { assetId: asset.id, status: "intentionally-unplaced" as const, reason: "Not selected by legacy LayoutCandidate" };
+        }),
   };
 
   validateLayoutASTShape(layout);

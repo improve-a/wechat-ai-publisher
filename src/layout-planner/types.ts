@@ -1,6 +1,10 @@
 import type { ArticleAST } from "../article-ast";
-import type { ComponentId } from "../components/types";
-import type { LayoutAST, LayoutDiagnostic } from "../layout-ast";
+import type { CompositionId } from "../compositions";
+import type {
+  AssetUnderstandingMap, EditorialArticleType, EditorialDiagnostic,
+  EditorialPlan, EditorialSectionRole,
+} from "../editorial";
+import type { LayoutAST } from "../layout-ast";
 import type { ThemeId } from "../themes/types";
 import type { ArticleContentSignals } from "./contentAnalysis";
 
@@ -8,11 +12,13 @@ export interface LayoutPlannerInput {
   article: ArticleAST;
   userRequest?: string;
   requestedTheme?: ThemeId;
+  assetUnderstanding?: AssetUnderstandingMap;
 }
 
-export interface LayoutModelRequest {
+export interface EditorialPlannerRequest {
   mode: "initial" | "repair";
   article: ArticleAST;
+  assetUnderstanding: AssetUnderstandingMap;
   userRequest?: string;
   requestedTheme?: ThemeId;
   contentSignals: ArticleContentSignals;
@@ -25,34 +31,42 @@ export interface LayoutModelRequest {
       variants: Array<{ id: string; description: string; visualIntent: string }>;
       defaultVariant: string | null;
     }>;
-    components: Array<{
-      id: ComponentId;
+    compositions: Array<{
+      id: CompositionId;
       description: string;
-      variants: string[];
       sourceTypes: string[];
-      grouping: "single" | "homogeneous-contiguous";
-      titleMetadata: boolean;
-      decorative: boolean;
+      minimumImages: number;
+      maximumImages: number;
+      allowsArticleTitle: boolean;
     }>;
+    articleTypes: EditorialArticleType[];
+    sectionRoles: EditorialSectionRole[];
   };
-  previousCandidate?: unknown;
-  diagnostics?: LayoutDiagnostic[];
+  previousPlan?: unknown;
+  diagnostics?: EditorialDiagnostic[];
 }
 
-export interface LayoutModelClient {
-  generateLayout(request: LayoutModelRequest): Promise<unknown>;
+export interface EditorialPlannerClient {
+  generateEditorialPlan(request: EditorialPlannerRequest): Promise<unknown>;
 }
+
+/** @deprecated Use EditorialPlannerRequest. */
+export type LayoutModelRequest = EditorialPlannerRequest;
+/** @deprecated Use EditorialPlannerClient. */
+export type LayoutModelClient = EditorialPlannerClient;
 
 export type LayoutPlannerResult =
   | {
       ok: true;
       layout: LayoutAST;
+      editorialPlan: EditorialPlan;
+      assetUnderstanding: AssetUnderstandingMap;
       attempts: number;
-      diagnostics: LayoutDiagnostic[];
+      diagnostics: EditorialDiagnostic[];
     }
   | {
       ok: false;
       error: "MODEL_OUTPUT_INVALID";
       attempts: number;
-      diagnostics: LayoutDiagnostic[];
+      diagnostics: EditorialDiagnostic[];
     };

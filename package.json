@@ -16,7 +16,10 @@
     "check:m3:live:browser": "python scripts/live_ai_visual_gate.py",
     "check:live-ai": "npm run check:m3:live && npm run check:m3:live:browser",
     "check:m3-m5:core": "vitest run tests/m3 tests/m4 tests/m5 tests/integration",
-    "check:m3-m5": "npm run check:m3-m5:core && npm run check:m5:browser",
+    "check:m3-m5": "npm run check:m3-m5:core && npm run check:m5:browser && npm run check:editorial:all",
+    "check:editorial": "vitest run tests/editorial",
+    "check:editorial:browser": "python scripts/editorial_visual_gate.py",
+    "check:editorial:all": "npm run check:editorial && npm run check:editorial:browser",
     "preview": "vite preview"
   },
   "dependencies": {

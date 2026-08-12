@@ -5,7 +5,7 @@ export function projectLayoutBlock(
   layoutBlock: LayoutBlock,
   article: ArticleAST,
 ): ArticleBlock[] {
-  if (layoutBlock.provenance.kind !== "article-blocks") return [];
+  if (!("sourceBlockIds" in layoutBlock.provenance)) return [];
   const byId = new Map(article.blocks.map((block) => [block.id, block]));
   return layoutBlock.provenance.sourceBlockIds.map((sourceId) => {
     const block = byId.get(sourceId);

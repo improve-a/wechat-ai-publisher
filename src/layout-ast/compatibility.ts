@@ -1,6 +1,7 @@
 import type { ArticleBlock } from "../article-ast";
 import { componentRegistry } from "../components/registry";
 import type { ComponentId } from "../components/types";
+import { COMPOSITION_IDS, validateCompositionSources, type CompositionId } from "../compositions";
 import type { ThemeId, ThemeVariantId } from "../themes/types";
 import type { LayoutBlock, LayoutDiagnostic } from "./types";
 
@@ -86,8 +87,27 @@ export function validateBlockCompatibility(
   theme: ThemeId,
   themeVariant: ThemeVariantId,
 ): LayoutDiagnostic[] {
+  const isComposition = COMPOSITION_IDS.includes(layoutBlock.component as CompositionId);
+  if (layoutBlock.provenance.kind === "editorial-composition") {
+    if (!isComposition) return [{
+      code: "COMPOSITION_PRESENTATION_REQUIRED",
+      message: `Editorial composition provenance cannot use ${layoutBlock.component}`,
+      layoutBlockId: layoutBlock.id,
+    }];
+    return validateCompositionSources(
+      layoutBlock.component as CompositionId,
+      sourceBlocks,
+      layoutBlock.provenance.usesArticleTitle === true,
+      layoutBlock.id,
+    );
+  }
+  if (isComposition) return [{
+    code: "COMPOSITION_PROVENANCE_REQUIRED",
+    message: `${layoutBlock.component} requires editorial-composition provenance`,
+    layoutBlockId: layoutBlock.id,
+  }];
   const rule: ComponentCompatibilityRule =
-    componentCompatibility[layoutBlock.component];
+    componentCompatibility[layoutBlock.component as ComponentId];
   const diagnostics: LayoutDiagnostic[] = [];
 
   if (layoutBlock.provenance.kind === "article-title") {

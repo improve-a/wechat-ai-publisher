@@ -1,44 +1,53 @@
 import { describe, expect, it, vi } from "vitest";
 import {
   DEEPSEEK_LIVE_MODEL,
-  DeepSeekLayoutModelClient,
-  type LayoutModelRequest,
+  DeepSeekEditorialPlannerClient,
+  type EditorialPlannerRequest,
 } from "../../src/layout-planner";
-import { candidateFor, makeArticle } from "./helpers";
+import { createDefaultAssetUnderstandingMap, planEditorialDeterministically } from "../../src/editorial";
+import { makeArticle } from "./helpers";
 
-function request(): LayoutModelRequest {
+function request(): EditorialPlannerRequest {
+  const article = makeArticle();
   return {
     mode: "initial",
-    article: makeArticle(),
+    article,
+    assetUnderstanding: createDefaultAssetUnderstandingMap(article),
+    contentSignals: {
+      articleType: "general", recommendedTheme: "bit-official", recommendedThemeVariant: "default",
+      rhythm: { sourceBlockCount: article.blocks.length, paragraphCount: 4, headingCount: 1, emphasisBudget: 1, guidance: "test" },
+      blocks: [],
+    },
     capabilities: {
       themes: [
-        { id: "bit-official", variants: ["default"], defaultVariant: "default" },
+        { id: "bit-official", description: "official", recommendedFor: [], avoidFor: [], variants: [{ id: "default", description: "default", visualIntent: "rule/balanced/plain/primary" }], defaultVariant: "default" },
       ],
-      components: [
+      compositions: [
         {
-          id: "body-text",
-          variants: ["default"],
-          sourceTypes: ["paragraph"],
-          grouping: "homogeneous-contiguous",
-          titleMetadata: false,
-          decorative: false,
+          id: "section-opener", description: "section", sourceTypes: ["heading", "paragraph"],
+          minimumImages: 0, maximumImages: 0, allowsArticleTitle: false,
         },
       ],
+      articleTypes: ["general"],
+      sectionRoles: ["opening"],
     },
   };
 }
 
-describe("DeepSeek LayoutModelClient", () => {
+describe("DeepSeek EditorialPlannerClient", () => {
   it("uses JSON mode and records token usage without exposing credentials", async () => {
     const fetchImplementation = vi.fn(async (_url: string | URL | Request, init?: RequestInit) => {
       const body = JSON.parse(String(init?.body)) as Record<string, unknown>;
       expect(body.model).toBe(DEEPSEEK_LIVE_MODEL);
       expect(body.response_format).toEqual({ type: "json_object" });
       expect(body.thinking).toEqual({ type: "disabled" });
+      expect(JSON.stringify(body)).toContain("EditorialPlan");
+      expect(JSON.stringify(body)).toContain("AssetUnderstandingMap");
+      expect(JSON.stringify(body)).not.toContain("registered-component-id");
       return new Response(
         JSON.stringify({
           model: DEEPSEEK_LIVE_MODEL,
-          choices: [{ message: { content: JSON.stringify(candidateFor()) } }],
+          choices: [{ message: { content: JSON.stringify(planEditorialDeterministically(makeArticle())) } }],
           usage: {
             prompt_tokens: 100,
             prompt_cache_hit_tokens: 60,
@@ -50,12 +59,12 @@ describe("DeepSeek LayoutModelClient", () => {
         { status: 200, headers: { "Content-Type": "application/json" } },
       );
     });
-    const client = new DeepSeekLayoutModelClient({
+    const client = new DeepSeekEditorialPlannerClient({
       apiKey: "unit-test-credential",
       fetchImplementation: fetchImplementation as typeof fetch,
     });
 
-    expect(await client.generateLayout(request())).toBeTypeOf("string");
+    expect(await client.generateEditorialPlan(request())).toBeTypeOf("string");
     expect(fetchImplementation).toHaveBeenCalledOnce();
     expect(client.getCallRecords()).toEqual([
       expect.objectContaining({
@@ -71,11 +80,11 @@ describe("DeepSeek LayoutModelClient", () => {
   });
 
   it("records HTTP failures without including response bodies", async () => {
-    const client = new DeepSeekLayoutModelClient({
+    const client = new DeepSeekEditorialPlannerClient({
       apiKey: "unit-test-credential",
       fetchImplementation: vi.fn(async () => new Response("sensitive upstream body", { status: 401 })) as typeof fetch,
     });
-    await expect(client.generateLayout(request())).rejects.toThrow("HTTP 401");
+    await expect(client.generateEditorialPlan(request())).rejects.toThrow("HTTP 401");
     expect(client.getCallRecords()[0]).toEqual(
       expect.objectContaining({ status: "http-error", httpStatus: 401 }),
     );

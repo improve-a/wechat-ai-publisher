@@ -9,7 +9,7 @@ describe("M2 → M3 → M4 → M5 integration", () => {
     const markdown = readFileSync("tests/fixtures/m3-m5-rich-content.md", "utf8");
     const result = runM3M5Pipeline({ format: "markdown", content: markdown }, "bit-youth");
     const consumed = result.layout.blocks.flatMap((block) =>
-      block.provenance.kind === "article-blocks" ? block.provenance.sourceBlockIds : [],
+      "sourceBlockIds" in block.provenance ? block.provenance.sourceBlockIds : [],
     );
     expect(consumed).toEqual(result.article.blocks.map((block) => block.id));
     expect(new Set(consumed).size).toBe(consumed.length);
@@ -36,7 +36,7 @@ describe("M2 → M3 → M4 → M5 integration", () => {
       "bit-official",
     );
     const consumed = result.layout.blocks.flatMap((block) =>
-      block.provenance.kind === "article-blocks" ? block.provenance.sourceBlockIds : [],
+      "sourceBlockIds" in block.provenance ? block.provenance.sourceBlockIds : [],
     );
 
     expect(consumed).toEqual(result.article.blocks.map((block) => block.id));

@@ -1,23 +1,28 @@
 import { describe, expect, it } from "vitest";
 import { parseArticle } from "../../src/article-parser";
-import type { LayoutModelClient, LayoutModelRequest } from "../../src/layout-planner";
+import { createDefaultAssetUnderstandingMap, planEditorialDeterministically } from "../../src/editorial";
+import type { EditorialPlannerClient, EditorialPlannerRequest } from "../../src/layout-planner";
 import {
   MAX_MODEL_ATTEMPTS,
-  planLayoutWithModel,
+  planLayoutWithEditorialPlanner,
   planDeterministicLayout,
   switchLayoutTheme,
   switchLayoutThemeVariant,
 } from "../../src/layout-planner";
-import { candidateFor, makeArticle } from "./helpers";
+import { makeArticle } from "./helpers";
 
-class FakeClient implements LayoutModelClient {
-  readonly requests: LayoutModelRequest[] = [];
+class FakeClient implements EditorialPlannerClient {
+  readonly requests: EditorialPlannerRequest[] = [];
   constructor(private readonly values: unknown[]) {}
 
-  async generateLayout(request: LayoutModelRequest): Promise<unknown> {
+  async generateEditorialPlan(request: EditorialPlannerRequest): Promise<unknown> {
     this.requests.push(request);
     return this.values[this.requests.length - 1];
   }
+}
+
+function editorialPlanFor(article = makeArticle()) {
+  return planEditorialDeterministically(article, createDefaultAssetUnderstandingMap(article));
 }
 
 describe("AI Layout Planner seam", () => {
@@ -75,13 +80,14 @@ describe("AI Layout Planner seam", () => {
 
   it("accepts valid structured output without HTML or CSS capabilities", async () => {
     const article = makeArticle();
-    const client = new FakeClient([JSON.stringify(candidateFor(article))]);
-    const result = await planLayoutWithModel({ article }, client);
+    const client = new FakeClient([JSON.stringify(editorialPlanFor(article))]);
+    const result = await planLayoutWithEditorialPlanner({ article }, client);
 
     expect(result.ok).toBe(true);
     expect(result.attempts).toBe(1);
     expect(client.requests[0]!.capabilities.themes).toHaveLength(3);
-    expect(client.requests[0]!.capabilities.components).toHaveLength(23);
+    expect(client.requests[0]!.capabilities.compositions).toHaveLength(8);
+    expect(client.requests[0]!.assetUnderstanding.assets).toHaveLength(article.assets.length);
     expect(client.requests[0]!.contentSignals.blocks).toHaveLength(article.blocks.length);
     expect(JSON.stringify(client.requests[0])).not.toMatch(/html|css/i);
   });
@@ -100,9 +106,9 @@ describe("AI Layout Planner seam", () => {
 
   it("repairs an invalid first candidate once", async () => {
     const article = makeArticle();
-    const repaired = candidateFor(article);
+    const repaired = editorialPlanFor(article);
     const client = new FakeClient(["{invalid", repaired]);
-    const result = await planLayoutWithModel({ article }, client);
+    const result = await planLayoutWithEditorialPlanner({ article }, client);
 
     expect(result.ok).toBe(true);
     expect(result.attempts).toBe(2);
@@ -110,46 +116,38 @@ describe("AI Layout Planner seam", () => {
     expect(client.requests[1]!.diagnostics?.[0]?.code).toBe("MODEL_JSON_INVALID");
   });
 
-  it("applies a generic rhythm guard to adjacent model emphasis without another model call", async () => {
+  it("keeps component choice in the deterministic compiler and avoids adjacent emphasis", async () => {
     const article = makeArticle();
-    const candidate = candidateFor(article);
-    const paragraphBlocks = candidate.blocks.filter((block) => {
-      if (block.provenance.kind !== "article-blocks") return false;
-      const source = article.blocks.find(
-        (item) => item.id === block.provenance.sourceBlockIds[0],
-      );
-      return source?.type === "paragraph";
-    });
-    paragraphBlocks[1]!.component = "highlight";
-    paragraphBlocks[2]!.component = "highlight";
-    const client = new FakeClient([candidate]);
-    const result = await planLayoutWithModel({ article }, client);
+    const client = new FakeClient([editorialPlanFor(article)]);
+    const result = await planLayoutWithEditorialPlanner({ article }, client);
 
     expect(result.ok).toBe(true);
     if (!result.ok) return;
     expect(client.requests).toHaveLength(1);
-    expect(result.layout.blocks.filter((block) => block.component === "highlight")).toHaveLength(1);
+    expect(result.layout.blocks.some((block, index) =>
+      block.component === "highlight" && result.layout.blocks[index + 1]?.component === "highlight",
+    )).toBe(false);
   });
 
   it("returns structured failure and never exceeds MAX_MODEL_ATTEMPTS", async () => {
     const article = makeArticle();
-    const invalid = candidateFor(article);
-    invalid.blocks.pop();
-    const client = new FakeClient([invalid, invalid, candidateFor(article)]);
-    const result = await planLayoutWithModel({ article }, client);
+    const invalid = editorialPlanFor(article);
+    invalid.sections.pop();
+    const client = new FakeClient([invalid, invalid, editorialPlanFor(article)]);
+    const result = await planLayoutWithEditorialPlanner({ article }, client);
 
     expect(result.ok).toBe(false);
     expect(result.attempts).toBe(MAX_MODEL_ATTEMPTS);
     expect(client.requests).toHaveLength(2);
-    expect(result.diagnostics.some((diagnostic) => diagnostic.code === "SOURCE_OMITTED")).toBe(
+    expect(result.diagnostics.some((diagnostic) => diagnostic.code === "EDITORIAL_SOURCE_OMITTED")).toBe(
       true,
     );
   });
 
   it("does not let a model override an explicitly requested Theme", async () => {
     const article = makeArticle();
-    const client = new FakeClient([candidateFor(article), candidateFor(article)]);
-    const result = await planLayoutWithModel(
+    const client = new FakeClient([editorialPlanFor(article), editorialPlanFor(article)]);
+    const result = await planLayoutWithEditorialPlanner(
       { article, requestedTheme: "bit-youth" },
       client,
     );

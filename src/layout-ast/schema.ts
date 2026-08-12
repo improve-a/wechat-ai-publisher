@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { COMPONENT_IDS } from "../components/types";
+import { COMPOSITION_IDS } from "../compositions";
 import { THEME_IDS, type ComponentVariantId } from "../themes/types";
 import {
   LAYOUT_AST_SCHEMA_VERSION,
@@ -24,15 +25,26 @@ export const layoutProvenanceSchema: z.ZodType<LayoutProvenance> =
       kind: z.literal("article-blocks"),
       sourceBlockIds: z.array(nonBlankString).min(1),
     }),
+    z.strictObject({
+      kind: z.literal("editorial-composition"),
+      sourceBlockIds: z.array(nonBlankString),
+      usesArticleTitle: z.boolean().optional(),
+    }),
     z.strictObject({ kind: z.literal("decorative") }),
   ]);
 
 const candidateBlockSchema = z.strictObject({
   id: nonBlankString,
-  component: z.enum(COMPONENT_IDS),
+  component: z.enum([...COMPONENT_IDS, ...COMPOSITION_IDS]),
   componentVariant: componentVariantSchema.optional(),
   provenance: layoutProvenanceSchema,
   assetIds: z.array(nonBlankString).min(1).optional(),
+});
+
+const assetPlacementSchema = z.strictObject({
+  assetId: nonBlankString,
+  status: z.enum(["placed", "intentionally-unplaced"]),
+  reason: nonBlankString.optional(),
 });
 
 export const layoutCandidateSchema: z.ZodType<LayoutCandidate> = z.strictObject({
@@ -40,6 +52,7 @@ export const layoutCandidateSchema: z.ZodType<LayoutCandidate> = z.strictObject(
   theme: z.enum(THEME_IDS),
   themeVariant: nonBlankString.nullable().optional(),
   blocks: z.array(candidateBlockSchema),
+  assetPlacements: z.array(assetPlacementSchema).optional(),
 });
 
 const canonicalBlockSchema = candidateBlockSchema.extend({
@@ -51,6 +64,7 @@ export const layoutASTSchema: z.ZodType<LayoutAST> = z.strictObject({
   theme: z.enum(THEME_IDS),
   themeVariant: nonBlankString,
   blocks: z.array(canonicalBlockSchema),
+  assetPlacements: z.array(assetPlacementSchema),
 });
 
 export function parseLayoutCandidate(value: unknown): LayoutCandidate {
