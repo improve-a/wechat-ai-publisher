@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "1",
+  "artworkItemId": "real-welcome-02-section-break-artwork",
+  "type": "section-break-artwork",
+  "stylePackId": "bit-xuteli-editorial-v1",
+  "templateVariant": "chapter-window",
+  "output": {
+    "format": "png",
+    "width": 750,
+    "height": 240,
+    "pixelRatio": 2
+  },
+  "visualWeight": "climax",
+  "renderPolicy": "artwork-plus-native-content",
+  "sourceBlockIds": [
+    "a014",
+    "a015",
+    "a016",
+    "a017",
+    "a018"
+  ],
+  "sourceAssetIds": [
+    "img007"
+  ],
+  "texts": [
+    {
+      "role": "title",
+      "text": "把第一天留在一组真实瞬间里",
+      "source": {
+        "kind": "article-block",
+        "sourceBlockId": "a014"
+      }
+    },
+    {
+      "role": "subtitle",
+      "text": "迎新收束回到群体与空间。",
+      "source": {
+        "kind": "article-block",
+        "sourceBlockId": "a015"
+      }
+    }
+  ],
+  "images": [
+    {
+      "sourceAssetId": "img007",
+      "src": "/real-photo-stress/welcome-06.jpg",
+      "alt": "迎新活动中的自然互动",
+      "orientation": "landscape",
+      "aspectRatio": 1.5098039215686274,
+      "fit": "contain"
+    }
+  ],
+  "specHash": "46da6179d0649cda"
+}

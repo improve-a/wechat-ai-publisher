@@ -674,12 +674,20 @@ function renderComposition(input: WeChatComponentAdapterInput): string {
   const accent = editorialToneAccent(input.theme, input.themeVariant, input.artDirection?.visualTone);
   const global = input.artDirection;
   const section = input.sectionArtDirection;
-  const images = input.sourceBlocks.filter((block) => block.type === "image");
+  const sourceImages = input.sourceBlocks.filter((block) => block.type === "image");
+  const suppressedImageBlockIds = new Set(sourceImages
+    .filter((block) => input.suppressedAssetIds?.has(block.assetId))
+    .map((block) => block.id));
+  const images = sourceImages.filter((block) => !input.suppressedAssetIds?.has(block.assetId));
   const captions = input.sourceBlocks.filter((block) => block.type === "image-caption");
   const captionByImageBlockId = new Map(captions.map((caption) => [caption.imageBlockId, caption]));
   const textBlocks = input.sourceBlocks.filter((block) => block.type !== "image" && block.type !== "image-caption");
   const headingBlocks = textBlocks.filter((block) => block.type === "heading");
   const narrativeBlocks = textBlocks.filter((block) => block.type !== "heading");
+  const suppressedCaptionHtml = captions
+    .filter((caption) => suppressedImageBlockIds.has(caption.imageBlockId))
+    .map((caption) => renderCompositionSource(input, caption))
+    .join("");
   const titleTreatment = global?.titleTreatment ?? "formal";
   const heroTitle = composition === "hero-visual" && input.article.title
     ? element("h1", [styleAttribute([
@@ -722,6 +730,9 @@ function renderComposition(input: WeChatComponentAdapterInput): string {
     : images;
   const mediaHtml = (() => {
     if (!ordered.length) return "";
+    if (ordered.length === 1 && (composition === "asymmetric-photo-pair" || composition === "photo-pair")) {
+      return element("div", [styleAttribute([["box-sizing", "border-box"], ["max-width", "100%"], ["margin", "12px 0 0"]])], figure(ordered[0]!));
+    }
     if (pattern === "compact-image-header") {
       return element("div", [styleAttribute([["box-sizing", "border-box"], ["max-width", "100%"], ["text-align", "center"], ["margin", "8px 0 0"]])],
         figure(ordered[0]!, "82%", "0 auto", [["padding", "7px"], ["border", `1px solid ${input.theme.tokens.colors.border}`]]));
@@ -848,7 +859,7 @@ function renderComposition(input: WeChatComponentAdapterInput): string {
       ["border-radius", cardSurface ? input.theme.tokens.radius.medium : "0"],
       ["overflow", "hidden"],
     ]),
-  ], compositionContent);
+  ], `${compositionContent}${suppressedCaptionHtml}`);
 }
 
 const adapters = [

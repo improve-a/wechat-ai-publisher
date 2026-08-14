@@ -32,6 +32,10 @@
     "check:article-coherence": "vitest run tests/editorial/final-visual-refinement.test.ts -t \"article grammars distinct\"",
     "check:real-photo-stress": "vitest run tests/editorial/real-photo-stress.test.ts",
     "check:visual-refinement": "vitest run tests/editorial/final-visual-refinement.test.ts tests/editorial/real-photo-stress.test.ts && python scripts/final_visual_refinement_gate.py",
+    "check:artwork": "vitest run tests/artwork",
+    "check:artwork-render": "python scripts/artwork_render_gate.py",
+    "check:hybrid-artwork:browser": "python scripts/hybrid_artwork_browser_gate.py",
+    "check:hybrid-artwork": "npm run check:artwork && npm run check:artwork-render && npm run check:hybrid-artwork:browser",
     "check:editorial:all": "npm run check:editorial && npm run check:editorial:browser && npm run check:editorial:v2:browser",
     "preview": "vite preview"
   },

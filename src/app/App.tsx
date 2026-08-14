@@ -19,10 +19,24 @@ const EditorialAcceptanceV2Page = lazy(() =>
 const RealPhotoStressPage = lazy(() =>
   import("../preview/RealPhotoStressPage").then((module) => ({ default: module.RealPhotoStressPage })),
 );
+const ArtworkArtboardPage = lazy(() =>
+  import("../preview/ArtworkArtboardPage").then((module) => ({ default: module.ArtworkArtboardPage })),
+);
+const HybridArtworkPage = lazy(() =>
+  import("../preview/HybridArtworkPage").then((module) => ({ default: module.HybridArtworkPage })),
+);
 
 export function App() {
   const view = new URLSearchParams(window.location.search).get("view");
-  return view === "real-photo-stress" ? (
+  return view === "hybrid-artwork" ? (
+    <Suspense fallback={<main>正在加载 Hybrid Artwork 验收…</main>}>
+      <HybridArtworkPage />
+    </Suspense>
+  ) : view === "artwork-artboard" ? (
+    <Suspense fallback={<main>正在加载 Artwork artboard…</main>}>
+      <ArtworkArtboardPage />
+    </Suspense>
+  ) : view === "real-photo-stress" ? (
     <Suspense fallback={<main>正在加载实拍压力集…</main>}>
       <RealPhotoStressPage />
     </Suspense>

@@ -2,6 +2,7 @@ import type { ComponentId } from "../components/types";
 import type { CompositionId } from "../compositions";
 import type { ArtDirectionPlan } from "../art-direction";
 import type { VisualPatternId } from "../visual-patterns";
+import type { ArtworkRenderPolicy, ArtworkType } from "../artwork/types";
 import type {
   ComponentVariantId,
   ThemeId,
@@ -24,6 +25,16 @@ export interface LayoutAssetPlacement {
   reason?: string;
 }
 
+export interface LayoutArtworkBinding {
+  artworkItemId: string;
+  generatedAssetId: string;
+  type: ArtworkType;
+  sourceBlockIds: string[];
+  sourceAssetIds: string[];
+  renderPolicy: ArtworkRenderPolicy;
+  alt: string;
+}
+
 export interface LayoutBlock {
   id: string;
   component: LayoutPresentationId;
@@ -31,6 +42,8 @@ export interface LayoutBlock {
   provenance: LayoutProvenance;
   assetIds?: string[];
   visualPattern?: VisualPatternId;
+  presentationMode?: "native" | "artwork";
+  artwork?: LayoutArtworkBinding;
 }
 
 export interface LayoutAST {
@@ -49,6 +62,8 @@ export interface LayoutCandidateBlock {
   provenance: LayoutProvenance;
   assetIds?: string[];
   visualPattern?: VisualPatternId;
+  presentationMode?: "native" | "artwork";
+  artwork?: LayoutArtworkBinding;
 }
 
 export interface LayoutCandidate {

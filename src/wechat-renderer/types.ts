@@ -21,6 +21,7 @@ export interface WeChatComponentAdapterInput {
   resolvedAssets: ResolvedAssetMap;
   artDirection?: ArtDirectionPlan;
   sectionArtDirection?: SectionArtDirection;
+  suppressedAssetIds?: ReadonlySet<string>;
 }
 
 export interface WeChatComponentAdapter {

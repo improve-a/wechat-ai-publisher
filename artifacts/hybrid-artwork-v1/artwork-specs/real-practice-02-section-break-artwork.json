@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "1",
+  "artworkItemId": "real-practice-02-section-break-artwork",
+  "type": "section-break-artwork",
+  "stylePackId": "bit-xuteli-editorial-v1",
+  "templateVariant": "process-marker",
+  "output": {
+    "format": "png",
+    "width": 750,
+    "height": 240,
+    "pixelRatio": 2
+  },
+  "visualWeight": "climax",
+  "renderPolicy": "artwork-plus-native-content",
+  "sourceBlockIds": [
+    "a007",
+    "a008",
+    "a009",
+    "a010"
+  ],
+  "sourceAssetIds": [
+    "img005"
+  ],
+  "texts": [
+    {
+      "role": "title",
+      "text": "翻开石块，观察微小变化",
+      "source": {
+        "kind": "article-block",
+        "sourceBlockId": "a007"
+      }
+    },
+    {
+      "role": "subtitle",
+      "text": "观察不是抽象口号。",
+      "source": {
+        "kind": "article-block",
+        "sourceBlockId": "a008"
+      }
+    }
+  ],
+  "images": [
+    {
+      "sourceAssetId": "img005",
+      "src": "/real-photo-stress/practice-06.jpg",
+      "alt": "学生翻动河床石块寻找生物",
+      "orientation": "square",
+      "aspectRatio": 1.5,
+      "fit": "contain"
+    }
+  ],
+  "specHash": "bbe3df8ac112fe2e"
+}

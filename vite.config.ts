@@ -1,5 +1,7 @@
 import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
+import { existsSync, readFileSync } from "node:fs";
+import { resolve } from "node:path";
 
 function escapeXml(value: string): string {
   return value.replace(/[&<>"']/gu, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&apos;" })[character]!);
@@ -51,6 +53,27 @@ function editorialAcceptanceAssets(): Plugin {
   };
 }
 
+function generatedArtworkAssets(): Plugin {
+  const middleware = (request: { url?: string }, response: { statusCode: number; setHeader(name: string, value: string): void; end(value?: string | Uint8Array): void }, next: () => void) => {
+    if (!request.url?.startsWith("/generated-artwork-v1/")) return next();
+    const name = request.url.split("?")[0]!.slice("/generated-artwork-v1/".length);
+    if (name !== "manifest.json" && !/^generated-[a-z0-9-]+\.png$/u.test(name)) {
+      response.statusCode = 400; response.end("Invalid generated artwork path"); return;
+    }
+    const file = resolve("artifacts", "hybrid-artwork-v1", "generated-artwork", name);
+    if (!existsSync(file)) { response.statusCode = 404; response.end("Generated artwork not found"); return; }
+    response.statusCode = 200;
+    response.setHeader("Content-Type", name.endsWith(".json") ? "application/json; charset=utf-8" : "image/png");
+    response.setHeader("Cache-Control", "no-store");
+    response.end(readFileSync(file));
+  };
+  return {
+    name: "generated-artwork-assets",
+    configureServer(server) { server.middlewares.use(middleware); },
+    configurePreviewServer(server) { server.middlewares.use(middleware); },
+  };
+}
+
 export default defineConfig({
-  plugins: [react(), editorialAcceptanceAssets()],
+  plugins: [react(), editorialAcceptanceAssets(), generatedArtworkAssets()],
 });

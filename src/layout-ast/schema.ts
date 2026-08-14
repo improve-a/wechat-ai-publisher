@@ -3,6 +3,7 @@ import { COMPONENT_IDS } from "../components/types";
 import { COMPOSITION_IDS } from "../compositions";
 import { artDirectionPlanSchema } from "../art-direction/schema";
 import { VISUAL_PATTERN_IDS } from "../visual-patterns";
+import { ARTWORK_RENDER_POLICIES, ARTWORK_TYPES } from "../artwork/types";
 import { THEME_IDS, type ComponentVariantId } from "../themes/types";
 import {
   LAYOUT_AST_SCHEMA_VERSION,
@@ -36,6 +37,16 @@ export const layoutProvenanceSchema: z.ZodType<LayoutProvenance> =
     z.strictObject({ kind: z.literal("decorative") }),
   ]);
 
+const artworkBindingSchema = z.strictObject({
+  artworkItemId: nonBlankString,
+  generatedAssetId: nonBlankString,
+  type: z.enum(ARTWORK_TYPES),
+  sourceBlockIds: z.array(nonBlankString).min(1),
+  sourceAssetIds: z.array(nonBlankString),
+  renderPolicy: z.enum(ARTWORK_RENDER_POLICIES),
+  alt: nonBlankString,
+});
+
 const candidateBlockSchema = z.strictObject({
   id: nonBlankString,
   component: z.enum([...COMPONENT_IDS, ...COMPOSITION_IDS]),
@@ -43,6 +54,8 @@ const candidateBlockSchema = z.strictObject({
   provenance: layoutProvenanceSchema,
   assetIds: z.array(nonBlankString).min(1).optional(),
   visualPattern: z.enum(VISUAL_PATTERN_IDS).optional(),
+  presentationMode: z.enum(["native", "artwork"]).optional(),
+  artwork: artworkBindingSchema.optional(),
 });
 
 const assetPlacementSchema = z.strictObject({

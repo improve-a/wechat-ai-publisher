@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1",
+  "artworkItemId": "real-event-recap-03-closing-artwork",
+  "type": "closing-artwork",
+  "stylePackId": "bit-xuteli-editorial-v1",
+  "templateVariant": "group-photo-echo",
+  "output": {
+    "format": "png",
+    "width": 750,
+    "height": 440,
+    "pixelRatio": 2
+  },
+  "visualWeight": "normal",
+  "renderPolicy": "artwork-plus-native-content",
+  "sourceBlockIds": [
+    "a018",
+    "a019"
+  ],
+  "sourceAssetIds": [
+    "img009"
+  ],
+  "texts": [
+    {
+      "role": "closing",
+      "text": "活动最值得回看的不是单一获奖动作，而是不同角色如何在同一现场协作。",
+      "source": {
+        "kind": "article-block",
+        "sourceBlockId": "a018"
+      }
+    }
+  ],
+  "images": [
+    {
+      "sourceAssetId": "img009",
+      "src": "/real-photo-stress/event-09.jpg",
+      "alt": "机器人活动结束时的群体场景",
+      "orientation": "landscape",
+      "aspectRatio": 1.5029794149512459,
+      "fit": "contain"
+    }
+  ],
+  "specHash": "da3ebc2ddfa7c639"
+}

@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "1",
+  "artworkItemId": "real-person-profile-03-achievement-artwork",
+  "type": "achievement-artwork",
+  "stylePackId": "bit-xuteli-editorial-v1",
+  "templateVariant": "evidence-led",
+  "output": {
+    "format": "png",
+    "width": 750,
+    "height": 440,
+    "pixelRatio": 2
+  },
+  "visualWeight": "strong",
+  "renderPolicy": "artwork-plus-native-content",
+  "sourceBlockIds": [
+    "a015",
+    "a016",
+    "a017",
+    "a018",
+    "a019"
+  ],
+  "sourceAssetIds": [
+    "img007"
+  ],
+  "texts": [
+    {
+      "role": "title",
+      "text": "服务成果，最终回到群体关系",
+      "source": {
+        "kind": "article-block",
+        "sourceBlockId": "a015"
+      }
+    },
+    {
+      "role": "subtitle",
+      "text": "迎新的成果不是一个营销数字，而是参与者开始知道如何同行、如何求助。",
+      "source": {
+        "kind": "article-block",
+        "sourceBlockId": "a016"
+      }
+    }
+  ],
+  "images": [
+    {
+      "sourceAssetId": "img007",
+      "src": "/real-photo-stress/welcome-06.jpg",
+      "alt": "迎新活动中的自然互动",
+      "orientation": "landscape",
+      "aspectRatio": 1.5098039215686274,
+      "fit": "contain"
+    }
+  ],
+  "specHash": "d193888c208b36fc"
+}

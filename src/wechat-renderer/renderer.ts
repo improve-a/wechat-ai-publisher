@@ -8,6 +8,7 @@ import { element, styleAttribute } from "./html";
 import { projectLayoutBlock } from "./projection";
 import { articleStyle } from "./styles";
 import type { WeChatRenderInput } from "./types";
+import type { LayoutBlock } from "../layout-ast";
 
 const FORBIDDEN_FRAGMENT_ELEMENT =
   /<(?:html|head|body|style|script|iframe)(?:\s|>)/iu;
@@ -17,6 +18,7 @@ export function renderWeChatArticle(input: WeChatRenderInput): string {
   const layout = validateCanonicalLayoutAST(input.layout, article);
   const theme = themeRegistry[layout.theme];
   const themeVariant = getThemeVariantDefinition(theme, layout.themeVariant);
+  const artworkCount = layout.blocks.filter((block) => block.presentationMode === "artwork").length;
   const renderedBlocks = layout.blocks
     .map((layoutBlock) => {
       const adapter = COMPOSITION_IDS.includes(layoutBlock.component as CompositionId)
@@ -25,7 +27,7 @@ export function renderWeChatArticle(input: WeChatRenderInput): string {
       const editorialUnitId = layoutBlock.provenance.kind === "editorial-composition"
         ? layoutBlock.provenance.editorialUnitId
         : undefined;
-      return adapter.render({
+      const renderInput = {
         layoutBlock,
         sourceBlocks: projectLayoutBlock(layoutBlock, article),
         article,
@@ -36,7 +38,42 @@ export function renderWeChatArticle(input: WeChatRenderInput): string {
         ...(editorialUnitId
           ? { sectionArtDirection: layout.artDirection?.sections.find((section) => section.sectionId === editorialUnitId) }
           : {}),
+      };
+      if (!layoutBlock.artwork) return adapter.render(renderInput);
+      const resolvedArtwork = input.resolvedAssets[layoutBlock.artwork.generatedAssetId];
+      if (!resolvedArtwork) throw new Error(`ResolvedAssetMap is missing generated artwork ${layoutBlock.artwork.generatedAssetId}`);
+      const nativeLayoutBlock: LayoutBlock = {
+        ...layoutBlock,
+        visualPattern: undefined,
+        presentationMode: "native",
+        artwork: undefined,
+      };
+      const artworkImage = element("img", [
+        ["src", resolvedArtwork.src],
+        ["alt", layoutBlock.artwork.alt],
+        ["data-asset-id", resolvedArtwork.assetId],
+        ["data-asset-state", resolvedArtwork.state],
+        ["data-generated-artwork", "true"],
+        ["data-artwork-item-id", layoutBlock.artwork.artworkItemId],
+        ["data-artwork-type", layoutBlock.artwork.type],
+        ["data-source-asset-ids", layoutBlock.artwork.sourceAssetIds.join(",")],
+        styleAttribute([
+          ["display", "block"], ["box-sizing", "border-box"], ["width", "100%"],
+          ["max-width", "100%"], ["height", "auto"], ["object-fit", "contain"],
+          ["margin", "0 0 18px"], ["border-radius", "0"],
+        ]),
+      ], "");
+      const nativeCompanion = adapter.render({
+        ...renderInput,
+        layoutBlock: nativeLayoutBlock,
+        suppressedAssetIds: new Set(layoutBlock.artwork.sourceAssetIds),
       });
+      return element("section", [
+        ["data-presentation-mode", "artwork"],
+        ["data-artwork-render-policy", layoutBlock.artwork.renderPolicy],
+        ["data-layout-block-id", layoutBlock.id],
+        styleAttribute([["box-sizing", "border-box"], ["max-width", "100%"]]),
+      ], `${artworkImage}${nativeCompanion}`);
     })
     .join("");
   const fragment = element(
@@ -44,6 +81,7 @@ export function renderWeChatArticle(input: WeChatRenderInput): string {
     [
       ["data-theme", layout.theme],
       ["data-theme-variant", layout.themeVariant],
+      ...(artworkCount > 0 ? ([["data-hybrid-artwork-count", String(artworkCount)]] as const) : []),
       ...(layout.artDirection ? ([
         ["data-visual-tone", layout.artDirection.visualTone],
         ["data-editorial-density", layout.artDirection.density],

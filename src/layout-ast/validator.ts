@@ -153,6 +153,25 @@ function validateCanonicalAgainstArticle(
       });
     }
 
+    if (layoutBlock.presentationMode === "artwork" && !layoutBlock.artwork) diagnostics.push({
+      code: "ARTWORK_BINDING_REQUIRED", message: "Artwork presentation requires an Artwork binding", layoutBlockId: layoutBlock.id,
+    });
+    if (layoutBlock.artwork && layoutBlock.presentationMode !== "artwork") diagnostics.push({
+      code: "ARTWORK_PRESENTATION_MODE_REQUIRED", message: "Artwork binding requires presentationMode=artwork", layoutBlockId: layoutBlock.id,
+    });
+    if (layoutBlock.artwork) {
+      const provenanceIds = "sourceBlockIds" in layoutBlock.provenance ? layoutBlock.provenance.sourceBlockIds : [];
+      if (
+        provenanceIds.length !== layoutBlock.artwork.sourceBlockIds.length ||
+        provenanceIds.some((id, index) => id !== layoutBlock.artwork!.sourceBlockIds[index])
+      ) diagnostics.push({
+        code: "ARTWORK_PROVENANCE_MISMATCH", message: "Artwork binding must copy LayoutBlock provenance exactly", layoutBlockId: layoutBlock.id,
+      });
+      if (layoutBlock.artwork.sourceAssetIds.some((id) => !(layoutBlock.assetIds ?? []).includes(id))) diagnostics.push({
+        code: "ARTWORK_SOURCE_ASSET_MISMATCH", message: "Artwork binding source assets must belong to the LayoutBlock", layoutBlockId: layoutBlock.id,
+      });
+    }
+
     if (layoutBlock.provenance.kind === "article-title") {
       titleCount += 1;
       if (!article.title) {
@@ -383,6 +402,12 @@ export function normalizeLayoutCandidate(
       provenance: block.provenance,
       ...(block.assetIds ? { assetIds: [...block.assetIds] } : {}),
       ...(block.visualPattern ? { visualPattern: block.visualPattern } : {}),
+      ...(block.presentationMode ? { presentationMode: block.presentationMode } : {}),
+      ...(block.artwork ? { artwork: {
+        ...block.artwork,
+        sourceBlockIds: [...block.artwork.sourceBlockIds],
+        sourceAssetIds: [...block.artwork.sourceAssetIds],
+      } } : {}),
     })),
     assetPlacements: candidate.assetPlacements
       ? candidate.assetPlacements.map((placement) => ({ ...placement }))

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1",
+  "artworkItemId": "real-welcome-03-closing-artwork",
+  "type": "closing-artwork",
+  "stylePackId": "bit-xuteli-editorial-v1",
+  "templateVariant": "group-photo-echo",
+  "output": {
+    "format": "png",
+    "width": 750,
+    "height": 440,
+    "pixelRatio": 2
+  },
+  "visualWeight": "normal",
+  "renderPolicy": "artwork-plus-native-content",
+  "sourceBlockIds": [
+    "a019",
+    "a020"
+  ],
+  "sourceAssetIds": [
+    "img010"
+  ],
+  "texts": [
+    {
+      "role": "closing",
+      "text": "迎新真正完成的不是清单，而是让一个陌生地点开始有可以问路、可以同行的人。",
+      "source": {
+        "kind": "article-block",
+        "sourceBlockId": "a019"
+      }
+    }
+  ],
+  "images": [
+    {
+      "sourceAssetId": "img010",
+      "src": "/real-photo-stress/welcome-10.jpg",
+      "alt": "新生迎新活动的宽幅合影",
+      "orientation": "landscape",
+      "aspectRatio": 1.681636282792352,
+      "fit": "contain"
+    }
+  ],
+  "specHash": "0588a6f527ce9dca"
+}

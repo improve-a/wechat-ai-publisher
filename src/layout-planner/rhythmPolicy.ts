@@ -84,6 +84,9 @@ export function enforceLayoutRhythm(
           ? { ...block.provenance, sourceBlockIds: [...sourceIds] }
           : { ...block.provenance },
       ...(block.assetIds ? { assetIds: [...block.assetIds] } : {}),
+      ...(block.visualPattern ? { visualPattern: block.visualPattern } : {}),
+      ...(block.presentationMode ? { presentationMode: block.presentationMode } : {}),
+      ...(block.artwork ? { artwork: { ...block.artwork, sourceBlockIds: [...block.artwork.sourceBlockIds], sourceAssetIds: [...block.artwork.sourceAssetIds] } } : {}),
     };
   });
 
