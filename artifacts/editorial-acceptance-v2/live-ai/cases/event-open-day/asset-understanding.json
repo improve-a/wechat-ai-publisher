@@ -1,0 +1,203 @@
+{
+  "schemaVersion": "1",
+  "assets": [
+    {
+      "assetId": "img001",
+      "description": "开放日主会场与六条路线入口",
+      "subjects": [
+        "访客",
+        "主会场"
+      ],
+      "scene": "主会场分流",
+      "shotType": "wide",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 80,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "hero-candidate"
+      ],
+      "relatedSourceBlockIds": [
+        "a002"
+      ]
+    },
+    {
+      "assetId": "img002",
+      "description": "访客从主会场分流",
+      "subjects": [
+        "访客",
+        "引导员"
+      ],
+      "scene": "路线出发",
+      "shotType": "wide",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 42,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a008"
+      ]
+    },
+    {
+      "assetId": "img003",
+      "description": "六色探索路线卡",
+      "subjects": [
+        "路线卡"
+      ],
+      "scene": "路线出发",
+      "shotType": "detail",
+      "orientation": "square",
+      "aspectRatio": 1,
+      "peopleCount": 1,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a010"
+      ]
+    },
+    {
+      "assetId": "img004",
+      "description": "中学生调整识别设备",
+      "subjects": [
+        "学生",
+        "设备"
+      ],
+      "scene": "实验室体验",
+      "shotType": "medium",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 5,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a016"
+      ]
+    },
+    {
+      "assetId": "img005",
+      "description": "识别失败与修正界面",
+      "subjects": [
+        "识别界面"
+      ],
+      "scene": "实验室体验",
+      "shotType": "detail",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 1,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a018"
+      ]
+    },
+    {
+      "assetId": "img006",
+      "description": "访客围绕可弯折样片讨论",
+      "subjects": [
+        "访客",
+        "教师"
+      ],
+      "scene": "材料追问",
+      "shotType": "group",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 9,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a024"
+      ]
+    },
+    {
+      "assetId": "img007",
+      "description": "可弯折材料样片特写",
+      "subjects": [
+        "材料样片"
+      ],
+      "scene": "材料追问",
+      "shotType": "close-up",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 1,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a026"
+      ]
+    },
+    {
+      "assetId": "img008",
+      "description": "学生圆桌与听众半圆",
+      "subjects": [
+        "学生",
+        "访客"
+      ],
+      "scene": "学生圆桌",
+      "shotType": "wide",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 28,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a033"
+      ]
+    },
+    {
+      "assetId": "img009",
+      "description": "写满追问的反馈墙",
+      "subjects": [
+        "反馈墙",
+        "问题便签"
+      ],
+      "scene": "反馈闭环",
+      "shotType": "detail",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 4,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a039"
+      ]
+    },
+    {
+      "assetId": "img010",
+      "description": "开放日参与者主会场合影",
+      "subjects": [
+        "访客",
+        "师生"
+      ],
+      "scene": "路线汇合",
+      "shotType": "group",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 64,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "closing-candidate",
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a042"
+      ]
+    }
+  ]
+}

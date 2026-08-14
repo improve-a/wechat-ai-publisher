@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "1",
+  "visualTone": "ceremonial",
+  "density": "balanced",
+  "pace": "dynamic",
+  "mediaDominance": "image-led",
+  "textDominance": "balanced",
+  "sectionRhythm": "climax-release",
+  "titleTreatment": "statement",
+  "sectionTitleTreatment": "numbered",
+  "imageTreatment": "asymmetric",
+  "captionTreatment": "metadata",
+  "groupingStrategy": "sequence",
+  "transitionStyle": "numbered-break",
+  "emphasisStrategy": "metric-led",
+  "closingStrategy": "group-photo",
+  "heroAssetId": "img001",
+  "closingAssetId": "img010",
+  "sections": [
+    {
+      "sectionId": "e-section-001",
+      "visualWeight": "normal",
+      "density": "balanced",
+      "pace": "dynamic",
+      "dominantAssetId": "img003",
+      "secondaryAssetIds": [
+        "img002"
+      ],
+      "compositionPreference": "asymmetric-photo-pair",
+      "transition": "none",
+      "groupingReason": "按 sequence 组织 故障排查/medium、故障排查/detail，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "故障排查",
+      "labelEvidenceSourceIds": [
+        "a010"
+      ],
+      "sectionLabelStyle": "numbered"
+    },
+    {
+      "sectionId": "e-section-002",
+      "visualWeight": "normal",
+      "density": "balanced",
+      "pace": "dynamic",
+      "dominantAssetId": "img005",
+      "secondaryAssetIds": [
+        "img004"
+      ],
+      "compositionPreference": "asymmetric-photo-pair",
+      "transition": "numbered-break",
+      "groupingReason": "按 sequence 组织 策略重写/medium、策略重写/detail，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "策略重写",
+      "labelEvidenceSourceIds": [
+        "a018"
+      ],
+      "sectionLabelStyle": "numbered"
+    },
+    {
+      "sectionId": "e-section-003",
+      "visualWeight": "strong",
+      "density": "balanced",
+      "pace": "dynamic",
+      "dominantAssetId": "img006",
+      "secondaryAssetIds": [
+        "img007"
+      ],
+      "compositionPreference": "visual-climax",
+      "transition": "numbered-break",
+      "groupingReason": "按 sequence 组织 决赛高潮/wide、决赛高潮/close-up，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "决赛高潮",
+      "labelEvidenceSourceIds": [
+        "a025"
+      ],
+      "sectionLabelStyle": "numbered"
+    },
+    {
+      "sectionId": "e-section-004",
+      "visualWeight": "normal",
+      "density": "balanced",
+      "pace": "dynamic",
+      "dominantAssetId": "img008",
+      "secondaryAssetIds": [],
+      "compositionPreference": "media-story",
+      "transition": "numbered-break",
+      "groupingReason": "按 sequence 组织 等待结果/medium，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "等待结果",
+      "labelEvidenceSourceIds": [
+        "a033"
+      ],
+      "sectionLabelStyle": "numbered"
+    },
+    {
+      "sectionId": "e-section-005",
+      "visualWeight": "strong",
+      "density": "balanced",
+      "pace": "dynamic",
+      "dominantAssetId": "img009",
+      "secondaryAssetIds": [],
+      "compositionPreference": "achievement-spotlight",
+      "transition": "numbered-break",
+      "groupingReason": "按 sequence 组织 冠军复盘/detail，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "冠军复盘",
+      "labelEvidenceSourceIds": [
+        "a039"
+      ],
+      "sectionLabelStyle": "numbered"
+    }
+  ],
+  "reasons": {
+    "whyThisHero": "img001 是 wide 景别、landscape 构图、high 质量，并承担 hero-candidate 角色。",
+    "whyThisGroup": "图片按 sequence 组织；只组合 EditorialPlan 同一节内且有 scene/subject/evidence 关系的资产。",
+    "whyThisDominantImage": "各节主画面依据角色、景别、方向和质量排序：e-section-001:detail/landscape/high；e-section-002:detail/square/high；e-section-003:wide/landscape/high；e-section-004:medium/landscape/high；e-section-005:detail/landscape/high。",
+    "whyThisClosingImage": "img010 的 scene=冠军公布、shotType=group、roles=closing-candidate/supporting 支持 group-photo 收束。"
+  }
+}

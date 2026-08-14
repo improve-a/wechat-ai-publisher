@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "1",
+  "visualTone": "theatrical",
+  "density": "airy",
+  "pace": "dynamic",
+  "mediaDominance": "image-led",
+  "textDominance": "restrained",
+  "sectionRhythm": "climax-release",
+  "titleTreatment": "poster-led",
+  "sectionTitleTreatment": "minimal",
+  "imageTreatment": "full-width",
+  "captionTreatment": "quiet",
+  "groupingStrategy": "sequence",
+  "transitionStyle": "image-bridge",
+  "emphasisStrategy": "image-led",
+  "closingStrategy": "visual-echo",
+  "sectionNumberingPolicy": "none",
+  "heroAssetId": "img001",
+  "closingAssetId": "img010",
+  "openingVisualPattern": "full-image-hero",
+  "closingVisualPattern": "framed-image",
+  "decorativePatternCount": 2,
+  "decorativeDensity": "sparse",
+  "decorativePatterns": [
+    "line",
+    "dot"
+  ],
+  "sections": [
+    {
+      "sectionId": "e-section-001",
+      "visualWeight": "normal",
+      "visualIntensity": "normal",
+      "density": "airy",
+      "pace": "dynamic",
+      "dominantAssetId": "img002",
+      "secondaryAssetIds": [
+        "img003"
+      ],
+      "compositionPreference": "asymmetric-photo-pair",
+      "preferredVisualPattern": "full-width-image",
+      "transition": "none",
+      "groupingReason": "按 sequence 组织 开场准备/wide、开场准备/detail，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "开场准备",
+      "labelEvidenceSourceIds": [
+        "a008"
+      ],
+      "sectionLabelStyle": "minimal"
+    },
+    {
+      "sectionId": "e-section-002",
+      "visualWeight": "normal",
+      "visualIntensity": "normal",
+      "density": "airy",
+      "pace": "dynamic",
+      "dominantAssetId": "img004",
+      "secondaryAssetIds": [
+        "img005"
+      ],
+      "compositionPreference": "asymmetric-photo-pair",
+      "preferredVisualPattern": "plain-section-title",
+      "transition": "image-bridge",
+      "groupingReason": "按 sequence 组织 第一次合奏/wide、第一次合奏/close-up，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "第一次合奏",
+      "labelEvidenceSourceIds": [
+        "a016"
+      ],
+      "sectionLabelStyle": "minimal",
+      "decorativePattern": "dot"
+    },
+    {
+      "sectionId": "e-section-003",
+      "visualWeight": "normal",
+      "visualIntensity": "normal",
+      "density": "airy",
+      "pace": "dynamic",
+      "dominantAssetId": "img007",
+      "secondaryAssetIds": [
+        "img006"
+      ],
+      "compositionPreference": "full-width-story",
+      "preferredVisualPattern": "full-width-image",
+      "transition": "image-bridge",
+      "groupingReason": "按 sequence 组织 独奏时刻/portrait、独奏时刻/detail，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "独奏时刻",
+      "labelEvidenceSourceIds": [
+        "a027"
+      ],
+      "sectionLabelStyle": "minimal"
+    },
+    {
+      "sectionId": "e-section-004",
+      "visualWeight": "normal",
+      "visualIntensity": "normal",
+      "density": "airy",
+      "pace": "dynamic",
+      "dominantAssetId": "img008",
+      "secondaryAssetIds": [],
+      "compositionPreference": "poster-feature",
+      "preferredVisualPattern": "framed-image",
+      "transition": "image-bridge",
+      "groupingReason": "按 sequence 组织 演出识别/other，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "演出识别",
+      "labelEvidenceSourceIds": [
+        "a033"
+      ],
+      "sectionLabelStyle": "minimal"
+    },
+    {
+      "sectionId": "e-section-005",
+      "visualWeight": "strong",
+      "visualIntensity": "strong",
+      "density": "airy",
+      "pace": "dynamic",
+      "dominantAssetId": "img009",
+      "secondaryAssetIds": [],
+      "compositionPreference": "visual-climax",
+      "preferredVisualPattern": "full-width-image",
+      "transition": "image-bridge",
+      "groupingReason": "按 sequence 组织 谢幕高潮/wide，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "谢幕高潮",
+      "labelEvidenceSourceIds": [
+        "a039"
+      ],
+      "sectionLabelStyle": "minimal",
+      "decorativePattern": "line"
+    }
+  ],
+  "reasons": {
+    "whyThisHero": "img001 是 wide 景别、landscape 构图、high 质量，并承担 hero-candidate 角色。",
+    "whyThisGroup": "图片按 sequence 组织；只组合 EditorialPlan 同一节内且有 scene/subject/evidence 关系的资产。",
+    "whyThisDominantImage": "各节主画面依据角色、景别、方向和质量排序：e-section-001:wide/landscape/high；e-section-002:wide/landscape/high；e-section-003:detail/landscape/high；e-section-004:other/portrait/high；e-section-005:wide/landscape/high。",
+    "whyThisClosingImage": "img010 的 scene=散场余韵、shotType=group、roles=closing-candidate/supporting 支持 visual-echo 收束。"
+  }
+}

@@ -1,0 +1,335 @@
+{
+  "schemaVersion": "1",
+  "theme": "bit-official",
+  "themeVariant": "default",
+  "blocks": [
+    {
+      "id": "l001",
+      "component": "hero-visual",
+      "componentVariant": "default",
+      "provenance": {
+        "kind": "editorial-composition",
+        "sourceBlockIds": [
+          "a001",
+          "a002",
+          "a003"
+        ],
+        "usesArticleTitle": true,
+        "editorialUnitId": "e-hero"
+      },
+      "assetIds": [
+        "img001"
+      ],
+      "visualPattern": "text-first-header"
+    },
+    {
+      "id": "l002",
+      "component": "full-width-story",
+      "componentVariant": "default",
+      "provenance": {
+        "kind": "editorial-composition",
+        "sourceBlockIds": [
+          "a004",
+          "a005",
+          "a006",
+          "a007",
+          "a008",
+          "a009",
+          "a010",
+          "a011"
+        ],
+        "editorialUnitId": "e-section-001"
+      },
+      "assetIds": [
+        "img002",
+        "img003"
+      ],
+      "visualPattern": "label-title"
+    },
+    {
+      "id": "l003",
+      "component": "visual-climax",
+      "componentVariant": "default",
+      "provenance": {
+        "kind": "editorial-composition",
+        "sourceBlockIds": [
+          "a012",
+          "a013",
+          "a014",
+          "a015",
+          "a016",
+          "a017",
+          "a018",
+          "a019",
+          "a020"
+        ],
+        "editorialUnitId": "e-section-002"
+      },
+      "assetIds": [
+        "img004",
+        "img005"
+      ],
+      "visualPattern": "label-title"
+    },
+    {
+      "id": "l004",
+      "component": "full-width-story",
+      "componentVariant": "default",
+      "provenance": {
+        "kind": "editorial-composition",
+        "sourceBlockIds": [
+          "a021",
+          "a022",
+          "a023",
+          "a024",
+          "a025",
+          "a026",
+          "a027",
+          "a028"
+        ],
+        "editorialUnitId": "e-section-003"
+      },
+      "assetIds": [
+        "img006",
+        "img007"
+      ],
+      "visualPattern": "full-width-image"
+    },
+    {
+      "id": "l005",
+      "component": "full-width-story",
+      "componentVariant": "default",
+      "provenance": {
+        "kind": "editorial-composition",
+        "sourceBlockIds": [
+          "a029",
+          "a030",
+          "a031",
+          "a032",
+          "a033",
+          "a034"
+        ],
+        "editorialUnitId": "e-section-004"
+      },
+      "assetIds": [
+        "img008"
+      ],
+      "visualPattern": "label-title"
+    },
+    {
+      "id": "l006",
+      "component": "full-width-story",
+      "componentVariant": "default",
+      "provenance": {
+        "kind": "editorial-composition",
+        "sourceBlockIds": [
+          "a035",
+          "a036",
+          "a037",
+          "a038",
+          "a039",
+          "a040"
+        ],
+        "editorialUnitId": "e-section-005"
+      },
+      "assetIds": [
+        "img009"
+      ],
+      "visualPattern": "framed-image"
+    },
+    {
+      "id": "l007",
+      "component": "closing-visual",
+      "componentVariant": "default",
+      "provenance": {
+        "kind": "editorial-composition",
+        "sourceBlockIds": [
+          "a041",
+          "a042",
+          "a043"
+        ],
+        "editorialUnitId": "e-closing"
+      },
+      "assetIds": [
+        "img010"
+      ],
+      "visualPattern": "framed-image"
+    }
+  ],
+  "assetPlacements": [
+    {
+      "assetId": "img001",
+      "status": "placed"
+    },
+    {
+      "assetId": "img002",
+      "status": "placed"
+    },
+    {
+      "assetId": "img003",
+      "status": "placed"
+    },
+    {
+      "assetId": "img004",
+      "status": "placed"
+    },
+    {
+      "assetId": "img005",
+      "status": "placed"
+    },
+    {
+      "assetId": "img006",
+      "status": "placed"
+    },
+    {
+      "assetId": "img007",
+      "status": "placed"
+    },
+    {
+      "assetId": "img008",
+      "status": "placed"
+    },
+    {
+      "assetId": "img009",
+      "status": "placed"
+    },
+    {
+      "assetId": "img010",
+      "status": "placed"
+    }
+  ],
+  "artDirection": {
+    "schemaVersion": "1",
+    "visualTone": "humanistic",
+    "density": "airy",
+    "pace": "calm",
+    "mediaDominance": "balanced",
+    "textDominance": "narrative-led",
+    "sectionRhythm": "quiet-build",
+    "titleTreatment": "portrait-led",
+    "sectionTitleTreatment": "statement",
+    "imageTreatment": "portrait-led",
+    "captionTreatment": "quiet",
+    "groupingStrategy": "subject",
+    "transitionStyle": "whitespace",
+    "emphasisStrategy": "quote-led",
+    "closingStrategy": "visual-echo",
+    "sectionNumberingPolicy": "none",
+    "heroAssetId": "img001",
+    "closingAssetId": "img010",
+    "openingVisualPattern": "text-first-header",
+    "closingVisualPattern": "framed-image",
+    "decorativePatternCount": 2,
+    "decorativeDensity": "sparse",
+    "decorativePatterns": [
+      "line",
+      "dot"
+    ],
+    "sections": [
+      {
+        "sectionId": "e-section-001",
+        "visualWeight": "normal",
+        "visualIntensity": "normal",
+        "density": "airy",
+        "pace": "calm",
+        "dominantAssetId": "img003",
+        "secondaryAssetIds": [
+          "img002"
+        ],
+        "compositionPreference": "full-width-story",
+        "preferredVisualPattern": "label-title",
+        "transition": "none",
+        "groupingReason": "按 subject 组织 问题起点/medium、问题起点/detail，主画面优先视觉质量与叙事角色。",
+        "sectionLabel": "问题起点",
+        "labelEvidenceSourceIds": [
+          "a010"
+        ],
+        "sectionLabelStyle": "statement"
+      },
+      {
+        "sectionId": "e-section-002",
+        "visualWeight": "normal",
+        "visualIntensity": "normal",
+        "density": "airy",
+        "pace": "calm",
+        "dominantAssetId": "img005",
+        "secondaryAssetIds": [
+          "img004"
+        ],
+        "compositionPreference": "visual-climax",
+        "preferredVisualPattern": "label-title",
+        "transition": "whitespace",
+        "groupingReason": "按 subject 组织 测量方法/medium、测量方法/detail，主画面优先视觉质量与叙事角色。",
+        "sectionLabel": "测量方法",
+        "labelEvidenceSourceIds": [
+          "a019"
+        ],
+        "sectionLabelStyle": "statement",
+        "decorativePattern": "dot"
+      },
+      {
+        "sectionId": "e-section-003",
+        "visualWeight": "normal",
+        "visualIntensity": "normal",
+        "density": "airy",
+        "pace": "calm",
+        "dominantAssetId": "img006",
+        "secondaryAssetIds": [
+          "img007"
+        ],
+        "compositionPreference": "full-width-story",
+        "preferredVisualPattern": "full-width-image",
+        "transition": "whitespace",
+        "groupingReason": "按 subject 组织 学生培养/portrait、学生培养/medium，主画面优先视觉质量与叙事角色。",
+        "sectionLabel": "学生培养",
+        "labelEvidenceSourceIds": [
+          "a025"
+        ],
+        "sectionLabelStyle": "statement"
+      },
+      {
+        "sectionId": "e-section-004",
+        "visualWeight": "normal",
+        "visualIntensity": "normal",
+        "density": "airy",
+        "pace": "calm",
+        "dominantAssetId": "img008",
+        "secondaryAssetIds": [],
+        "compositionPreference": "full-width-story",
+        "preferredVisualPattern": "label-title",
+        "transition": "whitespace",
+        "groupingReason": "按 subject 组织 奖项节点/wide，主画面优先视觉质量与叙事角色。",
+        "sectionLabel": "奖项节点",
+        "labelEvidenceSourceIds": [
+          "a033"
+        ],
+        "sectionLabelStyle": "statement"
+      },
+      {
+        "sectionId": "e-section-005",
+        "visualWeight": "strong",
+        "visualIntensity": "strong",
+        "density": "airy",
+        "pace": "calm",
+        "dominantAssetId": "img009",
+        "secondaryAssetIds": [],
+        "compositionPreference": "full-width-story",
+        "preferredVisualPattern": "framed-image",
+        "transition": "whitespace",
+        "groupingReason": "按 subject 组织 研究传承/detail，主画面优先视觉质量与叙事角色。",
+        "sectionLabel": "研究传承",
+        "labelEvidenceSourceIds": [
+          "a039"
+        ],
+        "sectionLabelStyle": "statement",
+        "decorativePattern": "line"
+      }
+    ],
+    "reasons": {
+      "whyThisHero": "img001 是 portrait 景别、portrait 构图、high 质量，并承担 hero-candidate/portrait 角色。",
+      "whyThisGroup": "图片按 subject 组织；只组合 EditorialPlan 同一节内且有 scene/subject/evidence 关系的资产。",
+      "whyThisDominantImage": "各节主画面依据角色、景别、方向和质量排序：e-section-001:detail/landscape/high；e-section-002:detail/square/high；e-section-003:portrait/portrait/high；e-section-004:wide/landscape/high；e-section-005:detail/landscape/high。",
+      "whyThisClosingImage": "img010 的 scene=研究传承、shotType=group、roles=closing-candidate/supporting 支持 visual-echo 收束。"
+    }
+  }
+}

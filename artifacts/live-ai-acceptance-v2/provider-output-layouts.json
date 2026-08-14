@@ -1,0 +1,1808 @@
+{
+  "schemaVersion": "1",
+  "provider": "DeepSeek",
+  "model": "deepseek-v4-flash",
+  "networkRequestCount": 7,
+  "articles": [
+    {
+      "articleId": "01_科技_边缘AI实验平台",
+      "layout": {
+        "schemaVersion": "1",
+        "theme": "bit-innovation",
+        "themeVariant": "data",
+        "blocks": [
+          {
+            "id": "l001",
+            "component": "article-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-title"
+            }
+          },
+          {
+            "id": "l002",
+            "component": "lead-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a001"
+              ]
+            }
+          },
+          {
+            "id": "l003",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a002"
+              ]
+            }
+          },
+          {
+            "id": "l004",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a003"
+              ]
+            }
+          },
+          {
+            "id": "l005",
+            "component": "quote-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a004"
+              ]
+            }
+          },
+          {
+            "id": "l006",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a005"
+              ]
+            }
+          },
+          {
+            "id": "l007",
+            "component": "key-metrics",
+            "componentVariant": "metric",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a006"
+              ]
+            }
+          },
+          {
+            "id": "l008",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a007"
+              ]
+            }
+          },
+          {
+            "id": "l009",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a008"
+              ]
+            }
+          },
+          {
+            "id": "l010",
+            "component": "step-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a009"
+              ]
+            }
+          },
+          {
+            "id": "l011",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a010"
+              ]
+            }
+          },
+          {
+            "id": "l012",
+            "component": "code-block",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a011"
+              ]
+            }
+          },
+          {
+            "id": "l013",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a012"
+              ]
+            }
+          },
+          {
+            "id": "l014",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a013"
+              ]
+            }
+          },
+          {
+            "id": "l015",
+            "component": "highlight",
+            "componentVariant": "metric",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a014"
+              ]
+            }
+          },
+          {
+            "id": "l016",
+            "component": "highlight",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a015"
+              ]
+            }
+          },
+          {
+            "id": "l017",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a016"
+              ]
+            }
+          },
+          {
+            "id": "l018",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a017"
+              ]
+            }
+          },
+          {
+            "id": "l019",
+            "component": "ending",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a018"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "articleId": "02_校园_实验室开放日",
+      "layout": {
+        "schemaVersion": "1",
+        "theme": "bit-youth",
+        "themeVariant": "story",
+        "blocks": [
+          {
+            "id": "l001",
+            "component": "article-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-title"
+            }
+          },
+          {
+            "id": "l002",
+            "component": "lead-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a001"
+              ]
+            }
+          },
+          {
+            "id": "l003",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a002"
+              ]
+            }
+          },
+          {
+            "id": "l004",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a003"
+              ]
+            }
+          },
+          {
+            "id": "l005",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a004"
+              ]
+            }
+          },
+          {
+            "id": "l006",
+            "component": "quote-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a005"
+              ]
+            }
+          },
+          {
+            "id": "l007",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a006"
+              ]
+            }
+          },
+          {
+            "id": "l008",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a007"
+              ]
+            }
+          },
+          {
+            "id": "l009",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a008"
+              ]
+            }
+          },
+          {
+            "id": "l010",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a009"
+              ]
+            }
+          },
+          {
+            "id": "l011",
+            "component": "bullet-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a010"
+              ]
+            }
+          },
+          {
+            "id": "l012",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a011"
+              ]
+            }
+          },
+          {
+            "id": "l013",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a012"
+              ]
+            }
+          },
+          {
+            "id": "l014",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a013"
+              ]
+            }
+          },
+          {
+            "id": "l015",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a014"
+              ]
+            }
+          },
+          {
+            "id": "l016",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a015"
+              ]
+            }
+          },
+          {
+            "id": "l017",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a016"
+              ]
+            }
+          },
+          {
+            "id": "l018",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a017"
+              ]
+            }
+          },
+          {
+            "id": "l019",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a018"
+              ]
+            }
+          },
+          {
+            "id": "l020",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a019"
+              ]
+            }
+          },
+          {
+            "id": "l021",
+            "component": "step-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a020"
+              ]
+            }
+          },
+          {
+            "id": "l022",
+            "component": "ending",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a021"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "articleId": "03_人文_凌晨四点的城市",
+      "layout": {
+        "schemaVersion": "1",
+        "theme": "bit-youth",
+        "themeVariant": "story",
+        "blocks": [
+          {
+            "id": "l001",
+            "component": "article-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-title"
+            }
+          },
+          {
+            "id": "l002",
+            "component": "lead-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a001"
+              ]
+            }
+          },
+          {
+            "id": "l003",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a002"
+              ]
+            }
+          },
+          {
+            "id": "l004",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a003"
+              ]
+            }
+          },
+          {
+            "id": "l005",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a004"
+              ]
+            }
+          },
+          {
+            "id": "l006",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a005"
+              ]
+            }
+          },
+          {
+            "id": "l007",
+            "component": "quote-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a006"
+              ]
+            }
+          },
+          {
+            "id": "l008",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a007"
+              ]
+            }
+          },
+          {
+            "id": "l009",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a008"
+              ]
+            }
+          },
+          {
+            "id": "l010",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a009"
+              ]
+            }
+          },
+          {
+            "id": "l011",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a010"
+              ]
+            }
+          },
+          {
+            "id": "l012",
+            "component": "highlight",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a011"
+              ]
+            }
+          },
+          {
+            "id": "l013",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a012"
+              ]
+            }
+          },
+          {
+            "id": "l014",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a013"
+              ]
+            }
+          },
+          {
+            "id": "l015",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a014"
+              ]
+            }
+          },
+          {
+            "id": "l016",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a015"
+              ]
+            }
+          },
+          {
+            "id": "l017",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a016"
+              ]
+            }
+          },
+          {
+            "id": "l018",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a017"
+              ]
+            }
+          },
+          {
+            "id": "l019",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a018"
+              ]
+            }
+          },
+          {
+            "id": "l020",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a019"
+              ]
+            }
+          },
+          {
+            "id": "l021",
+            "component": "ending",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a020"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "articleId": "04_新闻_低功耗芯片发布",
+      "layout": {
+        "schemaVersion": "1",
+        "theme": "bit-innovation",
+        "themeVariant": "data",
+        "blocks": [
+          {
+            "id": "l001",
+            "component": "article-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-title"
+            }
+          },
+          {
+            "id": "l002",
+            "component": "lead-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a001"
+              ]
+            }
+          },
+          {
+            "id": "l003",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a002"
+              ]
+            }
+          },
+          {
+            "id": "l004",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a003"
+              ]
+            }
+          },
+          {
+            "id": "l005",
+            "component": "key-metrics",
+            "componentVariant": "metric",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a004"
+              ]
+            }
+          },
+          {
+            "id": "l006",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a005"
+              ]
+            }
+          },
+          {
+            "id": "l007",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a006"
+              ]
+            }
+          },
+          {
+            "id": "l008",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a007"
+              ]
+            }
+          },
+          {
+            "id": "l009",
+            "component": "bullet-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a008"
+              ]
+            }
+          },
+          {
+            "id": "l010",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a009"
+              ]
+            }
+          },
+          {
+            "id": "l011",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a010"
+              ]
+            }
+          },
+          {
+            "id": "l012",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a011"
+              ]
+            }
+          },
+          {
+            "id": "l013",
+            "component": "quote-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a012"
+              ]
+            }
+          },
+          {
+            "id": "l014",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a013"
+              ]
+            }
+          },
+          {
+            "id": "l015",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a014"
+              ]
+            }
+          },
+          {
+            "id": "l016",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a015"
+              ]
+            }
+          },
+          {
+            "id": "l017",
+            "component": "ending",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a016"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "articleId": "05_教程_用示波器排查信号异常",
+      "layout": {
+        "schemaVersion": "1",
+        "theme": "bit-innovation",
+        "themeVariant": "project",
+        "blocks": [
+          {
+            "id": "l001",
+            "component": "article-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-title"
+            }
+          },
+          {
+            "id": "l002",
+            "component": "lead-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a001"
+              ]
+            }
+          },
+          {
+            "id": "l003",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a002"
+              ]
+            }
+          },
+          {
+            "id": "l004",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a003"
+              ]
+            }
+          },
+          {
+            "id": "l005",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a004"
+              ]
+            }
+          },
+          {
+            "id": "l006",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a005"
+              ]
+            }
+          },
+          {
+            "id": "l007",
+            "component": "code-block",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a006"
+              ]
+            }
+          },
+          {
+            "id": "l008",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a007"
+              ]
+            }
+          },
+          {
+            "id": "l009",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a008"
+              ]
+            }
+          },
+          {
+            "id": "l010",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a009"
+              ]
+            }
+          },
+          {
+            "id": "l011",
+            "component": "bullet-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a010"
+              ]
+            }
+          },
+          {
+            "id": "l012",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a011"
+              ]
+            }
+          },
+          {
+            "id": "l013",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a012"
+              ]
+            }
+          },
+          {
+            "id": "l014",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a013"
+              ]
+            }
+          },
+          {
+            "id": "l015",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a014"
+              ]
+            }
+          },
+          {
+            "id": "l016",
+            "component": "code-block",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a015"
+              ]
+            }
+          },
+          {
+            "id": "l017",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a016"
+              ]
+            }
+          },
+          {
+            "id": "l018",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a017"
+              ]
+            }
+          },
+          {
+            "id": "l019",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a018"
+              ]
+            }
+          },
+          {
+            "id": "l020",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a019"
+              ]
+            }
+          },
+          {
+            "id": "l021",
+            "component": "step-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a020"
+              ]
+            }
+          },
+          {
+            "id": "l022",
+            "component": "quote-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a021"
+              ]
+            }
+          },
+          {
+            "id": "l023",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a022"
+              ]
+            }
+          },
+          {
+            "id": "l024",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a023"
+              ]
+            }
+          },
+          {
+            "id": "l025",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a024"
+              ]
+            }
+          },
+          {
+            "id": "l026",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a025"
+              ]
+            }
+          },
+          {
+            "id": "l027",
+            "component": "key-value-facts",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a026"
+              ]
+            }
+          },
+          {
+            "id": "l028",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a027"
+              ]
+            }
+          },
+          {
+            "id": "l029",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a028"
+              ]
+            }
+          },
+          {
+            "id": "l030",
+            "component": "bullet-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a029"
+              ]
+            }
+          },
+          {
+            "id": "l031",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a030"
+              ]
+            }
+          },
+          {
+            "id": "l032",
+            "component": "ending",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a031"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "articleId": "06_观点_AI辅助学习",
+      "layout": {
+        "schemaVersion": "1",
+        "theme": "bit-official",
+        "themeVariant": "default",
+        "blocks": [
+          {
+            "id": "l001",
+            "component": "article-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-title"
+            }
+          },
+          {
+            "id": "l002",
+            "component": "lead-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a001"
+              ]
+            }
+          },
+          {
+            "id": "l003",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a002"
+              ]
+            }
+          },
+          {
+            "id": "l004",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a003"
+              ]
+            }
+          },
+          {
+            "id": "l005",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a004"
+              ]
+            }
+          },
+          {
+            "id": "l006",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a005"
+              ]
+            }
+          },
+          {
+            "id": "l007",
+            "component": "bullet-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a006"
+              ]
+            }
+          },
+          {
+            "id": "l008",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a007"
+              ]
+            }
+          },
+          {
+            "id": "l009",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a008"
+              ]
+            }
+          },
+          {
+            "id": "l010",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a009"
+              ]
+            }
+          },
+          {
+            "id": "l011",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a010"
+              ]
+            }
+          },
+          {
+            "id": "l012",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a011"
+              ]
+            }
+          },
+          {
+            "id": "l013",
+            "component": "quote-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a012"
+              ]
+            }
+          },
+          {
+            "id": "l014",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a013"
+              ]
+            }
+          },
+          {
+            "id": "l015",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a014"
+              ]
+            }
+          },
+          {
+            "id": "l016",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a015"
+              ]
+            }
+          },
+          {
+            "id": "l017",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a016"
+              ]
+            }
+          },
+          {
+            "id": "l018",
+            "component": "step-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a017"
+              ]
+            }
+          },
+          {
+            "id": "l019",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a018"
+              ]
+            }
+          },
+          {
+            "id": "l020",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a019"
+              ]
+            }
+          },
+          {
+            "id": "l021",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a020"
+              ]
+            }
+          },
+          {
+            "id": "l022",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a021"
+              ]
+            }
+          },
+          {
+            "id": "l023",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a022"
+              ]
+            }
+          },
+          {
+            "id": "l024",
+            "component": "bullet-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a023"
+              ]
+            }
+          },
+          {
+            "id": "l025",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a024"
+              ]
+            }
+          },
+          {
+            "id": "l026",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a025"
+              ]
+            }
+          },
+          {
+            "id": "l027",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a026"
+              ]
+            }
+          },
+          {
+            "id": "l028",
+            "component": "ending",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a027"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "articleId": "07_活动通知_创新实践周",
+      "layout": {
+        "schemaVersion": "1",
+        "theme": "bit-official",
+        "themeVariant": "notice",
+        "blocks": [
+          {
+            "id": "l001",
+            "component": "article-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-title"
+            }
+          },
+          {
+            "id": "l002",
+            "component": "lead-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a001"
+              ]
+            }
+          },
+          {
+            "id": "l003",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a002"
+              ]
+            }
+          },
+          {
+            "id": "l004",
+            "component": "info-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a003",
+                "a004"
+              ]
+            }
+          },
+          {
+            "id": "l005",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a005"
+              ]
+            }
+          },
+          {
+            "id": "l006",
+            "component": "timeline",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a006"
+              ]
+            }
+          },
+          {
+            "id": "l007",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a007"
+              ]
+            }
+          },
+          {
+            "id": "l008",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a008"
+              ]
+            }
+          },
+          {
+            "id": "l009",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a009"
+              ]
+            }
+          },
+          {
+            "id": "l010",
+            "component": "bullet-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a010"
+              ]
+            }
+          },
+          {
+            "id": "l011",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a011"
+              ]
+            }
+          },
+          {
+            "id": "l012",
+            "component": "info-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a012",
+                "a013"
+              ]
+            }
+          },
+          {
+            "id": "l013",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a014"
+              ]
+            }
+          },
+          {
+            "id": "l014",
+            "component": "quote-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a015"
+              ]
+            }
+          },
+          {
+            "id": "l015",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a016"
+              ]
+            }
+          },
+          {
+            "id": "l016",
+            "component": "number-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a017"
+              ]
+            }
+          },
+          {
+            "id": "l017",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a018"
+              ]
+            }
+          },
+          {
+            "id": "l018",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a019"
+              ]
+            }
+          },
+          {
+            "id": "l019",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a020"
+              ]
+            }
+          },
+          {
+            "id": "l020",
+            "component": "ending",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a021"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

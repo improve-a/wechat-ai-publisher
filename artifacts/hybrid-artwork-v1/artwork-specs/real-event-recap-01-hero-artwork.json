@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "1",
+  "artworkItemId": "real-event-recap-01-hero-artwork",
+  "type": "hero-artwork",
+  "stylePackId": "bit-xuteli-editorial-v1",
+  "templateVariant": "minimal-overlay",
+  "output": {
+    "format": "png",
+    "width": 750,
+    "height": 520,
+    "pixelRatio": 2
+  },
+  "visualWeight": "strong",
+  "renderPolicy": "artwork-plus-native-content",
+  "sourceBlockIds": [
+    "a001",
+    "a002"
+  ],
+  "sourceAssetIds": [
+    "img001"
+  ],
+  "texts": [
+    {
+      "role": "title",
+      "text": "机器人赛事回顾：从维修区到场边互动的九个瞬间",
+      "source": {
+        "kind": "article-title"
+      }
+    },
+    {
+      "role": "subtitle",
+      "text": "机器人赛事由多个同时发生的场景组成：调试、检修、交流、观看和庆祝。",
+      "source": {
+        "kind": "article-block",
+        "sourceBlockId": "a001"
+      }
+    }
+  ],
+  "images": [
+    {
+      "sourceAssetId": "img001",
+      "src": "/real-photo-stress/event-01.jpg",
+      "alt": "FIRST 机器人赛事现场全景",
+      "orientation": "landscape",
+      "aspectRatio": 1.5,
+      "fit": "contain"
+    }
+  ],
+  "specHash": "30ca4c7aab595170"
+}

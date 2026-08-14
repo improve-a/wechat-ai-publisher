@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.1",
+  "artworkItemId": "real-event-recap-v1-1-02-section-break-artwork",
+  "type": "section-break-artwork",
+  "stylePackId": "bit-xuteli-editorial-v1",
+  "templateVariant": "scene-transition",
+  "output": {
+    "format": "png",
+    "width": 750,
+    "height": 240,
+    "pixelRatio": 2
+  },
+  "visualWeight": "climax",
+  "renderPolicy": "artwork-plus-native-content",
+  "sourceBlockIds": [
+    "a015",
+    "a016",
+    "a017"
+  ],
+  "sourceAssetIds": [
+    "img008"
+  ],
+  "texts": [
+    {
+      "role": "title",
+      "text": "高光之后",
+      "source": {
+        "kind": "article-block",
+        "sourceBlockId": "a015"
+      }
+    }
+  ],
+  "images": [
+    {
+      "sourceAssetId": "img008",
+      "src": "/real-photo-stress/event-08.jpg",
+      "alt": "赛事中的多人互动场景",
+      "orientation": "landscape",
+      "aspectRatio": 1.3815522145469321,
+      "fit": "contain"
+    }
+  ],
+  "visualOwnership": "augment",
+  "ownedSourceBlockIds": [],
+  "augmentedSourceBlockIds": [
+    "a015",
+    "a016",
+    "a017"
+  ],
+  "ownsArticleTitle": false,
+  "nativeVisibilityPolicy": "show-all",
+  "incrementalValueReason": {
+    "nativeAlreadySufficient": true,
+    "solvesNativeConstraint": false,
+    "establishesVisualClimax": true,
+    "improvesHierarchy": true,
+    "repeatsExistingInformationOnly": false,
+    "whyArtworkOverNative": "仅在活动稿的关键阶段加入一次短标签转场；完整章节标题仍由 Native 承担。"
+  },
+  "nativeCoherence": {
+    "themeId": "bit-official",
+    "themeVariant": "default",
+    "primaryColor": "#009A44",
+    "accentColor": "#94450B",
+    "backgroundColor": "#FFFFFF",
+    "surfaceColor": "#FFFFFF",
+    "textStrongColor": "#1F2321",
+    "textMutedColor": "#8B938E",
+    "borderColor": "#BFCBC3",
+    "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+    "imageRadius": "5px",
+    "labelLanguage": "source-backed-chinese"
+  },
+  "specHash": "6a3c1f4a030d40ff"
+}

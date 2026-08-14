@@ -1,0 +1,203 @@
+{
+  "schemaVersion": "1",
+  "assets": [
+    {
+      "assetId": "img001",
+      "description": "芯片与完整测试平台全景",
+      "subjects": [
+        "芯片",
+        "测试平台"
+      ],
+      "scene": "系统验证",
+      "shotType": "wide",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 4,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "hero-candidate",
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a002"
+      ]
+    },
+    {
+      "assetId": "img002",
+      "description": "低功耗数据路径架构图",
+      "subjects": [
+        "芯片架构"
+      ],
+      "scene": "架构方法",
+      "shotType": "detail",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 0,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a008"
+      ]
+    },
+    {
+      "assetId": "img003",
+      "description": "芯片显微照片",
+      "subjects": [
+        "芯片"
+      ],
+      "scene": "架构方法",
+      "shotType": "close-up",
+      "orientation": "square",
+      "aspectRatio": 1,
+      "peopleCount": 0,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a010"
+      ]
+    },
+    {
+      "assetId": "img004",
+      "description": "跨温区波形对比",
+      "subjects": [
+        "测试波形"
+      ],
+      "scene": "流片验证",
+      "shotType": "detail",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 0,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a016"
+      ]
+    },
+    {
+      "assetId": "img005",
+      "description": "工程师操作温控测试平台",
+      "subjects": [
+        "工程师",
+        "测试平台"
+      ],
+      "scene": "流片验证",
+      "shotType": "medium",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 3,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a018"
+      ]
+    },
+    {
+      "assetId": "img006",
+      "description": "校园环境监测节点",
+      "subjects": [
+        "监测节点",
+        "校园"
+      ],
+      "scene": "真实任务",
+      "shotType": "wide",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 2,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence",
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a025"
+      ]
+    },
+    {
+      "assetId": "img007",
+      "description": "七天运行曲线",
+      "subjects": [
+        "运行曲线"
+      ],
+      "scene": "真实任务",
+      "shotType": "detail",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 0,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a027"
+      ]
+    },
+    {
+      "assetId": "img008",
+      "description": "适用边界与待测场景图",
+      "subjects": [
+        "限制条件"
+      ],
+      "scene": "结论边界",
+      "shotType": "detail",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 0,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a033"
+      ]
+    },
+    {
+      "assetId": "img009",
+      "description": "开放验证资料包",
+      "subjects": [
+        "脚本",
+        "数据说明"
+      ],
+      "scene": "开放复核",
+      "shotType": "detail",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 0,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a039"
+      ]
+    },
+    {
+      "assetId": "img010",
+      "description": "芯片验证团队在平台前合影",
+      "subjects": [
+        "研究团队",
+        "测试平台"
+      ],
+      "scene": "共同验证",
+      "shotType": "group",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 8,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "closing-candidate",
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a042"
+      ]
+    }
+  ]
+}

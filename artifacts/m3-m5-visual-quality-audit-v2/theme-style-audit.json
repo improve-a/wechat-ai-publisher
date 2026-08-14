@@ -1,0 +1,1878 @@
+{
+  "schemaVersion": "1",
+  "result": "DISTINCT_THEME_LANGUAGE_IN_OBSERVED_COMPONENTS_WITH_FIXTURE_COVERAGE_GAPS",
+  "themes": [
+    "bit-official",
+    "bit-innovation",
+    "bit-youth"
+  ],
+  "categories": [
+    "ArticleTitle",
+    "SectionTitle",
+    "Paragraph",
+    "Quote",
+    "Highlight",
+    "List",
+    "Table",
+    "CodeBlock",
+    "Divider",
+    "Ending"
+  ],
+  "coverage": {
+    "ArticleTitle": {
+      "observedThemes": [
+        "bit-official",
+        "bit-innovation",
+        "bit-youth"
+      ],
+      "missingThemes": [],
+      "sampleCount": 14
+    },
+    "SectionTitle": {
+      "observedThemes": [
+        "bit-official",
+        "bit-innovation",
+        "bit-youth"
+      ],
+      "missingThemes": [],
+      "sampleCount": 64
+    },
+    "Paragraph": {
+      "observedThemes": [
+        "bit-official",
+        "bit-innovation",
+        "bit-youth"
+      ],
+      "missingThemes": [],
+      "sampleCount": 115
+    },
+    "Quote": {
+      "observedThemes": [
+        "bit-official",
+        "bit-innovation",
+        "bit-youth"
+      ],
+      "missingThemes": [],
+      "sampleCount": 14
+    },
+    "Highlight": {
+      "observedThemes": [
+        "bit-official",
+        "bit-innovation",
+        "bit-youth"
+      ],
+      "missingThemes": [],
+      "sampleCount": 6
+    },
+    "List": {
+      "observedThemes": [
+        "bit-official",
+        "bit-innovation",
+        "bit-youth"
+      ],
+      "missingThemes": [],
+      "sampleCount": 24
+    },
+    "Table": {
+      "observedThemes": [
+        "bit-official",
+        "bit-innovation"
+      ],
+      "missingThemes": [
+        "bit-youth"
+      ],
+      "sampleCount": 8
+    },
+    "CodeBlock": {
+      "observedThemes": [
+        "bit-innovation"
+      ],
+      "missingThemes": [
+        "bit-official",
+        "bit-youth"
+      ],
+      "sampleCount": 6
+    },
+    "Divider": {
+      "observedThemes": [],
+      "missingThemes": [
+        "bit-official",
+        "bit-innovation",
+        "bit-youth"
+      ],
+      "sampleCount": 0
+    },
+    "Ending": {
+      "observedThemes": [
+        "bit-official",
+        "bit-innovation",
+        "bit-youth"
+      ],
+      "missingThemes": [],
+      "sampleCount": 14
+    }
+  },
+  "representatives": {
+    "ArticleTitle": {
+      "bit-official": {
+        "articleId": "06_观点_AI辅助学习",
+        "branch": "deepseek",
+        "theme": "bit-official",
+        "themeVariant": "default",
+        "category": "ArticleTitle",
+        "component": "article-title",
+        "layoutBlockId": "l001",
+        "provenance": "article-title",
+        "outerStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "29.12px",
+          "letterSpacing": "normal",
+          "color": "rgb(48, 53, 50)",
+          "margin": [
+            "0px",
+            "0px",
+            "38px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "16px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(48, 53, 50)",
+          "borderRight": "0px none rgb(48, 53, 50)",
+          "borderBottom": "3px solid rgb(0, 154, 68)",
+          "borderLeft": "0px none rgb(48, 53, 50)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        },
+        "primaryStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "28px",
+          "fontWeight": "750",
+          "lineHeight": "38.64px",
+          "letterSpacing": "-0.42px",
+          "color": "rgb(31, 35, 33)",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(31, 35, 33)",
+          "borderRight": "0px none rgb(31, 35, 33)",
+          "borderBottom": "0px none rgb(31, 35, 33)",
+          "borderLeft": "0px none rgb(31, 35, 33)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        }
+      },
+      "bit-innovation": {
+        "articleId": "01_科技_边缘AI实验平台",
+        "branch": "deterministic",
+        "theme": "bit-innovation",
+        "themeVariant": "research",
+        "category": "ArticleTitle",
+        "component": "article-title",
+        "layoutBlockId": "l001",
+        "provenance": "article-title",
+        "outerStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "15.5px",
+          "fontWeight": "400",
+          "lineHeight": "27.125px",
+          "letterSpacing": "normal",
+          "color": "rgb(43, 53, 48)",
+          "margin": [
+            "0px",
+            "0px",
+            "28px",
+            "0px"
+          ],
+          "padding": [
+            "19px",
+            "18px",
+            "19px",
+            "18px"
+          ],
+          "backgroundColor": "rgb(247, 250, 248)",
+          "borderTop": "1px solid rgb(185, 207, 192)",
+          "borderRight": "0px none rgb(43, 53, 48)",
+          "borderBottom": "0px none rgb(43, 53, 48)",
+          "borderLeft": "5px solid rgb(0, 154, 68)",
+          "borderRadius": "3px",
+          "boxShadow": "none"
+        },
+        "primaryStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "30px",
+          "fontWeight": "750",
+          "lineHeight": "39.6px",
+          "letterSpacing": "-0.75px",
+          "color": "rgb(22, 35, 28)",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(22, 35, 28)",
+          "borderRight": "0px none rgb(22, 35, 28)",
+          "borderBottom": "0px none rgb(22, 35, 28)",
+          "borderLeft": "0px none rgb(22, 35, 28)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        }
+      },
+      "bit-youth": {
+        "articleId": "02_校园_实验室开放日",
+        "branch": "deterministic",
+        "theme": "bit-youth",
+        "themeVariant": "campus",
+        "category": "ArticleTitle",
+        "component": "article-title",
+        "layoutBlockId": "l001",
+        "provenance": "article-title",
+        "outerStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16.5px",
+          "fontWeight": "400",
+          "lineHeight": "32.67px",
+          "letterSpacing": "normal",
+          "color": "rgb(52, 58, 54)",
+          "margin": [
+            "0px",
+            "0px",
+            "46px",
+            "0px"
+          ],
+          "padding": [
+            "22px",
+            "20px",
+            "22px",
+            "20px"
+          ],
+          "backgroundColor": "rgb(247, 250, 247)",
+          "borderTop": "0px none rgb(52, 58, 54)",
+          "borderRight": "0px none rgb(52, 58, 54)",
+          "borderBottom": "0px none rgb(52, 58, 54)",
+          "borderLeft": "0px none rgb(52, 58, 54)",
+          "borderRadius": "14px",
+          "boxShadow": "rgba(31, 52, 40, 0.05) 0px 8px 24px 0px"
+        },
+        "primaryStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "32px",
+          "fontWeight": "760",
+          "lineHeight": "44.16px",
+          "letterSpacing": "-0.48px",
+          "color": "rgb(34, 40, 36)",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(34, 40, 36)",
+          "borderRight": "0px none rgb(34, 40, 36)",
+          "borderBottom": "0px none rgb(34, 40, 36)",
+          "borderLeft": "0px none rgb(34, 40, 36)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        }
+      }
+    },
+    "SectionTitle": {
+      "bit-official": {
+        "articleId": "06_观点_AI辅助学习",
+        "branch": "deepseek",
+        "theme": "bit-official",
+        "themeVariant": "default",
+        "category": "SectionTitle",
+        "component": "section-title",
+        "layoutBlockId": "l004",
+        "provenance": "a003",
+        "outerStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "29.12px",
+          "letterSpacing": "normal",
+          "color": "rgb(48, 53, 50)",
+          "margin": [
+            "0px",
+            "0px",
+            "16px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "8px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(48, 53, 50)",
+          "borderRight": "0px none rgb(48, 53, 50)",
+          "borderBottom": "2px solid rgb(0, 154, 68)",
+          "borderLeft": "0px none rgb(48, 53, 50)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        },
+        "primaryStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "20px",
+          "fontWeight": "720",
+          "lineHeight": "28.4px",
+          "letterSpacing": "normal",
+          "color": "rgb(31, 35, 33)",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(31, 35, 33)",
+          "borderRight": "0px none rgb(31, 35, 33)",
+          "borderBottom": "0px none rgb(31, 35, 33)",
+          "borderLeft": "0px none rgb(31, 35, 33)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        }
+      },
+      "bit-innovation": {
+        "articleId": "01_科技_边缘AI实验平台",
+        "branch": "deterministic",
+        "theme": "bit-innovation",
+        "themeVariant": "research",
+        "category": "SectionTitle",
+        "component": "section-title",
+        "layoutBlockId": "l003",
+        "provenance": "a002",
+        "outerStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "15.5px",
+          "fontWeight": "400",
+          "lineHeight": "27.125px",
+          "letterSpacing": "normal",
+          "color": "rgb(43, 53, 48)",
+          "margin": [
+            "0px",
+            "0px",
+            "15px",
+            "0px"
+          ],
+          "padding": [
+            "11px",
+            "14px",
+            "11px",
+            "14px"
+          ],
+          "backgroundColor": "rgb(247, 250, 248)",
+          "borderTop": "1px solid rgb(185, 207, 192)",
+          "borderRight": "0px none rgb(43, 53, 48)",
+          "borderBottom": "0px none rgb(43, 53, 48)",
+          "borderLeft": "5px solid rgb(0, 154, 68)",
+          "borderRadius": "3px",
+          "boxShadow": "none"
+        },
+        "primaryStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "20px",
+          "fontWeight": "740",
+          "lineHeight": "28.4px",
+          "letterSpacing": "0.3px",
+          "color": "rgb(22, 35, 28)",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(22, 35, 28)",
+          "borderRight": "0px none rgb(22, 35, 28)",
+          "borderBottom": "0px none rgb(22, 35, 28)",
+          "borderLeft": "0px none rgb(22, 35, 28)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        }
+      },
+      "bit-youth": {
+        "articleId": "02_校园_实验室开放日",
+        "branch": "deterministic",
+        "theme": "bit-youth",
+        "themeVariant": "campus",
+        "category": "SectionTitle",
+        "component": "section-title",
+        "layoutBlockId": "l003",
+        "provenance": "a002",
+        "outerStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16.5px",
+          "fontWeight": "400",
+          "lineHeight": "32.67px",
+          "letterSpacing": "normal",
+          "color": "rgb(52, 58, 54)",
+          "margin": [
+            "0px",
+            "0px",
+            "19px",
+            "0px"
+          ],
+          "padding": [
+            "12px",
+            "15px",
+            "12px",
+            "15px"
+          ],
+          "backgroundColor": "rgb(247, 250, 247)",
+          "borderTop": "0px none rgb(52, 58, 54)",
+          "borderRight": "0px none rgb(52, 58, 54)",
+          "borderBottom": "0px none rgb(52, 58, 54)",
+          "borderLeft": "0px none rgb(52, 58, 54)",
+          "borderRadius": "14px",
+          "boxShadow": "rgba(31, 52, 40, 0.05) 0px 8px 24px 0px"
+        },
+        "primaryStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "21px",
+          "fontWeight": "740",
+          "lineHeight": "32.55px",
+          "letterSpacing": "normal",
+          "color": "rgb(34, 40, 36)",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(34, 40, 36)",
+          "borderRight": "0px none rgb(34, 40, 36)",
+          "borderBottom": "0px none rgb(34, 40, 36)",
+          "borderLeft": "0px none rgb(34, 40, 36)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        }
+      }
+    },
+    "Paragraph": {
+      "bit-official": {
+        "articleId": "06_观点_AI辅助学习",
+        "branch": "deepseek",
+        "theme": "bit-official",
+        "themeVariant": "default",
+        "category": "Paragraph",
+        "component": "body-text",
+        "layoutBlockId": "l003",
+        "provenance": "a002",
+        "outerStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "29.12px",
+          "letterSpacing": "normal",
+          "color": "rgb(48, 53, 50)",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(48, 53, 50)",
+          "borderRight": "0px none rgb(48, 53, 50)",
+          "borderBottom": "0px none rgb(48, 53, 50)",
+          "borderLeft": "0px none rgb(48, 53, 50)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        },
+        "primaryStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "29.12px",
+          "letterSpacing": "normal",
+          "color": "rgb(48, 53, 50)",
+          "margin": [
+            "0px",
+            "0px",
+            "16px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(48, 53, 50)",
+          "borderRight": "0px none rgb(48, 53, 50)",
+          "borderBottom": "0px none rgb(48, 53, 50)",
+          "borderLeft": "0px none rgb(48, 53, 50)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        }
+      },
+      "bit-innovation": {
+        "articleId": "01_科技_边缘AI实验平台",
+        "branch": "deterministic",
+        "theme": "bit-innovation",
+        "themeVariant": "research",
+        "category": "Paragraph",
+        "component": "body-text",
+        "layoutBlockId": "l006",
+        "provenance": "a005",
+        "outerStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "15.5px",
+          "fontWeight": "400",
+          "lineHeight": "27.125px",
+          "letterSpacing": "normal",
+          "color": "rgb(43, 53, 48)",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(43, 53, 48)",
+          "borderRight": "0px none rgb(43, 53, 48)",
+          "borderBottom": "0px none rgb(43, 53, 48)",
+          "borderLeft": "0px none rgb(43, 53, 48)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        },
+        "primaryStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "15.5px",
+          "fontWeight": "420",
+          "lineHeight": "27.125px",
+          "letterSpacing": "0.0775px",
+          "color": "rgb(43, 53, 48)",
+          "margin": [
+            "0px",
+            "0px",
+            "13px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(43, 53, 48)",
+          "borderRight": "0px none rgb(43, 53, 48)",
+          "borderBottom": "0px none rgb(43, 53, 48)",
+          "borderLeft": "0px none rgb(43, 53, 48)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        }
+      },
+      "bit-youth": {
+        "articleId": "02_校园_实验室开放日",
+        "branch": "deterministic",
+        "theme": "bit-youth",
+        "themeVariant": "campus",
+        "category": "Paragraph",
+        "component": "body-text",
+        "layoutBlockId": "l005",
+        "provenance": "a004",
+        "outerStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16.5px",
+          "fontWeight": "400",
+          "lineHeight": "32.67px",
+          "letterSpacing": "normal",
+          "color": "rgb(52, 58, 54)",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(52, 58, 54)",
+          "borderRight": "0px none rgb(52, 58, 54)",
+          "borderBottom": "0px none rgb(52, 58, 54)",
+          "borderLeft": "0px none rgb(52, 58, 54)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        },
+        "primaryStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16.5px",
+          "fontWeight": "420",
+          "lineHeight": "32.67px",
+          "letterSpacing": "0.33px",
+          "color": "rgb(52, 58, 54)",
+          "margin": [
+            "0px",
+            "0px",
+            "20px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(52, 58, 54)",
+          "borderRight": "0px none rgb(52, 58, 54)",
+          "borderBottom": "0px none rgb(52, 58, 54)",
+          "borderLeft": "0px none rgb(52, 58, 54)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        }
+      }
+    },
+    "Quote": {
+      "bit-official": {
+        "articleId": "06_观点_AI辅助学习",
+        "branch": "deepseek",
+        "theme": "bit-official",
+        "themeVariant": "default",
+        "category": "Quote",
+        "component": "quote-card",
+        "layoutBlockId": "l013",
+        "provenance": "a012",
+        "outerStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "29.12px",
+          "letterSpacing": "normal",
+          "color": "rgb(48, 53, 50)",
+          "margin": [
+            "0px",
+            "0px",
+            "38px",
+            "0px"
+          ],
+          "padding": [
+            "18px",
+            "18px",
+            "18px",
+            "18px"
+          ],
+          "backgroundColor": "rgb(255, 255, 255)",
+          "borderTop": "1px solid rgb(221, 229, 223)",
+          "borderRight": "1px solid rgb(221, 229, 223)",
+          "borderBottom": "1px solid rgb(221, 229, 223)",
+          "borderLeft": "4px solid rgb(0, 154, 68)",
+          "borderRadius": "7px",
+          "boxShadow": "none"
+        },
+        "primaryStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "29.12px",
+          "letterSpacing": "normal",
+          "color": "rgb(48, 53, 50)",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(48, 53, 50)",
+          "borderRight": "0px none rgb(48, 53, 50)",
+          "borderBottom": "0px none rgb(48, 53, 50)",
+          "borderLeft": "0px none rgb(48, 53, 50)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        }
+      },
+      "bit-innovation": {
+        "articleId": "01_科技_边缘AI实验平台",
+        "branch": "deterministic",
+        "theme": "bit-innovation",
+        "themeVariant": "research",
+        "category": "Quote",
+        "component": "quote-card",
+        "layoutBlockId": "l005",
+        "provenance": "a004",
+        "outerStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "15.5px",
+          "fontWeight": "400",
+          "lineHeight": "27.125px",
+          "letterSpacing": "normal",
+          "color": "rgb(43, 53, 48)",
+          "margin": [
+            "0px",
+            "0px",
+            "28px",
+            "0px"
+          ],
+          "padding": [
+            "17px",
+            "17px",
+            "17px",
+            "17px"
+          ],
+          "backgroundColor": "rgb(247, 250, 248)",
+          "borderTop": "3px solid rgb(0, 154, 68)",
+          "borderRight": "1px solid rgb(185, 207, 192)",
+          "borderBottom": "1px solid rgb(185, 207, 192)",
+          "borderLeft": "5px solid rgb(0, 154, 68)",
+          "borderRadius": "6px",
+          "boxShadow": "none"
+        },
+        "primaryStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "15.5px",
+          "fontWeight": "400",
+          "lineHeight": "27.125px",
+          "letterSpacing": "normal",
+          "color": "rgb(43, 53, 48)",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(43, 53, 48)",
+          "borderRight": "0px none rgb(43, 53, 48)",
+          "borderBottom": "0px none rgb(43, 53, 48)",
+          "borderLeft": "0px none rgb(43, 53, 48)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        }
+      },
+      "bit-youth": {
+        "articleId": "02_校园_实验室开放日",
+        "branch": "deterministic",
+        "theme": "bit-youth",
+        "themeVariant": "campus",
+        "category": "Quote",
+        "component": "quote-card",
+        "layoutBlockId": "l006",
+        "provenance": "a005",
+        "outerStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16.5px",
+          "fontWeight": "400",
+          "lineHeight": "32.67px",
+          "letterSpacing": "normal",
+          "color": "rgb(52, 58, 54)",
+          "margin": [
+            "0px",
+            "0px",
+            "46px",
+            "0px"
+          ],
+          "padding": [
+            "19px",
+            "19px",
+            "19px",
+            "19px"
+          ],
+          "backgroundColor": "rgb(247, 250, 247)",
+          "borderTop": "1px solid rgb(229, 231, 227)",
+          "borderRight": "1px solid rgb(229, 231, 227)",
+          "borderBottom": "1px solid rgb(229, 231, 227)",
+          "borderLeft": "1px solid rgb(0, 154, 68)",
+          "borderRadius": "14px",
+          "boxShadow": "rgba(31, 52, 40, 0.05) 0px 8px 24px 0px"
+        },
+        "primaryStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16.5px",
+          "fontWeight": "400",
+          "lineHeight": "32.67px",
+          "letterSpacing": "normal",
+          "color": "rgb(52, 58, 54)",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(52, 58, 54)",
+          "borderRight": "0px none rgb(52, 58, 54)",
+          "borderBottom": "0px none rgb(52, 58, 54)",
+          "borderLeft": "0px none rgb(52, 58, 54)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        }
+      }
+    },
+    "Highlight": {
+      "bit-official": {
+        "articleId": "07_活动通知_创新实践周",
+        "branch": "deterministic",
+        "theme": "bit-official",
+        "themeVariant": "notice",
+        "category": "Highlight",
+        "component": "highlight",
+        "layoutBlockId": "l005",
+        "provenance": "a004",
+        "outerStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "29.12px",
+          "letterSpacing": "normal",
+          "color": "rgb(48, 53, 50)",
+          "margin": [
+            "0px",
+            "0px",
+            "30px",
+            "0px"
+          ],
+          "padding": [
+            "18px",
+            "18px",
+            "18px",
+            "18px"
+          ],
+          "backgroundColor": "rgb(246, 248, 246)",
+          "borderTop": "1px solid rgb(221, 229, 223)",
+          "borderRight": "1px solid rgb(221, 229, 223)",
+          "borderBottom": "1px solid rgb(221, 229, 223)",
+          "borderLeft": "4px solid rgb(0, 154, 68)",
+          "borderRadius": "7px",
+          "boxShadow": "none"
+        },
+        "primaryStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "29.12px",
+          "letterSpacing": "normal",
+          "color": "rgb(48, 53, 50)",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(48, 53, 50)",
+          "borderRight": "0px none rgb(48, 53, 50)",
+          "borderBottom": "0px none rgb(48, 53, 50)",
+          "borderLeft": "0px none rgb(48, 53, 50)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        }
+      },
+      "bit-innovation": {
+        "articleId": "01_科技_边缘AI实验平台",
+        "branch": "deterministic",
+        "theme": "bit-innovation",
+        "themeVariant": "research",
+        "category": "Highlight",
+        "component": "highlight",
+        "layoutBlockId": "l016",
+        "provenance": "a015",
+        "outerStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "15.5px",
+          "fontWeight": "400",
+          "lineHeight": "27.125px",
+          "letterSpacing": "normal",
+          "color": "rgb(43, 53, 48)",
+          "margin": [
+            "0px",
+            "0px",
+            "28px",
+            "0px"
+          ],
+          "padding": [
+            "17px",
+            "17px",
+            "17px",
+            "17px"
+          ],
+          "backgroundColor": "rgb(247, 250, 248)",
+          "borderTop": "3px solid rgb(0, 154, 68)",
+          "borderRight": "1px solid rgb(185, 207, 192)",
+          "borderBottom": "1px solid rgb(185, 207, 192)",
+          "borderLeft": "5px solid rgb(0, 154, 68)",
+          "borderRadius": "6px",
+          "boxShadow": "none"
+        },
+        "primaryStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "15.5px",
+          "fontWeight": "400",
+          "lineHeight": "27.125px",
+          "letterSpacing": "normal",
+          "color": "rgb(43, 53, 48)",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(43, 53, 48)",
+          "borderRight": "0px none rgb(43, 53, 48)",
+          "borderBottom": "0px none rgb(43, 53, 48)",
+          "borderLeft": "0px none rgb(43, 53, 48)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        }
+      },
+      "bit-youth": {
+        "articleId": "03_人文_凌晨四点的城市",
+        "branch": "deepseek",
+        "theme": "bit-youth",
+        "themeVariant": "story",
+        "category": "Highlight",
+        "component": "highlight",
+        "layoutBlockId": "l012",
+        "provenance": "a011",
+        "outerStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16.5px",
+          "fontWeight": "400",
+          "lineHeight": "32.67px",
+          "letterSpacing": "normal",
+          "color": "rgb(52, 58, 54)",
+          "margin": [
+            "0px",
+            "0px",
+            "46px",
+            "0px"
+          ],
+          "padding": [
+            "19px",
+            "19px",
+            "19px",
+            "19px"
+          ],
+          "backgroundColor": "rgb(255, 254, 251)",
+          "borderTop": "1px solid rgb(229, 231, 227)",
+          "borderRight": "1px solid rgb(229, 231, 227)",
+          "borderBottom": "1px solid rgb(229, 231, 227)",
+          "borderLeft": "1px solid rgb(148, 69, 11)",
+          "borderRadius": "14px",
+          "boxShadow": "rgba(31, 52, 40, 0.05) 0px 8px 24px 0px"
+        },
+        "primaryStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16.5px",
+          "fontWeight": "400",
+          "lineHeight": "32.67px",
+          "letterSpacing": "normal",
+          "color": "rgb(52, 58, 54)",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(52, 58, 54)",
+          "borderRight": "0px none rgb(52, 58, 54)",
+          "borderBottom": "0px none rgb(52, 58, 54)",
+          "borderLeft": "0px none rgb(52, 58, 54)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        }
+      }
+    },
+    "List": {
+      "bit-official": {
+        "articleId": "06_观点_AI辅助学习",
+        "branch": "deepseek",
+        "theme": "bit-official",
+        "themeVariant": "default",
+        "category": "List",
+        "component": "bullet-list",
+        "layoutBlockId": "l007",
+        "provenance": "a006",
+        "outerStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "29.12px",
+          "letterSpacing": "normal",
+          "color": "rgb(48, 53, 50)",
+          "margin": [
+            "0px",
+            "0px",
+            "38px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "24px"
+          ],
+          "backgroundColor": "rgb(255, 255, 255)",
+          "borderTop": "0px none rgb(48, 53, 50)",
+          "borderRight": "0px none rgb(48, 53, 50)",
+          "borderBottom": "0px none rgb(48, 53, 50)",
+          "borderLeft": "0px solid rgba(0, 0, 0, 0)",
+          "borderRadius": "4px",
+          "boxShadow": "none"
+        },
+        "primaryStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "29.12px",
+          "letterSpacing": "normal",
+          "color": "rgb(48, 53, 50)",
+          "margin": [
+            "0px",
+            "0px",
+            "8px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "3px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(48, 53, 50)",
+          "borderRight": "0px none rgb(48, 53, 50)",
+          "borderBottom": "0px none rgb(48, 53, 50)",
+          "borderLeft": "0px none rgb(48, 53, 50)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        }
+      },
+      "bit-innovation": {
+        "articleId": "01_科技_边缘AI实验平台",
+        "branch": "deterministic",
+        "theme": "bit-innovation",
+        "themeVariant": "research",
+        "category": "List",
+        "component": "number-list",
+        "layoutBlockId": "l010",
+        "provenance": "a009",
+        "outerStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "15.5px",
+          "fontWeight": "400",
+          "lineHeight": "27.125px",
+          "letterSpacing": "normal",
+          "color": "rgb(43, 53, 48)",
+          "margin": [
+            "0px",
+            "0px",
+            "28px",
+            "0px"
+          ],
+          "padding": [
+            "14px",
+            "14px",
+            "6px",
+            "34px"
+          ],
+          "backgroundColor": "rgb(247, 250, 248)",
+          "borderTop": "0px none rgb(43, 53, 48)",
+          "borderRight": "0px none rgb(43, 53, 48)",
+          "borderBottom": "0px none rgb(43, 53, 48)",
+          "borderLeft": "3px solid rgb(0, 154, 68)",
+          "borderRadius": "3px",
+          "boxShadow": "none"
+        },
+        "primaryStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "15.5px",
+          "fontWeight": "400",
+          "lineHeight": "27.125px",
+          "letterSpacing": "normal",
+          "color": "rgb(43, 53, 48)",
+          "margin": [
+            "0px",
+            "0px",
+            "8px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "5px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(43, 53, 48)",
+          "borderRight": "0px none rgb(43, 53, 48)",
+          "borderBottom": "0px none rgb(43, 53, 48)",
+          "borderLeft": "0px none rgb(43, 53, 48)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        }
+      },
+      "bit-youth": {
+        "articleId": "02_校园_实验室开放日",
+        "branch": "deterministic",
+        "theme": "bit-youth",
+        "themeVariant": "campus",
+        "category": "List",
+        "component": "bullet-list",
+        "layoutBlockId": "l011",
+        "provenance": "a010",
+        "outerStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16.5px",
+          "fontWeight": "400",
+          "lineHeight": "32.67px",
+          "letterSpacing": "normal",
+          "color": "rgb(52, 58, 54)",
+          "margin": [
+            "0px",
+            "0px",
+            "46px",
+            "0px"
+          ],
+          "padding": [
+            "16px",
+            "18px",
+            "8px",
+            "34px"
+          ],
+          "backgroundColor": "rgb(247, 250, 247)",
+          "borderTop": "0px none rgb(52, 58, 54)",
+          "borderRight": "0px none rgb(52, 58, 54)",
+          "borderBottom": "0px none rgb(52, 58, 54)",
+          "borderLeft": "0px solid rgba(0, 0, 0, 0)",
+          "borderRadius": "14px",
+          "boxShadow": "none"
+        },
+        "primaryStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16.5px",
+          "fontWeight": "400",
+          "lineHeight": "32.67px",
+          "letterSpacing": "normal",
+          "color": "rgb(52, 58, 54)",
+          "margin": [
+            "0px",
+            "0px",
+            "11px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "3px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(52, 58, 54)",
+          "borderRight": "0px none rgb(52, 58, 54)",
+          "borderBottom": "0px none rgb(52, 58, 54)",
+          "borderLeft": "0px none rgb(52, 58, 54)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        }
+      }
+    },
+    "Table": {
+      "bit-official": {
+        "articleId": "07_活动通知_创新实践周",
+        "branch": "deterministic",
+        "theme": "bit-official",
+        "themeVariant": "notice",
+        "category": "Table",
+        "component": "timeline",
+        "layoutBlockId": "l007",
+        "provenance": "a006",
+        "outerStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "29.12px",
+          "letterSpacing": "normal",
+          "color": "rgb(48, 53, 50)",
+          "margin": [
+            "0px",
+            "0px",
+            "38px",
+            "0px"
+          ],
+          "padding": [
+            "14px",
+            "14px",
+            "14px",
+            "14px"
+          ],
+          "backgroundColor": "rgb(246, 248, 246)",
+          "borderTop": "1px solid rgb(0, 154, 68)",
+          "borderRight": "1px solid rgb(221, 229, 223)",
+          "borderBottom": "1px solid rgb(221, 229, 223)",
+          "borderLeft": "1px solid rgb(221, 229, 223)",
+          "borderRadius": "7px",
+          "boxShadow": "none"
+        },
+        "primaryStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "650",
+          "lineHeight": "23.1px",
+          "letterSpacing": "normal",
+          "color": "rgb(98, 106, 101)",
+          "margin": [
+            "0px",
+            "0px",
+            "5px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(98, 106, 101)",
+          "borderRight": "0px none rgb(98, 106, 101)",
+          "borderBottom": "0px none rgb(98, 106, 101)",
+          "borderLeft": "0px none rgb(98, 106, 101)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        }
+      },
+      "bit-innovation": {
+        "articleId": "01_科技_边缘AI实验平台",
+        "branch": "deterministic",
+        "theme": "bit-innovation",
+        "themeVariant": "research",
+        "category": "Table",
+        "component": "table",
+        "layoutBlockId": "l007",
+        "provenance": "a006",
+        "outerStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "15.5px",
+          "fontWeight": "400",
+          "lineHeight": "27.125px",
+          "letterSpacing": "normal",
+          "color": "rgb(43, 53, 48)",
+          "margin": [
+            "0px",
+            "0px",
+            "34px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(43, 53, 48)",
+          "borderRight": "0px none rgb(43, 53, 48)",
+          "borderBottom": "0px none rgb(43, 53, 48)",
+          "borderLeft": "0px none rgb(43, 53, 48)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        },
+        "primaryStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "700",
+          "lineHeight": "22.75px",
+          "letterSpacing": "normal",
+          "color": "rgb(43, 53, 48)",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "9px",
+            "10px",
+            "9px",
+            "10px"
+          ],
+          "backgroundColor": "rgb(227, 239, 231)",
+          "borderTop": "1px solid rgb(214, 227, 218)",
+          "borderRight": "1px solid rgb(214, 227, 218)",
+          "borderBottom": "1px solid rgb(214, 227, 218)",
+          "borderLeft": "1px solid rgb(214, 227, 218)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        }
+      },
+      "bit-youth": null
+    },
+    "CodeBlock": {
+      "bit-official": null,
+      "bit-innovation": {
+        "articleId": "01_科技_边缘AI实验平台",
+        "branch": "deterministic",
+        "theme": "bit-innovation",
+        "themeVariant": "research",
+        "category": "CodeBlock",
+        "component": "code-block",
+        "layoutBlockId": "l012",
+        "provenance": "a011",
+        "outerStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "15.5px",
+          "fontWeight": "400",
+          "lineHeight": "27.125px",
+          "letterSpacing": "normal",
+          "color": "rgb(43, 53, 48)",
+          "margin": [
+            "0px",
+            "0px",
+            "34px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(43, 53, 48)",
+          "borderRight": "0px none rgb(43, 53, 48)",
+          "borderBottom": "0px none rgb(43, 53, 48)",
+          "borderLeft": "0px none rgb(43, 53, 48)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        },
+        "primaryStyle": {
+          "fontFamily": "Consolas, monospace",
+          "fontSize": "12.5px",
+          "fontWeight": "400",
+          "lineHeight": "21.25px",
+          "letterSpacing": "normal",
+          "color": "rgb(232, 255, 242)",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "17px",
+            "17px",
+            "17px",
+            "17px"
+          ],
+          "backgroundColor": "rgb(20, 44, 33)",
+          "borderTop": "1px solid rgb(0, 154, 68)",
+          "borderRight": "1px solid rgb(0, 154, 68)",
+          "borderBottom": "1px solid rgb(0, 154, 68)",
+          "borderLeft": "1px solid rgb(0, 154, 68)",
+          "borderRadius": "6px",
+          "boxShadow": "none"
+        }
+      },
+      "bit-youth": null
+    },
+    "Divider": {
+      "bit-official": null,
+      "bit-innovation": null,
+      "bit-youth": null
+    },
+    "Ending": {
+      "bit-official": {
+        "articleId": "06_观点_AI辅助学习",
+        "branch": "deepseek",
+        "theme": "bit-official",
+        "themeVariant": "default",
+        "category": "Ending",
+        "component": "ending",
+        "layoutBlockId": "l028",
+        "provenance": "a027",
+        "outerStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "29.12px",
+          "letterSpacing": "normal",
+          "color": "rgb(48, 53, 50)",
+          "margin": [
+            "0px",
+            "0px",
+            "38px",
+            "0px"
+          ],
+          "padding": [
+            "18px",
+            "18px",
+            "18px",
+            "18px"
+          ],
+          "backgroundColor": "rgb(255, 255, 255)",
+          "borderTop": "2px solid rgb(0, 154, 68)",
+          "borderRight": "1px solid rgb(221, 229, 223)",
+          "borderBottom": "1px solid rgb(221, 229, 223)",
+          "borderLeft": "4px solid rgb(0, 154, 68)",
+          "borderRadius": "7px",
+          "boxShadow": "none"
+        },
+        "primaryStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "29.12px",
+          "letterSpacing": "normal",
+          "color": "rgb(48, 53, 50)",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(48, 53, 50)",
+          "borderRight": "0px none rgb(48, 53, 50)",
+          "borderBottom": "0px none rgb(48, 53, 50)",
+          "borderLeft": "0px none rgb(48, 53, 50)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        }
+      },
+      "bit-innovation": {
+        "articleId": "01_科技_边缘AI实验平台",
+        "branch": "deterministic",
+        "theme": "bit-innovation",
+        "themeVariant": "research",
+        "category": "Ending",
+        "component": "ending",
+        "layoutBlockId": "l019",
+        "provenance": "a018",
+        "outerStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "15.5px",
+          "fontWeight": "400",
+          "lineHeight": "27.125px",
+          "letterSpacing": "normal",
+          "color": "rgb(43, 53, 48)",
+          "margin": [
+            "0px",
+            "0px",
+            "28px",
+            "0px"
+          ],
+          "padding": [
+            "17px",
+            "17px",
+            "17px",
+            "17px"
+          ],
+          "backgroundColor": "rgb(247, 250, 248)",
+          "borderTop": "2px solid rgb(0, 154, 68)",
+          "borderRight": "1px solid rgb(185, 207, 192)",
+          "borderBottom": "1px solid rgb(185, 207, 192)",
+          "borderLeft": "5px solid rgb(0, 154, 68)",
+          "borderRadius": "6px",
+          "boxShadow": "none"
+        },
+        "primaryStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "15.5px",
+          "fontWeight": "400",
+          "lineHeight": "27.125px",
+          "letterSpacing": "normal",
+          "color": "rgb(43, 53, 48)",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(43, 53, 48)",
+          "borderRight": "0px none rgb(43, 53, 48)",
+          "borderBottom": "0px none rgb(43, 53, 48)",
+          "borderLeft": "0px none rgb(43, 53, 48)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        }
+      },
+      "bit-youth": {
+        "articleId": "02_校园_实验室开放日",
+        "branch": "deterministic",
+        "theme": "bit-youth",
+        "themeVariant": "campus",
+        "category": "Ending",
+        "component": "ending",
+        "layoutBlockId": "l022",
+        "provenance": "a021",
+        "outerStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16.5px",
+          "fontWeight": "400",
+          "lineHeight": "32.67px",
+          "letterSpacing": "normal",
+          "color": "rgb(52, 58, 54)",
+          "margin": [
+            "0px",
+            "0px",
+            "46px",
+            "0px"
+          ],
+          "padding": [
+            "19px",
+            "19px",
+            "19px",
+            "19px"
+          ],
+          "backgroundColor": "rgb(247, 250, 247)",
+          "borderTop": "2px solid rgb(0, 154, 68)",
+          "borderRight": "1px solid rgb(229, 231, 227)",
+          "borderBottom": "1px solid rgb(229, 231, 227)",
+          "borderLeft": "1px solid rgb(0, 154, 68)",
+          "borderRadius": "14px",
+          "boxShadow": "rgba(31, 52, 40, 0.05) 0px 8px 24px 0px"
+        },
+        "primaryStyle": {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+          "fontSize": "16.5px",
+          "fontWeight": "400",
+          "lineHeight": "32.67px",
+          "letterSpacing": "normal",
+          "color": "rgb(52, 58, 54)",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderTop": "0px none rgb(52, 58, 54)",
+          "borderRight": "0px none rgb(52, 58, 54)",
+          "borderBottom": "0px none rgb(52, 58, 54)",
+          "borderLeft": "0px none rgb(52, 58, 54)",
+          "borderRadius": "0px",
+          "boxShadow": "none"
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "ArticleTitle": {
+      "observedThemeCount": 3,
+      "fullStyleSignatureCount": 7,
+      "typographySignatureCount": 3,
+      "containerSignatureCount": 7
+    },
+    "SectionTitle": {
+      "observedThemeCount": 3,
+      "fullStyleSignatureCount": 7,
+      "typographySignatureCount": 3,
+      "containerSignatureCount": 7
+    },
+    "Paragraph": {
+      "observedThemeCount": 3,
+      "fullStyleSignatureCount": 5,
+      "typographySignatureCount": 3,
+      "containerSignatureCount": 3
+    },
+    "Quote": {
+      "observedThemeCount": 3,
+      "fullStyleSignatureCount": 7,
+      "typographySignatureCount": 3,
+      "containerSignatureCount": 7
+    },
+    "Highlight": {
+      "observedThemeCount": 3,
+      "fullStyleSignatureCount": 4,
+      "typographySignatureCount": 4,
+      "containerSignatureCount": 4
+    },
+    "List": {
+      "observedThemeCount": 3,
+      "fullStyleSignatureCount": 7,
+      "typographySignatureCount": 3,
+      "containerSignatureCount": 7
+    },
+    "Table": {
+      "observedThemeCount": 2,
+      "fullStyleSignatureCount": 4,
+      "typographySignatureCount": 3,
+      "containerSignatureCount": 4
+    },
+    "CodeBlock": {
+      "observedThemeCount": 1,
+      "fullStyleSignatureCount": 1,
+      "typographySignatureCount": 1,
+      "containerSignatureCount": 1
+    },
+    "Divider": {
+      "observedThemeCount": 0,
+      "fullStyleSignatureCount": 0,
+      "typographySignatureCount": 0,
+      "containerSignatureCount": 0
+    },
+    "Ending": {
+      "observedThemeCount": 3,
+      "fullStyleSignatureCount": 7,
+      "typographySignatureCount": 3,
+      "containerSignatureCount": 7
+    }
+  },
+  "informationDensity": {
+    "bit-official": {
+      "caseCount": 3,
+      "averagePixelsPer100Characters": 365.2686668694544,
+      "cases": [
+        {
+          "articleId": "06_观点_AI辅助学习",
+          "branch": "deepseek",
+          "themeVariant": "default",
+          "articleHeight": 2669.078125,
+          "textCharacterCount": 857,
+          "pixelsPer100Characters": 311.44435530921817
+        },
+        {
+          "articleId": "07_活动通知_创新实践周",
+          "branch": "deterministic",
+          "themeVariant": "notice",
+          "articleHeight": 2772.984375,
+          "textCharacterCount": 702,
+          "pixelsPer100Characters": 395.0120192307692
+        },
+        {
+          "articleId": "07_活动通知_创新实践周",
+          "branch": "deepseek",
+          "themeVariant": "notice",
+          "articleHeight": 2733.234375,
+          "textCharacterCount": 702,
+          "pixelsPer100Characters": 389.34962606837604
+        }
+      ]
+    },
+    "bit-innovation": {
+      "caseCount": 6,
+      "averagePixelsPer100Characters": 329.7791812300743,
+      "cases": [
+        {
+          "articleId": "01_科技_边缘AI实验平台",
+          "branch": "deterministic",
+          "themeVariant": "research",
+          "articleHeight": 2487.46875,
+          "textCharacterCount": 936,
+          "pixelsPer100Characters": 265.75520833333337
+        },
+        {
+          "articleId": "01_科技_边缘AI实验平台",
+          "branch": "deepseek",
+          "themeVariant": "data",
+          "articleHeight": 2544.71875,
+          "textCharacterCount": 936,
+          "pixelsPer100Characters": 271.8716613247863
+        },
+        {
+          "articleId": "04_新闻_低功耗芯片发布",
+          "branch": "deterministic",
+          "themeVariant": "research",
+          "articleHeight": 2154.9375,
+          "textCharacterCount": 593,
+          "pixelsPer100Characters": 363.39586846543
+        },
+        {
+          "articleId": "04_新闻_低功耗芯片发布",
+          "branch": "deepseek",
+          "themeVariant": "data",
+          "articleHeight": 2162.1875,
+          "textCharacterCount": 593,
+          "pixelsPer100Characters": 364.61846543001684
+        },
+        {
+          "articleId": "05_教程_用示波器排查信号异常",
+          "branch": "deterministic",
+          "themeVariant": "project",
+          "articleHeight": 3137.59375,
+          "textCharacterCount": 878,
+          "pixelsPer100Characters": 357.3569191343963
+        },
+        {
+          "articleId": "05_教程_用示波器排查信号异常",
+          "branch": "deepseek",
+          "themeVariant": "project",
+          "articleHeight": 3122.84375,
+          "textCharacterCount": 878,
+          "pixelsPer100Characters": 355.67696469248295
+        }
+      ]
+    },
+    "bit-youth": {
+      "caseCount": 5,
+      "averagePixelsPer100Characters": 365.42697437805873,
+      "cases": [
+        {
+          "articleId": "02_校园_实验室开放日",
+          "branch": "deterministic",
+          "themeVariant": "campus",
+          "articleHeight": 2800.25,
+          "textCharacterCount": 775,
+          "pixelsPer100Characters": 361.3225806451613
+        },
+        {
+          "articleId": "02_校园_实验室开放日",
+          "branch": "deepseek",
+          "themeVariant": "story",
+          "articleHeight": 2794.140625,
+          "textCharacterCount": 775,
+          "pixelsPer100Characters": 360.5342741935484
+        },
+        {
+          "articleId": "03_人文_凌晨四点的城市",
+          "branch": "deterministic",
+          "themeVariant": "story",
+          "articleHeight": 2413.578125,
+          "textCharacterCount": 689,
+          "pixelsPer100Characters": 350.301614658926
+        },
+        {
+          "articleId": "03_人文_凌晨四点的城市",
+          "branch": "deepseek",
+          "themeVariant": "story",
+          "articleHeight": 2477.46875,
+          "textCharacterCount": 689,
+          "pixelsPer100Characters": 359.57456458635704
+        },
+        {
+          "articleId": "06_观点_AI辅助学习",
+          "branch": "deterministic",
+          "themeVariant": "story",
+          "articleHeight": 3388.59375,
+          "textCharacterCount": 857,
+          "pixelsPer100Characters": 395.40183780630105
+        }
+      ]
+    }
+  },
+  "variantEvidence": {
+    "comparison": "bit-official/default vs bit-official/notice",
+    "identicalComputedStyleCategories": [],
+    "conclusion": "THEME_VARIANT_HAS_OBSERVED_M4_STYLE_EFFECT"
+  }
+}

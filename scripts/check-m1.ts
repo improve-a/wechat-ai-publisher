@@ -16,7 +16,7 @@ function sorted(values: readonly string[]): string[] {
   return [...values].sort((left, right) => left.localeCompare(right));
 }
 
-assert.equal(componentRegistry.length, 19, "Component Registry must contain 19 entries");
+assert.equal(componentRegistry.length, 23, "Component Registry must contain 23 entries");
 assert.equal(
   new Set(registeredComponentIds).size,
   registeredComponentIds.length,
@@ -87,6 +87,10 @@ assert.ok(
 assert.ok(registeredComponentIds.includes("chapter-title"), "ChapterTitle must exist");
 assert.ok(registeredComponentIds.includes("code-block"), "CodeBlock must exist");
 assert.ok(registeredComponentIds.includes("table"), "Table must exist");
+assert.ok(registeredComponentIds.includes("section-intro"), "SectionIntro must exist");
+assert.ok(registeredComponentIds.includes("key-metrics"), "KeyMetrics must exist");
+assert.ok(registeredComponentIds.includes("key-value-facts"), "KeyValueFacts must exist");
+assert.ok(registeredComponentIds.includes("timeline"), "Timeline must exist");
 
 assert.equal(componentCatalog.length, componentRegistry.length);
 assert.deepEqual(
@@ -111,7 +115,7 @@ assert.ok(
 );
 
 console.log("M1_SMOKE_RESULT=PASS");
-console.log(`COMPONENT_RESULT=${componentRegistry.length}/19 PASS`);
+console.log(`COMPONENT_RESULT=${componentRegistry.length}/23 PASS`);
 console.log(`THEME_RESULT=${themeDefinitions.length}/3 PASS`);
 console.log("DEFAULT_VARIANT_RESULT=PASS");
 console.log("REGISTRY_CATALOG_RESULT=PASS");

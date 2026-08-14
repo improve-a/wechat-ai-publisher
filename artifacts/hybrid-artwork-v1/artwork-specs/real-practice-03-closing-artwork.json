@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1",
+  "artworkItemId": "real-practice-03-closing-artwork",
+  "type": "closing-artwork",
+  "stylePackId": "bit-xuteli-editorial-v1",
+  "templateVariant": "quiet-field-note",
+  "output": {
+    "format": "png",
+    "width": 750,
+    "height": 440,
+    "pixelRatio": 2
+  },
+  "visualWeight": "normal",
+  "renderPolicy": "artwork-plus-native-content",
+  "sourceBlockIds": [
+    "a018",
+    "a019"
+  ],
+  "sourceAssetIds": [
+    "img009"
+  ],
+  "texts": [
+    {
+      "role": "closing",
+      "text": "一次实践不能替河流写下最终答案，但可以留下更可靠的观察方法。",
+      "source": {
+        "kind": "article-block",
+        "sourceBlockId": "a018"
+      }
+    }
+  ],
+  "images": [
+    {
+      "sourceAssetId": "img009",
+      "src": "/real-photo-stress/practice-09.jpg",
+      "alt": "学生参与河流清理行动",
+      "orientation": "landscape",
+      "aspectRatio": 1.5032211882605584,
+      "fit": "contain"
+    }
+  ],
+  "specHash": "f5d16310f8f29cec"
+}

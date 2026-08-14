@@ -1,0 +1,203 @@
+{
+  "schemaVersion": "1",
+  "assets": [
+    {
+      "assetId": "img001",
+      "description": "音乐厅舞台与渐亮灯光",
+      "subjects": [
+        "舞台",
+        "灯光"
+      ],
+      "scene": "舞台开场",
+      "shotType": "wide",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 0,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "hero-candidate"
+      ],
+      "relatedSourceBlockIds": [
+        "a002"
+      ]
+    },
+    {
+      "assetId": "img002",
+      "description": "空舞台上的工作灯",
+      "subjects": [
+        "舞台",
+        "工作人员"
+      ],
+      "scene": "开场准备",
+      "shotType": "wide",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 2,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a008"
+      ]
+    },
+    {
+      "assetId": "img003",
+      "description": "后台夹好姓名的谱页",
+      "subjects": [
+        "谱页"
+      ],
+      "scene": "开场准备",
+      "shotType": "detail",
+      "orientation": "square",
+      "aspectRatio": 1,
+      "peopleCount": 0,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a010"
+      ]
+    },
+    {
+      "assetId": "img004",
+      "description": "观众席后方的全体合奏",
+      "subjects": [
+        "乐团",
+        "指挥"
+      ],
+      "scene": "第一次合奏",
+      "shotType": "wide",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 30,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a016"
+      ]
+    },
+    {
+      "assetId": "img005",
+      "description": "乐手交换眼神",
+      "subjects": [
+        "演奏者"
+      ],
+      "scene": "第一次合奏",
+      "shotType": "close-up",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 2,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a018"
+      ]
+    },
+    {
+      "assetId": "img006",
+      "description": "独奏者站在光束中央",
+      "subjects": [
+        "独奏者"
+      ],
+      "scene": "独奏时刻",
+      "shotType": "portrait",
+      "orientation": "portrait",
+      "aspectRatio": 0.75,
+      "peopleCount": 1,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "portrait",
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a025"
+      ]
+    },
+    {
+      "assetId": "img007",
+      "description": "琴弓与左手动作特写",
+      "subjects": [
+        "琴弓",
+        "手部"
+      ],
+      "scene": "独奏时刻",
+      "shotType": "detail",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 1,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a027"
+      ]
+    },
+    {
+      "assetId": "img008",
+      "description": "毕业音乐会主海报",
+      "subjects": [
+        "音乐会海报"
+      ],
+      "scene": "演出识别",
+      "shotType": "other",
+      "orientation": "portrait",
+      "aspectRatio": 0.75,
+      "peopleCount": 0,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a033"
+      ]
+    },
+    {
+      "assetId": "img009",
+      "description": "全体演员向观众谢幕",
+      "subjects": [
+        "演员",
+        "观众"
+      ],
+      "scene": "谢幕高潮",
+      "shotType": "wide",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 38,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a039"
+      ]
+    },
+    {
+      "assetId": "img010",
+      "description": "毕业生在空舞台边缘合影",
+      "subjects": [
+        "毕业生",
+        "舞台"
+      ],
+      "scene": "散场余韵",
+      "shotType": "group",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 24,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "closing-candidate",
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a042"
+      ]
+    }
+  ]
+}

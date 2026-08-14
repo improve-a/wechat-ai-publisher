@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1",
+  "artworkItemId": "real-person-profile-02-profile-artwork",
+  "type": "profile-artwork",
+  "stylePackId": "bit-xuteli-editorial-v1",
+  "templateVariant": "portrait-panel",
+  "output": {
+    "format": "png",
+    "width": 750,
+    "height": 560,
+    "pixelRatio": 2
+  },
+  "visualWeight": "strong",
+  "renderPolicy": "artwork-plus-native-content",
+  "sourceBlockIds": [
+    "a012",
+    "a013",
+    "a014"
+  ],
+  "sourceAssetIds": [
+    "img006"
+  ],
+  "texts": [
+    {
+      "role": "title",
+      "text": "肖像只承担一次安静的停顿",
+      "source": {
+        "kind": "article-block",
+        "sourceBlockId": "a012"
+      }
+    },
+    {
+      "role": "subtitle",
+      "text": "这张自然人物肖像不附加姓名、职务或荣誉。",
+      "source": {
+        "kind": "article-block",
+        "sourceBlockId": "a013"
+      }
+    },
+    {
+      "role": "identity",
+      "text": "迎新服务点的自然人物肖像",
+      "source": {
+        "kind": "asset-metadata",
+        "sourceAssetId": "img006"
+      }
+    }
+  ],
+  "images": [
+    {
+      "sourceAssetId": "img006",
+      "src": "/real-photo-stress/welcome-09.jpg",
+      "alt": "迎新服务点的自然人物肖像",
+      "orientation": "portrait",
+      "aspectRatio": 0.7081464872944694,
+      "fit": "contain"
+    }
+  ],
+  "specHash": "52dfc7ae77f29171"
+}

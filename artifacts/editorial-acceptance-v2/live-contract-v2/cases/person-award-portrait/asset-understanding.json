@@ -1,0 +1,206 @@
+{
+  "schemaVersion": "1",
+  "assets": [
+    {
+      "assetId": "img001",
+      "description": "林岚在实验室窗边的自然光肖像",
+      "subjects": [
+        "林岚"
+      ],
+      "scene": "人物开场",
+      "shotType": "portrait",
+      "orientation": "portrait",
+      "aspectRatio": 0.75,
+      "peopleCount": 1,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "hero-candidate",
+        "portrait"
+      ],
+      "relatedSourceBlockIds": [
+        "a002"
+      ]
+    },
+    {
+      "assetId": "img002",
+      "description": "林岚在工作台检查样件",
+      "subjects": [
+        "林岚",
+        "样件"
+      ],
+      "scene": "问题起点",
+      "shotType": "medium",
+      "orientation": "portrait",
+      "aspectRatio": 0.75,
+      "peopleCount": 1,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "portrait",
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a008"
+      ]
+    },
+    {
+      "assetId": "img003",
+      "description": "开裂样件与旧实验本",
+      "subjects": [
+        "样件",
+        "实验本"
+      ],
+      "scene": "问题起点",
+      "shotType": "detail",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 0,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a010"
+      ]
+    },
+    {
+      "assetId": "img004",
+      "description": "师生共同标定传感器",
+      "subjects": [
+        "林岚",
+        "学生"
+      ],
+      "scene": "测量方法",
+      "shotType": "medium",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 4,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a017"
+      ]
+    },
+    {
+      "assetId": "img005",
+      "description": "三栏式手写周会记录",
+      "subjects": [
+        "周会记录"
+      ],
+      "scene": "测量方法",
+      "shotType": "detail",
+      "orientation": "square",
+      "aspectRatio": 1,
+      "peopleCount": 0,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a019"
+      ]
+    },
+    {
+      "assetId": "img006",
+      "description": "林岚在组会中倾听学生",
+      "subjects": [
+        "林岚"
+      ],
+      "scene": "学生培养",
+      "shotType": "portrait",
+      "orientation": "portrait",
+      "aspectRatio": 0.75,
+      "peopleCount": 1,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "portrait",
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a025"
+      ]
+    },
+    {
+      "assetId": "img007",
+      "description": "学生在白板前解释假设",
+      "subjects": [
+        "学生",
+        "白板"
+      ],
+      "scene": "学生培养",
+      "shotType": "medium",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 3,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a027"
+      ]
+    },
+    {
+      "assetId": "img008",
+      "description": "青年科学家奖颁奖现场",
+      "subjects": [
+        "林岚",
+        "颁奖嘉宾"
+      ],
+      "scene": "奖项节点",
+      "shotType": "wide",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 12,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a033"
+      ]
+    },
+    {
+      "assetId": "img009",
+      "description": "开放数据手册与旧样件",
+      "subjects": [
+        "数据手册",
+        "样件"
+      ],
+      "scene": "研究传承",
+      "shotType": "detail",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 0,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a039"
+      ]
+    },
+    {
+      "assetId": "img010",
+      "description": "林岚与课题组在白板前合影",
+      "subjects": [
+        "林岚",
+        "学生"
+      ],
+      "scene": "研究传承",
+      "shotType": "group",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 9,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "closing-candidate",
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a042"
+      ]
+    }
+  ]
+}

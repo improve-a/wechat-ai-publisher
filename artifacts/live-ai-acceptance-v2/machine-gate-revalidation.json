@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "1",
+  "networkRequestsAdded": 0,
+  "before": [
+    {
+      "articleId": "01_科技_边缘AI实验平台",
+      "deterministicM4": true,
+      "deepseekM4": true
+    },
+    {
+      "articleId": "02_校园_实验室开放日",
+      "deterministicM4": true,
+      "deepseekM4": true
+    },
+    {
+      "articleId": "03_人文_凌晨四点的城市",
+      "deterministicM4": true,
+      "deepseekM4": true
+    },
+    {
+      "articleId": "04_新闻_低功耗芯片发布",
+      "deterministicM4": true,
+      "deepseekM4": true
+    },
+    {
+      "articleId": "05_教程_用示波器排查信号异常",
+      "deterministicM4": true,
+      "deepseekM4": true
+    },
+    {
+      "articleId": "06_观点_AI辅助学习",
+      "deterministicM4": true,
+      "deepseekM4": true
+    },
+    {
+      "articleId": "07_活动通知_创新实践周",
+      "deterministicM4": true,
+      "deepseekM4": false
+    }
+  ],
+  "after": [
+    {
+      "articleId": "01_科技_边缘AI实验平台",
+      "deterministicM4": true,
+      "deepseekM4": true
+    },
+    {
+      "articleId": "02_校园_实验室开放日",
+      "deterministicM4": true,
+      "deepseekM4": true
+    },
+    {
+      "articleId": "03_人文_凌晨四点的城市",
+      "deterministicM4": true,
+      "deepseekM4": true
+    },
+    {
+      "articleId": "04_新闻_低功耗芯片发布",
+      "deterministicM4": true,
+      "deepseekM4": true
+    },
+    {
+      "articleId": "05_教程_用示波器排查信号异常",
+      "deterministicM4": true,
+      "deepseekM4": true
+    },
+    {
+      "articleId": "06_观点_AI辅助学习",
+      "deterministicM4": true,
+      "deepseekM4": true
+    },
+    {
+      "articleId": "07_活动通知_创新实践周",
+      "deterministicM4": true,
+      "deepseekM4": true
+    }
+  ],
+  "run": {
+    "articleCount": 7,
+    "providerPass": true,
+    "m3Passed": 7,
+    "m4Passed": 7,
+    "m5Passed": 7,
+    "repairs": 0,
+    "requests": 7,
+    "apiFailures": 0,
+    "timeouts": 0,
+    "usage": {
+      "promptTokens": 29042,
+      "promptCacheHitTokens": 3456,
+      "promptCacheMissTokens": 25586,
+      "completionTokens": 8771,
+      "totalTokens": 37813
+    },
+    "estimatedCostUsd": 0.006047596800000001
+  },
+  "explanation": "The original trace gate matched a complete data-source-block-ids attribute against one ID and produced a false negative for valid homogeneous grouped provenance."
+}

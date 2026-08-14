@@ -11,6 +11,7 @@ import {
   ImageCaption,
   InfoCard,
   LeadText,
+  SectionIntro,
   Note,
   NumberList,
   QuoteCard,
@@ -18,6 +19,9 @@ import {
   StepList,
   Subtitle,
   Table,
+  KeyMetrics,
+  KeyValueFacts,
+  Timeline,
 } from "./articleComponents";
 import type { ComponentRegistryEntry } from "./types";
 
@@ -65,6 +69,13 @@ export const componentRegistry = [
     description: "文章开场导语或摘要。",
     supportedComponentVariants: [...defaultVariant],
     component: LeadText,
+  },
+  {
+    id: "section-intro",
+    displayName: "SectionIntro",
+    description: "章节标题后的轻量引导段，建立阅读节奏但不制造卡片。",
+    supportedComponentVariants: [...defaultVariant],
+    component: SectionIntro,
   },
   {
     id: "highlight",
@@ -156,5 +167,26 @@ export const componentRegistry = [
     description: "普通二维表格与可选标题。",
     supportedComponentVariants: [...defaultVariant],
     component: Table,
+  },
+  {
+    id: "key-metrics",
+    displayName: "KeyMetrics",
+    description: "将两列指标表投影为适合移动阅读的指标事实组。",
+    supportedComponentVariants: ["metric"],
+    component: KeyMetrics,
+  },
+  {
+    id: "key-value-facts",
+    displayName: "KeyValueFacts",
+    description: "将两列键值表投影为不需要横向滚动的事实列表。",
+    supportedComponentVariants: [...defaultVariant],
+    component: KeyValueFacts,
+  },
+  {
+    id: "timeline",
+    displayName: "Timeline",
+    description: "将三列日程表投影为移动端时间线卡片。",
+    supportedComponentVariants: [...defaultVariant],
+    component: Timeline,
   },
 ] satisfies ComponentRegistryEntry[];

@@ -1,0 +1,102 @@
+[
+  {
+    "id": "generated-real-welcome-v1-1-01-hero-artwork",
+    "kind": "generated-artwork",
+    "artworkItemId": "real-welcome-v1-1-01-hero-artwork",
+    "localPath": "artifacts/hybrid-artwork-v1-1/generated-artwork/generated-real-welcome-v1-1-01-hero-artwork.png",
+    "width": 750,
+    "height": 520,
+    "format": "png",
+    "sourceBlockIds": [
+      "a001",
+      "a002"
+    ],
+    "sourceAssetIds": [
+      "img001"
+    ],
+    "alt": "hero-artwork：新生抵达之后：一场从集合到认识彼此的校园迎新",
+    "contentHash": "cef010715a1d1a4e566b5d05d7532544684abdb5cbebcdbc6c27f5d913742179",
+    "fileSizeBytes": 268556
+  },
+  {
+    "id": "generated-real-event-recap-v1-1-01-hero-artwork",
+    "kind": "generated-artwork",
+    "artworkItemId": "real-event-recap-v1-1-01-hero-artwork",
+    "localPath": "artifacts/hybrid-artwork-v1-1/generated-artwork/generated-real-event-recap-v1-1-01-hero-artwork.png",
+    "width": 750,
+    "height": 520,
+    "format": "png",
+    "sourceBlockIds": [
+      "a001",
+      "a002"
+    ],
+    "sourceAssetIds": [
+      "img001"
+    ],
+    "alt": "hero-artwork：机器人赛事回顾：从维修区到场边互动的九个瞬间",
+    "contentHash": "70702c5766ff0f45733abe11fd54e81a317791082388799bc3a9bc3dd1b2678f",
+    "fileSizeBytes": 200954
+  },
+  {
+    "id": "generated-real-event-recap-v1-1-02-section-break-artwork",
+    "kind": "generated-artwork",
+    "artworkItemId": "real-event-recap-v1-1-02-section-break-artwork",
+    "localPath": "artifacts/hybrid-artwork-v1-1/generated-artwork/generated-real-event-recap-v1-1-02-section-break-artwork.png",
+    "width": 750,
+    "height": 240,
+    "format": "png",
+    "sourceBlockIds": [
+      "a015",
+      "a016",
+      "a017"
+    ],
+    "sourceAssetIds": [
+      "img008"
+    ],
+    "alt": "section-break-artwork：高光之后",
+    "contentHash": "30f3f240124a1c99ae279389cf60077b3cb814b55917a9ebca742a1ea8042400",
+    "fileSizeBytes": 4403
+  },
+  {
+    "id": "generated-real-person-profile-v1-1-01-profile-artwork",
+    "kind": "generated-artwork",
+    "artworkItemId": "real-person-profile-v1-1-01-profile-artwork",
+    "localPath": "artifacts/hybrid-artwork-v1-1/generated-artwork/generated-real-person-profile-v1-1-01-profile-artwork.png",
+    "width": 750,
+    "height": 560,
+    "format": "png",
+    "sourceBlockIds": [
+      "a012",
+      "a013",
+      "a014"
+    ],
+    "sourceAssetIds": [
+      "img006"
+    ],
+    "alt": "profile-artwork：迎新服务点的自然人物肖像",
+    "contentHash": "fdb77d7dd06e5369acedfd0e4e47381f0c5ad4932c100054b5101a4976df2449",
+    "fileSizeBytes": 334510
+  },
+  {
+    "id": "generated-real-person-profile-v1-1-02-achievement-artwork",
+    "kind": "generated-artwork",
+    "artworkItemId": "real-person-profile-v1-1-02-achievement-artwork",
+    "localPath": "artifacts/hybrid-artwork-v1-1/generated-artwork/generated-real-person-profile-v1-1-02-achievement-artwork.png",
+    "width": 750,
+    "height": 440,
+    "format": "png",
+    "sourceBlockIds": [
+      "a015",
+      "a016",
+      "a017",
+      "a018",
+      "a019"
+    ],
+    "sourceAssetIds": [
+      "img007"
+    ],
+    "alt": "achievement-artwork：服务成果",
+    "contentHash": "207b2f31d3c2f5f8e88d7401cf02254982d962025c9b69d23c7cbc65374911d6",
+    "fileSizeBytes": 177355
+  }
+]

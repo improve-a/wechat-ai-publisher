@@ -48,9 +48,11 @@ export const bitInnovation = {
     },
     typography: {
       ...commonTypography,
-      bodyLineHeight: "1.86",
+      bodySize: "15.5px",
+      bodyLineHeight: "1.75",
       titleSize: "30px",
       titleLineHeight: "1.32",
+      sectionSize: "20px",
     },
     spacing: {
       pageInline: "18px",
@@ -70,11 +72,36 @@ export const bitInnovation = {
     image: { density: "compact", emphasis: "structured", shape: "technical" },
   },
   themeVariants: [
-    { id: "research", name: "科研", description: "默认科研长文与成果解读。" },
-    { id: "data", name: "数据", description: "加强指标、编号和信息摘要。" },
-    { id: "profile", name: "人物", description: "增加人物图片、引语和留白。" },
-    { id: "project", name: "项目", description: "突出项目参数、步骤和信息卡。" },
-    { id: "explore", name: "探索", description: "突出研学、体验与阶段式叙事。" },
+    {
+      id: "research",
+      name: "科研",
+      description: "默认科研长文与成果解读。",
+      visual: { titleTreatment: "technical", accent: "primary", density: "compact", surface: "muted" },
+    },
+    {
+      id: "data",
+      name: "数据",
+      description: "加强指标、编号和信息摘要。",
+      visual: { titleTreatment: "panel", accent: "primary", density: "compact", surface: "strong" },
+    },
+    {
+      id: "profile",
+      name: "人物",
+      description: "增加人物图片、引语和留白。",
+      visual: { titleTreatment: "rule", accent: "accent", density: "relaxed", surface: "plain" },
+    },
+    {
+      id: "project",
+      name: "项目",
+      description: "突出项目参数、步骤和信息卡。",
+      visual: { titleTreatment: "framed", accent: "primary", density: "balanced", surface: "muted" },
+    },
+    {
+      id: "explore",
+      name: "探索",
+      description: "突出研学、体验与阶段式叙事。",
+      visual: { titleTreatment: "technical", accent: "accent", density: "relaxed", surface: "strong" },
+    },
   ],
   defaultVariant: "research",
 } satisfies ThemeDefinition;

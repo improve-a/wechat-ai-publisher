@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "1",
+  "artworkItemId": "real-event-recap-02-section-break-artwork",
+  "type": "section-break-artwork",
+  "stylePackId": "bit-xuteli-editorial-v1",
+  "templateVariant": "scene-transition",
+  "output": {
+    "format": "png",
+    "width": 750,
+    "height": 240,
+    "pixelRatio": 2
+  },
+  "visualWeight": "climax",
+  "renderPolicy": "artwork-plus-native-content",
+  "sourceBlockIds": [
+    "a015",
+    "a016",
+    "a017"
+  ],
+  "sourceAssetIds": [
+    "img008"
+  ],
+  "texts": [
+    {
+      "role": "title",
+      "text": "高光之后，回到共同记忆",
+      "source": {
+        "kind": "article-block",
+        "sourceBlockId": "a015"
+      }
+    },
+    {
+      "role": "subtitle",
+      "text": "最后一节释放前面的密度，以更安静的多人场景连接到收束图片。",
+      "source": {
+        "kind": "article-block",
+        "sourceBlockId": "a016"
+      }
+    }
+  ],
+  "images": [
+    {
+      "sourceAssetId": "img008",
+      "src": "/real-photo-stress/event-08.jpg",
+      "alt": "赛事中的多人互动场景",
+      "orientation": "landscape",
+      "aspectRatio": 1.3815522145469321,
+      "fit": "contain"
+    }
+  ],
+  "specHash": "78eeb1b14a29b4e2"
+}

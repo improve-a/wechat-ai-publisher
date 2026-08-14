@@ -5,6 +5,7 @@ import "./styles/base.css";
 import "./styles/theme.css";
 import "./styles/components.css";
 import "./styles/demo.css";
+import "./styles/m5-preview.css";
 
 const rootElement = document.getElementById("root");
 

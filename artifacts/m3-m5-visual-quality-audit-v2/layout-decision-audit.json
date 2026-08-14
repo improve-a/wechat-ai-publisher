@@ -1,0 +1,5380 @@
+{
+  "schemaVersion": "1",
+  "ratioDefinition": "(different semantic source decisions + changed global theme decision + decorative count delta) / (semantic source decisions + one global theme decision + max decorative count)",
+  "classificationRule": "IDENTICAL when ratio=0; MATERIAL when theme/themeVariant changes or ratio>=0.25; otherwise MINOR",
+  "articles": [
+    {
+      "articleId": "01_科技_边缘AI实验平台",
+      "category": "科技",
+      "deterministicTheme": "bit-innovation",
+      "deterministicThemeVariant": "research",
+      "deepseekTheme": "bit-innovation",
+      "deepseekThemeVariant": "data",
+      "deterministicLayoutBlockCount": 19,
+      "deepseekLayoutBlockCount": 19,
+      "layoutBlockCountDelta": 0,
+      "differentSemanticBlockCount": 6,
+      "componentReplacementCount": 6,
+      "variantReplacementCount": 1,
+      "provenanceReplacementCount": 0,
+      "themeChanged": false,
+      "themeVariantChanged": true,
+      "deterministicComponentCounts": {
+        "decorative": 0,
+        "emphasis": 4,
+        "ordinaryBody": 7,
+        "highlight": 1,
+        "quote": 1,
+        "callout": 0
+      },
+      "deepseekComponentCounts": {
+        "decorative": 0,
+        "emphasis": 4,
+        "ordinaryBody": 7,
+        "highlight": 1,
+        "quote": 1,
+        "callout": 0
+      },
+      "layoutDecisionDifferenceRatio": 0.35,
+      "classification": "MATERIAL_DIFFERENCE",
+      "comparisons": [
+        {
+          "sourceBlockId": "__article-title__",
+          "sourceType": "article-title",
+          "deterministic": {
+            "layoutBlockId": "l001",
+            "component": "article-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-title"
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l001",
+            "component": "article-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-title"
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a001",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l002",
+            "component": "lead-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a001"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l002",
+            "component": "lead-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a001"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a002",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l003",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a002"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l003",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a002"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a003",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l004",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a003"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l004",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a003"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a004",
+          "sourceType": "quote",
+          "deterministic": {
+            "layoutBlockId": "l005",
+            "component": "quote-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a004"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l005",
+            "component": "quote-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a004"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a005",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l006",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a005"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l006",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a005"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a006",
+          "sourceType": "table",
+          "deterministic": {
+            "layoutBlockId": "l007",
+            "component": "table",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a006"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l007",
+            "component": "table",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a006"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a007",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l008",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a007"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l008",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a007"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a008",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l009",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a008"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l009",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a008"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a009",
+          "sourceType": "ordered-list",
+          "deterministic": {
+            "layoutBlockId": "l010",
+            "component": "number-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a009"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l010",
+            "component": "step-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a009"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a010",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l011",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a010"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l011",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a010"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a011",
+          "sourceType": "code",
+          "deterministic": {
+            "layoutBlockId": "l012",
+            "component": "code-block",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a011"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l012",
+            "component": "code-block",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a011"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a012",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l013",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a012"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l013",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a012"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a013",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l014",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a013"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l014",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a013"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a014",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l015",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a014"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l015",
+            "component": "highlight",
+            "componentVariant": "metric",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a014"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": true,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a015",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l016",
+            "component": "highlight",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a015"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l016",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a015"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a016",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l017",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a016"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l017",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a016"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a017",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l018",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a017"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l018",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a017"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a018",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l019",
+            "component": "ending",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a018"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l019",
+            "component": "ending",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a018"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        }
+      ]
+    },
+    {
+      "articleId": "02_校园_实验室开放日",
+      "category": "校园",
+      "deterministicTheme": "bit-youth",
+      "deterministicThemeVariant": "campus",
+      "deepseekTheme": "bit-youth",
+      "deepseekThemeVariant": "story",
+      "deterministicLayoutBlockCount": 22,
+      "deepseekLayoutBlockCount": 22,
+      "layoutBlockCountDelta": 0,
+      "differentSemanticBlockCount": 4,
+      "componentReplacementCount": 4,
+      "variantReplacementCount": 0,
+      "provenanceReplacementCount": 0,
+      "themeChanged": false,
+      "themeVariantChanged": true,
+      "deterministicComponentCounts": {
+        "decorative": 0,
+        "emphasis": 3,
+        "ordinaryBody": 12,
+        "highlight": 0,
+        "quote": 1,
+        "callout": 0
+      },
+      "deepseekComponentCounts": {
+        "decorative": 0,
+        "emphasis": 3,
+        "ordinaryBody": 12,
+        "highlight": 0,
+        "quote": 1,
+        "callout": 0
+      },
+      "layoutDecisionDifferenceRatio": 0.21739130434782608,
+      "classification": "MATERIAL_DIFFERENCE",
+      "comparisons": [
+        {
+          "sourceBlockId": "__article-title__",
+          "sourceType": "article-title",
+          "deterministic": {
+            "layoutBlockId": "l001",
+            "component": "article-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-title"
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l001",
+            "component": "article-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-title"
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a001",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l002",
+            "component": "lead-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a001"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l002",
+            "component": "lead-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a001"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a002",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l003",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a002"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l003",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a002"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a003",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l004",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a003"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l004",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a003"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a004",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l005",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a004"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l005",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a004"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a005",
+          "sourceType": "quote",
+          "deterministic": {
+            "layoutBlockId": "l006",
+            "component": "quote-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a005"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l006",
+            "component": "quote-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a005"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a006",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l007",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a006"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l007",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a006"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a007",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l008",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a007"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l008",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a007"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a008",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l009",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a008"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l009",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a008"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a009",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l010",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a009"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l010",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a009"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a010",
+          "sourceType": "unordered-list",
+          "deterministic": {
+            "layoutBlockId": "l011",
+            "component": "bullet-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a010"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l011",
+            "component": "bullet-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a010"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a011",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l012",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a011"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l012",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a011"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a012",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l013",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a012"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l013",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a012"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a013",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l014",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a013"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l014",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a013"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a014",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l015",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a014"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l015",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a014"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a015",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l016",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a015"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l016",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a015"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a016",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l017",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a016"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l017",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a016"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a017",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l018",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a017"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l018",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a017"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a018",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l019",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a018"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l019",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a018"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a019",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l020",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a019"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l020",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a019"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a020",
+          "sourceType": "ordered-list",
+          "deterministic": {
+            "layoutBlockId": "l021",
+            "component": "number-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a020"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l021",
+            "component": "step-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a020"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a021",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l022",
+            "component": "ending",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a021"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l022",
+            "component": "ending",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a021"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        }
+      ]
+    },
+    {
+      "articleId": "03_人文_凌晨四点的城市",
+      "category": "人文",
+      "deterministicTheme": "bit-youth",
+      "deterministicThemeVariant": "story",
+      "deepseekTheme": "bit-youth",
+      "deepseekThemeVariant": "story",
+      "deterministicLayoutBlockCount": 21,
+      "deepseekLayoutBlockCount": 21,
+      "layoutBlockCountDelta": 0,
+      "differentSemanticBlockCount": 4,
+      "componentReplacementCount": 4,
+      "variantReplacementCount": 0,
+      "provenanceReplacementCount": 0,
+      "themeChanged": false,
+      "themeVariantChanged": false,
+      "deterministicComponentCounts": {
+        "decorative": 0,
+        "emphasis": 3,
+        "ordinaryBody": 13,
+        "highlight": 0,
+        "quote": 1,
+        "callout": 0
+      },
+      "deepseekComponentCounts": {
+        "decorative": 0,
+        "emphasis": 4,
+        "ordinaryBody": 12,
+        "highlight": 1,
+        "quote": 1,
+        "callout": 0
+      },
+      "layoutDecisionDifferenceRatio": 0.18181818181818182,
+      "classification": "MINOR_DIFFERENCE",
+      "comparisons": [
+        {
+          "sourceBlockId": "__article-title__",
+          "sourceType": "article-title",
+          "deterministic": {
+            "layoutBlockId": "l001",
+            "component": "article-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-title"
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l001",
+            "component": "article-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-title"
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a001",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l002",
+            "component": "lead-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a001"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l002",
+            "component": "lead-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a001"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a002",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l003",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a002"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l003",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a002"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a003",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l004",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a003"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l004",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a003"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a004",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l005",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a004"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l005",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a004"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a005",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l006",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a005"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l006",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a005"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a006",
+          "sourceType": "quote",
+          "deterministic": {
+            "layoutBlockId": "l007",
+            "component": "quote-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a006"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l007",
+            "component": "quote-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a006"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a007",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l008",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a007"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l008",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a007"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a008",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l009",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a008"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l009",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a008"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a009",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l010",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a009"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l010",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a009"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a010",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l011",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a010"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l011",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a010"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a011",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l012",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a011"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l012",
+            "component": "highlight",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a011"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a012",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l013",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a012"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l013",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a012"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a013",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l014",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a013"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l014",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a013"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a014",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l015",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a014"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l015",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a014"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a015",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l016",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a015"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l016",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a015"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a016",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l017",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a016"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l017",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a016"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a017",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l018",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a017"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l018",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a017"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a018",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l019",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a018"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l019",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a018"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a019",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l020",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a019"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l020",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a019"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a020",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l021",
+            "component": "ending",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a020"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l021",
+            "component": "ending",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a020"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        }
+      ]
+    },
+    {
+      "articleId": "04_新闻_低功耗芯片发布",
+      "category": "新闻",
+      "deterministicTheme": "bit-innovation",
+      "deterministicThemeVariant": "research",
+      "deepseekTheme": "bit-innovation",
+      "deepseekThemeVariant": "data",
+      "deterministicLayoutBlockCount": 17,
+      "deepseekLayoutBlockCount": 17,
+      "layoutBlockCountDelta": 0,
+      "differentSemanticBlockCount": 2,
+      "componentReplacementCount": 2,
+      "variantReplacementCount": 0,
+      "provenanceReplacementCount": 0,
+      "themeChanged": false,
+      "themeVariantChanged": true,
+      "deterministicComponentCounts": {
+        "decorative": 0,
+        "emphasis": 3,
+        "ordinaryBody": 7,
+        "highlight": 0,
+        "quote": 1,
+        "callout": 0
+      },
+      "deepseekComponentCounts": {
+        "decorative": 0,
+        "emphasis": 3,
+        "ordinaryBody": 7,
+        "highlight": 0,
+        "quote": 1,
+        "callout": 0
+      },
+      "layoutDecisionDifferenceRatio": 0.16666666666666666,
+      "classification": "MATERIAL_DIFFERENCE",
+      "comparisons": [
+        {
+          "sourceBlockId": "__article-title__",
+          "sourceType": "article-title",
+          "deterministic": {
+            "layoutBlockId": "l001",
+            "component": "article-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-title"
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l001",
+            "component": "article-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-title"
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a001",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l002",
+            "component": "lead-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a001"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l002",
+            "component": "lead-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a001"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a002",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l003",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a002"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l003",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a002"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a003",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l004",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a003"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l004",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a003"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a004",
+          "sourceType": "table",
+          "deterministic": {
+            "layoutBlockId": "l005",
+            "component": "key-metrics",
+            "componentVariant": "metric",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a004"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l005",
+            "component": "key-metrics",
+            "componentVariant": "metric",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a004"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a005",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l006",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a005"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l006",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a005"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a006",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l007",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a006"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l007",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a006"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a007",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l008",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a007"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l008",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a007"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a008",
+          "sourceType": "unordered-list",
+          "deterministic": {
+            "layoutBlockId": "l009",
+            "component": "bullet-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a008"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l009",
+            "component": "bullet-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a008"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a009",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l010",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a009"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l010",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a009"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a010",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l011",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a010"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l011",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a010"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a011",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l012",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a011"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l012",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a011"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a012",
+          "sourceType": "quote",
+          "deterministic": {
+            "layoutBlockId": "l013",
+            "component": "quote-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a012"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l013",
+            "component": "quote-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a012"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a013",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l014",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a013"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l014",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a013"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a014",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l015",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a014"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l015",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a014"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a015",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l016",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a015"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l016",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a015"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a016",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l017",
+            "component": "ending",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a016"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l017",
+            "component": "ending",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a016"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        }
+      ]
+    },
+    {
+      "articleId": "05_教程_用示波器排查信号异常",
+      "category": "教程",
+      "deterministicTheme": "bit-innovation",
+      "deterministicThemeVariant": "project",
+      "deepseekTheme": "bit-innovation",
+      "deepseekThemeVariant": "project",
+      "deterministicLayoutBlockCount": 32,
+      "deepseekLayoutBlockCount": 32,
+      "layoutBlockCountDelta": 0,
+      "differentSemanticBlockCount": 5,
+      "componentReplacementCount": 5,
+      "variantReplacementCount": 0,
+      "provenanceReplacementCount": 0,
+      "themeChanged": false,
+      "themeVariantChanged": false,
+      "deterministicComponentCounts": {
+        "decorative": 0,
+        "emphasis": 3,
+        "ordinaryBody": 16,
+        "highlight": 0,
+        "quote": 1,
+        "callout": 0
+      },
+      "deepseekComponentCounts": {
+        "decorative": 0,
+        "emphasis": 3,
+        "ordinaryBody": 16,
+        "highlight": 0,
+        "quote": 1,
+        "callout": 0
+      },
+      "layoutDecisionDifferenceRatio": 0.15151515151515152,
+      "classification": "MINOR_DIFFERENCE",
+      "comparisons": [
+        {
+          "sourceBlockId": "__article-title__",
+          "sourceType": "article-title",
+          "deterministic": {
+            "layoutBlockId": "l001",
+            "component": "article-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-title"
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l001",
+            "component": "article-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-title"
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a001",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l002",
+            "component": "lead-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a001"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l002",
+            "component": "lead-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a001"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a002",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l003",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a002"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l003",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a002"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a003",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l004",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a003"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l004",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a003"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a004",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l005",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a004"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l005",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a004"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a005",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l006",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a005"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l006",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a005"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a006",
+          "sourceType": "code",
+          "deterministic": {
+            "layoutBlockId": "l007",
+            "component": "code-block",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a006"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l007",
+            "component": "code-block",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a006"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a007",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l008",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a007"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l008",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a007"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a008",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l009",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a008"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l009",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a008"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a009",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l010",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a009"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l010",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a009"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a010",
+          "sourceType": "unordered-list",
+          "deterministic": {
+            "layoutBlockId": "l011",
+            "component": "bullet-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a010"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l011",
+            "component": "bullet-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a010"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a011",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l012",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a011"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l012",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a011"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a012",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l013",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a012"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l013",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a012"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a013",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l014",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a013"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l014",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a013"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a014",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l015",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a014"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l015",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a014"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a015",
+          "sourceType": "code",
+          "deterministic": {
+            "layoutBlockId": "l016",
+            "component": "code-block",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a015"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l016",
+            "component": "code-block",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a015"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a016",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l017",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a016"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l017",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a016"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a017",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l018",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a017"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l018",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a017"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a018",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l019",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a018"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l019",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a018"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a019",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l020",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a019"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l020",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a019"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a020",
+          "sourceType": "ordered-list",
+          "deterministic": {
+            "layoutBlockId": "l021",
+            "component": "step-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a020"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l021",
+            "component": "step-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a020"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a021",
+          "sourceType": "quote",
+          "deterministic": {
+            "layoutBlockId": "l022",
+            "component": "quote-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a021"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l022",
+            "component": "quote-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a021"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a022",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l023",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a022"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l023",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a022"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a023",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l024",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a023"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l024",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a023"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a024",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l025",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a024"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l025",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a024"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a025",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l026",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a025"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l026",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a025"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a026",
+          "sourceType": "table",
+          "deterministic": {
+            "layoutBlockId": "l027",
+            "component": "key-value-facts",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a026"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l027",
+            "component": "key-value-facts",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a026"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a027",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l028",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a027"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l028",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a027"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a028",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l029",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a028"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l029",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a028"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a029",
+          "sourceType": "unordered-list",
+          "deterministic": {
+            "layoutBlockId": "l030",
+            "component": "bullet-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a029"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l030",
+            "component": "bullet-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a029"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a030",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l031",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a030"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l031",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a030"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a031",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l032",
+            "component": "ending",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a031"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l032",
+            "component": "ending",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a031"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        }
+      ]
+    },
+    {
+      "articleId": "06_观点_AI辅助学习",
+      "category": "观点",
+      "deterministicTheme": "bit-youth",
+      "deterministicThemeVariant": "story",
+      "deepseekTheme": "bit-official",
+      "deepseekThemeVariant": "default",
+      "deterministicLayoutBlockCount": 28,
+      "deepseekLayoutBlockCount": 28,
+      "layoutBlockCountDelta": 0,
+      "differentSemanticBlockCount": 6,
+      "componentReplacementCount": 6,
+      "variantReplacementCount": 0,
+      "provenanceReplacementCount": 0,
+      "themeChanged": true,
+      "themeVariantChanged": true,
+      "deterministicComponentCounts": {
+        "decorative": 0,
+        "emphasis": 4,
+        "ordinaryBody": 15,
+        "highlight": 1,
+        "quote": 1,
+        "callout": 0
+      },
+      "deepseekComponentCounts": {
+        "decorative": 0,
+        "emphasis": 3,
+        "ordinaryBody": 16,
+        "highlight": 0,
+        "quote": 1,
+        "callout": 0
+      },
+      "layoutDecisionDifferenceRatio": 0.2413793103448276,
+      "classification": "MATERIAL_DIFFERENCE",
+      "comparisons": [
+        {
+          "sourceBlockId": "__article-title__",
+          "sourceType": "article-title",
+          "deterministic": {
+            "layoutBlockId": "l001",
+            "component": "article-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-title"
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l001",
+            "component": "article-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-title"
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a001",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l002",
+            "component": "lead-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a001"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l002",
+            "component": "lead-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a001"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a002",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l003",
+            "component": "highlight",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a002"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l003",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a002"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a003",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l004",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a003"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l004",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a003"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a004",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l005",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a004"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l005",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a004"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a005",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l006",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a005"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l006",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a005"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a006",
+          "sourceType": "unordered-list",
+          "deterministic": {
+            "layoutBlockId": "l007",
+            "component": "bullet-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a006"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l007",
+            "component": "bullet-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a006"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a007",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l008",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a007"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l008",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a007"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a008",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l009",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a008"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l009",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a008"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a009",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l010",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a009"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l010",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a009"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a010",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l011",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a010"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l011",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a010"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a011",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l012",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a011"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l012",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a011"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a012",
+          "sourceType": "quote",
+          "deterministic": {
+            "layoutBlockId": "l013",
+            "component": "quote-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a012"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l013",
+            "component": "quote-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a012"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a013",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l014",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a013"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l014",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a013"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a014",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l015",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a014"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l015",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a014"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a015",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l016",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a015"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l016",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a015"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a016",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l017",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a016"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l017",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a016"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a017",
+          "sourceType": "ordered-list",
+          "deterministic": {
+            "layoutBlockId": "l018",
+            "component": "number-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a017"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l018",
+            "component": "step-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a017"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a018",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l019",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a018"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l019",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a018"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a019",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l020",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a019"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l020",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a019"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a020",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l021",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a020"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l021",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a020"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a021",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l022",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a021"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l022",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a021"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a022",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l023",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a022"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l023",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a022"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a023",
+          "sourceType": "unordered-list",
+          "deterministic": {
+            "layoutBlockId": "l024",
+            "component": "bullet-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a023"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l024",
+            "component": "bullet-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a023"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a024",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l025",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a024"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l025",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a024"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a025",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l026",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a025"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l026",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a025"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a026",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l027",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a026"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l027",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a026"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a027",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l028",
+            "component": "ending",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a027"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l028",
+            "component": "ending",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a027"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        }
+      ]
+    },
+    {
+      "articleId": "07_活动通知_创新实践周",
+      "category": "活动通知",
+      "deterministicTheme": "bit-official",
+      "deterministicThemeVariant": "notice",
+      "deepseekTheme": "bit-official",
+      "deepseekThemeVariant": "notice",
+      "deterministicLayoutBlockCount": 22,
+      "deepseekLayoutBlockCount": 20,
+      "layoutBlockCountDelta": -2,
+      "differentSemanticBlockCount": 6,
+      "componentReplacementCount": 6,
+      "variantReplacementCount": 0,
+      "provenanceReplacementCount": 4,
+      "themeChanged": false,
+      "themeVariantChanged": false,
+      "deterministicComponentCounts": {
+        "decorative": 0,
+        "emphasis": 5,
+        "ordinaryBody": 8,
+        "highlight": 2,
+        "quote": 1,
+        "callout": 0
+      },
+      "deepseekComponentCounts": {
+        "decorative": 0,
+        "emphasis": 5,
+        "ordinaryBody": 6,
+        "highlight": 0,
+        "quote": 1,
+        "callout": 2
+      },
+      "layoutDecisionDifferenceRatio": 0.2608695652173913,
+      "classification": "MATERIAL_DIFFERENCE",
+      "comparisons": [
+        {
+          "sourceBlockId": "__article-title__",
+          "sourceType": "article-title",
+          "deterministic": {
+            "layoutBlockId": "l001",
+            "component": "article-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-title"
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l001",
+            "component": "article-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-title"
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a001",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l002",
+            "component": "lead-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a001"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l002",
+            "component": "lead-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a001"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a002",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l003",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a002"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l003",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a002"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a003",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l004",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a003"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l004",
+            "component": "info-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a003",
+                "a004"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": true
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a004",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l005",
+            "component": "highlight",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a004"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l004",
+            "component": "info-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a003",
+                "a004"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": true
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a005",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l006",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a005"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l005",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a005"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a006",
+          "sourceType": "table",
+          "deterministic": {
+            "layoutBlockId": "l007",
+            "component": "timeline",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a006"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l006",
+            "component": "timeline",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a006"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a007",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l008",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a007"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l007",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a007"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a008",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l009",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a008"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l008",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a008"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a009",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l010",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a009"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l009",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a009"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a010",
+          "sourceType": "unordered-list",
+          "deterministic": {
+            "layoutBlockId": "l011",
+            "component": "bullet-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a010"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l010",
+            "component": "bullet-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a010"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a011",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l012",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a011"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l011",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a011"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a012",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l013",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a012"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l012",
+            "component": "info-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a012",
+                "a013"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": true
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a013",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l014",
+            "component": "highlight",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a013"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l012",
+            "component": "info-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a012",
+                "a013"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": true
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a014",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l015",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a014"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l013",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a014"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a015",
+          "sourceType": "quote",
+          "deterministic": {
+            "layoutBlockId": "l016",
+            "component": "quote-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a015"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l014",
+            "component": "quote-card",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a015"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a016",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l017",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a016"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l015",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a016"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a017",
+          "sourceType": "ordered-list",
+          "deterministic": {
+            "layoutBlockId": "l018",
+            "component": "step-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a017"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l016",
+            "component": "number-list",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a017"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a018",
+          "sourceType": "heading",
+          "deterministic": {
+            "layoutBlockId": "l019",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a018"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l017",
+            "component": "section-title",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a018"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a019",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l020",
+            "component": "section-intro",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a019"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l018",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a019"
+              ]
+            }
+          },
+          "differences": {
+            "component": true,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": true
+        },
+        {
+          "sourceBlockId": "a020",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l021",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a020"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l019",
+            "component": "body-text",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a020"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        },
+        {
+          "sourceBlockId": "a021",
+          "sourceType": "paragraph",
+          "deterministic": {
+            "layoutBlockId": "l022",
+            "component": "ending",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a021"
+              ]
+            }
+          },
+          "deepseek": {
+            "layoutBlockId": "l020",
+            "component": "ending",
+            "componentVariant": "default",
+            "provenance": {
+              "kind": "article-blocks",
+              "sourceBlockIds": [
+                "a021"
+              ]
+            }
+          },
+          "differences": {
+            "component": false,
+            "componentVariant": false,
+            "provenance": false
+          },
+          "different": false
+        }
+      ]
+    }
+  ]
+}

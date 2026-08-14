@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "1",
+  "visualTone": "official-youth",
+  "density": "airy",
+  "pace": "dynamic",
+  "mediaDominance": "image-led",
+  "textDominance": "restrained",
+  "sectionRhythm": "alternating",
+  "titleTreatment": "editorial",
+  "sectionTitleTreatment": "eyebrow",
+  "imageTreatment": "asymmetric",
+  "captionTreatment": "editorial",
+  "groupingStrategy": "scene",
+  "transitionStyle": "image-bridge",
+  "emphasisStrategy": "image-led",
+  "closingStrategy": "group-photo",
+  "heroAssetId": "img001",
+  "closingAssetId": "img010",
+  "openingVisualPattern": "compact-image-header",
+  "closingVisualPattern": "full-width-image",
+  "decorativePatternCount": 3,
+  "decorativeDensity": "sparse",
+  "decorativePatterns": [
+    "line",
+    "dot",
+    "diamond"
+  ],
+  "sections": [
+    {
+      "sectionId": "e-section-001",
+      "visualWeight": "normal",
+      "density": "airy",
+      "pace": "dynamic",
+      "dominantAssetId": "img003",
+      "secondaryAssetIds": [
+        "img002"
+      ],
+      "compositionPreference": "asymmetric-photo-pair",
+      "preferredVisualPattern": "label-title",
+      "transition": "none",
+      "groupingReason": "按 scene 组织 路线咨询/medium、路线咨询/detail，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "路线咨询",
+      "labelEvidenceSourceIds": [
+        "a010"
+      ],
+      "sectionLabelStyle": "eyebrow"
+    },
+    {
+      "sectionId": "e-section-002",
+      "visualWeight": "normal",
+      "density": "airy",
+      "pace": "dynamic",
+      "dominantAssetId": "img004",
+      "secondaryAssetIds": [
+        "img005"
+      ],
+      "compositionPreference": "asymmetric-photo-pair",
+      "preferredVisualPattern": "full-width-image",
+      "transition": "image-bridge",
+      "groupingReason": "按 scene 组织 行李接驳/wide、行李接驳/detail，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "行李接驳",
+      "labelEvidenceSourceIds": [
+        "a016"
+      ],
+      "sectionLabelStyle": "eyebrow",
+      "decorativePattern": "dot"
+    },
+    {
+      "sectionId": "e-section-003",
+      "visualWeight": "normal",
+      "density": "airy",
+      "pace": "dynamic",
+      "dominantAssetId": "img006",
+      "secondaryAssetIds": [
+        "img007"
+      ],
+      "compositionPreference": "asymmetric-photo-pair",
+      "preferredVisualPattern": "label-title",
+      "transition": "image-bridge",
+      "groupingReason": "按 scene 组织 身份核验/wide、身份核验/close-up，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "身份核验",
+      "labelEvidenceSourceIds": [
+        "a024"
+      ],
+      "sectionLabelStyle": "eyebrow"
+    },
+    {
+      "sectionId": "e-section-004",
+      "visualWeight": "normal",
+      "density": "airy",
+      "pace": "dynamic",
+      "dominantAssetId": "img008",
+      "secondaryAssetIds": [],
+      "compositionPreference": "full-width-story",
+      "preferredVisualPattern": "full-width-image",
+      "transition": "image-bridge",
+      "groupingReason": "按 scene 组织 夜间守候/wide，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "夜间守候",
+      "labelEvidenceSourceIds": [
+        "a032"
+      ],
+      "sectionLabelStyle": "eyebrow"
+    },
+    {
+      "sectionId": "e-section-005",
+      "visualWeight": "strong",
+      "density": "airy",
+      "pace": "dynamic",
+      "dominantAssetId": "img009",
+      "secondaryAssetIds": [],
+      "compositionPreference": "full-width-story",
+      "preferredVisualPattern": "label-title",
+      "transition": "image-bridge",
+      "groupingReason": "按 scene 组织 宿舍相识/medium，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "宿舍相识",
+      "labelEvidenceSourceIds": [
+        "a038"
+      ],
+      "sectionLabelStyle": "eyebrow",
+      "decorativePattern": "line"
+    }
+  ],
+  "reasons": {
+    "whyThisHero": "img001 是 wide 景别、landscape 构图、high 质量，并承担 hero-candidate 角色。",
+    "whyThisGroup": "图片按 scene 组织；只组合 EditorialPlan 同一节内且有 scene/subject/evidence 关系的资产。",
+    "whyThisDominantImage": "各节主画面依据角色、景别、方向和质量排序：e-section-001:detail/landscape/high；e-section-002:wide/landscape/high；e-section-003:wide/landscape/high；e-section-004:wide/landscape/high；e-section-005:medium/landscape/high。",
+    "whyThisClosingImage": "img010 的 scene=完成报到、shotType=group、roles=closing-candidate/supporting 支持 group-photo 收束。"
+  }
+}

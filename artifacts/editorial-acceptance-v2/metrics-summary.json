@@ -1,0 +1,38 @@
+{
+  "acceptanceSet": "REALISTIC_EDITORIAL_ACCEPTANCE_SET_V2",
+  "viewport": "375x812",
+  "screenshotCount": 14,
+  "artDirectionScreenshotCount": 7,
+  "cardSurfaceCount": 4,
+  "cardSurfaceRatio": 0.075,
+  "fullWidthImageCount": 27,
+  "photoGroupCount": 20,
+  "asymmetricCompositionCount": 11,
+  "imageLedCompositionCount": 42,
+  "genericSectionLabelRatio": 0,
+  "uniqueCompositionSequences": 7,
+  "averageCompositionSequenceSimilarity": 0.599,
+  "visualTones": [
+    "ceremonial",
+    "documentary",
+    "humanistic",
+    "official-youth",
+    "technical",
+    "theatrical"
+  ],
+  "officialAccountLevel": "AWAITING_HUMAN_REVIEW",
+  "humanScoringDimensions": [
+    "EDITORIAL_HIERARCHY / 信息层级",
+    "PHOTO_STORYTELLING / 图片叙事",
+    "ARTICLE_TYPE_FIT / 稿型适配",
+    "SECTION_RHYTHM / 章节节奏",
+    "VISUAL_DIVERSITY / 视觉多样性",
+    "IMAGE_TEXT_RELATION / 图文关系",
+    "NON_TEMPLATE_FEEL / 非模板感",
+    "ART_DIRECTION_QUALITY / 艺术指导质量",
+    "OFFICIAL_ACCOUNT_PLAUSIBILITY / 官方公众号可信度",
+    "IMAGE_SCALE_AND_PRIORITY / 图片尺度与视觉主次"
+  ],
+  "machineOfficialQualityClaim": "NOT_PERFORMED",
+  "liveAiRequestCount": 0
+}

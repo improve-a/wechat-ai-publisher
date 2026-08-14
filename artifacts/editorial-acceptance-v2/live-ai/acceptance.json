@@ -1,0 +1,230 @@
+{
+  "acceptanceSet": "REALISTIC_EDITORIAL_ACCEPTANCE_SET_V2",
+  "liveAcceptanceRunCount": 1,
+  "model": "deepseek-v4-flash",
+  "endpoint": "https://api.deepseek.com",
+  "startedAt": "2026-08-12T08:42:17.139Z",
+  "completedAt": "2026-08-12T08:43:40.492Z",
+  "liveAiRequestCount": 14,
+  "repairCount": 7,
+  "apiFailure": 0,
+  "tokenUsage": {
+    "promptTokens": 99872,
+    "promptCacheHitTokens": 8960,
+    "promptCacheMissTokens": 90912,
+    "completionTokens": 9084,
+    "totalTokens": 108956
+  },
+  "liveResult": "FAIL",
+  "passedArticles": 4,
+  "totalArticles": 7,
+  "humanEditorialVisualReviewRequired": "YES",
+  "officialAccountLevel": "AWAITING_HUMAN_REVIEW",
+  "results": [
+    {
+      "id": "welcome-journey",
+      "result": "PASS",
+      "attempts": 2,
+      "repairTriggered": true,
+      "requestCount": 2,
+      "diagnostics": [
+        {
+          "code": "EDITORIAL_PLAN_SCHEMA_INVALID",
+          "message": "Unrecognized key: \"role\"",
+          "path": [
+            "hero"
+          ]
+        },
+        {
+          "code": "EDITORIAL_PLAN_SCHEMA_INVALID",
+          "message": "Unrecognized key: \"role\"",
+          "path": [
+            "closing"
+          ]
+        }
+      ],
+      "sourceExactlyOnce": true,
+      "sourceOrderPreserved": true,
+      "previewValidation": {
+        "valid": true,
+        "errors": [],
+        "warnings": []
+      },
+      "compositionSequence": [
+        "hero-visual",
+        "asymmetric-photo-pair",
+        "asymmetric-photo-pair",
+        "asymmetric-photo-pair",
+        "full-width-story",
+        "full-width-story",
+        "closing-visual"
+      ]
+    },
+    {
+      "id": "competition-climax",
+      "result": "PASS",
+      "attempts": 2,
+      "repairTriggered": true,
+      "requestCount": 2,
+      "diagnostics": [
+        {
+          "code": "EDITORIAL_PLAN_SCHEMA_INVALID",
+          "message": "Unrecognized key: \"role\"",
+          "path": [
+            "hero"
+          ]
+        },
+        {
+          "code": "EDITORIAL_PLAN_SCHEMA_INVALID",
+          "message": "Unrecognized key: \"role\"",
+          "path": [
+            "closing"
+          ]
+        }
+      ],
+      "sourceExactlyOnce": true,
+      "sourceOrderPreserved": true,
+      "previewValidation": {
+        "valid": true,
+        "errors": [],
+        "warnings": []
+      },
+      "compositionSequence": [
+        "hero-visual",
+        "asymmetric-photo-pair",
+        "asymmetric-photo-pair",
+        "visual-climax",
+        "media-story",
+        "achievement-spotlight",
+        "closing-visual"
+      ]
+    },
+    {
+      "id": "person-award-portrait",
+      "result": "PASS",
+      "attempts": 2,
+      "repairTriggered": true,
+      "requestCount": 2,
+      "diagnostics": [
+        {
+          "code": "EDITORIAL_PLAN_SCHEMA_INVALID",
+          "message": "Unrecognized key: \"role\"",
+          "path": [
+            "hero"
+          ]
+        },
+        {
+          "code": "EDITORIAL_PLAN_SCHEMA_INVALID",
+          "message": "Unrecognized key: \"role\"",
+          "path": [
+            "closing"
+          ]
+        }
+      ],
+      "sourceExactlyOnce": true,
+      "sourceOrderPreserved": true,
+      "previewValidation": {
+        "valid": true,
+        "errors": [],
+        "warnings": []
+      },
+      "compositionSequence": [
+        "hero-visual",
+        "asymmetric-photo-pair",
+        "visual-climax",
+        "asymmetric-photo-pair",
+        "full-width-story",
+        "full-width-story",
+        "closing-visual"
+      ]
+    },
+    {
+      "id": "performance-night",
+      "result": "FAIL",
+      "attempts": 2,
+      "diagnostics": [
+        {
+          "code": "EDITORIAL_PLAN_SCHEMA_INVALID",
+          "message": "Unrecognized key: \"role\"",
+          "path": [
+            "hero"
+          ]
+        }
+      ],
+      "requestCount": 2
+    },
+    {
+      "id": "science-evidence",
+      "result": "FAIL",
+      "attempts": 2,
+      "diagnostics": [
+        {
+          "code": "EDITORIAL_PLAN_SCHEMA_INVALID",
+          "message": "Invalid option: expected one of \"section-opener\"|\"photo-pair\"|\"photo-grid\"|\"media-story\"|\"profile-spotlight\"|\"achievement-spotlight\"|\"full-width-story\"|\"asymmetric-photo-pair\"|\"portrait-story\"|\"quote-with-portrait\"|\"poster-feature\"|\"visual-climax\"",
+          "path": [
+            "sections",
+            "4",
+            "compositionIntent"
+          ]
+        }
+      ],
+      "requestCount": 2
+    },
+    {
+      "id": "practice-fieldnotes",
+      "result": "FAIL",
+      "attempts": 2,
+      "diagnostics": [
+        {
+          "code": "EDITORIAL_PLAN_SCHEMA_INVALID",
+          "message": "Invalid option: expected one of \"section-opener\"|\"photo-pair\"|\"photo-grid\"|\"media-story\"|\"profile-spotlight\"|\"achievement-spotlight\"|\"full-width-story\"|\"asymmetric-photo-pair\"|\"portrait-story\"|\"quote-with-portrait\"|\"poster-feature\"|\"visual-climax\"",
+          "path": [
+            "sections",
+            "4",
+            "compositionIntent"
+          ]
+        }
+      ],
+      "requestCount": 2
+    },
+    {
+      "id": "event-open-day",
+      "result": "PASS",
+      "attempts": 2,
+      "repairTriggered": true,
+      "requestCount": 2,
+      "diagnostics": [
+        {
+          "code": "EDITORIAL_PLAN_SCHEMA_INVALID",
+          "message": "Unrecognized key: \"role\"",
+          "path": [
+            "hero"
+          ]
+        },
+        {
+          "code": "EDITORIAL_PLAN_SCHEMA_INVALID",
+          "message": "Unrecognized key: \"role\"",
+          "path": [
+            "closing"
+          ]
+        }
+      ],
+      "sourceExactlyOnce": true,
+      "sourceOrderPreserved": true,
+      "previewValidation": {
+        "valid": true,
+        "errors": [],
+        "warnings": []
+      },
+      "compositionSequence": [
+        "hero-visual",
+        "photo-pair",
+        "photo-pair",
+        "photo-pair",
+        "full-width-story",
+        "full-width-story",
+        "closing-visual"
+      ]
+    }
+  ]
+}

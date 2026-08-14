@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "1",
+  "visualTone": "documentary",
+  "density": "balanced",
+  "pace": "dynamic",
+  "mediaDominance": "image-led",
+  "textDominance": "balanced",
+  "sectionRhythm": "alternating",
+  "titleTreatment": "statement",
+  "sectionTitleTreatment": "numbered",
+  "imageTreatment": "paired",
+  "captionTreatment": "editorial",
+  "groupingStrategy": "chronology",
+  "transitionStyle": "image-bridge",
+  "emphasisStrategy": "image-led",
+  "closingStrategy": "group-photo",
+  "heroAssetId": "img001",
+  "closingAssetId": "img010",
+  "openingVisualPattern": "title-over-image",
+  "closingVisualPattern": "full-width-image",
+  "decorativePatternCount": 3,
+  "decorativeDensity": "sparse",
+  "decorativePatterns": [
+    "line",
+    "dot",
+    "diamond"
+  ],
+  "sections": [
+    {
+      "sectionId": "e-section-001",
+      "visualWeight": "quiet",
+      "density": "airy",
+      "pace": "dynamic",
+      "secondaryAssetIds": [],
+      "compositionPreference": "section-opener",
+      "preferredVisualPattern": "numbered-section-title",
+      "transition": "none",
+      "groupingReason": "本节没有语义图片，以来源标题和正文建立轻量叙事停顿。",
+      "sectionLabel": "从主会场出发，而不是停在主会场",
+      "labelEvidenceSourceIds": [
+        "a004"
+      ],
+      "sectionLabelStyle": "numbered"
+    },
+    {
+      "sectionId": "e-section-002",
+      "visualWeight": "normal",
+      "density": "balanced",
+      "pace": "dynamic",
+      "dominantAssetId": "img002",
+      "secondaryAssetIds": [
+        "img003"
+      ],
+      "compositionPreference": "photo-pair",
+      "preferredVisualPattern": "asymmetric-pair",
+      "transition": "image-bridge",
+      "groupingReason": "按 chronology 组织 路线出发/wide、路线出发/detail，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "路线出发",
+      "labelEvidenceSourceIds": [
+        "a008"
+      ],
+      "sectionLabelStyle": "numbered",
+      "decorativePattern": "dot"
+    },
+    {
+      "sectionId": "e-section-003",
+      "visualWeight": "normal",
+      "density": "balanced",
+      "pace": "dynamic",
+      "dominantAssetId": "img005",
+      "secondaryAssetIds": [
+        "img004"
+      ],
+      "compositionPreference": "photo-pair",
+      "preferredVisualPattern": "full-width-image",
+      "transition": "image-bridge",
+      "groupingReason": "按 chronology 组织 实验室体验/medium、实验室体验/detail，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "实验室体验",
+      "labelEvidenceSourceIds": [
+        "a018"
+      ],
+      "sectionLabelStyle": "numbered"
+    },
+    {
+      "sectionId": "e-section-004",
+      "visualWeight": "normal",
+      "density": "balanced",
+      "pace": "dynamic",
+      "dominantAssetId": "img007",
+      "secondaryAssetIds": [
+        "img006"
+      ],
+      "compositionPreference": "photo-pair",
+      "preferredVisualPattern": "asymmetric-pair",
+      "transition": "image-bridge",
+      "groupingReason": "按 chronology 组织 材料追问/group、材料追问/close-up，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "材料追问",
+      "labelEvidenceSourceIds": [
+        "a026"
+      ],
+      "sectionLabelStyle": "numbered"
+    },
+    {
+      "sectionId": "e-section-005",
+      "visualWeight": "normal",
+      "density": "balanced",
+      "pace": "dynamic",
+      "dominantAssetId": "img008",
+      "secondaryAssetIds": [],
+      "compositionPreference": "full-width-story",
+      "preferredVisualPattern": "numbered-section-title",
+      "transition": "image-bridge",
+      "groupingReason": "按 chronology 组织 学生圆桌/wide，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "学生圆桌",
+      "labelEvidenceSourceIds": [
+        "a033"
+      ],
+      "sectionLabelStyle": "numbered",
+      "decorativePattern": "line"
+    },
+    {
+      "sectionId": "e-section-006",
+      "visualWeight": "strong",
+      "density": "balanced",
+      "pace": "dynamic",
+      "dominantAssetId": "img009",
+      "secondaryAssetIds": [],
+      "compositionPreference": "full-width-story",
+      "preferredVisualPattern": "full-width-image",
+      "transition": "image-bridge",
+      "groupingReason": "按 chronology 组织 反馈闭环/detail，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "反馈闭环",
+      "labelEvidenceSourceIds": [
+        "a039"
+      ],
+      "sectionLabelStyle": "numbered"
+    }
+  ],
+  "reasons": {
+    "whyThisHero": "img001 是 wide 景别、landscape 构图、high 质量，并承担 hero-candidate 角色。",
+    "whyThisGroup": "图片按 chronology 组织；只组合 EditorialPlan 同一节内且有 scene/subject/evidence 关系的资产。",
+    "whyThisDominantImage": "各节主画面依据角色、景别、方向和质量排序：e-section-002:wide/landscape/high；e-section-003:detail/landscape/high；e-section-004:close-up/landscape/high；e-section-005:wide/landscape/high；e-section-006:detail/landscape/high。",
+    "whyThisClosingImage": "img010 的 scene=路线汇合、shotType=group、roles=closing-candidate/supporting 支持 group-photo 收束。"
+  }
+}

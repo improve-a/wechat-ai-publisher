@@ -1,0 +1,241 @@
+[
+  {
+    "id": "generated-real-welcome-01-hero-artwork",
+    "kind": "generated-artwork",
+    "artworkItemId": "real-welcome-01-hero-artwork",
+    "localPath": "artifacts/hybrid-artwork-v1/generated-artwork/generated-real-welcome-01-hero-artwork.png",
+    "width": 750,
+    "height": 520,
+    "format": "png",
+    "sourceBlockIds": [
+      "a001",
+      "a002"
+    ],
+    "sourceAssetIds": [
+      "img001"
+    ],
+    "alt": "hero-artwork：新生抵达之后：一场从集合到认识彼此的校园迎新",
+    "contentHash": "a0fc94d46335a3498bb6dd11eb11923e416e679c8e83cb5259d723791f38744e",
+    "fileSizeBytes": 279455
+  },
+  {
+    "id": "generated-real-welcome-02-section-break-artwork",
+    "kind": "generated-artwork",
+    "artworkItemId": "real-welcome-02-section-break-artwork",
+    "localPath": "artifacts/hybrid-artwork-v1/generated-artwork/generated-real-welcome-02-section-break-artwork.png",
+    "width": 750,
+    "height": 240,
+    "format": "png",
+    "sourceBlockIds": [
+      "a014",
+      "a015",
+      "a016",
+      "a017",
+      "a018"
+    ],
+    "sourceAssetIds": [
+      "img007"
+    ],
+    "alt": "section-break-artwork：把第一天留在一组真实瞬间里",
+    "contentHash": "41504d75c903b68bdde7a66eff635534bb09d2ac4bd26c902947953d0d40f1b1",
+    "fileSizeBytes": 19772
+  },
+  {
+    "id": "generated-real-welcome-03-closing-artwork",
+    "kind": "generated-artwork",
+    "artworkItemId": "real-welcome-03-closing-artwork",
+    "localPath": "artifacts/hybrid-artwork-v1/generated-artwork/generated-real-welcome-03-closing-artwork.png",
+    "width": 750,
+    "height": 440,
+    "format": "png",
+    "sourceBlockIds": [
+      "a019",
+      "a020"
+    ],
+    "sourceAssetIds": [
+      "img010"
+    ],
+    "alt": "closing-artwork：迎新真正完成的不是清单，而是让一个陌生地点开始有可以问路、可以同行的人。",
+    "contentHash": "c37ed5ba1f323b8d66023968720afdb0e4e693b209dc94432806e58341827817",
+    "fileSizeBytes": 229277
+  },
+  {
+    "id": "generated-real-practice-01-hero-artwork",
+    "kind": "generated-artwork",
+    "artworkItemId": "real-practice-01-hero-artwork",
+    "localPath": "artifacts/hybrid-artwork-v1/generated-artwork/generated-real-practice-01-hero-artwork.png",
+    "width": 750,
+    "height": 520,
+    "format": "png",
+    "sourceBlockIds": [
+      "a001",
+      "a002"
+    ],
+    "sourceAssetIds": [
+      "img001"
+    ],
+    "alt": "hero-artwork：沿河实践手记：从下水观察到共同清理的九个现场",
+    "contentHash": "3543d94b9b8feff89e3c92fd554e0c123be7378a538389203e490a62ea5e3148",
+    "fileSizeBytes": 228632
+  },
+  {
+    "id": "generated-real-practice-02-section-break-artwork",
+    "kind": "generated-artwork",
+    "artworkItemId": "real-practice-02-section-break-artwork",
+    "localPath": "artifacts/hybrid-artwork-v1/generated-artwork/generated-real-practice-02-section-break-artwork.png",
+    "width": 750,
+    "height": 240,
+    "format": "png",
+    "sourceBlockIds": [
+      "a007",
+      "a008",
+      "a009",
+      "a010"
+    ],
+    "sourceAssetIds": [
+      "img005"
+    ],
+    "alt": "section-break-artwork：翻开石块，观察微小变化",
+    "contentHash": "aed948ea7488971f8cec793c7ff198d924a77e662b2900488911ba14f2498a02",
+    "fileSizeBytes": 20276
+  },
+  {
+    "id": "generated-real-practice-03-closing-artwork",
+    "kind": "generated-artwork",
+    "artworkItemId": "real-practice-03-closing-artwork",
+    "localPath": "artifacts/hybrid-artwork-v1/generated-artwork/generated-real-practice-03-closing-artwork.png",
+    "width": 750,
+    "height": 440,
+    "format": "png",
+    "sourceBlockIds": [
+      "a018",
+      "a019"
+    ],
+    "sourceAssetIds": [
+      "img009"
+    ],
+    "alt": "closing-artwork：一次实践不能替河流写下最终答案，但可以留下更可靠的观察方法。",
+    "contentHash": "ae066e07e41285e77777557bdfd71724ab94841766c309a461b0d5d1c1f289bd",
+    "fileSizeBytes": 317148
+  },
+  {
+    "id": "generated-real-event-recap-01-hero-artwork",
+    "kind": "generated-artwork",
+    "artworkItemId": "real-event-recap-01-hero-artwork",
+    "localPath": "artifacts/hybrid-artwork-v1/generated-artwork/generated-real-event-recap-01-hero-artwork.png",
+    "width": 750,
+    "height": 520,
+    "format": "png",
+    "sourceBlockIds": [
+      "a001",
+      "a002"
+    ],
+    "sourceAssetIds": [
+      "img001"
+    ],
+    "alt": "hero-artwork：机器人赛事回顾：从维修区到场边互动的九个瞬间",
+    "contentHash": "b213429f1b59060b61ec5792cb13f8da23a3bf0d2f97cd7fd830fd6586d6cab6",
+    "fileSizeBytes": 217873
+  },
+  {
+    "id": "generated-real-event-recap-02-section-break-artwork",
+    "kind": "generated-artwork",
+    "artworkItemId": "real-event-recap-02-section-break-artwork",
+    "localPath": "artifacts/hybrid-artwork-v1/generated-artwork/generated-real-event-recap-02-section-break-artwork.png",
+    "width": 750,
+    "height": 240,
+    "format": "png",
+    "sourceBlockIds": [
+      "a015",
+      "a016",
+      "a017"
+    ],
+    "sourceAssetIds": [
+      "img008"
+    ],
+    "alt": "section-break-artwork：高光之后，回到共同记忆",
+    "contentHash": "fec9f2cc3ec7dddc843b78351820a5c3c0d7526d179bf6a8394c124a2012d6b5",
+    "fileSizeBytes": 25690
+  },
+  {
+    "id": "generated-real-event-recap-03-closing-artwork",
+    "kind": "generated-artwork",
+    "artworkItemId": "real-event-recap-03-closing-artwork",
+    "localPath": "artifacts/hybrid-artwork-v1/generated-artwork/generated-real-event-recap-03-closing-artwork.png",
+    "width": 750,
+    "height": 440,
+    "format": "png",
+    "sourceBlockIds": [
+      "a018",
+      "a019"
+    ],
+    "sourceAssetIds": [
+      "img009"
+    ],
+    "alt": "closing-artwork：活动最值得回看的不是单一获奖动作，而是不同角色如何在同一现场协作。",
+    "contentHash": "b8669b3bcb5c869f9e1ca546e291adb2fc2e1f05a9c446a55d68f486d31987b2",
+    "fileSizeBytes": 284616
+  },
+  {
+    "id": "generated-real-person-profile-01-quote-artwork",
+    "kind": "generated-artwork",
+    "artworkItemId": "real-person-profile-01-quote-artwork",
+    "localPath": "artifacts/hybrid-artwork-v1/generated-artwork/generated-real-person-profile-01-quote-artwork.png",
+    "width": 750,
+    "height": 320,
+    "format": "png",
+    "sourceBlockIds": [
+      "a003",
+      "a004",
+      "a005",
+      "a006",
+      "a007"
+    ],
+    "sourceAssetIds": [],
+    "alt": "quote-artwork：“服务不是替新生走完路线，而是让他知道下一次可以去哪里问。”",
+    "contentHash": "154696f2296e7f90eb75744cfb877612901f71dfd0eed41f88bbfcb6ab94cae2",
+    "fileSizeBytes": 21409
+  },
+  {
+    "id": "generated-real-person-profile-02-profile-artwork",
+    "kind": "generated-artwork",
+    "artworkItemId": "real-person-profile-02-profile-artwork",
+    "localPath": "artifacts/hybrid-artwork-v1/generated-artwork/generated-real-person-profile-02-profile-artwork.png",
+    "width": 750,
+    "height": 560,
+    "format": "png",
+    "sourceBlockIds": [
+      "a012",
+      "a013",
+      "a014"
+    ],
+    "sourceAssetIds": [
+      "img006"
+    ],
+    "alt": "profile-artwork：肖像只承担一次安静的停顿",
+    "contentHash": "8e2e94da36f325fe998db01f128858edc22903701a3f6d3b61e55181f1dabb39",
+    "fileSizeBytes": 354680
+  },
+  {
+    "id": "generated-real-person-profile-03-achievement-artwork",
+    "kind": "generated-artwork",
+    "artworkItemId": "real-person-profile-03-achievement-artwork",
+    "localPath": "artifacts/hybrid-artwork-v1/generated-artwork/generated-real-person-profile-03-achievement-artwork.png",
+    "width": 750,
+    "height": 440,
+    "format": "png",
+    "sourceBlockIds": [
+      "a015",
+      "a016",
+      "a017",
+      "a018",
+      "a019"
+    ],
+    "sourceAssetIds": [
+      "img007"
+    ],
+    "alt": "achievement-artwork：服务成果，最终回到群体关系",
+    "contentHash": "a72ee591535a1bc2d2bfcf21b06599c74711f3b4c2af7f44b156367f4553bde8",
+    "fileSizeBytes": 206907
+  }
+]

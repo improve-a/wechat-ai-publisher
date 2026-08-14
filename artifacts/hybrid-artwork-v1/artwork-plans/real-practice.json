@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1",
+  "stylePackId": "bit-xuteli-editorial-v1",
+  "budget": {
+    "minimumItems": 2,
+    "maximumItems": 5,
+    "maximumConsecutiveItems": 2,
+    "minimumArtworkRatio": 0.1,
+    "maximumArtworkRatio": 0.25,
+    "perTypeMaximum": {
+      "hero-artwork": 1,
+      "section-break-artwork": 2,
+      "profile-artwork": 1,
+      "achievement-artwork": 1,
+      "quote-artwork": 1,
+      "closing-artwork": 1
+    }
+  },
+  "items": [
+    {
+      "id": "real-practice-01-hero-artwork",
+      "type": "hero-artwork",
+      "layoutBlockId": "l001",
+      "editorialUnitId": "e-hero",
+      "sourceBlockIds": [
+        "a001",
+        "a002"
+      ],
+      "sourceAssetIds": [
+        "img001"
+      ],
+      "purpose": "建立首屏视觉身份",
+      "visualWeight": "strong",
+      "reason": "主视觉资产质量高且承担明确 hero 角色；标题和开场正文仍保留 Native HTML。",
+      "templateVariant": "editorial-split",
+      "renderPolicy": "artwork-plus-native-content",
+      "output": {
+        "format": "png",
+        "width": 750,
+        "height": 520,
+        "pixelRatio": 2
+      }
+    },
+    {
+      "id": "real-practice-02-section-break-artwork",
+      "type": "section-break-artwork",
+      "layoutBlockId": "l003",
+      "editorialUnitId": "e-section-002",
+      "sourceBlockIds": [
+        "a007",
+        "a008",
+        "a009",
+        "a010"
+      ],
+      "sourceAssetIds": [
+        "img005"
+      ],
+      "purpose": "标记少量关键视觉转场",
+      "visualWeight": "climax",
+      "reason": "该节点承担阶段切换或视觉高潮；普通章节继续使用 Native HTML。",
+      "templateVariant": "process-marker",
+      "renderPolicy": "artwork-plus-native-content",
+      "output": {
+        "format": "png",
+        "width": 750,
+        "height": 240,
+        "pixelRatio": 2
+      }
+    },
+    {
+      "id": "real-practice-03-closing-artwork",
+      "type": "closing-artwork",
+      "layoutBlockId": "l006",
+      "editorialUnitId": "e-closing",
+      "sourceBlockIds": [
+        "a018",
+        "a019"
+      ],
+      "sourceAssetIds": [
+        "img009"
+      ],
+      "purpose": "以场景或群体画面收束全文",
+      "visualWeight": "normal",
+      "reason": "closingCandidate 与全文结尾有明确关系，且文案来自源内容。",
+      "templateVariant": "quiet-field-note",
+      "renderPolicy": "artwork-plus-native-content",
+      "output": {
+        "format": "png",
+        "width": 750,
+        "height": 440,
+        "pixelRatio": 2
+      }
+    }
+  ]
+}

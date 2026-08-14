@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "1.1",
+  "artworkItemId": "real-event-recap-v1-1-01-hero-artwork",
+  "type": "hero-artwork",
+  "stylePackId": "bit-xuteli-editorial-v1",
+  "templateVariant": "minimal-overlay",
+  "output": {
+    "format": "png",
+    "width": 750,
+    "height": 520,
+    "pixelRatio": 2
+  },
+  "visualWeight": "strong",
+  "renderPolicy": "artwork-plus-native-content",
+  "sourceBlockIds": [
+    "a001",
+    "a002"
+  ],
+  "sourceAssetIds": [
+    "img001"
+  ],
+  "texts": [
+    {
+      "role": "title",
+      "text": "机器人赛事回顾：从维修区到场边互动的九个瞬间",
+      "source": {
+        "kind": "article-title"
+      }
+    }
+  ],
+  "images": [
+    {
+      "sourceAssetId": "img001",
+      "src": "/real-photo-stress/event-01.jpg",
+      "alt": "FIRST 机器人赛事现场全景",
+      "orientation": "landscape",
+      "aspectRatio": 1.5,
+      "fit": "contain"
+    }
+  ],
+  "visualOwnership": "replace",
+  "ownedSourceBlockIds": [],
+  "augmentedSourceBlockIds": [
+    "a001",
+    "a002"
+  ],
+  "ownsArticleTitle": true,
+  "nativeVisibilityPolicy": "hide-owned-structure",
+  "incrementalValueReason": {
+    "nativeAlreadySufficient": false,
+    "solvesNativeConstraint": true,
+    "establishesVisualClimax": true,
+    "improvesHierarchy": true,
+    "repeatsExistingInformationOnly": false,
+    "whyArtworkOverNative": "主照片与完整标题需要成为一个首屏视觉单元；Artwork 唯一承担可见标题，Native 只继续导语。"
+  },
+  "nativeCoherence": {
+    "themeId": "bit-official",
+    "themeVariant": "default",
+    "primaryColor": "#009A44",
+    "accentColor": "#94450B",
+    "backgroundColor": "#FFFFFF",
+    "surfaceColor": "#FFFFFF",
+    "textStrongColor": "#1F2321",
+    "textMutedColor": "#8B938E",
+    "borderColor": "#BFCBC3",
+    "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+    "imageRadius": "5px",
+    "labelLanguage": "source-backed-chinese"
+  },
+  "specHash": "5308d788327b09f2"
+}

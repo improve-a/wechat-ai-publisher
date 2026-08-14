@@ -1,7 +1,10 @@
 from __future__ import annotations
 
 import argparse
+import subprocess
 import sys
+import time
+import urllib.request
 from pathlib import Path
 
 from playwright.sync_api import Page, sync_playwright
@@ -14,6 +17,7 @@ EXPECTED_COMPONENTS = {
     "chapter-title",
     "body-text",
     "lead-text",
+    "section-intro",
     "highlight",
     "quote-card",
     "info-card",
@@ -27,6 +31,9 @@ EXPECTED_COMPONENTS = {
     "ending",
     "code-block",
     "table",
+    "key-metrics",
+    "key-value-facts",
+    "timeline",
 }
 
 THEME_CASES = (
@@ -34,6 +41,20 @@ THEME_CASES = (
     ("bit-innovation", "data"),
     ("bit-youth", "event"),
 )
+
+
+def wait_for_server(url: str, process: subprocess.Popen[bytes], timeout: float = 20.0) -> None:
+    deadline = time.monotonic() + timeout
+    while time.monotonic() < deadline:
+        if process.poll() is not None:
+            raise RuntimeError(f"Vite exited before readiness with code {process.returncode}")
+        try:
+            with urllib.request.urlopen(url, timeout=1) as response:  # noqa: S310 - local gate URL.
+                if response.status == 200:
+                    return
+        except OSError:
+            time.sleep(0.15)
+    raise TimeoutError(f"Timed out waiting for {url}")
 
 
 def assert_mobile_layout(page: Page) -> None:
@@ -151,13 +172,37 @@ def main() -> int:
         default="artifacts/m1-visual",
         type=Path,
     )
+    parser.add_argument("--no-start-server", action="store_true")
     args = parser.parse_args()
+    server: subprocess.Popen[bytes] | None = None
 
     try:
+        if not args.no_start_server:
+            server = subprocess.Popen(  # noqa: S603 - fixed local development command.
+                [
+                    "node",
+                    "node_modules/vite/bin/vite.js",
+                    "--host",
+                    "127.0.0.1",
+                    "--port",
+                    "4173",
+                ],
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+            )
+            wait_for_server(args.url, server)
         run_visual_smoke(args.url, args.screenshots)
     except Exception as error:  # noqa: BLE001 - CLI reports the complete gate failure.
         print(f"VISUAL_CHECK=FAIL: {error}", file=sys.stderr)
         return 1
+    finally:
+        if server is not None and server.poll() is None:
+            server.terminate()
+            try:
+                server.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                server.kill()
+                server.wait(timeout=5)
 
     print("VISUAL_CHECK=PASS")
     print("VISUAL_ENGINE=PYTHON_PLAYWRIGHT_CHROMIUM")

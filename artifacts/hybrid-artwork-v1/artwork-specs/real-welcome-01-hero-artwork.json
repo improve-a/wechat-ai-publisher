@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "1",
+  "artworkItemId": "real-welcome-01-hero-artwork",
+  "type": "hero-artwork",
+  "stylePackId": "bit-xuteli-editorial-v1",
+  "templateVariant": "photo-led",
+  "output": {
+    "format": "png",
+    "width": 750,
+    "height": 520,
+    "pixelRatio": 2
+  },
+  "visualWeight": "strong",
+  "renderPolicy": "artwork-plus-native-content",
+  "sourceBlockIds": [
+    "a001",
+    "a002"
+  ],
+  "sourceAssetIds": [
+    "img001"
+  ],
+  "texts": [
+    {
+      "role": "title",
+      "text": "新生抵达之后：一场从集合到认识彼此的校园迎新",
+      "source": {
+        "kind": "article-title"
+      }
+    },
+    {
+      "role": "subtitle",
+      "text": "树荫下的第一次集合没有整齐队形。",
+      "source": {
+        "kind": "article-block",
+        "sourceBlockId": "a001"
+      }
+    }
+  ],
+  "images": [
+    {
+      "sourceAssetId": "img001",
+      "src": "/real-photo-stress/welcome-01.jpg",
+      "alt": "校园树荫下的新生小组",
+      "orientation": "landscape",
+      "aspectRatio": 1.5098039215686274,
+      "fit": "contain"
+    }
+  ],
+  "specHash": "a4a364c146f4da8a"
+}

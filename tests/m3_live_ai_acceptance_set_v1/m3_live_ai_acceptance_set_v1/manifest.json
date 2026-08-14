@@ -1,0 +1,114 @@
+{
+  "name": "M3 Live AI Acceptance Set V1",
+  "purpose": "验证真实 AI Layout Planner 是否根据文章内容做出有区分度、合理且满足 M3 硬合同的 Layout AST。",
+  "articles": [
+    {
+      "file": "01_科技_边缘AI实验平台.md",
+      "category": "科技",
+      "reasonable_theme_candidates": [
+        "bit-innovation",
+        "bit-official"
+      ],
+      "signals_to_watch": [
+        "指标/表格是否获得信息密度更高的呈现",
+        "代码块是否保持教程式清晰",
+        "是否突出性能与系统权衡而非随机强调"
+      ]
+    },
+    {
+      "file": "02_校园_实验室开放日.md",
+      "category": "校园",
+      "reasonable_theme_candidates": [
+        "bit-youth",
+        "bit-official"
+      ],
+      "signals_to_watch": [
+        "叙事节奏是否比新闻型布局更轻",
+        "引用与小清单是否被恰当强调",
+        "是否避免把整篇做成过度正式通知"
+      ]
+    },
+    {
+      "file": "03_人文_凌晨四点的城市.md",
+      "category": "人文",
+      "reasonable_theme_candidates": [
+        "bit-youth",
+        "bit-official"
+      ],
+      "signals_to_watch": [
+        "留白与章节节奏是否更舒展",
+        "引用是否成为视觉锚点",
+        "是否避免信息卡片过密"
+      ]
+    },
+    {
+      "file": "04_新闻_低功耗芯片发布.md",
+      "category": "新闻",
+      "reasonable_theme_candidates": [
+        "bit-official",
+        "bit-innovation"
+      ],
+      "signals_to_watch": [
+        "标题/关键指标/阶段性信息层级是否清楚",
+        "是否弱化主观装饰",
+        "是否区分事实、引语和后续计划"
+      ]
+    },
+    {
+      "file": "05_教程_用示波器排查信号异常.md",
+      "category": "教程",
+      "reasonable_theme_candidates": [
+        "bit-innovation",
+        "bit-official"
+      ],
+      "signals_to_watch": [
+        "步骤层级是否明确",
+        "代码/公式/表格是否易扫读",
+        "关键警告是否被合理强调"
+      ]
+    },
+    {
+      "file": "06_观点_AI辅助学习.md",
+      "category": "观点",
+      "reasonable_theme_candidates": [
+        "bit-youth",
+        "bit-official"
+      ],
+      "signals_to_watch": [
+        "核心论点是否被识别",
+        "引用/结论是否突出",
+        "是否避免把所有段落机械变成卡片"
+      ]
+    },
+    {
+      "file": "07_活动通知_创新实践周.md",
+      "category": "活动通知",
+      "reasonable_theme_candidates": [
+        "bit-official",
+        "bit-youth"
+      ],
+      "signals_to_watch": [
+        "时间/报名/注意事项是否优先",
+        "表格与列表是否清晰",
+        "是否避免把关键报名信息埋在正文里"
+      ]
+    }
+  ],
+  "hard_gates": [
+    "Layout Schema PASS",
+    "Registry integration PASS",
+    "Theme/Component Variant valid",
+    "Source exactly-once PASS",
+    "Source order PASS",
+    "No content omission/duplication",
+    "MAX_MODEL_ATTEMPTS <= 2",
+    "M4 Renderer PASS",
+    "M5 Validator PASS"
+  ],
+  "manual_dimensions": [
+    "Theme 选择合理性",
+    "重点识别合理性",
+    "文章节奏/信息层级",
+    "不同文章之间 Layout Decision 的区分度"
+  ]
+}

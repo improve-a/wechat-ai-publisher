@@ -1,0 +1,146 @@
+.m5-preview-shell {
+  width: min(900px, 100%);
+  margin: 0 auto;
+  padding: 32px 18px 64px;
+}
+
+.m5-preview-header {
+  width: min(720px, 100%);
+  margin: 0 auto 22px;
+}
+
+.m5-preview-header p {
+  margin: 0;
+  color: #046a38;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+}
+
+.m5-preview-header h1 {
+  margin: 6px 0 7px;
+  font-size: 32px;
+  line-height: 1.3;
+}
+
+.m5-preview-header span {
+  color: #657069;
+  font-size: 14px;
+}
+
+.m5-preview-controls,
+.m5-validator-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: min(720px, 100%);
+  margin: 0 auto 12px;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #d8e1da;
+  border-radius: 10px;
+}
+
+.m5-preview-controls label {
+  display: grid;
+  gap: 5px;
+  color: #677169;
+  font-size: 11px;
+}
+
+.m5-preview-controls select {
+  min-height: 35px;
+  padding: 5px 8px;
+  background: #fff;
+  border: 1px solid #bdcbc1;
+  border-radius: 5px;
+}
+
+.m5-theme-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.m5-theme-buttons button {
+  padding: 9px 11px;
+  background: #f2f5f3;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.m5-theme-buttons button[aria-pressed="true"] {
+  color: #fff;
+  background: #046a38;
+}
+
+.m5-validator-status {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  color: #59635c;
+  font-size: 12px;
+}
+
+.m5-validator-status strong {
+  color: #046a38;
+}
+
+.m5-device {
+  box-sizing: content-box;
+  width: 375px;
+  max-width: 100%;
+  margin: 18px auto 0;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #cbd6ce;
+  border-radius: 12px;
+  box-shadow: 0 20px 52px rgba(35, 54, 43, 0.12);
+}
+
+.m5-device iframe {
+  display: block;
+  width: 375px;
+  max-width: 100%;
+  margin: 0;
+  border: 0;
+}
+
+@media (max-width: 520px) {
+  .m5-preview-shell {
+    width: 100%;
+    padding: 18px 0 38px;
+  }
+
+  .m5-preview-header,
+  .m5-preview-controls,
+  .m5-validator-status {
+    width: calc(100% - 20px);
+  }
+
+  .m5-preview-header h1 {
+    font-size: 26px;
+  }
+
+  .m5-preview-controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .m5-theme-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .m5-theme-buttons button {
+    padding-inline: 5px;
+  }
+
+  .m5-device {
+    width: 375px;
+    max-width: 100%;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+  }
+}

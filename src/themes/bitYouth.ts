@@ -18,7 +18,7 @@ export const bitYouth = {
   avoidFor: ["严肃政策", "正式会议", "论文式科研报道", "行政通告"],
   tokens: {
     colors: {
-      background: brandColors.bitWhite,
+      background: "#FFFEFB",
       surface: "#FAF8F3",
       surfaceMuted: "#F7FAF7",
       surfaceStrong: "#F1F7F3",
@@ -36,8 +36,9 @@ export const bitYouth = {
     },
     typography: {
       ...commonTypography,
+      bodySize: "16.5px",
       bodyLineHeight: "1.98",
-      titleSize: "31px",
+      titleSize: "32px",
       titleLineHeight: "1.38",
     },
     spacing: {
@@ -58,12 +59,42 @@ export const bitYouth = {
     image: { density: "relaxed", emphasis: "expressive", shape: "soft" },
   },
   themeVariants: [
-    { id: "story", name: "故事", description: "突出人物、引语、篇章和成长线索。" },
-    { id: "campus", name: "校园", description: "突出大图与自然留白。" },
-    { id: "event", name: "活动", description: "加强活动、体育与文艺内容节奏。" },
-    { id: "practice", name: "实践", description: "突出篇章、成果数字与团队段落。" },
-    { id: "guide", name: "指南", description: "加强信息卡、步骤和编号列表。" },
-    { id: "festival", name: "节日", description: "仅提供少量暖色节日强调。" },
+    {
+      id: "story",
+      name: "故事",
+      description: "突出人物、引语、篇章和成长线索。",
+      visual: { titleTreatment: "story", accent: "accent", density: "relaxed", surface: "plain" },
+    },
+    {
+      id: "campus",
+      name: "校园",
+      description: "突出大图与自然留白。",
+      visual: { titleTreatment: "soft", accent: "primary", density: "relaxed", surface: "muted" },
+    },
+    {
+      id: "event",
+      name: "活动",
+      description: "加强活动、体育与文艺内容节奏。",
+      visual: { titleTreatment: "panel", accent: "accent", density: "balanced", surface: "strong" },
+    },
+    {
+      id: "practice",
+      name: "实践",
+      description: "突出篇章、成果数字与团队段落。",
+      visual: { titleTreatment: "framed", accent: "primary", density: "balanced", surface: "muted" },
+    },
+    {
+      id: "guide",
+      name: "指南",
+      description: "加强信息卡、步骤和编号列表。",
+      visual: { titleTreatment: "soft", accent: "primary", density: "compact", surface: "strong" },
+    },
+    {
+      id: "festival",
+      name: "节日",
+      description: "仅提供少量暖色节日强调。",
+      visual: { titleTreatment: "story", accent: "accent", density: "relaxed", surface: "muted" },
+    },
   ],
   defaultVariant: null,
 } satisfies ThemeDefinition;

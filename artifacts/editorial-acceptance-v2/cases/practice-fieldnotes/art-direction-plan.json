@@ -1,0 +1,139 @@
+{
+  "schemaVersion": "1",
+  "visualTone": "documentary",
+  "density": "balanced",
+  "pace": "steady",
+  "mediaDominance": "balanced",
+  "textDominance": "balanced",
+  "sectionRhythm": "progressive",
+  "titleTreatment": "editorial",
+  "sectionTitleTreatment": "eyebrow",
+  "imageTreatment": "full-width",
+  "captionTreatment": "editorial",
+  "groupingStrategy": "chronology",
+  "transitionStyle": "whitespace",
+  "emphasisStrategy": "restrained",
+  "closingStrategy": "group-photo",
+  "sectionNumberingPolicy": "continuous",
+  "heroAssetId": "img001",
+  "closingAssetId": "img010",
+  "openingVisualPattern": "text-first-header",
+  "closingVisualPattern": "full-width-image",
+  "decorativePatternCount": 2,
+  "decorativeDensity": "sparse",
+  "decorativePatterns": [
+    "line",
+    "dot"
+  ],
+  "sections": [
+    {
+      "sectionId": "e-section-001",
+      "visualWeight": "normal",
+      "visualIntensity": "normal",
+      "sectionNumber": 1,
+      "density": "balanced",
+      "pace": "steady",
+      "dominantAssetId": "img002",
+      "secondaryAssetIds": [
+        "img003"
+      ],
+      "compositionPreference": "asymmetric-photo-pair",
+      "preferredVisualPattern": "large-plus-detail",
+      "transition": "none",
+      "groupingReason": "按 chronology 组织 地图绘制/wide、地图绘制/detail，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "地图绘制",
+      "labelEvidenceSourceIds": [
+        "a008"
+      ],
+      "sectionLabelStyle": "eyebrow"
+    },
+    {
+      "sectionId": "e-section-002",
+      "visualWeight": "normal",
+      "visualIntensity": "normal",
+      "sectionNumber": 2,
+      "density": "balanced",
+      "pace": "steady",
+      "dominantAssetId": "img005",
+      "secondaryAssetIds": [
+        "img004"
+      ],
+      "compositionPreference": "asymmetric-photo-pair",
+      "preferredVisualPattern": "minimal-rule-title",
+      "transition": "whitespace",
+      "groupingReason": "按 chronology 组织 雨后观察/medium、雨后观察/detail，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "雨后观察",
+      "labelEvidenceSourceIds": [
+        "a018"
+      ],
+      "sectionLabelStyle": "eyebrow",
+      "decorativePattern": "dot"
+    },
+    {
+      "sectionId": "e-section-003",
+      "visualWeight": "normal",
+      "visualIntensity": "normal",
+      "sectionNumber": 3,
+      "density": "balanced",
+      "pace": "steady",
+      "dominantAssetId": "img007",
+      "secondaryAssetIds": [
+        "img006"
+      ],
+      "compositionPreference": "full-width-story",
+      "preferredVisualPattern": "numbered-section-title",
+      "transition": "whitespace",
+      "groupingReason": "按 chronology 组织 居民访谈/portrait、居民访谈/close-up，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "居民访谈",
+      "labelEvidenceSourceIds": [
+        "a027"
+      ],
+      "sectionLabelStyle": "eyebrow"
+    },
+    {
+      "sectionId": "e-section-004",
+      "visualWeight": "normal",
+      "visualIntensity": "normal",
+      "sectionNumber": 4,
+      "density": "balanced",
+      "pace": "steady",
+      "dominantAssetId": "img008",
+      "secondaryAssetIds": [],
+      "compositionPreference": "full-width-story",
+      "preferredVisualPattern": "framed-image",
+      "transition": "whitespace",
+      "groupingReason": "按 chronology 组织 方案试验/wide，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "方案试验",
+      "labelEvidenceSourceIds": [
+        "a033"
+      ],
+      "sectionLabelStyle": "eyebrow"
+    },
+    {
+      "sectionId": "e-section-005",
+      "visualWeight": "strong",
+      "visualIntensity": "strong",
+      "sectionNumber": 5,
+      "density": "balanced",
+      "pace": "steady",
+      "dominantAssetId": "img009",
+      "secondaryAssetIds": [],
+      "compositionPreference": "full-width-story",
+      "preferredVisualPattern": "numbered-section-title",
+      "transition": "whitespace",
+      "groupingReason": "按 chronology 组织 资料交接/medium，主画面优先视觉质量与叙事角色。",
+      "sectionLabel": "资料交接",
+      "labelEvidenceSourceIds": [
+        "a039"
+      ],
+      "sectionLabelStyle": "eyebrow",
+      "decorativePattern": "line"
+    }
+  ],
+  "reasons": {
+    "whyThisHero": "img001 是 wide 景别、landscape 构图、high 质量，并承担 hero-candidate 角色。",
+    "whyThisGroup": "图片按 chronology 组织；只组合 EditorialPlan 同一节内且有 scene/subject/evidence 关系的资产。",
+    "whyThisDominantImage": "各节主画面依据角色、景别、方向和质量排序：e-section-001:wide/landscape/high；e-section-002:detail/landscape/high；e-section-003:close-up/landscape/high；e-section-004:wide/landscape/high；e-section-005:medium/landscape/high。",
+    "whyThisClosingImage": "img010 的 scene=共同维护、shotType=group、roles=closing-candidate/supporting 支持 group-photo 收束。"
+  }
+}

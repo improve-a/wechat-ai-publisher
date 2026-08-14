@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1",
+  "artworkItemId": "real-person-profile-01-quote-artwork",
+  "type": "quote-artwork",
+  "stylePackId": "bit-xuteli-editorial-v1",
+  "templateVariant": "quiet-quote",
+  "output": {
+    "format": "png",
+    "width": 750,
+    "height": 320,
+    "pixelRatio": 2
+  },
+  "visualWeight": "normal",
+  "renderPolicy": "artwork-plus-native-caption",
+  "sourceBlockIds": [
+    "a003",
+    "a004",
+    "a005",
+    "a006",
+    "a007"
+  ],
+  "sourceAssetIds": [],
+  "texts": [
+    {
+      "role": "quote",
+      "text": "“服务不是替新生走完路线，而是让他知道下一次可以去哪里问。”",
+      "source": {
+        "kind": "article-block",
+        "sourceBlockId": "a007"
+      }
+    }
+  ],
+  "images": [],
+  "specHash": "77727dfafa772ce1"
+}

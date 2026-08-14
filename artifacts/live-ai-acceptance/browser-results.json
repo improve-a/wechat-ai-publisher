@@ -1,0 +1,288 @@
+{
+  "schemaVersion": "1",
+  "caseCount": 14,
+  "pageErrorCount": 0,
+  "consoleErrorCount": 0,
+  "results": [
+    {
+      "articleId": "01_科技_边缘AI实验平台",
+      "branch": "deterministic",
+      "metrics": {
+        "innerWidth": 375,
+        "documentClientWidth": 375,
+        "documentScrollWidth": 375,
+        "bodyClientWidth": 375,
+        "bodyScrollWidth": 375,
+        "articleClientWidth": 375,
+        "articleScrollWidth": 375,
+        "imageOverflow": false,
+        "unguardedCode": false,
+        "unguardedTable": false,
+        "theme": "bit-innovation",
+        "articleHeight": 2596.015625
+      },
+      "pageErrors": [],
+      "consoleErrors": []
+    },
+    {
+      "articleId": "01_科技_边缘AI实验平台",
+      "branch": "deepseek",
+      "metrics": {
+        "innerWidth": 375,
+        "documentClientWidth": 375,
+        "documentScrollWidth": 375,
+        "bodyClientWidth": 375,
+        "bodyScrollWidth": 375,
+        "articleClientWidth": 375,
+        "articleScrollWidth": 375,
+        "imageOverflow": false,
+        "unguardedCode": false,
+        "unguardedTable": false,
+        "theme": "bit-innovation",
+        "articleHeight": 2722.015625
+      },
+      "pageErrors": [],
+      "consoleErrors": []
+    },
+    {
+      "articleId": "02_校园_实验室开放日",
+      "branch": "deterministic",
+      "metrics": {
+        "innerWidth": 375,
+        "documentClientWidth": 375,
+        "documentScrollWidth": 375,
+        "bodyClientWidth": 375,
+        "bodyScrollWidth": 375,
+        "articleClientWidth": 375,
+        "articleScrollWidth": 375,
+        "imageOverflow": false,
+        "unguardedCode": false,
+        "unguardedTable": false,
+        "theme": "bit-innovation",
+        "articleHeight": 2458.96875
+      },
+      "pageErrors": [],
+      "consoleErrors": []
+    },
+    {
+      "articleId": "02_校园_实验室开放日",
+      "branch": "deepseek",
+      "metrics": {
+        "innerWidth": 375,
+        "documentClientWidth": 375,
+        "documentScrollWidth": 375,
+        "bodyClientWidth": 375,
+        "bodyScrollWidth": 375,
+        "articleClientWidth": 375,
+        "articleScrollWidth": 375,
+        "imageOverflow": false,
+        "unguardedCode": false,
+        "unguardedTable": false,
+        "theme": "bit-youth",
+        "articleHeight": 2776.046875
+      },
+      "pageErrors": [],
+      "consoleErrors": []
+    },
+    {
+      "articleId": "03_人文_凌晨四点的城市",
+      "branch": "deterministic",
+      "metrics": {
+        "innerWidth": 375,
+        "documentClientWidth": 375,
+        "documentScrollWidth": 375,
+        "bodyClientWidth": 375,
+        "bodyScrollWidth": 375,
+        "articleClientWidth": 375,
+        "articleScrollWidth": 375,
+        "imageOverflow": false,
+        "unguardedCode": false,
+        "unguardedTable": false,
+        "theme": "bit-official",
+        "articleHeight": 2121.390625
+      },
+      "pageErrors": [],
+      "consoleErrors": []
+    },
+    {
+      "articleId": "03_人文_凌晨四点的城市",
+      "branch": "deepseek",
+      "metrics": {
+        "innerWidth": 375,
+        "documentClientWidth": 375,
+        "documentScrollWidth": 375,
+        "bodyClientWidth": 375,
+        "bodyScrollWidth": 375,
+        "articleClientWidth": 375,
+        "articleScrollWidth": 375,
+        "imageOverflow": false,
+        "unguardedCode": false,
+        "unguardedTable": false,
+        "theme": "bit-official",
+        "articleHeight": 2219.78125
+      },
+      "pageErrors": [],
+      "consoleErrors": []
+    },
+    {
+      "articleId": "04_新闻_低功耗芯片发布",
+      "branch": "deterministic",
+      "metrics": {
+        "innerWidth": 375,
+        "documentClientWidth": 375,
+        "documentScrollWidth": 375,
+        "bodyClientWidth": 375,
+        "bodyScrollWidth": 375,
+        "articleClientWidth": 375,
+        "articleScrollWidth": 375,
+        "imageOverflow": false,
+        "unguardedCode": false,
+        "unguardedTable": false,
+        "theme": "bit-official",
+        "articleHeight": 2141.71875
+      },
+      "pageErrors": [],
+      "consoleErrors": []
+    },
+    {
+      "articleId": "04_新闻_低功耗芯片发布",
+      "branch": "deepseek",
+      "metrics": {
+        "innerWidth": 375,
+        "documentClientWidth": 375,
+        "documentScrollWidth": 375,
+        "bodyClientWidth": 375,
+        "bodyScrollWidth": 375,
+        "articleClientWidth": 375,
+        "articleScrollWidth": 375,
+        "imageOverflow": false,
+        "unguardedCode": false,
+        "unguardedTable": false,
+        "theme": "bit-innovation",
+        "articleHeight": 2275.796875
+      },
+      "pageErrors": [],
+      "consoleErrors": []
+    },
+    {
+      "articleId": "05_教程_用示波器排查信号异常",
+      "branch": "deterministic",
+      "metrics": {
+        "innerWidth": 375,
+        "documentClientWidth": 375,
+        "documentScrollWidth": 375,
+        "bodyClientWidth": 375,
+        "bodyScrollWidth": 375,
+        "articleClientWidth": 375,
+        "articleScrollWidth": 375,
+        "imageOverflow": false,
+        "unguardedCode": false,
+        "unguardedTable": false,
+        "theme": "bit-innovation",
+        "articleHeight": 3131.203125
+      },
+      "pageErrors": [],
+      "consoleErrors": []
+    },
+    {
+      "articleId": "05_教程_用示波器排查信号异常",
+      "branch": "deepseek",
+      "metrics": {
+        "innerWidth": 375,
+        "documentClientWidth": 375,
+        "documentScrollWidth": 375,
+        "bodyClientWidth": 375,
+        "bodyScrollWidth": 375,
+        "articleClientWidth": 375,
+        "articleScrollWidth": 375,
+        "imageOverflow": false,
+        "unguardedCode": false,
+        "unguardedTable": false,
+        "theme": "bit-official",
+        "articleHeight": 3331.953125
+      },
+      "pageErrors": [],
+      "consoleErrors": []
+    },
+    {
+      "articleId": "06_观点_AI辅助学习",
+      "branch": "deterministic",
+      "metrics": {
+        "innerWidth": 375,
+        "documentClientWidth": 375,
+        "documentScrollWidth": 375,
+        "bodyClientWidth": 375,
+        "bodyScrollWidth": 375,
+        "articleClientWidth": 375,
+        "articleScrollWidth": 375,
+        "imageOverflow": false,
+        "unguardedCode": false,
+        "unguardedTable": false,
+        "theme": "bit-innovation",
+        "articleHeight": 2814.3125
+      },
+      "pageErrors": [],
+      "consoleErrors": []
+    },
+    {
+      "articleId": "06_观点_AI辅助学习",
+      "branch": "deepseek",
+      "metrics": {
+        "innerWidth": 375,
+        "documentClientWidth": 375,
+        "documentScrollWidth": 375,
+        "bodyClientWidth": 375,
+        "bodyScrollWidth": 375,
+        "articleClientWidth": 375,
+        "articleScrollWidth": 375,
+        "imageOverflow": false,
+        "unguardedCode": false,
+        "unguardedTable": false,
+        "theme": "bit-official",
+        "articleHeight": 3012.921875
+      },
+      "pageErrors": [],
+      "consoleErrors": []
+    },
+    {
+      "articleId": "07_活动通知_创新实践周",
+      "branch": "deterministic",
+      "metrics": {
+        "innerWidth": 375,
+        "documentClientWidth": 375,
+        "documentScrollWidth": 375,
+        "bodyClientWidth": 375,
+        "bodyScrollWidth": 375,
+        "articleClientWidth": 375,
+        "articleScrollWidth": 375,
+        "imageOverflow": false,
+        "unguardedCode": false,
+        "unguardedTable": false,
+        "theme": "bit-innovation",
+        "articleHeight": 2537.734375
+      },
+      "pageErrors": [],
+      "consoleErrors": []
+    },
+    {
+      "articleId": "07_活动通知_创新实践周",
+      "branch": "deepseek",
+      "metrics": {
+        "innerWidth": 375,
+        "documentClientWidth": 375,
+        "documentScrollWidth": 375,
+        "bodyClientWidth": 375,
+        "bodyScrollWidth": 375,
+        "articleClientWidth": 375,
+        "articleScrollWidth": 375,
+        "imageOverflow": false,
+        "unguardedCode": false,
+        "unguardedTable": false,
+        "theme": "bit-official",
+        "articleHeight": 2732.5
+      },
+      "pageErrors": [],
+      "consoleErrors": []
+    }
+  ]
+}

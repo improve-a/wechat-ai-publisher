@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.1",
+  "stylePackId": "bit-xuteli-editorial-v1",
+  "budget": {
+    "minimumItems": 0,
+    "maximumItems": 5,
+    "maximumConsecutiveItems": 2,
+    "minimumArtworkRatio": 0,
+    "maximumArtworkRatio": 0.25,
+    "perTypeMaximum": {
+      "hero-artwork": 1,
+      "section-break-artwork": 2,
+      "profile-artwork": 1,
+      "achievement-artwork": 1,
+      "quote-artwork": 1,
+      "closing-artwork": 1
+    }
+  },
+  "items": []
+}

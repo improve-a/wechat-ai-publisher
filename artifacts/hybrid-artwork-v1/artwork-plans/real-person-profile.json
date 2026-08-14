@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "1",
+  "stylePackId": "bit-xuteli-editorial-v1",
+  "budget": {
+    "minimumItems": 2,
+    "maximumItems": 5,
+    "maximumConsecutiveItems": 2,
+    "minimumArtworkRatio": 0.1,
+    "maximumArtworkRatio": 0.25,
+    "perTypeMaximum": {
+      "hero-artwork": 1,
+      "section-break-artwork": 2,
+      "profile-artwork": 1,
+      "achievement-artwork": 1,
+      "quote-artwork": 1,
+      "closing-artwork": 1
+    }
+  },
+  "items": [
+    {
+      "id": "real-person-profile-01-quote-artwork",
+      "type": "quote-artwork",
+      "layoutBlockId": "l002",
+      "editorialUnitId": "e-section-001",
+      "sourceBlockIds": [
+        "a003",
+        "a004",
+        "a005",
+        "a006",
+        "a007"
+      ],
+      "sourceAssetIds": [],
+      "purpose": "为关键原话制造一次阅读停顿",
+      "visualWeight": "normal",
+      "reason": "存在短 QuoteBlock 且采用 artwork-plus-native-caption，原话仍保留 Native HTML。",
+      "templateVariant": "quiet-quote",
+      "renderPolicy": "artwork-plus-native-caption",
+      "output": {
+        "format": "png",
+        "width": 750,
+        "height": 320,
+        "pixelRatio": 2
+      }
+    },
+    {
+      "id": "real-person-profile-02-profile-artwork",
+      "type": "profile-artwork",
+      "layoutBlockId": "l004",
+      "editorialUnitId": "e-section-003",
+      "sourceBlockIds": [
+        "a012",
+        "a013",
+        "a014"
+      ],
+      "sourceAssetIds": [
+        "img006"
+      ],
+      "purpose": "建立人物与现场的视觉关系",
+      "visualWeight": "strong",
+      "reason": "节点包含高质量 portrait 资产；照片保持完整比例，人物正文继续使用 Native HTML。",
+      "templateVariant": "portrait-panel",
+      "renderPolicy": "artwork-plus-native-content",
+      "output": {
+        "format": "png",
+        "width": 750,
+        "height": 560,
+        "pixelRatio": 2
+      }
+    },
+    {
+      "id": "real-person-profile-03-achievement-artwork",
+      "type": "achievement-artwork",
+      "layoutBlockId": "l005",
+      "editorialUnitId": "e-section-004",
+      "sourceBlockIds": [
+        "a015",
+        "a016",
+        "a017",
+        "a018",
+        "a019"
+      ],
+      "sourceAssetIds": [
+        "img007"
+      ],
+      "purpose": "突出有源证据支持的成果节点",
+      "visualWeight": "strong",
+      "reason": "标题和正文包含可追溯的成果事实，Artwork 只重复短信息。",
+      "templateVariant": "evidence-led",
+      "renderPolicy": "artwork-plus-native-content",
+      "output": {
+        "format": "png",
+        "width": 750,
+        "height": 440,
+        "pixelRatio": 2
+      }
+    }
+  ]
+}

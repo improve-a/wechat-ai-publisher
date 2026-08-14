@@ -1,0 +1,9 @@
+{
+  "runCount": 1,
+  "status": "complete",
+  "startedAt": "2026-08-12T09:34:02.859Z",
+  "completedAt": "2026-08-12T09:34:31.126Z",
+  "model": "deepseek-v4-flash",
+  "liveResult": "PASS",
+  "liveAiRequestCount": 7
+}

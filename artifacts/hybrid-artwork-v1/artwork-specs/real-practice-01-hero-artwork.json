@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "1",
+  "artworkItemId": "real-practice-01-hero-artwork",
+  "type": "hero-artwork",
+  "stylePackId": "bit-xuteli-editorial-v1",
+  "templateVariant": "editorial-split",
+  "output": {
+    "format": "png",
+    "width": 750,
+    "height": 520,
+    "pixelRatio": 2
+  },
+  "visualWeight": "strong",
+  "renderPolicy": "artwork-plus-native-content",
+  "sourceBlockIds": [
+    "a001",
+    "a002"
+  ],
+  "sourceAssetIds": [
+    "img001"
+  ],
+  "texts": [
+    {
+      "role": "title",
+      "text": "沿河实践手记：从下水观察到共同清理的九个现场",
+      "source": {
+        "kind": "article-title"
+      }
+    },
+    {
+      "role": "subtitle",
+      "text": "实践队走进河道后，第一件事不是得出结论，而是观察水流、河床和现场条件。",
+      "source": {
+        "kind": "article-block",
+        "sourceBlockId": "a001"
+      }
+    }
+  ],
+  "images": [
+    {
+      "sourceAssetId": "img001",
+      "src": "/real-photo-stress/practice-01.jpg",
+      "alt": "学生依次进入河流开展观察",
+      "orientation": "landscape",
+      "aspectRatio": 1.5,
+      "fit": "contain"
+    }
+  ],
+  "specHash": "562ebeac0c4e138d"
+}

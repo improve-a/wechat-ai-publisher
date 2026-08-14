@@ -1,7 +1,12 @@
 import { bitInnovation } from "./bitInnovation";
 import { bitOfficial } from "./bitOfficial";
 import { bitYouth } from "./bitYouth";
-import type { ThemeDefinition, ThemeId, ThemeVariantId } from "./types";
+import type {
+  ThemeDefinition,
+  ThemeId,
+  ThemeVariantDefinition,
+  ThemeVariantId,
+} from "./types";
 
 export const themeRegistry = {
   [bitOfficial.id]: bitOfficial,
@@ -37,4 +42,13 @@ export function resolveThemeVariant(
   }
 
   return theme.defaultVariant;
+}
+
+export function getThemeVariantDefinition(
+  theme: ThemeDefinition,
+  variantId: ThemeVariantId,
+): ThemeVariantDefinition {
+  const variant = theme.themeVariants.find((candidate) => candidate.id === variantId);
+  if (!variant) throw new Error(`${variantId} is not registered for ${theme.id}`);
+  return variant;
 }

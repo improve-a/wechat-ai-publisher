@@ -1,0 +1,207 @@
+export const WECHAT_ALLOWED_TAGS = new Set([
+  "a",
+  "aside",
+  "blockquote",
+  "br",
+  "code",
+  "dd",
+  "div",
+  "dl",
+  "dt",
+  "em",
+  "figcaption",
+  "figure",
+  "footer",
+  "h1",
+  "h2",
+  "h3",
+  "header",
+  "hr",
+  "img",
+  "li",
+  "ol",
+  "p",
+  "pre",
+  "section",
+  "span",
+  "strong",
+  "table",
+  "tbody",
+  "td",
+  "th",
+  "thead",
+  "tr",
+  "ul",
+]);
+
+export const WECHAT_ALLOWED_STYLE_PROPERTIES = new Set([
+  "aspect-ratio",
+  "background-color",
+  "border",
+  "border-bottom",
+  "border-collapse",
+  "border-left",
+  "border-radius",
+  "border-top",
+  "box-sizing",
+  "box-shadow",
+  "color",
+  "display",
+  "font-family",
+  "font-size",
+  "font-style",
+  "font-weight",
+  "gap",
+  "grid-template-columns",
+  "height",
+  "letter-spacing",
+  "line-height",
+  "list-style-position",
+  "margin",
+  "margin-bottom",
+  "margin-left",
+  "margin-right",
+  "margin-top",
+  "max-width",
+  "min-width",
+  "object-fit",
+  "overflow",
+  "overflow-wrap",
+  "overflow-x",
+  "padding",
+  "padding-bottom",
+  "padding-left",
+  "padding-right",
+  "padding-top",
+  "table-layout",
+  "text-align",
+  "text-decoration",
+  "transform",
+  "vertical-align",
+  "white-space",
+  "width",
+  "word-break",
+]);
+
+export const GLOBAL_ALLOWED_ATTRIBUTES = new Set([
+  "aria-hidden",
+  "aria-label",
+  "data-asset-id",
+  "data-asset-state",
+  "data-component",
+  "data-component-variant",
+  "data-composition",
+  "data-editorial-unit-id",
+  "data-image-treatment",
+  "data-section-label",
+  "data-surface",
+  "data-transition",
+  "data-visual-weight",
+  "data-layout-block-id",
+  "data-source-block-ids",
+  "data-table-cell",
+  "data-table-column",
+  "data-table-presentation",
+  "data-table-row",
+  "data-table-scroll",
+  "data-theme",
+  "data-theme-variant",
+  "data-visual-tone",
+  "data-editorial-density",
+  "data-editorial-pace",
+  "data-title-treatment",
+  "data-visual-pattern",
+  "data-decoration",
+  "data-decorative-pattern-count",
+  "data-decorative-density",
+  "data-section-numbering-policy",
+  "data-section-number",
+  "data-visual-intensity",
+  "data-caption-policy",
+  "data-caption-role",
+  "data-caption-source",
+  "data-caption-treatment",
+  "data-reading-rhythm-policy",
+  "data-visual-pattern-restraint-policy",
+  "data-article-visual-coherence",
+  "data-reading-block",
+  "data-reading-segment",
+  "data-source-block-id",
+  "data-presentation-segment-count",
+  "data-photo-pair-policy",
+  "data-presentation-mode",
+  "data-artwork-render-policy",
+  "data-artwork-item-id",
+  "data-artwork-type",
+  "data-generated-artwork",
+  "data-source-asset-ids",
+  "data-hybrid-artwork-count",
+  "data-artwork-visual-ownership",
+  "data-owned-source-block-ids",
+  "data-augmented-source-block-ids",
+  "data-owns-article-title",
+  "data-native-visibility-policy",
+  "data-native-visibility",
+  "data-visual-replacement-provenance",
+  "role",
+  "style",
+  "tabindex",
+]);
+
+export const TAG_ALLOWED_ATTRIBUTES: Readonly<Record<string, ReadonlySet<string>>> = {
+  a: new Set(["href", "title"]),
+  code: new Set(["data-language"]),
+  img: new Set(["alt", "src"]),
+  th: new Set(["scope"]),
+};
+
+export function isDangerousStyleValue(value: string): boolean {
+  const normalized = value.toLocaleLowerCase().replace(/\s+/g, "");
+  return (
+    normalized.includes("url(") ||
+    normalized.includes("expression(") ||
+    normalized.includes("javascript:") ||
+    normalized.includes("@import") ||
+    normalized.includes("var(") ||
+    normalized.includes("behavior:") ||
+    normalized.includes("-moz-binding") ||
+    /[\u0000-\u0008\u000b\u000c\u000e-\u001f]/u.test(value)
+  );
+}
+
+export function isSafeLinkUrl(url: string): boolean {
+  const normalized = url.trim().toLocaleLowerCase();
+  return (
+    normalized.startsWith("https://") ||
+    normalized.startsWith("http://") ||
+    normalized.startsWith("mailto:") ||
+    normalized.startsWith("#") ||
+    normalized.startsWith("/")
+  );
+}
+
+export function isHttpsUrl(url: string): boolean {
+  try {
+    return new URL(url).protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
+export function isLocalFileReference(url: string): boolean {
+  const normalized = url.trim();
+  return (
+    /^file:/iu.test(normalized) ||
+    /^[a-z]:[\\/]/iu.test(normalized) ||
+    normalized.startsWith("\\\\")
+  );
+}
+
+export function isControlledPreviewUrl(url: string): boolean {
+  return (
+    url.startsWith("/") &&
+    !url.startsWith("//") &&
+    !url.includes("\\") &&
+    !url.split("/").includes("..")
+  );
+}

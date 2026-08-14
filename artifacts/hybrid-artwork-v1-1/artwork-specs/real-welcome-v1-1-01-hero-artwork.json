@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "1.1",
+  "artworkItemId": "real-welcome-v1-1-01-hero-artwork",
+  "type": "hero-artwork",
+  "stylePackId": "bit-xuteli-editorial-v1",
+  "templateVariant": "photo-led",
+  "output": {
+    "format": "png",
+    "width": 750,
+    "height": 520,
+    "pixelRatio": 2
+  },
+  "visualWeight": "strong",
+  "renderPolicy": "artwork-plus-native-content",
+  "sourceBlockIds": [
+    "a001",
+    "a002"
+  ],
+  "sourceAssetIds": [
+    "img001"
+  ],
+  "texts": [
+    {
+      "role": "title",
+      "text": "新生抵达之后：一场从集合到认识彼此的校园迎新",
+      "source": {
+        "kind": "article-title"
+      }
+    }
+  ],
+  "images": [
+    {
+      "sourceAssetId": "img001",
+      "src": "/real-photo-stress/welcome-01.jpg",
+      "alt": "校园树荫下的新生小组",
+      "orientation": "landscape",
+      "aspectRatio": 1.5098039215686274,
+      "fit": "contain"
+    }
+  ],
+  "visualOwnership": "replace",
+  "ownedSourceBlockIds": [],
+  "augmentedSourceBlockIds": [
+    "a001",
+    "a002"
+  ],
+  "ownsArticleTitle": true,
+  "nativeVisibilityPolicy": "hide-owned-structure",
+  "incrementalValueReason": {
+    "nativeAlreadySufficient": false,
+    "solvesNativeConstraint": true,
+    "establishesVisualClimax": true,
+    "improvesHierarchy": true,
+    "repeatsExistingInformationOnly": false,
+    "whyArtworkOverNative": "主照片与完整标题需要成为一个首屏视觉单元；Artwork 唯一承担可见标题，Native 只继续导语。"
+  },
+  "nativeCoherence": {
+    "themeId": "bit-youth",
+    "themeVariant": "campus",
+    "primaryColor": "#009A44",
+    "accentColor": "#94450B",
+    "backgroundColor": "#FFFEFB",
+    "surfaceColor": "#F7FAF7",
+    "textStrongColor": "#222824",
+    "textMutedColor": "#8A908C",
+    "borderColor": "#D4DDD6",
+    "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+    "imageRadius": "12px",
+    "labelLanguage": "source-backed-chinese"
+  },
+  "specHash": "4bbdf9f8a8b05d21"
+}

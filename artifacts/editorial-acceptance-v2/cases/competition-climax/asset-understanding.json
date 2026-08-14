@@ -1,0 +1,206 @@
+{
+  "schemaVersion": "1",
+  "assets": [
+    {
+      "assetId": "img001",
+      "description": "清晨赛场与待检机器人",
+      "subjects": [
+        "机器人",
+        "赛场"
+      ],
+      "scene": "决赛检录",
+      "shotType": "wide",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 30,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "hero-candidate"
+      ],
+      "relatedSourceBlockIds": [
+        "a002"
+      ]
+    },
+    {
+      "assetId": "img002",
+      "description": "队员围绕故障设备排查",
+      "subjects": [
+        "队员",
+        "机器人"
+      ],
+      "scene": "故障排查",
+      "shotType": "medium",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 5,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a008"
+      ]
+    },
+    {
+      "assetId": "img003",
+      "description": "编码器波形与接插件",
+      "subjects": [
+        "示波器",
+        "接插件"
+      ],
+      "scene": "故障排查",
+      "shotType": "detail",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 1,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a010"
+      ]
+    },
+    {
+      "assetId": "img004",
+      "description": "控制组调整策略参数",
+      "subjects": [
+        "队员",
+        "控制界面"
+      ],
+      "scene": "策略重写",
+      "shotType": "medium",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 3,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a016"
+      ]
+    },
+    {
+      "assetId": "img005",
+      "description": "版本记录表近景",
+      "subjects": [
+        "版本记录"
+      ],
+      "scene": "策略重写",
+      "shotType": "detail",
+      "orientation": "square",
+      "aspectRatio": 1,
+      "peopleCount": 0,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a018"
+      ]
+    },
+    {
+      "assetId": "img006",
+      "description": "机器人高速越过坡面",
+      "subjects": [
+        "机器人",
+        "障碍"
+      ],
+      "scene": "决赛高潮",
+      "shotType": "wide",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 14,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "supporting",
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a025"
+      ]
+    },
+    {
+      "assetId": "img007",
+      "description": "队员注视最后一次转向",
+      "subjects": [
+        "队员"
+      ],
+      "scene": "决赛高潮",
+      "shotType": "close-up",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 4,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a027"
+      ]
+    },
+    {
+      "assetId": "img008",
+      "description": "维护区等待结果",
+      "subjects": [
+        "队员",
+        "维护区"
+      ],
+      "scene": "等待结果",
+      "shotType": "medium",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 7,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a033"
+      ]
+    },
+    {
+      "assetId": "img009",
+      "description": "奖杯与机器人结构细节",
+      "subjects": [
+        "奖杯",
+        "机器人"
+      ],
+      "scene": "冠军复盘",
+      "shotType": "detail",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 0,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "evidence"
+      ],
+      "relatedSourceBlockIds": [
+        "a039"
+      ]
+    },
+    {
+      "assetId": "img010",
+      "description": "冠军团队与机器人合影",
+      "subjects": [
+        "团队",
+        "机器人",
+        "奖杯"
+      ],
+      "scene": "冠军公布",
+      "shotType": "group",
+      "orientation": "landscape",
+      "aspectRatio": 1.7777777777777777,
+      "peopleCount": 16,
+      "visualQuality": "high",
+      "semanticRoles": [
+        "closing-candidate",
+        "supporting"
+      ],
+      "relatedSourceBlockIds": [
+        "a042"
+      ]
+    }
+  ]
+}

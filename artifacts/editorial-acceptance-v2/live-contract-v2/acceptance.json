@@ -1,0 +1,280 @@
+{
+  "acceptanceSet": "REALISTIC_EDITORIAL_ACCEPTANCE_SET_V2",
+  "liveAcceptanceRunCount": 1,
+  "model": "deepseek-v4-flash",
+  "endpoint": "https://api.deepseek.com",
+  "startedAt": "2026-08-12T09:34:02.859Z",
+  "completedAt": "2026-08-12T09:34:31.126Z",
+  "liveAiRequestCount": 7,
+  "repairCount": 0,
+  "initialSchemaPass": 7,
+  "apiFailure": 0,
+  "tokenUsage": {
+    "promptTokens": 50846,
+    "promptCacheHitTokens": 4480,
+    "promptCacheMissTokens": 46366,
+    "completionTokens": 5168,
+    "totalTokens": 56014
+  },
+  "liveResult": "PASS",
+  "passedArticles": 7,
+  "totalArticles": 7,
+  "humanEditorialVisualReviewRequired": "YES",
+  "officialAccountLevel": "AWAITING_HUMAN_REVIEW",
+  "results": [
+    {
+      "id": "welcome-journey",
+      "result": "PASS",
+      "attempts": 1,
+      "repairTriggered": false,
+      "initialSchemaPass": true,
+      "canonicalizations": [],
+      "unaffectedFieldStability": "NOT_APPLICABLE",
+      "requestCount": 1,
+      "diagnostics": [],
+      "sourceExactlyOnce": true,
+      "sourceOrderPreserved": true,
+      "previewValidation": {
+        "valid": true,
+        "errors": [],
+        "warnings": []
+      },
+      "compositionSequence": [
+        "hero-visual",
+        "asymmetric-photo-pair",
+        "asymmetric-photo-pair",
+        "asymmetric-photo-pair",
+        "full-width-story",
+        "full-width-story",
+        "closing-visual"
+      ],
+      "visualPatternSequence": [
+        "compact-image-header",
+        "label-title",
+        "full-width-image",
+        "label-title",
+        "full-width-image",
+        "label-title",
+        "full-width-image"
+      ]
+    },
+    {
+      "id": "competition-climax",
+      "result": "PASS",
+      "attempts": 1,
+      "repairTriggered": false,
+      "initialSchemaPass": true,
+      "canonicalizations": [],
+      "unaffectedFieldStability": "NOT_APPLICABLE",
+      "requestCount": 1,
+      "diagnostics": [],
+      "sourceExactlyOnce": true,
+      "sourceOrderPreserved": true,
+      "previewValidation": {
+        "valid": true,
+        "errors": [],
+        "warnings": []
+      },
+      "compositionSequence": [
+        "hero-visual",
+        "asymmetric-photo-pair",
+        "asymmetric-photo-pair",
+        "visual-climax",
+        "media-story",
+        "achievement-spotlight",
+        "closing-visual"
+      ],
+      "visualPatternSequence": [
+        "title-over-image",
+        "large-plus-detail",
+        "numbered-section-title",
+        "large-plus-detail",
+        "numbered-section-title",
+        "numbered-section-title",
+        "poster-isolated"
+      ]
+    },
+    {
+      "id": "person-award-portrait",
+      "result": "PASS",
+      "attempts": 1,
+      "repairTriggered": false,
+      "initialSchemaPass": true,
+      "canonicalizations": [],
+      "unaffectedFieldStability": "NOT_APPLICABLE",
+      "requestCount": 1,
+      "diagnostics": [],
+      "sourceExactlyOnce": true,
+      "sourceOrderPreserved": true,
+      "previewValidation": {
+        "valid": true,
+        "errors": [],
+        "warnings": []
+      },
+      "compositionSequence": [
+        "hero-visual",
+        "asymmetric-photo-pair",
+        "visual-climax",
+        "asymmetric-photo-pair",
+        "full-width-story",
+        "full-width-story",
+        "closing-visual"
+      ],
+      "visualPatternSequence": [
+        "text-first-header",
+        "label-title",
+        "label-title",
+        "image-over-image",
+        "label-title",
+        "framed-image",
+        "framed-image"
+      ]
+    },
+    {
+      "id": "performance-night",
+      "result": "PASS",
+      "attempts": 1,
+      "repairTriggered": false,
+      "initialSchemaPass": true,
+      "canonicalizations": [],
+      "unaffectedFieldStability": "NOT_APPLICABLE",
+      "requestCount": 1,
+      "diagnostics": [],
+      "sourceExactlyOnce": true,
+      "sourceOrderPreserved": true,
+      "previewValidation": {
+        "valid": true,
+        "errors": [],
+        "warnings": []
+      },
+      "compositionSequence": [
+        "hero-visual",
+        "asymmetric-photo-pair",
+        "asymmetric-photo-pair",
+        "visual-climax",
+        "poster-feature",
+        "full-width-story",
+        "closing-visual"
+      ],
+      "visualPatternSequence": [
+        "full-image-hero",
+        "full-width-image",
+        "large-number-side-title",
+        "full-width-image",
+        "large-number-side-title",
+        "full-width-image",
+        "full-width-image"
+      ]
+    },
+    {
+      "id": "science-evidence",
+      "result": "PASS",
+      "attempts": 1,
+      "repairTriggered": false,
+      "initialSchemaPass": true,
+      "canonicalizations": [],
+      "unaffectedFieldStability": "NOT_APPLICABLE",
+      "requestCount": 1,
+      "diagnostics": [],
+      "sourceExactlyOnce": true,
+      "sourceOrderPreserved": true,
+      "previewValidation": {
+        "valid": true,
+        "errors": [],
+        "warnings": []
+      },
+      "compositionSequence": [
+        "hero-visual",
+        "full-width-story",
+        "full-width-story",
+        "visual-climax",
+        "achievement-spotlight",
+        "achievement-spotlight",
+        "closing-visual"
+      ],
+      "visualPatternSequence": [
+        "text-first-header",
+        "minimal-rule-title",
+        "full-width-image",
+        "large-plus-detail",
+        "minimal-rule-title",
+        "full-width-image",
+        "framed-image"
+      ]
+    },
+    {
+      "id": "practice-fieldnotes",
+      "result": "PASS",
+      "attempts": 1,
+      "repairTriggered": false,
+      "initialSchemaPass": true,
+      "canonicalizations": [],
+      "unaffectedFieldStability": "NOT_APPLICABLE",
+      "requestCount": 1,
+      "diagnostics": [],
+      "sourceExactlyOnce": true,
+      "sourceOrderPreserved": true,
+      "previewValidation": {
+        "valid": true,
+        "errors": [],
+        "warnings": []
+      },
+      "compositionSequence": [
+        "hero-visual",
+        "asymmetric-photo-pair",
+        "asymmetric-photo-pair",
+        "visual-climax",
+        "full-width-story",
+        "full-width-story",
+        "closing-visual"
+      ],
+      "visualPatternSequence": [
+        "compact-image-header",
+        "numbered-section-title",
+        "full-width-image",
+        "numbered-section-title",
+        "full-width-image",
+        "numbered-section-title",
+        "full-width-image"
+      ]
+    },
+    {
+      "id": "event-open-day",
+      "result": "PASS",
+      "attempts": 1,
+      "repairTriggered": false,
+      "initialSchemaPass": true,
+      "canonicalizations": [],
+      "unaffectedFieldStability": "NOT_APPLICABLE",
+      "requestCount": 1,
+      "diagnostics": [],
+      "sourceExactlyOnce": true,
+      "sourceOrderPreserved": true,
+      "previewValidation": {
+        "valid": true,
+        "errors": [],
+        "warnings": []
+      },
+      "compositionSequence": [
+        "hero-visual",
+        "section-opener",
+        "photo-pair",
+        "photo-pair",
+        "photo-pair",
+        "full-width-story",
+        "full-width-story",
+        "closing-visual"
+      ],
+      "visualPatternSequence": [
+        "title-over-image",
+        "numbered-section-title",
+        "asymmetric-pair",
+        "full-width-image",
+        "asymmetric-pair",
+        "numbered-section-title",
+        "full-width-image",
+        "full-width-image"
+      ]
+    }
+  ]
+}
