@@ -1,7 +1,8 @@
 import type { ArticleBlock } from "../article-ast";
 import type { AssetUnderstanding } from "../editorial";
+import { resolveArtworkNativeCoherence } from "./coherence";
 import { validateArtworkSpec } from "./validator";
-import { ARTWORK_SPEC_SCHEMA_VERSION, type ArtworkPlan, type ArtworkSpec, type ArtworkTextFragment, type ArtworkValidationContext } from "./types";
+import { ARTWORK_PLAN_SCHEMA_VERSION_V1_1, ARTWORK_SPEC_SCHEMA_VERSION, ARTWORK_SPEC_SCHEMA_VERSION_V1_1, type ArtworkPlan, type ArtworkSpec, type ArtworkTextFragment, type ArtworkValidationContext } from "./types";
 
 function hash64(value: string): string {
   let hash = 0xcbf29ce484222325n;
@@ -24,6 +25,48 @@ function shortSentence(block: ArticleBlock | undefined): string | undefined {
   const match = /^.*?[。！？!?](?:[”’」』])?/u.exec(value);
   const sentence = (match?.[0] ?? value).trim();
   return sentence.length <= 96 ? sentence : undefined;
+}
+
+function shortStructuralLabel(value: string): string {
+  const clause = value.split(/[，。！？：；,!?:;]/u)[0]?.trim() ?? value.trim();
+  return (clause.length <= 10 ? clause : clause.slice(0, 10)).trim();
+}
+
+function shortQuotePull(value: string): string {
+  const withoutOpeningQuote = value.replace(/^[“"'「『]+/u, "");
+  const clause = withoutOpeningQuote.split(/[，。！？；,!?;]/u)[0]?.trim() ?? withoutOpeningQuote.trim();
+  return (clause.length <= 18 ? clause : clause.slice(0, 18)).trim();
+}
+
+function textsForV11Item(
+  item: ArtworkPlan["items"][number],
+  context: ArtworkValidationContext,
+): ArtworkTextFragment[] {
+  const blocks = item.sourceBlockIds.map((id) => context.article.blocks.find((block) => block.id === id)).filter((block): block is ArticleBlock => Boolean(block));
+  const heading = blocks.find((block) => block.type === "heading");
+  const quote = blocks.find((block) => block.type === "quote");
+  const asset = item.sourceAssetIds.length
+    ? context.assetUnderstanding.assets.find((candidate) => candidate.assetId === item.sourceAssetIds[0])
+    : undefined;
+  if (item.type === "hero-artwork" && context.article.title) {
+    return [{ role: "title", text: context.article.title, source: { kind: "article-title" } }];
+  }
+  if (item.type === "profile-artwork" && asset) {
+    return [{ role: "title", text: asset.description, source: { kind: "asset-metadata", sourceAssetId: asset.assetId } }];
+  }
+  if (item.type === "quote-artwork" && quote && "text" in quote) {
+    return [{ role: "quote", text: shortQuotePull(quote.text), source: { kind: "article-block", sourceBlockId: quote.id } }];
+  }
+  if ((item.type === "section-break-artwork" || item.type === "achievement-artwork") && heading && "text" in heading) {
+    return [{ role: "title", text: shortStructuralLabel(heading.text), source: { kind: "article-block", sourceBlockId: heading.id } }];
+  }
+  if (item.type === "closing-artwork" && asset) {
+    return [{ role: "closing", text: asset.scene, source: { kind: "asset-metadata", sourceAssetId: asset.assetId } }];
+  }
+  if (heading && "text" in heading) {
+    return [{ role: "title", text: shortStructuralLabel(heading.text), source: { kind: "article-block", sourceBlockId: heading.id } }];
+  }
+  throw new Error(`V1.1 Artwork ${item.id} has no restrained source-backed text`);
 }
 
 function textsForItem(
@@ -79,8 +122,9 @@ export function buildArtworkSpecs(
 ): ArtworkSpec[] {
   const understanding = new Map(context.assetUnderstanding.assets.map((asset) => [asset.assetId, asset]));
   return plan.items.map((item) => {
+    const isV11 = plan.schemaVersion === ARTWORK_PLAN_SCHEMA_VERSION_V1_1;
     const seed = {
-      schemaVersion: ARTWORK_SPEC_SCHEMA_VERSION,
+      schemaVersion: isV11 ? ARTWORK_SPEC_SCHEMA_VERSION_V1_1 : ARTWORK_SPEC_SCHEMA_VERSION,
       artworkItemId: item.id,
       type: item.type,
       stylePackId: plan.stylePackId,
@@ -90,12 +134,21 @@ export function buildArtworkSpecs(
       renderPolicy: item.renderPolicy,
       sourceBlockIds: [...item.sourceBlockIds],
       sourceAssetIds: [...item.sourceAssetIds],
-      texts: textsForItem(item, context),
+      texts: isV11 ? textsForV11Item(item, context) : textsForItem(item, context),
       images: item.sourceAssetIds.map((id) => {
         const asset = understanding.get(id);
         if (!asset) throw new Error(`Artwork source understanding is missing: ${id}`);
         return imageForAsset(asset, previewUrlByAssetId);
       }),
+      ...(isV11 ? {
+        visualOwnership: item.visualOwnership,
+        ownedSourceBlockIds: [...(item.ownedSourceBlockIds ?? [])],
+        augmentedSourceBlockIds: [...(item.augmentedSourceBlockIds ?? [])],
+        ownsArticleTitle: item.ownsArticleTitle ?? false,
+        nativeVisibilityPolicy: item.nativeVisibilityPolicy,
+        incrementalValueReason: item.incrementalValueReason,
+        nativeCoherence: resolveArtworkNativeCoherence(context),
+      } : {}),
     };
     const spec: ArtworkSpec = { ...seed, specHash: hash64(JSON.stringify(seed)) };
     return validateArtworkSpec(spec, plan, context);

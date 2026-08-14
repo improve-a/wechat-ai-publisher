@@ -5,6 +5,7 @@ import { artworkTemplateRegistryById } from "./registry";
 import { validateArtworkPlan } from "./validator";
 import {
   ARTWORK_PLAN_SCHEMA_VERSION,
+  ARTWORK_PLAN_SCHEMA_VERSION_V1_1,
   ARTWORK_TYPES,
   type ArtworkBudget,
   type ArtworkItem,
@@ -12,6 +13,7 @@ import {
   type ArtworkPlan,
   type ArtworkType,
   type ArtworkVisualWeight,
+  type ArtworkVisualOwnership,
 } from "./types";
 
 const DEFAULT_STYLE_PACK_ID = "bit-xuteli-editorial-v1";
@@ -31,6 +33,18 @@ export const DEFAULT_ARTWORK_BUDGET: ArtworkBudget = {
     "closing-artwork": 1,
   },
 };
+
+export const DEFAULT_ARTWORK_BUDGET_V1_1: ArtworkBudget = {
+  ...DEFAULT_ARTWORK_BUDGET,
+  minimumItems: 0,
+  minimumArtworkRatio: 0,
+};
+
+export function defaultArtworkVisualOwnership(type: ArtworkType): ArtworkVisualOwnership {
+  if (type === "hero-artwork") return "replace";
+  if (type === "achievement-artwork") return "summarize";
+  return "augment";
+}
 
 function sourceBlockIds(block: LayoutBlock): string[] {
   return "sourceBlockIds" in block.provenance ? [...block.provenance.sourceBlockIds] : [];
@@ -190,6 +204,95 @@ export function planArtworkDeterministically(input: ArtworkPlannerInput): Artwor
     budget: {
       ...DEFAULT_ARTWORK_BUDGET,
       perTypeMaximum: Object.fromEntries(ARTWORK_TYPES.map((type) => [type, DEFAULT_ARTWORK_BUDGET.perTypeMaximum[type]])) as Record<ArtworkType, number>,
+    },
+    items,
+  };
+  return validateArtworkPlan(plan, input);
+}
+
+function createV11Item(
+  input: ArtworkPlannerInput,
+  type: ArtworkType,
+  block: LayoutBlock,
+  sequence: number,
+): ArtworkItem {
+  const base = createItem(input, type, block, sequence);
+  const visualOwnership = defaultArtworkVisualOwnership(type);
+  const ownsArticleTitle = type === "hero-artwork" && visualOwnership === "replace";
+  const ownedSourceBlockIds: string[] = [];
+  const augmentedSourceBlockIds = [...base.sourceBlockIds];
+  const incrementalValue = (() => {
+    switch (type) {
+      case "hero-artwork": return {
+        nativeAlreadySufficient: false, solvesNativeConstraint: true, establishesVisualClimax: true, improvesHierarchy: true, repeatsExistingInformationOnly: false,
+        whyArtworkOverNative: "主照片与完整标题需要成为一个首屏视觉单元；Artwork 唯一承担可见标题，Native 只继续导语。",
+      };
+      case "section-break-artwork": return {
+        nativeAlreadySufficient: true, solvesNativeConstraint: false, establishesVisualClimax: true, improvesHierarchy: true, repeatsExistingInformationOnly: false,
+        whyArtworkOverNative: "仅在活动稿的关键阶段加入一次短标签转场；完整章节标题仍由 Native 承担。",
+      };
+      case "profile-artwork": return {
+        nativeAlreadySufficient: true, solvesNativeConstraint: true, establishesVisualClimax: false, improvesHierarchy: true, repeatsExistingInformationOnly: false,
+        whyArtworkOverNative: "纵向肖像与来源身份描述需要稳定的并置关系，Artwork 不重复 Native 章节标题。",
+      };
+      case "achievement-artwork": return {
+        nativeAlreadySufficient: true, solvesNativeConstraint: true, establishesVisualClimax: true, improvesHierarchy: true, repeatsExistingInformationOnly: false,
+        whyArtworkOverNative: "用证据照片和来源标题中的极短事实建立成果节点，完整解释继续保留 Native。",
+      };
+      case "quote-artwork": return {
+        nativeAlreadySufficient: true, solvesNativeConstraint: false, establishesVisualClimax: false, improvesHierarchy: true, repeatsExistingInformationOnly: false,
+        whyArtworkOverNative: "只使用来源原话中的短 pull phrase 制造停顿，完整引语继续 Native；默认不选中。",
+      };
+      case "closing-artwork": return {
+        nativeAlreadySufficient: true, solvesNativeConstraint: true, establishesVisualClimax: false, improvesHierarchy: true, repeatsExistingInformationOnly: false,
+        whyArtworkOverNative: "只在来源合影需要与开场形成图像回声时选择，结尾正文继续 Native；默认不强制。",
+      };
+    }
+  })();
+  return {
+    ...base,
+    id: `${input.namespace}-${String(sequence).padStart(2, "0")}-${type}`,
+    reason: incrementalValue.whyArtworkOverNative,
+    visualOwnership,
+    ownedSourceBlockIds,
+    augmentedSourceBlockIds,
+    ownsArticleTitle,
+    nativeVisibilityPolicy: ownsArticleTitle ? "hide-owned-structure" : "show-all",
+    incrementalValueReason: incrementalValue,
+  };
+}
+
+export function planArtworkV11Deterministically(input: ArtworkPlannerInput): ArtworkPlan {
+  const selected: Array<{ type: ArtworkType; block: LayoutBlock }> = [];
+  const used = new Set<string>();
+  const add = (type: ArtworkType, block: LayoutBlock | undefined) => {
+    if (!block || used.has(block.id)) return;
+    selected.push({ type, block });
+    used.add(block.id);
+  };
+  const articleType = input.editorialPlan.articleType;
+  const hero = input.layout.blocks.find((block) => block.component === "hero-visual");
+
+  if (articleType === "welcome") add("hero-artwork", hero);
+  if (articleType === "event-recap" || articleType === "competition") {
+    add("hero-artwork", hero);
+    add("section-break-artwork", findSectionBreakBlock(input, used));
+  }
+  if (articleType === "person-profile") {
+    add("profile-artwork", findProfileBlock(input, used));
+    add("achievement-artwork", findAchievementBlock(input, used));
+  }
+  // Practice/tutorial intentionally remain Native in V1.1: the existing documentary flow is already sufficient.
+
+  const layoutOrder = new Map(input.layout.blocks.map((block, index) => [block.id, index]));
+  selected.sort((left, right) => layoutOrder.get(left.block.id)! - layoutOrder.get(right.block.id)!);
+  const items = selected.map((selection, index) => createV11Item(input, selection.type, selection.block, index + 1));
+  const plan: ArtworkPlan = {
+    schemaVersion: ARTWORK_PLAN_SCHEMA_VERSION_V1_1,
+    stylePackId: input.stylePackId ?? DEFAULT_STYLE_PACK_ID,
+    budget: {
+      ...DEFAULT_ARTWORK_BUDGET_V1_1,
+      perTypeMaximum: Object.fromEntries(ARTWORK_TYPES.map((type) => [type, DEFAULT_ARTWORK_BUDGET_V1_1.perTypeMaximum[type]])) as Record<ArtworkType, number>,
     },
     items,
   };

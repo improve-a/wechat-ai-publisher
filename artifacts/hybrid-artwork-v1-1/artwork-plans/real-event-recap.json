@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.1",
+  "stylePackId": "bit-xuteli-editorial-v1",
+  "budget": {
+    "minimumItems": 0,
+    "maximumItems": 5,
+    "maximumConsecutiveItems": 2,
+    "minimumArtworkRatio": 0,
+    "maximumArtworkRatio": 0.25,
+    "perTypeMaximum": {
+      "hero-artwork": 1,
+      "section-break-artwork": 2,
+      "profile-artwork": 1,
+      "achievement-artwork": 1,
+      "quote-artwork": 1,
+      "closing-artwork": 1
+    }
+  },
+  "items": [
+    {
+      "id": "real-event-recap-v1-1-01-hero-artwork",
+      "type": "hero-artwork",
+      "layoutBlockId": "l001",
+      "editorialUnitId": "e-hero",
+      "sourceBlockIds": [
+        "a001",
+        "a002"
+      ],
+      "sourceAssetIds": [
+        "img001"
+      ],
+      "purpose": "建立首屏视觉身份",
+      "visualWeight": "strong",
+      "reason": "主照片与完整标题需要成为一个首屏视觉单元；Artwork 唯一承担可见标题，Native 只继续导语。",
+      "templateVariant": "minimal-overlay",
+      "renderPolicy": "artwork-plus-native-content",
+      "output": {
+        "format": "png",
+        "width": 750,
+        "height": 520,
+        "pixelRatio": 2
+      },
+      "visualOwnership": "replace",
+      "ownedSourceBlockIds": [],
+      "augmentedSourceBlockIds": [
+        "a001",
+        "a002"
+      ],
+      "ownsArticleTitle": true,
+      "nativeVisibilityPolicy": "hide-owned-structure",
+      "incrementalValueReason": {
+        "nativeAlreadySufficient": false,
+        "solvesNativeConstraint": true,
+        "establishesVisualClimax": true,
+        "improvesHierarchy": true,
+        "repeatsExistingInformationOnly": false,
+        "whyArtworkOverNative": "主照片与完整标题需要成为一个首屏视觉单元；Artwork 唯一承担可见标题，Native 只继续导语。"
+      }
+    },
+    {
+      "id": "real-event-recap-v1-1-02-section-break-artwork",
+      "type": "section-break-artwork",
+      "layoutBlockId": "l005",
+      "editorialUnitId": "e-section-004",
+      "sourceBlockIds": [
+        "a015",
+        "a016",
+        "a017"
+      ],
+      "sourceAssetIds": [
+        "img008"
+      ],
+      "purpose": "标记少量关键视觉转场",
+      "visualWeight": "climax",
+      "reason": "仅在活动稿的关键阶段加入一次短标签转场；完整章节标题仍由 Native 承担。",
+      "templateVariant": "scene-transition",
+      "renderPolicy": "artwork-plus-native-content",
+      "output": {
+        "format": "png",
+        "width": 750,
+        "height": 240,
+        "pixelRatio": 2
+      },
+      "visualOwnership": "augment",
+      "ownedSourceBlockIds": [],
+      "augmentedSourceBlockIds": [
+        "a015",
+        "a016",
+        "a017"
+      ],
+      "ownsArticleTitle": false,
+      "nativeVisibilityPolicy": "show-all",
+      "incrementalValueReason": {
+        "nativeAlreadySufficient": true,
+        "solvesNativeConstraint": false,
+        "establishesVisualClimax": true,
+        "improvesHierarchy": true,
+        "repeatsExistingInformationOnly": false,
+        "whyArtworkOverNative": "仅在活动稿的关键阶段加入一次短标签转场；完整章节标题仍由 Native 承担。"
+      }
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import { planArtDirectionDeterministically, type ArtDirectionPlan } from "../art
 import {
   buildArtworkSpecs,
   planArtworkDeterministically,
+  planArtworkV11Deterministically,
   type ArtworkPlan,
   type ArtworkSpec,
   type ArtworkValidationContext,
@@ -140,3 +141,15 @@ export function createHybridArtworkScenario(fixture: HybridArtworkAcceptanceCase
 }
 
 export const HYBRID_ARTWORK_SCENARIOS_V1 = HYBRID_ARTWORK_ACCEPTANCE_SET_V1.map(createHybridArtworkScenario);
+
+export function createHybridArtworkV11Scenario(fixture: HybridArtworkAcceptanceCase): HybridArtworkScenario {
+  const baseline = createHybridArtworkScenario(fixture);
+  const artworkPlan = planArtworkV11Deterministically({
+    namespace: `${fixture.id}-v1-1`,
+    ...baseline.validationContext,
+  });
+  const artworkSpecs = buildArtworkSpecs(artworkPlan, baseline.validationContext, fixture.previewUrlByAssetId);
+  return { ...baseline, artworkPlan, artworkSpecs };
+}
+
+export const HYBRID_ARTWORK_SCENARIOS_V1_1 = HYBRID_ARTWORK_ACCEPTANCE_SET_V1.map(createHybridArtworkV11Scenario);

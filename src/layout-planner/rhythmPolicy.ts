@@ -86,7 +86,13 @@ export function enforceLayoutRhythm(
       ...(block.assetIds ? { assetIds: [...block.assetIds] } : {}),
       ...(block.visualPattern ? { visualPattern: block.visualPattern } : {}),
       ...(block.presentationMode ? { presentationMode: block.presentationMode } : {}),
-      ...(block.artwork ? { artwork: { ...block.artwork, sourceBlockIds: [...block.artwork.sourceBlockIds], sourceAssetIds: [...block.artwork.sourceAssetIds] } } : {}),
+      ...(block.artwork ? { artwork: {
+        ...block.artwork,
+        sourceBlockIds: [...block.artwork.sourceBlockIds],
+        sourceAssetIds: [...block.artwork.sourceAssetIds],
+        ...(block.artwork.ownedSourceBlockIds ? { ownedSourceBlockIds: [...block.artwork.ownedSourceBlockIds] } : {}),
+        ...(block.artwork.augmentedSourceBlockIds ? { augmentedSourceBlockIds: [...block.artwork.augmentedSourceBlockIds] } : {}),
+      } } : {}),
     };
   });
 

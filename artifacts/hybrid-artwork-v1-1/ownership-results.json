@@ -1,0 +1,117 @@
+{
+  "acceptanceSet": "HYBRID_ARTWORK_VISUAL_OWNERSHIP_V1_1",
+  "visualOwnershipResult": "PASS",
+  "ownershipCounts": {
+    "replace": 2,
+    "augment": 2,
+    "summarize": 1
+  },
+  "generatedArtworkCount": 5,
+  "artworkRemovedFromV1Count": 7,
+  "defaultToNativeArticleIds": [
+    "real-practice"
+  ],
+  "visibleSemanticDuplicationResult": "PASS",
+  "visibleSemanticDuplicationCount": 0,
+  "heroVisibleTitleDuplication": 0,
+  "sectionVisibleHeadingDuplication": 0,
+  "quoteVisibleDuplication": 0,
+  "nativeBodyTextVisibleResult": "PASS",
+  "genericEnglishLabelResult": "PASS",
+  "genericEnglishLabelCount": 0,
+  "artworkNativeVisualCoherenceResult": "PASS",
+  "visualReplacementProvenanceResult": "PASS",
+  "artworkRetentionReasonResult": "PASS",
+  "items": [
+    {
+      "id": "real-welcome-v1-1-01-hero-artwork",
+      "type": "hero-artwork",
+      "layoutBlockId": "l001",
+      "visualOwnership": "replace",
+      "ownedSourceBlockIds": [],
+      "augmentedSourceBlockIds": [
+        "a001",
+        "a002"
+      ],
+      "ownsArticleTitle": true,
+      "nativeVisibilityPolicy": "hide-owned-structure",
+      "whyArtworkOverNative": "主照片与完整标题需要成为一个首屏视觉单元；Artwork 唯一承担可见标题，Native 只继续导语。",
+      "texts": [
+        "新生抵达之后：一场从集合到认识彼此的校园迎新"
+      ]
+    },
+    {
+      "id": "real-event-recap-v1-1-01-hero-artwork",
+      "type": "hero-artwork",
+      "layoutBlockId": "l001",
+      "visualOwnership": "replace",
+      "ownedSourceBlockIds": [],
+      "augmentedSourceBlockIds": [
+        "a001",
+        "a002"
+      ],
+      "ownsArticleTitle": true,
+      "nativeVisibilityPolicy": "hide-owned-structure",
+      "whyArtworkOverNative": "主照片与完整标题需要成为一个首屏视觉单元；Artwork 唯一承担可见标题，Native 只继续导语。",
+      "texts": [
+        "机器人赛事回顾：从维修区到场边互动的九个瞬间"
+      ]
+    },
+    {
+      "id": "real-event-recap-v1-1-02-section-break-artwork",
+      "type": "section-break-artwork",
+      "layoutBlockId": "l005",
+      "visualOwnership": "augment",
+      "ownedSourceBlockIds": [],
+      "augmentedSourceBlockIds": [
+        "a015",
+        "a016",
+        "a017"
+      ],
+      "ownsArticleTitle": false,
+      "nativeVisibilityPolicy": "show-all",
+      "whyArtworkOverNative": "仅在活动稿的关键阶段加入一次短标签转场；完整章节标题仍由 Native 承担。",
+      "texts": [
+        "高光之后"
+      ]
+    },
+    {
+      "id": "real-person-profile-v1-1-01-profile-artwork",
+      "type": "profile-artwork",
+      "layoutBlockId": "l004",
+      "visualOwnership": "augment",
+      "ownedSourceBlockIds": [],
+      "augmentedSourceBlockIds": [
+        "a012",
+        "a013",
+        "a014"
+      ],
+      "ownsArticleTitle": false,
+      "nativeVisibilityPolicy": "show-all",
+      "whyArtworkOverNative": "纵向肖像与来源身份描述需要稳定的并置关系，Artwork 不重复 Native 章节标题。",
+      "texts": [
+        "迎新服务点的自然人物肖像"
+      ]
+    },
+    {
+      "id": "real-person-profile-v1-1-02-achievement-artwork",
+      "type": "achievement-artwork",
+      "layoutBlockId": "l005",
+      "visualOwnership": "summarize",
+      "ownedSourceBlockIds": [],
+      "augmentedSourceBlockIds": [
+        "a015",
+        "a016",
+        "a017",
+        "a018",
+        "a019"
+      ],
+      "ownsArticleTitle": false,
+      "nativeVisibilityPolicy": "show-all",
+      "whyArtworkOverNative": "用证据照片和来源标题中的极短事实建立成果节点，完整解释继续保留 Native。",
+      "texts": [
+        "服务成果"
+      ]
+    }
+  ]
+}

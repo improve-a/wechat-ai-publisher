@@ -4,7 +4,7 @@ import { getThemeVariantDefinition, themeRegistry } from "../themes/registry";
 import { COMPOSITION_IDS, type CompositionId } from "../compositions";
 import { weChatComponentAdapters, weChatCompositionAdapters } from "./adapters";
 import type { ComponentId } from "../components/types";
-import { element, styleAttribute } from "./html";
+import { element, renderInline, styleAttribute } from "./html";
 import { projectLayoutBlock } from "./projection";
 import { articleStyle } from "./styles";
 import type { WeChatRenderInput } from "./types";
@@ -12,6 +12,36 @@ import type { LayoutBlock } from "../layout-ast";
 
 const FORBIDDEN_FRAGMENT_ELEMENT =
   /<(?:html|head|body|style|script|iframe)(?:\s|>)/iu;
+
+const visuallyHiddenStructuralStyle = styleAttribute([
+  ["display", "block"], ["box-sizing", "border-box"], ["width", "1px"], ["max-width", "1px"],
+  ["height", "1px"], ["margin", "0"], ["padding", "0"], ["overflow", "hidden"],
+  ["color", "transparent"], ["font-size", "1px"], ["line-height", "1"], ["white-space", "nowrap"],
+]);
+
+function renderVisualReplacementProvenance(
+  layoutBlock: LayoutBlock,
+  sourceBlocks: ReturnType<typeof projectLayoutBlock>,
+  articleTitle: string | undefined,
+): string {
+  if (!layoutBlock.artwork || layoutBlock.artwork.visualOwnership !== "replace") return "";
+  const owned = new Set(layoutBlock.artwork.ownedSourceBlockIds ?? []);
+  const hiddenTitle = layoutBlock.artwork.ownsArticleTitle && articleTitle
+    ? element("h1", [
+        ["data-visual-replacement-provenance", "true"], ["data-native-visibility", "visually-hidden-structural"],
+        ["data-owns-article-title", "true"], visuallyHiddenStructuralStyle,
+      ], renderInline(undefined, articleTitle))
+    : "";
+  const hiddenBlocks = sourceBlocks.filter((block) => owned.has(block.id)).map((block) => {
+    if (!("text" in block)) throw new Error(`Visual replacement only supports short text structures: ${block.id}`);
+    const tag = block.type === "quote" ? "blockquote" : "h2";
+    return element(tag, [
+      ["data-visual-replacement-provenance", "true"], ["data-native-visibility", "visually-hidden-structural"],
+      ["data-source-block-ids", block.id], visuallyHiddenStructuralStyle,
+    ], renderInline(block.inline, block.text));
+  }).join("");
+  return `${hiddenTitle}${hiddenBlocks}`;
+}
 
 export function renderWeChatArticle(input: WeChatRenderInput): string {
   const article = validateArticleAST(input.article);
@@ -48,6 +78,9 @@ export function renderWeChatArticle(input: WeChatRenderInput): string {
         presentationMode: "native",
         artwork: undefined,
       };
+      const ownedSourceBlockIds = new Set(layoutBlock.artwork.ownedSourceBlockIds ?? []);
+      const nativeSourceBlocks = renderInput.sourceBlocks.filter((block) => !ownedSourceBlockIds.has(block.id));
+      const replacementProvenance = renderVisualReplacementProvenance(layoutBlock, renderInput.sourceBlocks, article.title);
       const artworkImage = element("img", [
         ["src", resolvedArtwork.src],
         ["alt", layoutBlock.artwork.alt],
@@ -65,15 +98,24 @@ export function renderWeChatArticle(input: WeChatRenderInput): string {
       ], "");
       const nativeCompanion = adapter.render({
         ...renderInput,
+        sourceBlocks: nativeSourceBlocks,
         layoutBlock: nativeLayoutBlock,
         suppressedAssetIds: new Set(layoutBlock.artwork.sourceAssetIds),
+        suppressArticleTitle: layoutBlock.artwork.ownsArticleTitle ?? false,
       });
       return element("section", [
         ["data-presentation-mode", "artwork"],
         ["data-artwork-render-policy", layoutBlock.artwork.renderPolicy],
         ["data-layout-block-id", layoutBlock.id],
+        ...(layoutBlock.artwork.visualOwnership ? ([
+          ["data-artwork-visual-ownership", layoutBlock.artwork.visualOwnership],
+          ["data-owned-source-block-ids", (layoutBlock.artwork.ownedSourceBlockIds ?? []).join(",")],
+          ["data-augmented-source-block-ids", (layoutBlock.artwork.augmentedSourceBlockIds ?? []).join(",")],
+          ["data-owns-article-title", String(layoutBlock.artwork.ownsArticleTitle ?? false)],
+          ["data-native-visibility-policy", layoutBlock.artwork.nativeVisibilityPolicy ?? "show-all"],
+        ] as const) : []),
         styleAttribute([["box-sizing", "border-box"], ["max-width", "100%"]]),
-      ], `${artworkImage}${nativeCompanion}`);
+      ], `${artworkImage}${replacementProvenance}${nativeCompanion}`);
     })
     .join("");
   const fragment = element(

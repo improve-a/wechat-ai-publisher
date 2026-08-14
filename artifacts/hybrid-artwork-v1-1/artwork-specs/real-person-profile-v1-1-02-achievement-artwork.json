@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.1",
+  "artworkItemId": "real-person-profile-v1-1-02-achievement-artwork",
+  "type": "achievement-artwork",
+  "stylePackId": "bit-xuteli-editorial-v1",
+  "templateVariant": "evidence-led",
+  "output": {
+    "format": "png",
+    "width": 750,
+    "height": 440,
+    "pixelRatio": 2
+  },
+  "visualWeight": "strong",
+  "renderPolicy": "artwork-plus-native-content",
+  "sourceBlockIds": [
+    "a015",
+    "a016",
+    "a017",
+    "a018",
+    "a019"
+  ],
+  "sourceAssetIds": [
+    "img007"
+  ],
+  "texts": [
+    {
+      "role": "title",
+      "text": "服务成果",
+      "source": {
+        "kind": "article-block",
+        "sourceBlockId": "a015"
+      }
+    }
+  ],
+  "images": [
+    {
+      "sourceAssetId": "img007",
+      "src": "/real-photo-stress/welcome-06.jpg",
+      "alt": "迎新活动中的自然互动",
+      "orientation": "landscape",
+      "aspectRatio": 1.5098039215686274,
+      "fit": "contain"
+    }
+  ],
+  "visualOwnership": "summarize",
+  "ownedSourceBlockIds": [],
+  "augmentedSourceBlockIds": [
+    "a015",
+    "a016",
+    "a017",
+    "a018",
+    "a019"
+  ],
+  "ownsArticleTitle": false,
+  "nativeVisibilityPolicy": "show-all",
+  "incrementalValueReason": {
+    "nativeAlreadySufficient": true,
+    "solvesNativeConstraint": true,
+    "establishesVisualClimax": true,
+    "improvesHierarchy": true,
+    "repeatsExistingInformationOnly": false,
+    "whyArtworkOverNative": "用证据照片和来源标题中的极短事实建立成果节点，完整解释继续保留 Native。"
+  },
+  "nativeCoherence": {
+    "themeId": "bit-official",
+    "themeVariant": "default",
+    "primaryColor": "#009A44",
+    "accentColor": "#94450B",
+    "backgroundColor": "#FFFFFF",
+    "surfaceColor": "#FFFFFF",
+    "textStrongColor": "#1F2321",
+    "textMutedColor": "#8B938E",
+    "borderColor": "#BFCBC3",
+    "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+    "imageRadius": "5px",
+    "labelLanguage": "source-backed-chinese"
+  },
+  "specHash": "5f64b253e818dbe0"
+}

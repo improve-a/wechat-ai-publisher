@@ -689,7 +689,7 @@ function renderComposition(input: WeChatComponentAdapterInput): string {
     .map((caption) => renderCompositionSource(input, caption))
     .join("");
   const titleTreatment = global?.titleTreatment ?? "formal";
-  const heroTitle = composition === "hero-visual" && input.article.title
+  const heroTitle = composition === "hero-visual" && input.article.title && !input.suppressArticleTitle
     ? element("h1", [styleAttribute([
         ["margin", titleTreatment === "statement" ? "12px 0 22px" : "0 0 16px"],
         ["padding", titleTreatment === "formal" ? "0 0 14px" : "0"],
@@ -703,7 +703,7 @@ function renderComposition(input: WeChatComponentAdapterInput): string {
         ["overflow-wrap", "anywhere"],
       ])], renderInline(undefined, input.article.title))
     : "";
-  const overlapHeroTitle = composition === "hero-visual" && input.article.title
+  const overlapHeroTitle = composition === "hero-visual" && input.article.title && !input.suppressArticleTitle
     ? element("section", [styleAttribute([
         ["box-sizing", "border-box"], ["margin", "-42px 18px 18px"], ["padding", "18px 16px"],
         ["background-color", accent], ["text-align", "center"],

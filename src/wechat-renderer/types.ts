@@ -22,6 +22,7 @@ export interface WeChatComponentAdapterInput {
   artDirection?: ArtDirectionPlan;
   sectionArtDirection?: SectionArtDirection;
   suppressedAssetIds?: ReadonlySet<string>;
+  suppressArticleTitle?: boolean;
 }
 
 export interface WeChatComponentAdapter {

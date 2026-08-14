@@ -2,8 +2,10 @@ import { z } from "zod";
 import type { ArticleBlock } from "../article-ast";
 import type { CompositionId } from "../compositions";
 import { artworkTemplateRegistryById, getArtworkStylePack } from "./registry";
+import { resolveArtworkNativeCoherence } from "./coherence";
+import { isNearExactSemanticDuplicate } from "./ownership";
 import { validateArtworkPlanShape, validateArtworkSpecShape, validateGeneratedArtworkAssetShape } from "./schema";
-import type { ArtworkDiagnostic, ArtworkPlan, ArtworkSpec, ArtworkValidationContext, GeneratedArtworkAsset } from "./types";
+import { ARTWORK_PLAN_SCHEMA_VERSION_V1_1, ARTWORK_SPEC_SCHEMA_VERSION_V1_1, type ArtworkDiagnostic, type ArtworkPlan, type ArtworkSpec, type ArtworkValidationContext, type GeneratedArtworkAsset } from "./types";
 
 export class ArtworkValidationError extends Error {
   readonly diagnostics: ArtworkDiagnostic[];
@@ -50,6 +52,9 @@ export function validateArtworkPlan(value: unknown, context: ArtworkValidationCo
   try { getArtworkStylePack(plan.stylePackId); }
   catch (error) { diagnostics.push({ code: "STYLE_PACK_UNKNOWN", message: String(error) }); }
   if (plan.budget.minimumItems > plan.budget.maximumItems) diagnostics.push({ code: "ARTWORK_BUDGET_INVALID", message: "minimumItems cannot exceed maximumItems" });
+  if (plan.schemaVersion === ARTWORK_PLAN_SCHEMA_VERSION_V1_1 && (plan.budget.minimumItems !== 0 || plan.budget.minimumArtworkRatio !== 0)) diagnostics.push({
+    code: "ARTWORK_DEFAULT_TO_NATIVE_REQUIRED", message: "V1.1 must allow zero Artwork and cannot enforce a minimum ratio",
+  });
   if (plan.items.length < plan.budget.minimumItems || plan.items.length > plan.budget.maximumItems) diagnostics.push({ code: "ARTWORK_BUDGET_COUNT", message: `Artwork count ${plan.items.length} is outside budget` });
   const ratio = artworkRatio(plan, context);
   if (ratio < plan.budget.minimumArtworkRatio || ratio > plan.budget.maximumArtworkRatio) diagnostics.push({ code: "ARTWORK_BUDGET_RATIO", message: `Artwork ratio ${ratio.toFixed(3)} is outside budget` });
@@ -74,6 +79,40 @@ export function validateArtworkPlan(value: unknown, context: ArtworkValidationCo
     if (!same(item.sourceBlockIds, layoutSources)) diagnostics.push({ code: "ARTWORK_PROVENANCE_MISMATCH", message: `ArtworkItem ${item.id} must copy its LayoutBlock provenance exactly`, artworkItemId: item.id });
     if (item.sourceBlockIds.some((id) => !sourceBlockIds.has(id))) diagnostics.push({ code: "ARTWORK_SOURCE_BLOCK_MISSING", message: `ArtworkItem ${item.id} references a missing source block`, artworkItemId: item.id });
     if (item.sourceAssetIds.some((id) => !sourceAssetIds.has(id) || !(layoutBlock.assetIds ?? []).includes(id))) diagnostics.push({ code: "ARTWORK_SOURCE_ASSET_MISMATCH", message: `ArtworkItem ${item.id} uses an asset outside its LayoutBlock`, artworkItemId: item.id });
+    if (plan.schemaVersion === ARTWORK_PLAN_SCHEMA_VERSION_V1_1) {
+      const owned = item.ownedSourceBlockIds ?? [];
+      const augmented = item.augmentedSourceBlockIds ?? [];
+      const ownership = item.visualOwnership;
+      const visibility = item.nativeVisibilityPolicy;
+      if (owned.some((id) => !item.sourceBlockIds.includes(id)) || augmented.some((id) => !item.sourceBlockIds.includes(id))) diagnostics.push({
+        code: "ARTWORK_OWNERSHIP_SOURCE_OUTSIDE_PROVENANCE", message: `${item.id} ownership ids must belong to sourceBlockIds`, artworkItemId: item.id,
+      });
+      if (owned.some((id) => augmented.includes(id)) || !same([...owned, ...augmented].sort(), [...item.sourceBlockIds].sort())) diagnostics.push({
+        code: "ARTWORK_OWNERSHIP_COVERAGE", message: `${item.id} owned + augmented source ids must partition provenance`, artworkItemId: item.id,
+      });
+      if (ownership === "replace") {
+        if (visibility !== "hide-owned-structure" || (!item.ownsArticleTitle && owned.length === 0)) diagnostics.push({
+          code: "ARTWORK_REPLACE_VISIBILITY_INVALID", message: `${item.id} replace must hide at least one owned structural semantic`, artworkItemId: item.id,
+        });
+      } else if (visibility !== "show-all" || item.ownsArticleTitle || owned.length > 0) diagnostics.push({
+        code: "ARTWORK_NON_REPLACE_VISIBILITY_INVALID", message: `${item.id} ${ownership} must keep all Native semantics visible`, artworkItemId: item.id,
+      });
+      if (item.ownsArticleTitle && (item.type !== "hero-artwork" || layoutBlock.provenance.kind !== "editorial-composition" || !layoutBlock.provenance.usesArticleTitle)) diagnostics.push({
+        code: "ARTWORK_ARTICLE_TITLE_OWNERSHIP_INVALID", message: `${item.id} cannot own the Article title`, artworkItemId: item.id,
+      });
+      for (const sourceId of owned) {
+        const block = context.article.blocks.find((candidate) => candidate.id === sourceId);
+        const allowed = block?.type === "heading" || (block?.type === "quote" && block.text.length <= 48);
+        if (!allowed) diagnostics.push({ code: "ARTWORK_BODY_VISUAL_REPLACEMENT_FORBIDDEN", message: `${item.id} cannot visually replace ${block?.type ?? sourceId}`, artworkItemId: item.id });
+      }
+      if (item.type === "profile-artwork" && ownership !== "augment") diagnostics.push({ code: "ARTWORK_OWNERSHIP_TYPE_INVALID", message: "profile-artwork must augment Native content", artworkItemId: item.id });
+      if (item.type === "achievement-artwork" && ownership !== "summarize") diagnostics.push({ code: "ARTWORK_OWNERSHIP_TYPE_INVALID", message: "achievement-artwork must summarize Native evidence", artworkItemId: item.id });
+      if ((item.type === "quote-artwork" || item.type === "closing-artwork") && ownership !== "augment") diagnostics.push({ code: "ARTWORK_OWNERSHIP_TYPE_INVALID", message: `${item.type} defaults to restrained augment`, artworkItemId: item.id });
+      const incremental = item.incrementalValueReason;
+      if (!incremental || incremental.repeatsExistingInformationOnly || !(incremental.solvesNativeConstraint || incremental.establishesVisualClimax || incremental.improvesHierarchy)) diagnostics.push({
+        code: "ARTWORK_INCREMENTAL_VALUE_REQUIRED", message: `${item.id} does not establish value over Native`, artworkItemId: item.id,
+      });
+    }
     const template = artworkTemplateRegistryById[item.templateVariant];
     if (!template || template.artworkType !== item.type) diagnostics.push({ code: "ARTWORK_TEMPLATE_INVALID", message: `Template ${item.templateVariant} is not registered for ${item.type}`, artworkItemId: item.id });
     else {
@@ -99,6 +138,18 @@ export function validateArtworkSpec(value: unknown, plan: ArtworkPlan, context: 
   if (spec.type !== item.type || spec.templateVariant !== item.templateVariant || !same(spec.sourceBlockIds, item.sourceBlockIds) || !same(spec.sourceAssetIds, item.sourceAssetIds)) diagnostics.push({ code: "ARTWORK_SPEC_PLAN_MISMATCH", message: `ArtworkSpec does not match plan item ${item.id}`, artworkItemId: item.id });
   const blockById = new Map(context.article.blocks.map((block) => [block.id, block]));
   const understanding = new Map(context.assetUnderstanding.assets.map((asset) => [asset.assetId, asset]));
+  if (spec.schemaVersion === ARTWORK_SPEC_SCHEMA_VERSION_V1_1) {
+    const ownershipMatches = spec.visualOwnership === item.visualOwnership &&
+      same(spec.ownedSourceBlockIds ?? [], item.ownedSourceBlockIds ?? []) &&
+      same(spec.augmentedSourceBlockIds ?? [], item.augmentedSourceBlockIds ?? []) &&
+      spec.ownsArticleTitle === item.ownsArticleTitle &&
+      spec.nativeVisibilityPolicy === item.nativeVisibilityPolicy &&
+      JSON.stringify(spec.incrementalValueReason) === JSON.stringify(item.incrementalValueReason);
+    if (!ownershipMatches) diagnostics.push({ code: "ARTWORK_SPEC_OWNERSHIP_MISMATCH", message: `ArtworkSpec ownership does not match ${item.id}`, artworkItemId: item.id });
+    if (JSON.stringify(spec.nativeCoherence) !== JSON.stringify(resolveArtworkNativeCoherence(context))) diagnostics.push({
+      code: "ARTWORK_NATIVE_COHERENCE_MISMATCH", message: `ArtworkSpec does not inherit Native visual hierarchy for ${item.id}`, artworkItemId: item.id,
+    });
+  }
   for (const fragment of spec.texts) {
     if (fragment.source.kind === "article-title") {
       if (fragment.text !== context.article.title) diagnostics.push({ code: "ARTWORK_TEXT_FACT_UNSOURCED", message: "Artwork title is not the Article title", artworkItemId: item.id });
@@ -109,10 +160,32 @@ export function validateArtworkSpec(value: unknown, plan: ArtworkPlan, context: 
       if (text && text.length > 160) diagnostics.push({ code: "ARTWORK_LONG_BODY_RASTERIZED", message: `Long source body ${fragment.source.sourceBlockId} cannot enter artwork`, artworkItemId: item.id });
     } else {
       const asset = understanding.get(fragment.source.sourceAssetId);
-      if (!asset || !item.sourceAssetIds.includes(asset.assetId) || ![asset.description, asset.scene, ...asset.subjects].includes(fragment.text)) diagnostics.push({ code: "ARTWORK_METADATA_UNSOURCED", message: `Artwork metadata is not traceable to ${fragment.source.sourceAssetId}`, artworkItemId: item.id });
+      if (!asset || !item.sourceAssetIds.includes(asset.assetId) || ![asset.description, asset.scene, ...asset.subjects].some((value) => value.includes(fragment.text))) diagnostics.push({ code: "ARTWORK_METADATA_UNSOURCED", message: `Artwork metadata is not traceable to ${fragment.source.sourceAssetId}`, artworkItemId: item.id });
     }
   }
   if (item.type === "quote-artwork" && item.renderPolicy !== "artwork-plus-native-caption") diagnostics.push({ code: "ARTWORK_QUOTE_NATIVE_REQUIRED", message: "Quote artwork requires artwork-plus-native-caption", artworkItemId: item.id });
+  if (spec.schemaVersion === ARTWORK_SPEC_SCHEMA_VERSION_V1_1) {
+    const owned = new Set(item.ownedSourceBlockIds ?? []);
+    const visibleSemantics: string[] = [];
+    if (context.article.title && !item.ownsArticleTitle) visibleSemantics.push(context.article.title);
+    for (const sourceId of item.sourceBlockIds) {
+      if (owned.has(sourceId)) continue;
+      const block = blockById.get(sourceId);
+      if (block && "text" in block) visibleSemantics.push(block.text);
+    }
+    if (spec.texts.some((fragment) => visibleSemantics.some((native) => isNearExactSemanticDuplicate(fragment.text, native)))) diagnostics.push({
+      code: "ARTWORK_VISIBLE_SEMANTIC_DUPLICATION", message: `${item.id} repeats a full semantic string still visible in Native`, artworkItemId: item.id,
+    });
+    if (item.ownsArticleTitle && !spec.texts.some((fragment) => fragment.source.kind === "article-title" && fragment.text === context.article.title)) diagnostics.push({
+      code: "ARTWORK_REPLACEMENT_TEXT_MISSING", message: `${item.id} owns the Article title but does not render it`, artworkItemId: item.id,
+    });
+    for (const sourceId of item.ownedSourceBlockIds ?? []) {
+      const block = blockById.get(sourceId);
+      if (block && "text" in block && !spec.texts.some((fragment) => fragment.source.kind === "article-block" && fragment.source.sourceBlockId === sourceId && fragment.text === block.text)) diagnostics.push({
+        code: "ARTWORK_REPLACEMENT_TEXT_MISSING", message: `${item.id} owns ${sourceId} but does not render its complete text`, artworkItemId: item.id,
+      });
+    }
+  }
   if (spec.images.some((image) => image.fit !== "contain" || !item.sourceAssetIds.includes(image.sourceAssetId))) diagnostics.push({ code: "ARTWORK_IMAGE_POLICY", message: "Artwork images must use source-backed contain-only placement", artworkItemId: item.id });
   if (diagnostics.length) throw new ArtworkValidationError(diagnostics);
   return spec;

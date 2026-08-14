@@ -1,19 +1,22 @@
 import { ARTWORK_TYPES, artworkTemplateRegistry, bitXuteliEditorialStylePack } from "../artwork";
 import { ArtworkCanvas } from "../artwork/ArtworkCanvas";
-import { HYBRID_ARTWORK_SCENARIOS_V1 } from "../hybrid-artwork-acceptance";
+import { HYBRID_ARTWORK_SCENARIOS_V1, HYBRID_ARTWORK_SCENARIOS_V1_1 } from "../hybrid-artwork-acceptance";
 
 export function ArtworkArtboardPage() {
   const params = new URLSearchParams(window.location.search);
-  const fixtureId = params.get("case") ?? HYBRID_ARTWORK_SCENARIOS_V1[0]!.fixture.id;
+  const version = params.get("version") === "v1-1" ? "v1-1" : "v1";
+  const scenarios = version === "v1-1" ? HYBRID_ARTWORK_SCENARIOS_V1_1 : HYBRID_ARTWORK_SCENARIOS_V1;
+  const fixtureId = params.get("case") ?? scenarios[0]!.fixture.id;
   const itemId = params.get("item");
-  const scenario = HYBRID_ARTWORK_SCENARIOS_V1.find((candidate) => candidate.fixture.id === fixtureId) ?? HYBRID_ARTWORK_SCENARIOS_V1[0]!;
+  const scenario = scenarios.find((candidate) => candidate.fixture.id === fixtureId) ?? scenarios[0]!;
   if (!itemId) {
     const catalog = {
-      acceptanceSet: "HYBRID_ARTWORK_ACCEPTANCE_SET_V1",
+      acceptanceSet: version === "v1-1" ? "HYBRID_ARTWORK_VISUAL_OWNERSHIP_V1_1" : "HYBRID_ARTWORK_ACCEPTANCE_SET_V1",
+      version,
       stylePackId: bitXuteliEditorialStylePack.id,
       artworkTypeCount: ARTWORK_TYPES.length,
       templateVariantCount: artworkTemplateRegistry.length,
-      scenarios: HYBRID_ARTWORK_SCENARIOS_V1.map((entry) => ({
+      scenarios: scenarios.map((entry) => ({
         case: entry.fixture.id,
         assetKind: entry.fixture.assetKind,
         articleType: entry.fixture.articleType,

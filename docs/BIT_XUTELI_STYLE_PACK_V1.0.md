@@ -57,11 +57,13 @@ Registry 同时给出兼容 Composition、图片 orientation 与固定输出尺�
 - 不自动裁图、换脸、补图、生成 Logo、校徽或 QR Code；
 - 人物姓名 / 身份必须在 source block 或 asset metadata 中存在；没有来源时使用中性、可核验的源标题，不补写人物信息；
 - achievement / metric 不能从视觉推断事实；无来源数字时只能使用源 section heading 和短说明；
-- StylePack 内部英文 eyebrow（如 `BIT · EDITORIAL`、`KEY TRANSITION`）只承担版式分类，不代表事实或品牌授权。
+- V1 基线中的英文 eyebrow（如 `BIT · EDITORIAL`、`KEY TRANSITION`）只承担版式分类，不代表事实或品牌授权。V1.1 当前策略为 `DEFAULT_GENERIC_ENGLISH_LABEL_POLICY=OFF`：默认不显示 generic English meta label，优先使用来源支持的中文短标签、编号或纯视觉 rule。
 
 ## 6. 与 Native Art Direction 的一致性
 
 StylePack 复用既有编辑语法的照片角色、dominant asset、visual tone、章节节奏和克制原则；它提高精确对齐、分区、字号层级和图像 slot 的控制力，但不重新决定文章事实或来源顺序。
+
+V1.1 不新增 StylePack，而是执行 `ARTWORK_NATIVE_COHERENCE_POLICY=inherit-native-theme-hierarchy`。ArtworkSpec 继承当前 Native Theme / variant 的 primary、accent、background、surface、文字、边框、字体和图片圆角；图片仍 contain-only。该继承使 Artwork 与 Native 使用同一颜色、字级、边框和图框语言，同时保留注册模板的构图职责。
 
 机器可以验证 palette / registry / provenance / geometry 一致，不能验证“看起来更高级”。当前结论固定为：
 
@@ -79,4 +81,4 @@ HYBRID_ARTWORK_VALUE=AWAITING_HUMAN_REVIEW
 - 没有主体检测，复杂合影与竖图只能依靠 contain 和留白；
 - 中英文字体最终外观依赖 Chromium 环境中的固定 fallback；
 - 是否出现 Canva / 海报模板感，必须人工检查；
-- 只有当四组 A/B 的 `HYBRID_VALUE_OVER_NATIVE` 明显为正，才值得进入 Reference Style Profile / StylePack Matching；否则应停止扩展 Artwork 类型。
+- 只有当四组 A/B/C 的人工评分证明 Hybrid V1.1 明显优于 Native，才值得进入 Reference Style Profile / StylePack Matching；否则应停止扩展 Artwork 类型。

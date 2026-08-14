@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "1.1",
+  "stylePackId": "bit-xuteli-editorial-v1",
+  "budget": {
+    "minimumItems": 0,
+    "maximumItems": 5,
+    "maximumConsecutiveItems": 2,
+    "minimumArtworkRatio": 0,
+    "maximumArtworkRatio": 0.25,
+    "perTypeMaximum": {
+      "hero-artwork": 1,
+      "section-break-artwork": 2,
+      "profile-artwork": 1,
+      "achievement-artwork": 1,
+      "quote-artwork": 1,
+      "closing-artwork": 1
+    }
+  },
+  "items": [
+    {
+      "id": "real-welcome-v1-1-01-hero-artwork",
+      "type": "hero-artwork",
+      "layoutBlockId": "l001",
+      "editorialUnitId": "e-hero",
+      "sourceBlockIds": [
+        "a001",
+        "a002"
+      ],
+      "sourceAssetIds": [
+        "img001"
+      ],
+      "purpose": "建立首屏视觉身份",
+      "visualWeight": "strong",
+      "reason": "主照片与完整标题需要成为一个首屏视觉单元；Artwork 唯一承担可见标题，Native 只继续导语。",
+      "templateVariant": "photo-led",
+      "renderPolicy": "artwork-plus-native-content",
+      "output": {
+        "format": "png",
+        "width": 750,
+        "height": 520,
+        "pixelRatio": 2
+      },
+      "visualOwnership": "replace",
+      "ownedSourceBlockIds": [],
+      "augmentedSourceBlockIds": [
+        "a001",
+        "a002"
+      ],
+      "ownsArticleTitle": true,
+      "nativeVisibilityPolicy": "hide-owned-structure",
+      "incrementalValueReason": {
+        "nativeAlreadySufficient": false,
+        "solvesNativeConstraint": true,
+        "establishesVisualClimax": true,
+        "improvesHierarchy": true,
+        "repeatsExistingInformationOnly": false,
+        "whyArtworkOverNative": "主照片与完整标题需要成为一个首屏视觉单元；Artwork 唯一承担可见标题，Native 只继续导语。"
+      }
+    }
+  ]
+}

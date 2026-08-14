@@ -59,6 +59,8 @@ export const bitXuteliEditorialStylePack: ArtworkStylePack = {
   captionStyle: "small documentary line, low contrast",
   heroVariants: ["photo-led", "title-panel", "minimal-overlay", "editorial-split"],
   closingVariants: ["group-photo-echo", "quiet-field-note", "quiet-statement"],
+  genericEnglishLabelPolicy: "off",
+  artworkNativeCoherencePolicy: "inherit-native-theme-hierarchy",
 };
 
 export const artworkStylePackRegistry = {

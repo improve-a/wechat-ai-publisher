@@ -29,6 +29,14 @@ export function bindArtworkPlanToLayout(
           sourceAssetIds: [...item.sourceAssetIds],
           renderPolicy: item.renderPolicy,
           alt: asset.alt,
+          ...(item.visualOwnership ? {
+            visualOwnership: item.visualOwnership,
+            ownedSourceBlockIds: [...(item.ownedSourceBlockIds ?? [])],
+            augmentedSourceBlockIds: [...(item.augmentedSourceBlockIds ?? [])],
+            ownsArticleTitle: item.ownsArticleTitle ?? false,
+            nativeVisibilityPolicy: item.nativeVisibilityPolicy,
+            incrementalValueReason: item.incrementalValueReason,
+          } : {}),
         },
       };
     }),

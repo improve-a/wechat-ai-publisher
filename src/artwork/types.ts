@@ -5,7 +5,9 @@ import type { LayoutAST } from "../layout-ast";
 import type { ArtDirectionPlan } from "../art-direction";
 
 export const ARTWORK_PLAN_SCHEMA_VERSION = "1" as const;
+export const ARTWORK_PLAN_SCHEMA_VERSION_V1_1 = "1.1" as const;
 export const ARTWORK_SPEC_SCHEMA_VERSION = "1" as const;
+export const ARTWORK_SPEC_SCHEMA_VERSION_V1_1 = "1.1" as const;
 
 export const ARTWORK_TYPES = [
   "hero-artwork",
@@ -19,6 +21,21 @@ export type ArtworkType = (typeof ARTWORK_TYPES)[number];
 
 export const ARTWORK_VISUAL_WEIGHTS = ["normal", "strong", "climax"] as const;
 export type ArtworkVisualWeight = (typeof ARTWORK_VISUAL_WEIGHTS)[number];
+
+export const ARTWORK_VISUAL_OWNERSHIPS = ["replace", "augment", "summarize"] as const;
+export type ArtworkVisualOwnership = (typeof ARTWORK_VISUAL_OWNERSHIPS)[number];
+
+export const ARTWORK_NATIVE_VISIBILITY_POLICIES = ["show-all", "hide-owned-structure"] as const;
+export type ArtworkNativeVisibilityPolicy = (typeof ARTWORK_NATIVE_VISIBILITY_POLICIES)[number];
+
+export interface ArtworkIncrementalValueReason {
+  nativeAlreadySufficient: boolean;
+  solvesNativeConstraint: boolean;
+  establishesVisualClimax: boolean;
+  improvesHierarchy: boolean;
+  repeatsExistingInformationOnly: boolean;
+  whyArtworkOverNative: string;
+}
 
 export const ARTWORK_RENDER_POLICIES = [
   "artwork-plus-native-content",
@@ -55,10 +72,16 @@ export interface ArtworkItem {
   templateVariant: string;
   renderPolicy: ArtworkRenderPolicy;
   output: ArtworkOutput;
+  visualOwnership?: ArtworkVisualOwnership;
+  ownedSourceBlockIds?: string[];
+  augmentedSourceBlockIds?: string[];
+  ownsArticleTitle?: boolean;
+  nativeVisibilityPolicy?: ArtworkNativeVisibilityPolicy;
+  incrementalValueReason?: ArtworkIncrementalValueReason;
 }
 
 export interface ArtworkPlan {
-  schemaVersion: typeof ARTWORK_PLAN_SCHEMA_VERSION;
+  schemaVersion: typeof ARTWORK_PLAN_SCHEMA_VERSION | typeof ARTWORK_PLAN_SCHEMA_VERSION_V1_1;
   stylePackId: string;
   budget: ArtworkBudget;
   items: ArtworkItem[];
@@ -80,6 +103,21 @@ export interface ArtworkTextFragment {
   source: ArtworkTextSource;
 }
 
+export interface ArtworkNativeCoherence {
+  themeId: string;
+  themeVariant: string;
+  primaryColor: string;
+  accentColor: string;
+  backgroundColor: string;
+  surfaceColor: string;
+  textStrongColor: string;
+  textMutedColor: string;
+  borderColor: string;
+  fontFamily: string;
+  imageRadius: string;
+  labelLanguage: "source-backed-chinese";
+}
+
 export interface ArtworkImageReference {
   sourceAssetId: string;
   src: string;
@@ -90,7 +128,7 @@ export interface ArtworkImageReference {
 }
 
 export interface ArtworkSpec {
-  schemaVersion: typeof ARTWORK_SPEC_SCHEMA_VERSION;
+  schemaVersion: typeof ARTWORK_SPEC_SCHEMA_VERSION | typeof ARTWORK_SPEC_SCHEMA_VERSION_V1_1;
   artworkItemId: string;
   type: ArtworkType;
   stylePackId: string;
@@ -102,6 +140,13 @@ export interface ArtworkSpec {
   sourceAssetIds: string[];
   texts: ArtworkTextFragment[];
   images: ArtworkImageReference[];
+  visualOwnership?: ArtworkVisualOwnership;
+  ownedSourceBlockIds?: string[];
+  augmentedSourceBlockIds?: string[];
+  ownsArticleTitle?: boolean;
+  nativeVisibilityPolicy?: ArtworkNativeVisibilityPolicy;
+  incrementalValueReason?: ArtworkIncrementalValueReason;
+  nativeCoherence?: ArtworkNativeCoherence;
   specHash: string;
 }
 
@@ -158,6 +203,8 @@ export interface ArtworkStylePack {
   captionStyle: string;
   heroVariants: readonly string[];
   closingVariants: readonly string[];
+  genericEnglishLabelPolicy: "off";
+  artworkNativeCoherencePolicy: "inherit-native-theme-hierarchy";
 }
 
 export interface ArtworkPlannerInput {

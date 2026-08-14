@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "1.1",
+  "stylePackId": "bit-xuteli-editorial-v1",
+  "budget": {
+    "minimumItems": 0,
+    "maximumItems": 5,
+    "maximumConsecutiveItems": 2,
+    "minimumArtworkRatio": 0,
+    "maximumArtworkRatio": 0.25,
+    "perTypeMaximum": {
+      "hero-artwork": 1,
+      "section-break-artwork": 2,
+      "profile-artwork": 1,
+      "achievement-artwork": 1,
+      "quote-artwork": 1,
+      "closing-artwork": 1
+    }
+  },
+  "items": [
+    {
+      "id": "real-person-profile-v1-1-01-profile-artwork",
+      "type": "profile-artwork",
+      "layoutBlockId": "l004",
+      "editorialUnitId": "e-section-003",
+      "sourceBlockIds": [
+        "a012",
+        "a013",
+        "a014"
+      ],
+      "sourceAssetIds": [
+        "img006"
+      ],
+      "purpose": "建立人物与现场的视觉关系",
+      "visualWeight": "strong",
+      "reason": "纵向肖像与来源身份描述需要稳定的并置关系，Artwork 不重复 Native 章节标题。",
+      "templateVariant": "portrait-panel",
+      "renderPolicy": "artwork-plus-native-content",
+      "output": {
+        "format": "png",
+        "width": 750,
+        "height": 560,
+        "pixelRatio": 2
+      },
+      "visualOwnership": "augment",
+      "ownedSourceBlockIds": [],
+      "augmentedSourceBlockIds": [
+        "a012",
+        "a013",
+        "a014"
+      ],
+      "ownsArticleTitle": false,
+      "nativeVisibilityPolicy": "show-all",
+      "incrementalValueReason": {
+        "nativeAlreadySufficient": true,
+        "solvesNativeConstraint": true,
+        "establishesVisualClimax": false,
+        "improvesHierarchy": true,
+        "repeatsExistingInformationOnly": false,
+        "whyArtworkOverNative": "纵向肖像与来源身份描述需要稳定的并置关系，Artwork 不重复 Native 章节标题。"
+      }
+    },
+    {
+      "id": "real-person-profile-v1-1-02-achievement-artwork",
+      "type": "achievement-artwork",
+      "layoutBlockId": "l005",
+      "editorialUnitId": "e-section-004",
+      "sourceBlockIds": [
+        "a015",
+        "a016",
+        "a017",
+        "a018",
+        "a019"
+      ],
+      "sourceAssetIds": [
+        "img007"
+      ],
+      "purpose": "突出有源证据支持的成果节点",
+      "visualWeight": "strong",
+      "reason": "用证据照片和来源标题中的极短事实建立成果节点，完整解释继续保留 Native。",
+      "templateVariant": "evidence-led",
+      "renderPolicy": "artwork-plus-native-content",
+      "output": {
+        "format": "png",
+        "width": 750,
+        "height": 440,
+        "pixelRatio": 2
+      },
+      "visualOwnership": "summarize",
+      "ownedSourceBlockIds": [],
+      "augmentedSourceBlockIds": [
+        "a015",
+        "a016",
+        "a017",
+        "a018",
+        "a019"
+      ],
+      "ownsArticleTitle": false,
+      "nativeVisibilityPolicy": "show-all",
+      "incrementalValueReason": {
+        "nativeAlreadySufficient": true,
+        "solvesNativeConstraint": true,
+        "establishesVisualClimax": true,
+        "improvesHierarchy": true,
+        "repeatsExistingInformationOnly": false,
+        "whyArtworkOverNative": "用证据照片和来源标题中的极短事实建立成果节点，完整解释继续保留 Native。"
+      }
+    }
+  ]
+}

@@ -170,6 +170,33 @@ function validateCanonicalAgainstArticle(
       if (layoutBlock.artwork.sourceAssetIds.some((id) => !(layoutBlock.assetIds ?? []).includes(id))) diagnostics.push({
         code: "ARTWORK_SOURCE_ASSET_MISMATCH", message: "Artwork binding source assets must belong to the LayoutBlock", layoutBlockId: layoutBlock.id,
       });
+      if (layoutBlock.artwork.visualOwnership) {
+        const owned = layoutBlock.artwork.ownedSourceBlockIds ?? [];
+        const augmented = layoutBlock.artwork.augmentedSourceBlockIds ?? [];
+        const required = layoutBlock.artwork.nativeVisibilityPolicy && layoutBlock.artwork.incrementalValueReason && layoutBlock.artwork.ownsArticleTitle !== undefined;
+        if (!required) diagnostics.push({
+          code: "ARTWORK_VISUAL_OWNERSHIP_INCOMPLETE", message: "V1.1 Artwork binding requires complete ownership policy", layoutBlockId: layoutBlock.id,
+        });
+        if (
+          owned.some((id) => augmented.includes(id)) ||
+          [...owned, ...augmented].sort().join("\u0000") !== [...layoutBlock.artwork.sourceBlockIds].sort().join("\u0000")
+        ) diagnostics.push({
+          code: "ARTWORK_VISUAL_OWNERSHIP_COVERAGE", message: "Owned and augmented ids must partition Artwork provenance", layoutBlockId: layoutBlock.id,
+        });
+        if (layoutBlock.artwork.visualOwnership === "replace") {
+          if (layoutBlock.artwork.nativeVisibilityPolicy !== "hide-owned-structure" || (!layoutBlock.artwork.ownsArticleTitle && owned.length === 0)) diagnostics.push({
+            code: "ARTWORK_REPLACE_POLICY_INVALID", message: "Replace ownership must hide owned structural semantics", layoutBlockId: layoutBlock.id,
+          });
+        } else if (layoutBlock.artwork.nativeVisibilityPolicy !== "show-all" || layoutBlock.artwork.ownsArticleTitle || owned.length > 0) diagnostics.push({
+          code: "ARTWORK_AUGMENT_POLICY_INVALID", message: "Augment/summarize ownership must keep Native semantics visible", layoutBlockId: layoutBlock.id,
+        });
+        for (const sourceId of owned) {
+          const source = blockById.get(sourceId);
+          if (source?.type !== "heading" && !(source?.type === "quote" && source.text.length <= 48)) diagnostics.push({
+            code: "ARTWORK_BODY_VISUAL_REPLACEMENT_FORBIDDEN", message: `Cannot visually replace ${source?.type ?? sourceId}`, layoutBlockId: layoutBlock.id,
+          });
+        }
+      }
     }
 
     if (layoutBlock.provenance.kind === "article-title") {
@@ -407,6 +434,8 @@ export function normalizeLayoutCandidate(
         ...block.artwork,
         sourceBlockIds: [...block.artwork.sourceBlockIds],
         sourceAssetIds: [...block.artwork.sourceAssetIds],
+        ...(block.artwork.ownedSourceBlockIds ? { ownedSourceBlockIds: [...block.artwork.ownedSourceBlockIds] } : {}),
+        ...(block.artwork.augmentedSourceBlockIds ? { augmentedSourceBlockIds: [...block.artwork.augmentedSourceBlockIds] } : {}),
       } } : {}),
     })),
     assetPlacements: candidate.assetPlacements

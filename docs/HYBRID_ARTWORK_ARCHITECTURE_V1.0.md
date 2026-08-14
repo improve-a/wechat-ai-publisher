@@ -103,7 +103,15 @@ M5 同时验证 canonical source block exactly-once、每个 Article AST 语义�
 
 - V1 只有一个 StylePack、六类 Artwork 和受控模板 Registry；
 - Planner 是规则驱动的第一版，不处理复杂语义冲突或人工锁定节点；
-- Artwork 中视觉标题与 Native 可访问标题会有有意重复；其阅读价值待人工评审；
+- V1 基线中 Artwork 视觉标题与 Native 可访问标题会有有意重复；V1.1 通过下述 ownership addendum 解决该整合问题；
 - portrait / landscape 只做 orientation compatibility，不做主体检测或智能裁切；
 - PNG 还未上传微信 CDN，也没有 draft / publish 集成；
 - 没有自动 Reference Style Matching、人工画布编辑或图像生成能力。
+
+## 10. V1.1 Visual Ownership Addendum
+
+V1 上述 4 篇 / 38 图 / 12 Artwork 证据保持不可变；其中“视觉标题与 Native 有意重复”是 V1 的已知整合问题，不再是 V1.1 的当前策略。V1.1 在相同语料上增加 `replace / augment / summarize` ownership、`ownedSourceBlockIds`、`augmentedSourceBlockIds`、`ownsArticleTitle`、`nativeVisibilityPolicy` 和确定性增量价值原因。
+
+`replace` 只允许短 article title / heading / label，并在 M4 保留 visually-hidden structural provenance；长正文、list、table、technical explanation 始终保持可见、可复制的 Native HTML。`augment` 和 `summarize` 不隐藏 Native。Visible Semantic Duplication Gate 对标点与空白归一化后的 exact / near-exact 全语义字符串判重。
+
+V1.1 Budget 的 minimum items 与 minimum ratio 均为 0，Planner 默认回退 Native。固定 acceptance 只保留 5 张 Artwork，实践稿为 0 张；generic English meta labels 默认关闭，Artwork 颜色/字体/边框/图框继承 Native Theme hierarchy。完整合同与 A/B/C 证据路径见 `docs/HYBRID_ARTWORK_VISUAL_OWNERSHIP_V1.1.md`。

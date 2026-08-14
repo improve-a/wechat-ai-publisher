@@ -2,7 +2,7 @@ import type { ComponentId } from "../components/types";
 import type { CompositionId } from "../compositions";
 import type { ArtDirectionPlan } from "../art-direction";
 import type { VisualPatternId } from "../visual-patterns";
-import type { ArtworkRenderPolicy, ArtworkType } from "../artwork/types";
+import type { ArtworkIncrementalValueReason, ArtworkNativeVisibilityPolicy, ArtworkRenderPolicy, ArtworkType, ArtworkVisualOwnership } from "../artwork/types";
 import type {
   ComponentVariantId,
   ThemeId,
@@ -33,6 +33,12 @@ export interface LayoutArtworkBinding {
   sourceAssetIds: string[];
   renderPolicy: ArtworkRenderPolicy;
   alt: string;
+  visualOwnership?: ArtworkVisualOwnership;
+  ownedSourceBlockIds?: string[];
+  augmentedSourceBlockIds?: string[];
+  ownsArticleTitle?: boolean;
+  nativeVisibilityPolicy?: ArtworkNativeVisibilityPolicy;
+  incrementalValueReason?: ArtworkIncrementalValueReason;
 }
 
 export interface LayoutBlock {

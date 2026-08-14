@@ -3,7 +3,7 @@ import { COMPONENT_IDS } from "../components/types";
 import { COMPOSITION_IDS } from "../compositions";
 import { artDirectionPlanSchema } from "../art-direction/schema";
 import { VISUAL_PATTERN_IDS } from "../visual-patterns";
-import { ARTWORK_RENDER_POLICIES, ARTWORK_TYPES } from "../artwork/types";
+import { ARTWORK_NATIVE_VISIBILITY_POLICIES, ARTWORK_RENDER_POLICIES, ARTWORK_TYPES, ARTWORK_VISUAL_OWNERSHIPS } from "../artwork/types";
 import { THEME_IDS, type ComponentVariantId } from "../themes/types";
 import {
   LAYOUT_AST_SCHEMA_VERSION,
@@ -45,6 +45,19 @@ const artworkBindingSchema = z.strictObject({
   sourceAssetIds: z.array(nonBlankString),
   renderPolicy: z.enum(ARTWORK_RENDER_POLICIES),
   alt: nonBlankString,
+  visualOwnership: z.enum(ARTWORK_VISUAL_OWNERSHIPS).optional(),
+  ownedSourceBlockIds: z.array(nonBlankString).optional(),
+  augmentedSourceBlockIds: z.array(nonBlankString).optional(),
+  ownsArticleTitle: z.boolean().optional(),
+  nativeVisibilityPolicy: z.enum(ARTWORK_NATIVE_VISIBILITY_POLICIES).optional(),
+  incrementalValueReason: z.strictObject({
+    nativeAlreadySufficient: z.boolean(),
+    solvesNativeConstraint: z.boolean(),
+    establishesVisualClimax: z.boolean(),
+    improvesHierarchy: z.boolean(),
+    repeatsExistingInformationOnly: z.boolean(),
+    whyArtworkOverNative: nonBlankString,
+  }).optional(),
 });
 
 const candidateBlockSchema = z.strictObject({

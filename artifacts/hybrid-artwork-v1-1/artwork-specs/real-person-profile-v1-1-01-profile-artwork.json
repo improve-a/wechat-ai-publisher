@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.1",
+  "artworkItemId": "real-person-profile-v1-1-01-profile-artwork",
+  "type": "profile-artwork",
+  "stylePackId": "bit-xuteli-editorial-v1",
+  "templateVariant": "portrait-panel",
+  "output": {
+    "format": "png",
+    "width": 750,
+    "height": 560,
+    "pixelRatio": 2
+  },
+  "visualWeight": "strong",
+  "renderPolicy": "artwork-plus-native-content",
+  "sourceBlockIds": [
+    "a012",
+    "a013",
+    "a014"
+  ],
+  "sourceAssetIds": [
+    "img006"
+  ],
+  "texts": [
+    {
+      "role": "title",
+      "text": "迎新服务点的自然人物肖像",
+      "source": {
+        "kind": "asset-metadata",
+        "sourceAssetId": "img006"
+      }
+    }
+  ],
+  "images": [
+    {
+      "sourceAssetId": "img006",
+      "src": "/real-photo-stress/welcome-09.jpg",
+      "alt": "迎新服务点的自然人物肖像",
+      "orientation": "portrait",
+      "aspectRatio": 0.7081464872944694,
+      "fit": "contain"
+    }
+  ],
+  "visualOwnership": "augment",
+  "ownedSourceBlockIds": [],
+  "augmentedSourceBlockIds": [
+    "a012",
+    "a013",
+    "a014"
+  ],
+  "ownsArticleTitle": false,
+  "nativeVisibilityPolicy": "show-all",
+  "incrementalValueReason": {
+    "nativeAlreadySufficient": true,
+    "solvesNativeConstraint": true,
+    "establishesVisualClimax": false,
+    "improvesHierarchy": true,
+    "repeatsExistingInformationOnly": false,
+    "whyArtworkOverNative": "纵向肖像与来源身份描述需要稳定的并置关系，Artwork 不重复 Native 章节标题。"
+  },
+  "nativeCoherence": {
+    "themeId": "bit-official",
+    "themeVariant": "default",
+    "primaryColor": "#009A44",
+    "accentColor": "#94450B",
+    "backgroundColor": "#FFFFFF",
+    "surfaceColor": "#FFFFFF",
+    "textStrongColor": "#1F2321",
+    "textMutedColor": "#8B938E",
+    "borderColor": "#BFCBC3",
+    "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", Arial, sans-serif",
+    "imageRadius": "5px",
+    "labelLanguage": "source-backed-chinese"
+  },
+  "specHash": "c4d09eace1b8adda"
+}

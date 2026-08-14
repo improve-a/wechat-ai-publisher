@@ -55,12 +55,17 @@ function editorialAcceptanceAssets(): Plugin {
 
 function generatedArtworkAssets(): Plugin {
   const middleware = (request: { url?: string }, response: { statusCode: number; setHeader(name: string, value: string): void; end(value?: string | Uint8Array): void }, next: () => void) => {
-    if (!request.url?.startsWith("/generated-artwork-v1/")) return next();
-    const name = request.url.split("?")[0]!.slice("/generated-artwork-v1/".length);
+    const route = request.url?.startsWith("/generated-artwork-v1-1/")
+      ? { prefix: "/generated-artwork-v1-1/", artifact: "hybrid-artwork-v1-1" }
+      : request.url?.startsWith("/generated-artwork-v1/")
+        ? { prefix: "/generated-artwork-v1/", artifact: "hybrid-artwork-v1" }
+        : undefined;
+    if (!route) return next();
+    const name = request.url!.split("?")[0]!.slice(route.prefix.length);
     if (name !== "manifest.json" && !/^generated-[a-z0-9-]+\.png$/u.test(name)) {
       response.statusCode = 400; response.end("Invalid generated artwork path"); return;
     }
-    const file = resolve("artifacts", "hybrid-artwork-v1", "generated-artwork", name);
+    const file = resolve("artifacts", route.artifact, "generated-artwork", name);
     if (!existsSync(file)) { response.statusCode = 404; response.end("Generated artwork not found"); return; }
     response.statusCode = 200;
     response.setHeader("Content-Type", name.endsWith(".json") ? "application/json; charset=utf-8" : "image/png");
